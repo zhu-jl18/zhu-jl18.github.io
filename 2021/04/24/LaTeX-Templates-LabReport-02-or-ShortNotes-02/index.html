@@ -23,15 +23,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"zhu-jl18.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="%!TEX program &#x3D; xelatex % 完整编译方法 1 pdflatex -&gt; bibtex -&gt; pdflatex -&gt; pdflatex % 完整编译方法 2: xelatex -&gt; bibtex -&gt; xelatex -&gt; xelatex  \documentclass[lang&#x3D;cn,11pt]&amp;#123;elegantpaper&amp;#125; \usepackage&amp;#1">
+<meta name="description" content="A nice templates for notes in both Chinese and English.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LaTeX-Templates-Homework-01-or-ShortNotes-02">
+<meta property="og:title" content="LaTeX-Templates-LabReport-02-or-ShortNotes-02">
 <meta property="og:url" content="https://zhu-jl18.github.io/2021/04/24/LaTeX-Templates-LabReport-02-or-ShortNotes-02/index.html">
 <meta property="og:site_name" content="夏渔冬猎的木屋">
-<meta property="og:description" content="%!TEX program &#x3D; xelatex % 完整编译方法 1 pdflatex -&gt; bibtex -&gt; pdflatex -&gt; pdflatex % 完整编译方法 2: xelatex -&gt; bibtex -&gt; xelatex -&gt; xelatex  \documentclass[lang&#x3D;cn,11pt]&amp;#123;elegantpaper&amp;#125; \usepackage&amp;#1">
+<meta property="og:description" content="A nice templates for notes in both Chinese and English.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-24T15:48:39.000Z">
-<meta property="article:modified_time" content="2021-04-25T04:02:17.663Z">
+<meta property="article:modified_time" content="2021-04-29T07:47:35.104Z">
 <meta property="article:author" content="夏渔冬猎">
 <meta name="twitter:card" content="summary">
 
@@ -48,7 +48,7 @@
     lang   : 'en'
   };
 </script>
-<title>LaTeX-Templates-Homework-01-or-ShortNotes-02 | 夏渔冬猎的木屋</title>
+<title>LaTeX-Templates-LabReport-02-or-ShortNotes-02 | 夏渔冬猎的木屋</title>
   
 
 
@@ -146,7 +146,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -159,6 +159,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Style"><span class="nav-number">2.</span> <span class="nav-text">Style</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,7 +174,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
@@ -233,7 +234,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LaTeX-Templates-Homework-01-or-ShortNotes-02
+          LaTeX-Templates-LabReport-02-or-ShortNotes-02
         </h1>
 
         <div class="post-meta-container">
@@ -251,8 +252,17 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-04-25 12:02:17" itemprop="dateModified" datetime="2021-04-25T12:02:17+08:00">2021-04-25</time>
+        <time title="Modified: 2021-04-29 15:47:35" itemprop="dateModified" datetime="2021-04-29T15:47:35+08:00">2021-04-29</time>
       </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LaTeX/" itemprop="url" rel="index"><span itemprop="name">LaTeX</span></a>
+        </span>
+    </span>
 
   
 </div>
@@ -264,9 +274,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <span id="more"></span>
+        <p>A nice templates for notes in both Chinese and English.</p>
+<span id="more"></span>
 
-<pre class="language-latex" data-language="latex"><code class="language-latex"><span class="token comment">%!TEX program = xelatex</span>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><pre class="language-latex" data-language="latex"><code class="language-latex"><span class="token comment">%!TEX program = xelatex</span>
 <span class="token comment">% 完整编译方法 1 pdflatex -> bibtex -> pdflatex -> pdflatex</span>
 <span class="token comment">% 完整编译方法 2: xelatex -> bibtex -> xelatex -> xelatex</span>
 
@@ -324,7 +335,7 @@
 
 
 <span class="token comment">% 如果想修改参考文献样式，请把这行注释掉</span>
-<span class="token function selector">\usepackage</span><span class="token punctuation">[</span>authoryear<span class="token punctuation">]</span><span class="token punctuation">&#123;</span><span class="token keyword">gbt7714</span><span class="token punctuation">&#125;</span>  <span class="token comment">% 国标</span>
+<span class="token comment">% \usepackage[authoryear]&#123;gbt7714&#125;  % 国标</span>
 
 <span class="token function selector">\begin</span><span class="token punctuation">&#123;</span><span class="token keyword">document</span><span class="token punctuation">&#125;</span>
 
@@ -357,7 +368,17 @@
 其中参数都选为默认，即：
 <span class="token function selector">\begin</span><span class="token punctuation">&#123;</span><span class="token keyword">lstlisting</span><span class="token punctuation">&#125;</span><span class="token cdata">[style = python]
 	class LinearSVC(self, penalty='l2', loss='squared_hinge', dual=True, tol=1e-4, C=1.0, multi_class='ovr', fit_intercept=True, intercept_scaling=1, class_weight=None, verbose=0, random_state=None, max_iter=1000)
-</span><span class="token function selector">\end</span><span class="token punctuation">&#123;</span><span class="token keyword">lstlisting</span><span class="token punctuation">&#125;</span></code></pre>
+</span><span class="token function selector">\end</span><span class="token punctuation">&#123;</span><span class="token keyword">lstlisting</span><span class="token punctuation">&#125;</span>
+
+<span class="token function selector">\begin</span><span class="token punctuation">&#123;</span><span class="token keyword">thebibliography</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#123;</span>99<span class="token punctuation">&#125;</span>
+	
+	<span class="token function selector">\bibitem</span><span class="token punctuation">&#123;</span>ref1<span class="token punctuation">&#125;</span>
+	H.~Kopka and P.~W. Daly, <span class="token function selector">\emph</span><span class="token punctuation">&#123;</span>A Guide to <span class="token function selector">\LaTeX</span><span class="token punctuation">&#125;</span>, 3rd~ed.<span class="token function selector">\hskip</span> 1em plus
+	0.5em minus 0.4em<span class="token function selector">\relax</span> Harlow, England: Addison-Wesley, 1999.
+<span class="token function selector">\end</span><span class="token punctuation">&#123;</span><span class="token keyword">thebibliography</span><span class="token punctuation">&#125;</span>
+</code></pre>
+
+
 
 
 <pre class="language-latex" data-language="latex"><code class="language-latex"><span class="token comment">% Author: Dongsheng Deng</span>
@@ -423,9 +444,9 @@
 <span class="token function selector">\definecolor</span><span class="token punctuation">&#123;</span>winered<span class="token punctuation">&#125;</span><span class="token punctuation">&#123;</span>rgb<span class="token punctuation">&#125;</span><span class="token punctuation">&#123;</span>0.5,0,0<span class="token punctuation">&#125;</span>
 
 <span class="token comment">% bib-settings</span>
-<span class="token function selector">\RequirePackage</span><span class="token punctuation">&#123;</span>natbib<span class="token punctuation">&#125;</span>
-<span class="token function selector">\setlength</span><span class="token punctuation">&#123;</span><span class="token function selector">\bibsep</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#123;</span>0.0pt<span class="token punctuation">&#125;</span>
-<span class="token function selector">\def</span><span class="token function selector">\bibfont</span><span class="token punctuation">&#123;</span><span class="token function selector">\footnotesize</span><span class="token punctuation">&#125;</span>
+<span class="token comment">%\RequirePackage&#123;natbib&#125;</span>
+<span class="token comment">%\setlength&#123;\bibsep&#125;&#123;0.0pt&#125;</span>
+<span class="token comment">%\def\bibfont&#123;\footnotesize&#125;</span>
 
 <span class="token comment">% settings for the geometry</span>
 <span class="token function selector">\RequirePackage</span><span class="token punctuation">&#123;</span>hyperref<span class="token punctuation">&#125;</span>
@@ -598,7 +619,7 @@
 <span class="token comment">% \let\pi\relax</span>
 <span class="token comment">% \DeclareMathSymbol&#123;\pi&#125;&#123;\mathord&#125;&#123;CMletters&#125;&#123;"19&#125;</span></code></pre>
 
-<p>:<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/">https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/</a></p>
+<h3 id="Style"><a href="#Style" class="headerlink" title="Style"></a>Style</h3><p>:<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/">https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/</a></p>
 
     </div>
 
