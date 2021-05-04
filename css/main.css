@@ -2826,7 +2826,9 @@ mjx-container[display="true"] + br {
 }
 body {
   line-height: 1.6;
-  font-style: regular !important;
+}
+.post-body {
+  font-size: 1.0125em !important;
 }
 .post-title {
   font-size: 1.05em;
