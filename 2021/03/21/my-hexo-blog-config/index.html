@@ -14,7 +14,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,300italic,400,400italic,700,700italic%7CTitillium+Web:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
@@ -31,7 +31,7 @@
 <meta property="og:description" content="Record my hexo-blog configs">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-20T16:27:45.000Z">
-<meta property="article:modified_time" content="2021-04-29T07:43:43.268Z">
+<meta property="article:modified_time" content="2021-05-04T13:32:11.440Z">
 <meta property="article:author" content="夏渔冬猎">
 <meta name="twitter:card" content="summary">
 
@@ -174,7 +174,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
@@ -252,7 +252,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-04-29 15:43:43" itemprop="dateModified" datetime="2021-04-29T15:43:43+08:00">2021-04-29</time>
+        <time title="Modified: 2021-05-04 21:32:11" itemprop="dateModified" datetime="2021-05-04T21:32:11+08:00">2021-05-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -394,6 +394,26 @@
     <span class="token key atrule">external</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
     family<span class="token punctuation">:</span></code></pre>
 
+<p>后来我发现了LaTeX默认的<del>CMU字体非常好看</del>，于是我想这怎么用到里边。结果是，因为GoogleFont不支持，只得去<code>theme/next/source/css/_variables/</code>更改这一项了，这样看起来舒服多了。</p>
+<pre class="language-css" data-language="css"><code class="language-css">// Font families.
+$font-family-chinese      = <span class="token string">'CMU Serif Extra'</span><span class="token punctuation">,</span><span class="token string">'等距更纱黑体 SC'</span><span class="token punctuation">,</span><span class="token string">'PingFang SC'</span><span class="token punctuation">,</span> <span class="token string">'Microsoft YaHei'</span><span class="token punctuation">;</span></code></pre>
+
+<p>也就是说，把在<code>_config.yml</code>里的设置全都清空，直接更改默认就行了。</p>
+<p>然后左侧菜单设置字体粗一点，并且让 font awesome 倾斜一点，这样更加和谐~ </p>
+<pre class="language-css" data-language="css"><code class="language-css"><span class="token selector">.menu-item</span> <span class="token punctuation">&#123;</span>
+  <span class="token selector">a</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 1.1em<span class="token punctuation">;</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> CMU Classical Serif<span class="token punctuation">;</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span> 600<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+
+<span class="token selector">.fa, .far, .fas</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">font-style</span><span class="token punctuation">:</span> italic <span class="token important">!important</span><span class="token punctuation">;</span> 
+<span class="token punctuation">&#125;</span></code></pre>
+
+<p>最后还是返璞归真了 用 Helvetica 字体了。</p>
 <p>In the end it all worked out!</p>
 
     </div>
