@@ -181,7 +181,7 @@ body {
 body {
   background: var(--body-bg-color);
   color: var(--text-color);
-  font-family: Rubik,Titillium Web, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: 等距更纱黑体 SC, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1em;
   line-height: 2;
   min-height: 100%;
@@ -194,7 +194,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Rubik,Titillium Web, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: 等距更纱黑体 SC, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -1299,7 +1299,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Rubik,Titillium Web, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: 等距更纱黑体 SC, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -1971,7 +1971,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: Rubik,Titillium Web, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: 等距更纱黑体 SC, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2165,7 +2165,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Rubik,Titillium Web, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: 等距更纱黑体 SC, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -2816,14 +2816,12 @@ mjx-container[display="true"] + br {
 }
 .menu-item a {
   font-size: 1.1em;
-  font-family: CMU Classical Serif;
+/*font-family: CMU Classical Serif;*/
   font-weight: 600;
 }
-.fa,
-.far,
-.fas {
-  font-style: italic !important;
-}
+/*.fa, .far, .fas {
+    font-style: italic !important;
+}*/
 body {
   line-height: 1.6;
 }
