@@ -181,8 +181,8 @@ body {
 body {
   background: var(--body-bg-color);
   color: var(--text-color);
-  font-family: 等距更纱黑体 SC, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  font-size: 1em;
+  font-family: Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 0.9125em;
   line-height: 2;
   min-height: 100%;
   position: relative;
@@ -194,7 +194,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 等距更纱黑体 SC, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -1299,7 +1299,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: 等距更纱黑体 SC, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -1971,7 +1971,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: 等距更纱黑体 SC, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2165,7 +2165,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: 等距更纱黑体 SC, '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -2816,12 +2816,12 @@ mjx-container[display="true"] + br {
 }
 .menu-item a {
   font-size: 1.1em;
-/*font-family: CMU Classical Serif;*/
+/* font-family: CMU Classical Serif; */
   font-weight: 600;
 }
-/*.fa, .far, .fas {
+/* .fa, .far, .fas {
     font-style: italic !important;
-}*/
+} */
 body {
   line-height: 1.6;
 }
@@ -2847,16 +2847,28 @@ h6 {
 mjx-c {
   font-size: 85%;
 }
-/* .menu .menu-item a {
-  font-family: Josefin Sans;
-} */
+.menu .menu-item a {
+  font-family: '等距更纱黑体 SC' !important;
+}
 /* .post-body {
   font-size: 1em;  
 } */
 ul {
   margin: 0 0 7px 0;
 }
+ol {
+  margin: 4px 0;
+}
 img {
   box-shadow: 0rem 0.4rem 0.8rem rgba(116,95,181,0.1);
   border-radius: 5px;
+}
+.post-body h1::before,
+.post-body h2::before,
+.post-body h3::before,
+.post-body h4::before,
+.post-body h5::before {
+  content: '#'; /*¶*/
+  padding-right: 10px;
+  color: #a4b0be;
 }
