@@ -181,7 +181,7 @@ body {
 body {
   background: var(--body-bg-color);
   color: var(--text-color);
-  font-family: Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Source Sans Pro, Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.9125em;
   line-height: 2;
   min-height: 100%;
@@ -194,7 +194,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Source Sans Pro, Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -1299,7 +1299,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Source Sans Pro, Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -1971,7 +1971,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Source Sans Pro, Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2165,7 +2165,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Source Sans Pro, Helvetica, '等距更纱黑体 SC', '等距更纱黑体 SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -2842,7 +2842,18 @@ h4,
 h5,
 h6 {
   line-height: 1.5;
-  margin: 1px 0 6px;
+  margin: 1px 0 8px;
+}
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  padding-top: 4px;
+}
+hr {
+  margin: 23px 0;
 }
 mjx-c {
   font-size: 85%;
