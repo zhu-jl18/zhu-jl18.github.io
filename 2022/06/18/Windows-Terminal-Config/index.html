@@ -338,15 +338,15 @@
 <ul>
 <li><p><b>oh-my-posh.exe</b> - Windows executable<br>用这个命令能看到位置<code>(Get-Command oh-my-posh).Source</code></p>
 </li>
-<li><p><b>themes</b> - The latest Oh My Posh themes<br>用这个命令能看到位置<code>$env:POSH_THEMES_PATH</code>，具体的样式去官网看，也可以<code>Get-PoshThemes</code>。</p>
+<li><p><b>themes</b> - The latest Oh My Posh themes<br>用这个命令能看到位置<code>$\displaystyle env:POSH_THEMES_PATH</code>，具体的样式去官网看，也可以<code>Get-PoshThemes</code>。</p>
 </li>
 </ul>
 <p>再装一个<code>posh-git</code></p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Install-Module</span> posh<span class="literal">-git</span> <span class="literal">-Scope</span> CurrentUser</span><br></pre></td></tr></table></figure>
 
 <p>然后还需要在官网里再下载一个字体，以便支持众多表情符号</p>
-<p>配置 PowerShell init profile，用记事本打开<code>notepad $PROFILE</code>写入：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Import-Module</span> posh<span class="literal">-git</span></span><br><span class="line"><span class="built_in">oh</span><span class="literal">-my-posh</span> init pwsh <span class="literal">--config</span> <span class="string">&quot;<span class="variable">$env:POSH_THEMES_PATH</span>\paradox.omp.json&quot;</span> | <span class="built_in">Invoke-Expression</span></span><br></pre></td></tr></table></figure>
+<p>配置 PowerShell init profile，用记事本打开<code>notepad$PROFILE</code>写入：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Import-Module</span> posh<span class="literal">-git</span></span><br><span class="line"><span class="built_in">oh</span><span class="literal">-my-posh</span> init pwsh <span class="literal">--config</span> <span class="string">&quot;<span class="variable">$\displaystyle env:POSH_THEMES_PATH</span>\paradox.omp.json&quot;</span> | <span class="built_in">Invoke-Expression</span></span><br></pre></td></tr></table></figure>
 <p>这个配好就成功一半了</p>
 <h3 id="Windows-Terminal美化"><a href="#Windows-Terminal美化" class="headerlink" title="Windows Terminal美化"></a>Windows Terminal美化</h3><p><strong>Reference</strong>:</p>
 <ul>

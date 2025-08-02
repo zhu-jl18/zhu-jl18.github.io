@@ -1510,7 +1510,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #b0664d;
+    background: #ff88b9;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1897,12 +1897,12 @@ pre code {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 55em;
+    width: 56em;
   }
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 55%;
+    width: 56%;
   }
 }
 .use-motion .footer {
@@ -2821,12 +2821,12 @@ header.header {
 }
 @media (min-width: 1200px) {
   .main {
-    width: 55em;
+    width: 56em;
   }
 }
 @media (min-width: 1600px) {
   .main {
-    width: 55%;
+    width: 56%;
   }
 }
 @media (max-width: 991px) {
@@ -3038,7 +3038,7 @@ header.header {
 /* source/_data/styles.styl */
 /* post content */
 .post-content {
-  padding: 3em !important;
+  padding: 2.5em !important;
 }
 .site-meta .custom-logo-image {
   display: block !important;
