@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="WRoB9bFhSYf-bLPn6jS4ALalzR7nKkWw1sp5MqHoB0U">
+  <meta name="msvalidate.01" content="DE0701EF278A6E845833F86B71C383D5">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhu-jl18.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.2","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":250,"display":"always","padding":18,"offset":13},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"tokyo-night-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":200},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="作者：makoMako &amp; Gemini Pro 摘要：本文记录了如何从零开始，利用 Markdown、HTML、GitHub Actions 以及与大语言模型（LLM）的高效协作，构建一个既能展示个人信息，又能自动更新博客列表和贡献图的现代化 GitHub 个人主页。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何与大模型协作，打造一个动态更新的 GitHub Profile 个人主页">
+<meta property="og:url" content="https://zhu-jl18.github.io/2025/08/08/design-github-profile-with-Gemini/index.html">
+<meta property="og:site_name" content="Pacific">
+<meta property="og:description" content="作者：makoMako &amp; Gemini Pro 摘要：本文记录了如何从零开始，利用 Markdown、HTML、GitHub Actions 以及与大语言模型（LLM）的高效协作，构建一个既能展示个人信息，又能自动更新博客列表和贡献图的现代化 GitHub 个人主页。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-08-08T10:41:03.000Z">
+<meta property="article:modified_time" content="2025-08-08T10:42:40.882Z">
+<meta property="article:author" content="makoMako">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zhu-jl18.github.io/2025/08/08/design-github-profile-with-Gemini/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhu-jl18.github.io/2025/08/08/design-github-profile-with-Gemini/","path":"2025/08/08/design-github-profile-with-Gemini/","title":"如何与大模型协作，打造一个动态更新的 GitHub Profile 个人主页"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>如何与大模型协作，打造一个动态更新的 GitHub Profile 个人主页 | Pacific</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Pacific" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Pacific</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一望无际的海洋</p>
+      <img class="custom-logo-image" src="/images/evolution.png" alt="Pacific">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-timeline"><a href="/" rel="section"><i class="fa fa-bookmark fa-fw"></i>Timeline</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C%E9%A2%84%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">最终效果预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E6%AD%A5%E9%AA%A4%E4%B8%8E%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF"><span class="nav-number">2.</span> <span class="nav-text">构建步骤与核心技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84%EF%BC%9AMarkdown-%E4%B8%8E%E5%86%85%E8%81%94-HTML"><span class="nav-number">2.1.</span> <span class="nav-text">1. 基础结构：Markdown 与内联 HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E4%B8%8E%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">2.1.1.</span> <span class="nav-text">个人信息与技术栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E8%89%B2%E5%8D%A1%E7%89%87%EF%BC%9A%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E"><span class="nav-number">2.1.2.</span> <span class="nav-text">特色卡片：数学之美</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A0%B8%E5%BF%83%EF%BC%9AGitHub-Actions"><span class="nav-number">2.2.</span> <span class="nav-text">2. 自动化核心：GitHub Actions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Workflow-1-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%88%97%E8%A1%A8"><span class="nav-number">2.2.1.</span> <span class="nav-text">Workflow 1: 自动更新的博客列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Workflow-2-%E2%80%9C%E8%B4%AA%E5%90%83%E8%9B%87%E2%80%9D%E8%B4%A1%E7%8C%AE%E5%9B%BE"><span class="nav-number">2.2.2.</span> <span class="nav-text">Workflow 2: “贪吃蛇”贡献图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%A6%82%E4%BD%95%E4%B8%8E%E5%A4%A7%E6%A8%A1%E5%9E%8B-LLM-%E5%8D%8F%E4%BD%9C%EF%BC%9A%E5%AF%B9%E8%AF%9D%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="nav-number">2.3.</span> <span class="nav-text">3. 如何与大模型(LLM)协作：对话式编程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="makoMako"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">makoMako</p>
+  <div class="site-description" itemprop="description">love math and dinosaurs</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnpodWppYWxlMThAZ21haWwuY29t" title="E-Mail → mailto:zhujiale18@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS95b3VybmFtZQ==" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</span>
+      </span>
+  </div>
+<div class="cc-license animated" itemprop="sponsor">
+  <!-- GitHub Logo -->
+  <a href="https://github.com/zhu-jl18/zhu-jl18.github.io" 
+     class="cc-opacity" 
+     title="Hosted on GitHub → https://github.com/zhu-jl18/zhu-jl18.github.io" 
+     target="_blank">
+    
+    <!-- GitHub SVG Logo -->
+    <svg width="80" height="80" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" 
+            clip-rule="evenodd" 
+            fill="#24292e" 
+            d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/>
+    </svg>
+    
+  </a>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <span class="exturl" data-url="aHR0cHM6Ly9zcGFjZXMuYWMuY24v" title="https:&#x2F;&#x2F;spaces.ac.cn&#x2F;">苏剑林</span>
+            </li>
+            <li class="links-of-blogroll-item">
+              <span class="exturl" data-url="aHR0cHM6Ly93d3cuM2JsdWUxYnJvd24uY29tLw==" title="https:&#x2F;&#x2F;www.3blue1brown.com&#x2F;">3Bule1Brown</span>
+            </li>
+            <li class="links-of-blogroll-item">
+              <span class="exturl" data-url="aHR0cHM6Ly9kaWJlb3MubmV0Lw==" title="https:&#x2F;&#x2F;dibeos.net&#x2F;">Dibeos</span>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/08/design-github-profile-with-Gemini/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="makoMako">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pacific">
+      <meta itemprop="description" content="love math and dinosaurs">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="如何与大模型协作，打造一个动态更新的 GitHub Profile 个人主页 | Pacific">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何与大模型协作，打造一个动态更新的 GitHub Profile 个人主页
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-08-08 18:41:03 / 修改时间：18:42:40" itemprop="dateCreated datePublished" datetime="2025-08-08T18:41:03+08:00">2025-08-08</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>作者：makoMako &amp; Gemini Pro</p>
+<p>摘要：本文记录了如何从零开始，利用 Markdown、HTML、GitHub Actions 以及与大语言模型（LLM）的高效协作，构建一个既能展示个人信息，又能自动更新博客列表和贡献图的现代化 GitHub 个人主页。</p>
+</blockquote>
+<span id="more"></span>
+<hr>
+<!--`"https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/year-month/name" style= "width: 40% "`-->
+
+<h2 id="最终效果预览"><a href="#最终效果预览" class="headerlink" title="最终效果预览"></a>最终效果预览</h2><p>我的 GitHub Profile 主页 (<code>github.com/zhu-jl18</code>) 最终集成了以下几个核心模块：</p>
+<ol>
+<li>**个人简介 (About Me)**：简洁地展示我的教育背景和兴趣爱好。</li>
+<li>**特色卡片 (Featured Card)**：一个精心设计的、包含图片、文本和 LaTeX 数学公式的卡片。</li>
+<li>**技术栈 (Tech Stack)**：清晰地展示我掌握的编程语言和工具。</li>
+<li>**动态内容 (Dynamic Content)**：</li>
+</ol>
+<ul>
+<li><strong>博客列表</strong>：自动从我的个人博客拉取最新的文章标题和链接。</li>
+<li><strong>贡献图动画</strong>：将 GitHub 的贡献日历渲染成一个有趣的“贪吃蛇”动画。</li>
+</ul>
+<p>这不仅是一个静态的展示页面，更是一个能自我更新的、充满活力的个人名片。</p>
+<p>!最终效果 [^1]</p>
+<h2 id="构建步骤与核心技术"><a href="#构建步骤与核心技术" class="headerlink" title="构建步骤与核心技术"></a>构建步骤与核心技术</h2><h3 id="1-基础结构：Markdown-与内联-HTML"><a href="#1-基础结构：Markdown-与内联-HTML" class="headerlink" title="1. 基础结构：Markdown 与内联 HTML"></a>1. 基础结构：Markdown 与内联 HTML</h3><p>GitHub Profile 的本质是一个名为 <code>README.md</code> 的 Markdown 文件。除了标准的 Markdown 语法，它还支持内嵌 HTML 代码，这为我们实现更丰富的布局提供了可能。</p>
+<h4 id="个人信息与技术栈"><a href="#个人信息与技术栈" class="headerlink" title="个人信息与技术栈"></a>个人信息与技术栈</h4><p>这部分相对简单，主要使用 Markdown 标题和列表。对于“About Me”部分，为了更好地控制布局，我使用了一个 <code>&lt;div&gt;</code> 标签来包裹文本：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">### 👨‍💻 About Me</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left; display: inline-block;&quot;</span>&gt;</span></span><br><span class="line"> 🎓 毕业于 **清华大学 (THU)**.</span><br><span class="line"> 🌱 目前就读于 **中国科学院大学 (UCAS)**.</span><br><span class="line"> <span class="comment">&lt;!-- ... more text ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>技术栈部分则调用了 [^2] 提供的服务，通过一个简单的图片链接来展示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://skillicons.dev&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://skillicons.dev/icons?i=python,cpp,java,js,html,css,latex,vscode,git&amp;perline=9&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="特色卡片：数学之美"><a href="#特色卡片：数学之美" class="headerlink" title="特色卡片：数学之美"></a>特色卡片：数学之美</h4><p>这是我个人主页的点睛之笔。它完全由 HTML 构建，展示了高斯绝妙定理（Theorema Egregium）。</p>
+<p><strong>核心技术点</strong>：</p>
+<ul>
+<li><strong>卡片布局</strong>：使用一个带边框、圆角和内边距的 <code>div</code> 作为容器。</li>
+<li><strong>Flexbox 对齐</strong>：通过 <code>display: flex;</code> 让高斯素描图和右侧的文本并排显示。</li>
+<li><strong>动态 LaTeX 公式</strong>：</li>
+<li>利用 <code>latex.codecogs.com</code> 服务将 LaTeX 代码实时渲染成 SVG 图片。</li>
+<li>使用 <code>&lt;picture&gt;</code> 标签，根据用户系统的<strong>亮色/暗色模式</strong>，加载不同颜色的公式图片，提升了视觉体验。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Theorema Egregium Card --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; ...&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Image Column --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;.../Gauss.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;120&quot;</span> <span class="attr">...</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Text Column --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- ... Theorem Text ... --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;...&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;white&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;...&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- ... more text ... --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-自动化核心：GitHub-Actions"><a href="#2-自动化核心：GitHub-Actions" class="headerlink" title="2. 自动化核心：GitHub Actions"></a>2. 自动化核心：GitHub Actions</h3><p>这部分是让 Profile “活”起来的关键。我使用了两个免部署、配置简单的 GitHub Actions。</p>
+<h4 id="Workflow-1-自动更新的博客列表"><a href="#Workflow-1-自动更新的博客列表" class="headerlink" title="Workflow 1: 自动更新的博客列表"></a>Workflow 1: 自动更新的博客列表</h4><ul>
+<li><strong>目标</strong>：每隔一段时间，自动抓取我博客的 Atom/RSS Feed，并将最新的几篇文章展示在 Profile 上。</li>
+<li><strong>Action</strong>：gautamkrishnar/blog-post-workflow [^3]</li>
+</ul>
+<p><strong>工作流程</strong>：</p>
+<ol>
+<li><p><strong>在 <code>README.md</code> 中设置占位符</strong>：Action 需要知道在哪里插入内容。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">### 📝 Recent Blog Posts</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; ...&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- BLOG-POST-LIST:START --&gt;</span><span class="comment">&lt;!-- BLOG-POST-LIST:END --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>配置 <code>.github/workflows/blog-post-workflow.yml</code> 文件</strong>：这是 Action 的配置文件，其中最关键的是 <code>template</code> 参数，它定义了每条博客的输出格式。</p>
+</li>
+</ol>
+ <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Latest</span> <span class="string">blog</span> <span class="string">post</span> <span class="string">workflow</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line"><span class="attr">schedule:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&#x27;0 * * * *&#x27;</span> <span class="comment"># 每小时运行一次</span></span><br><span class="line"><span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line"><span class="attr">update-readme-with-blog:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">Update</span> <span class="string">this</span> <span class="string">repo&#x27;s</span> <span class="string">README</span> <span class="string">with</span> <span class="string">latest</span> <span class="string">blog</span> <span class="string">posts</span></span><br><span class="line"><span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"><span class="attr">steps:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">gautamkrishnar/blog-post-workflow@v1</span></span><br><span class="line"><span class="attr">with:</span></span><br><span class="line"><span class="attr">disable_cache:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">feed_list:</span> <span class="string">&quot;https://zhu-jl18.github.io/atom.xml&quot;</span> <span class="comment"># 我的博客 Feed 地址</span></span><br><span class="line"><span class="attr">max_post_count:</span> <span class="number">5</span> <span class="comment"># 显示 5 篇</span></span><br><span class="line"><span class="comment"># 这是我们最终确定的、最简洁可靠的模板</span></span><br><span class="line"><span class="attr">template:</span> <span class="string">&#x27;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;$\displaystyle url&quot; style=&quot;text-decoration: none; color: #20B2AA;&quot;&gt;$title&lt;/a&gt;&lt;/p&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Workflow-2-“贪吃蛇”贡献图"><a href="#Workflow-2-“贪吃蛇”贡献图" class="headerlink" title="Workflow 2: “贪吃蛇”贡献图"></a>Workflow 2: “贪吃蛇”贡献图</h4><ul>
+<li><strong>目标</strong>：将我的年度 GitHub 贡献图生成一个动态的 SVG 动画。</li>
+<li><strong>Action</strong>：Platane/snk [^4]</li>
+</ul>
+<p><strong>工作流程</strong>：</p>
+<ol>
+<li>Action 自动运行，读取我的贡献数据。</li>
+<li>生成两个 SVG 文件：一个亮色模式 (<code>github-snake.svg</code>) 和一个暗色模式 (<code>github-snake-dark.svg</code>)。</li>
+<li>将这两个文件推送到本仓库的 <code>output</code> 分支。</li>
+<li><strong>在 <code>README.md</code> 中引用</strong>：同样使用 <code>&lt;picture&gt;</code> 标签来做亮暗模式的适配。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake-dark.svg&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">&quot;github snake animation&quot;</span> <span class="attr">src</span>=<span class="string">&quot;...&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-如何与大模型-LLM-协作：对话式编程"><a href="#3-如何与大模型-LLM-协作：对话式编程" class="headerlink" title="3. 如何与大模型(LLM)协作：对话式编程"></a>3. 如何与大模型(LLM)协作：对话式编程</h3><p>在这个项目中，我没有把 Gemini 当作一个简单的代码生成器，而是把它看作一个<strong>结对编程的伙伴</strong>。我们的协作经历了几个阶段：</p>
+<p><strong>第一阶段：提出初步想法，获取基础方案</strong></p>
+<blockquote>
+<p><strong>我的 Prompt</strong>：<br>“你好，你是一位精通电脑的专家，精通Latex，vscode，Windows Terminal 等软件的配置。我需要你的帮助完成一些软件和插件的配置工作。”</p>
+<p><strong>交互与结果</strong>：我想要在 GitHub Profile 上展示我的博客列表，Gemini 迅速给出了 <code>blog-post-workflow</code> 这个 Action 的基础用法和配置。</p>
+</blockquote>
+<p><strong>第二阶段：需求细化与样式迭代（试错与修正）</strong></p>
+<p>我发现默认的列表样式 (<code>&lt;ul&gt;&lt;li&gt;</code>) 与我的页面风格不符。于是我提出了更具体的要求。</p>
+<blockquote>
+<p><strong>我的 Prompt</strong>：<br>“这是 Action 生成的东西 <code>... (贴出有问题的HTML) ...</code> 为什么它不起作用？我想让它更好看，比如用卡片式布局，并且居中。”</p>
+<p><strong>交互与结果</strong>：</p>
+<ol>
+<li>Gemini 提出了一个基于 <code>div</code> 和 <code>flex</code> 的复杂 HTML 模板方案。</li>
+<li><strong>实践是检验真理的唯一标准</strong>：我将新方案部署后，发现 GitHub 的渲染引擎对复杂的 CSS <code>style</code> 属性支持不佳，<strong>居中效果失效了</strong>。</li>
+<li>我把这个失败的结果反馈给 Gemini。</li>
+</ol>
+</blockquote>
+<p><strong>第三阶段：回归本质，直击痛点</strong></p>
+<p>这次的反馈非常直接，这也是人机协作中非常关键的一步：<strong>提供清晰的、负面的、最终的约束条件</strong>。</p>
+<blockquote>
+<p><strong>我的 Prompt</strong>：<br>“GitHub 不支持这些复杂的样式，还是都在左边。我不要日期了，字体大小也改不了，就让它简单的居中就行。”</p>
+<p><strong>交互与结果</strong>：<br>Gemini 理解到，问题的关键不在于 CSS 的华丽，而在于<strong>兼容性</strong>。它立刻放弃了复杂的 <code>div</code> 方案，回归到了最原始、但最有效的 HTML 属性上。它给出了最终的、完美的模板：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;<span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;$\displaystyle url&quot;</span> <span class="attr">style</span>=<span class="string">&quot;...&quot;</span>&gt;</span>$title<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>&lt;p align=&quot;center&quot;&gt;</code> 这个看似“过时”但对 GitHub 渲染器极度友好的标签，一举解决了所有问题。</p>
+</blockquote>
+<p><strong>协作心得</strong>：<br>与 LLM 高效协作的关键在于：</p>
+<ul>
+<li><strong>明确初始目标</strong>：想清楚你要什么。</li>
+<li><strong>小步快跑，快速迭代</strong>：尝试一个方案，立即测试，然后带着测试结果（无论是成功还是失败）进行下一轮沟通。</li>
+<li><strong>提供精确的负反馈</strong>：不要只说“不行”，要说“哪里不行”、“为什么不行”（例如：居中没生效），并给出新的、更简化的约束（例如：不要日期，只要居中）。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过这次实践，我不仅拥有了一个满意的个人主页，更体验了一次高效的人机协作编程。从复杂的 HTML/CSS 探索，到最终回归简洁有效的方案，这个过程本身就充满了学习的乐趣。希望这份记录能对你有所启发。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://space.bilibili.com/403214142">
+            <span class="icon">
+              <i class="fa-brands fa-bilibili"></i>
+            </span>
+
+            <span class="label">Bilibili</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/08/03/test-for-math/" rel="prev" title="test-for-math">
+                  <i class="fa fa-angle-left"></i> test-for-math
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">makoMako</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">10k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">37 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3podS1qbDE4" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
