@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="WRoB9bFhSYf-bLPn6jS4ALalzR7nKkWw1sp5MqHoB0U">
+  <meta name="msvalidate.01" content="DE0701EF278A6E845833F86B71C383D5">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family='Source+Han+Sans+SC':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Noto+Sans+SC':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='PingFang+SC':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Hiragino+Sans+GB':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Microsoft+YaHei':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='WenQuanYi+Micro+Hei':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=sans-serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Fira+Code':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Source+Code+Pro':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Consolas:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Courier+New':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=monospace:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhu-jl18.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.2","exturl":true,"sidebar":{"position":"right","width_expanded":350,"width_dual_column":280,"display":"always","padding":18,"offset":13},"hljswrap":true,"codeblock":{"theme":{"light":"github","dark":"github-dark"},"prism":{"light":"prism-tomorrow","dark":"prism-tomorrow"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":200},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="How to draw simple trees in LaTeX without using TikZ.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="latex-draw-a-tree">
+<meta property="og:url" content="https://zhu-jl18.github.io/posts/38523/index.html">
+<meta property="og:site_name" content="Dirac Sea">
+<meta property="og:description" content="How to draw simple trees in LaTeX without using TikZ.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-01.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-02.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-03.png">
+<meta property="article:published_time" content="2021-03-12T04:22:09.000Z">
+<meta property="article:modified_time" content="2025-08-13T18:04:13.380Z">
+<meta property="article:author" content="makoMako">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-01.png">
+
+
+<link rel="canonical" href="https://zhu-jl18.github.io/posts/38523/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhu-jl18.github.io/posts/38523/","path":"posts/38523/","title":"latex-draw-a-tree"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>latex-draw-a-tree | Dirac Sea</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","single_dollars":true,"cjk_width":0.9,"normal_width":0.6,"append_css":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Dirac Sea" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dirac Sea</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="/images/evolution.png" alt="Dirac Sea">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-timeline"><a href="/" rel="section"><i class="fa fa-bookmark fa-fw"></i>Timeline</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="makoMako"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">makoMako</p>
+  <div class="site-description" itemprop="description">love math and dinosaurs</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3podS1qbDE4" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhu-jl18"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS95b3VybmFtZQ==" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname"><i class="fab fa-stack-overflow fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL3lvdXJuYW1l" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname"><i class="fa fa-instagram fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly95b3V0dWJlLmNvbS95b3VybmFtZQ==" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;yourname"><i class="fab fa-youtube fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3lvdXJuYW1l" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3lvdXJuYW1l" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;yourname"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9yZWRkaXQuY29tL3VzZXIveW91cm5hbWU=" title="Reddit → https:&#x2F;&#x2F;reddit.com&#x2F;user&#x2F;yourname"><i class="fab fa-reddit fa-fw"></i></span>
+      </span>
+  </div>
+<!-- 自定义侧边栏模块 - 在Next主题默认侧边栏基础上添加 -->
+
+<!-- 背景融合图片 -->
+<div style="margin: 20px 0; text-align: center;">
+  <img src="/images/the-book-of-secret-knowledge.png" alt="The Book of Secret Knowledge" style="width: 100%; max-width: 160px; height: auto; border: none; box-shadow: none; opacity: 1; margin: 0 auto; display: block;">
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/posts/38523/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="makoMako">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dirac Sea">
+      <meta itemprop="description" content="love math and dinosaurs">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="latex-draw-a-tree | Dirac Sea">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          latex-draw-a-tree
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-03-12 12:22:09" itemprop="dateCreated datePublished" datetime="2021-03-12T12:22:09+08:00">2021-03-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-14 02:04:13" itemprop="dateModified" datetime="2025-08-14T02:04:13+08:00">2025-08-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LaTeX/" itemprop="url" rel="index"><span itemprop="name">LaTeX</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>359</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>How to draw simple trees in LaTeX without using TikZ.</p>
+<span id="more"></span>
+<p><strong>References:</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly90ZXguc3RhY2tleGNoYW5nZS5jb20vcXVlc3Rpb25zLzU0NDcvaG93LWNhbi1pLWRyYXctc2ltcGxlLXRyZWVzLWluLWxhdGV4">How can I draw simple trees in LaTeX?<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<p>There are ways to get LaTeX to draw it’s own trees that doesn’t involve learning an entirely new language like TikZ.</p>
+<h3 id="qtree-package"><a href="#qtree-package" class="headerlink" title="qtree package"></a>qtree package</h3><p>Consider the following TeX:</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\Tree</span>[.IP [.NP [.Det <span class="keyword">\textit</span>&#123;the&#125; ]</span><br><span class="line">               [.N<span class="keyword">\1</span> [.N <span class="keyword">\textit</span>&#123;package&#125; ]]]</span><br><span class="line">          [.I<span class="keyword">\1</span> [.I <span class="keyword">\textsc</span>&#123;3sg.Pres&#125; ]</span><br><span class="line">                [.VP [.V<span class="keyword">\1</span> [.V <span class="keyword">\textit</span>&#123;is&#125; ]</span><br><span class="line">                           [.AP [.Deg <span class="keyword">\textit</span>&#123;really&#125; ]</span><br><span class="line">                                [.A<span class="keyword">\1</span> [.A <span class="keyword">\textit</span>&#123;simple&#125; ]</span><br><span class="line">                                      <span class="keyword">\qroof</span>&#123;<span class="keyword">\textit</span>&#123;to use&#125;&#125;.CP ]]]]]]</span><br></pre></td></tr></table></figure>
+
+<p>This produces the following tree:</p>
+<img src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-01.png">
+
+<p>The basic syntax is simply <code>[.node-name subtrees... ]</code>; <code>\qroof</code>, which draws the triangle, requires its node name at the end, instead. The <code>\1</code> is just a shortcut for a math-mode prime. In addition, qtree will always render <code>_</code> and <code>^</code> as sub- and super-scripts, too.</p>
+<h3 id="forest-package"><a href="#forest-package" class="headerlink" title="forest package"></a>forest package</h3><p>Here is a forest version of the code for the tree showed above:</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;forest&#125;</span><br><span class="line">  [IP</span><br><span class="line">    [NP</span><br><span class="line">     [Det</span><br><span class="line">       [<span class="keyword">\textit</span>&#123;the&#125;]</span><br><span class="line">     ]</span><br><span class="line">     [N<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">       [N</span><br><span class="line">         [<span class="keyword">\textit</span>&#123;package&#125;]</span><br><span class="line">       ]</span><br><span class="line">     ]</span><br><span class="line">    ]</span><br><span class="line">    [I<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">      [I</span><br><span class="line">        [<span class="keyword">\textsc</span>&#123;3sg.Pres&#125;</span><br><span class="line">        ]</span><br><span class="line">      ]</span><br><span class="line">      [VP</span><br><span class="line">        [V<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">          [V</span><br><span class="line">            [<span class="keyword">\textit</span>&#123;is&#125;]</span><br><span class="line">          ]</span><br><span class="line">          [AP</span><br><span class="line">            [Deg</span><br><span class="line">              [<span class="keyword">\textit</span>&#123;extremely&#125;]</span><br><span class="line">            ]</span><br><span class="line">            [A<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">              [A</span><br><span class="line">                [<span class="keyword">\textit</span>&#123;straightforward&#125;]</span><br><span class="line">              ]</span><br><span class="line">              [CP</span><br><span class="line">                [<span class="keyword">\textit</span>&#123;to wield&#125;, roof]</span><br><span class="line">              ]</span><br><span class="line">            ]</span><br><span class="line">          ]</span><br><span class="line">        ]</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line"><span class="keyword">\end</span>&#123;forest&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Easy to see its syntax~ And we can select some additional features: forest allows you to specify that nodes should be aligned on a common tier. To use this feature, you just write <code>, tier=&lt;name of tier&gt;</code> after the content of the node is specified.</p>
+<p>Here’s an extreme example:</p>
+<img src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-02.png" style="width:59%">
+
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;forest&#125;</span><br><span class="line">  for tree=&#123;</span><br><span class="line">    fit=band,<span class="comment">% spaces the tree out a little to avoid collisions</span></span><br><span class="line">  &#125;</span><br><span class="line">  [things</span><br><span class="line">    [cabbages, tier=vegetables</span><br><span class="line">      [peaches, tier=fruits]</span><br><span class="line">    ]</span><br><span class="line">    [kings, tier=aristocrats]</span><br><span class="line">    [sealing wax</span><br><span class="line">      [queens, tier=aristocrats</span><br><span class="line">        [carrots, tier=vegetables]</span><br><span class="line">        [pineapple, tier=fruits]</span><br><span class="line">        [aubergine, tier=vegetables]</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line"><span class="keyword">\end</span>&#123;forest&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ditree-package"><a href="#ditree-package" class="headerlink" title="ditree package"></a>ditree package</h3><p> For non “graphical” tree, we can use the dirtree package:<br> <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\dirtree</span>&#123;<span class="comment">%</span></span><br><span class="line">.1 debug.</span><br><span class="line">.2 filename.</span><br><span class="line">.2 modules.</span><br><span class="line">.3 module.</span><br><span class="line">.3 module.</span><br><span class="line">.3 module.</span><br><span class="line">.2 level.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> It looks like this:<br> <img src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-03.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><!-- 文章底部自定义内容 -->
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://space.bilibili.com/403214142">
+            <span class="icon">
+              <i class="fa-brands fa-bilibili"></i>
+            </span>
+
+            <span class="label">Bilibili</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/8377/" rel="next" title="English-from-Kramer">
+                  English-from-Kramer <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">makoMako</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">28k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:41</span>
+  </span>
+</div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
+  </div><!-- 页脚自定义内容 -->
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3podS1qbDE4" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<!-- 左侧装饰模块 -->
+<div id="left-sidebar-modules" class="left-sidebar-modules">
+  <!-- 收缩按钮 -->
+  <div class="collapse-toggle" id="collapse-toggle" title="收起/展开">
+    <i class="fa fa-chevron-left"></i>
+  </div>
+  
+  <!-- 时钟模块 -->
+  <div class="left-module clock-module">
+    <div class="module-title">
+      <i class="fa-solid fa-clock"></i> 时间
+    </div>
+    <div class="clock-display" id="left-clock">
+      <div class="time">--:--:--</div>
+      <div class="date">----年--月--日</div>
+      <div class="week">星期-</div>
+    </div>
+  </div>
+
+  <!-- 天气模块 -->
+  <div class="left-module weather-module">
+    <div class="module-title">
+      <i class="fa fa-cloud"></i> 天气
+    </div>
+    <div class="weather-display" id="left-weather">
+      <div class="weather-loading">正在获取天气...</div>
+    </div>
+  </div>
+
+  <!-- 音乐播放器模块 -->
+  <div class="left-module music-module">
+    <div class="module-title">
+      <i class="fa fa-music"></i >音乐
+    </div>
+    <div class="music-player" id="left-music">
+      <div class="music-info">
+        <div class="song-title">暂无播放</div>
+        <div class="song-artist">-</div>
+      </div>
+      <div class="music-controls">
+        <button class="music-btn" id="left-music-prev" title="上一首">
+          <i class="fa fa-step-backward"></i>
+        </button>
+        <button class="music-btn" id="left-music-play" title="播放/暂停">
+          <i class="fa fa-play"></i>
+        </button>
+        <button class="music-btn" id="left-music-next" title="下一首">
+          <i class="fa fa-step-forward"></i>
+        </button>
+      </div>
+      <div class="music-progress">
+        <div class="progress-bar">
+          <div class="progress-fill" id="left-music-progress-fill"></div>
+        </div>
+        <div class="time-display">
+          <span id="left-music-current-time">0:00</span>
+          <span id="left-music-total-time">0:00</span>
+        </div>
+      </div>
+      <div class="music-volume">
+        <i class="fa fa-volume-up"></i>
+        <span class="volume-display" id="left-music-volume-display">30%</span>
+        <div class="volume-controls">
+          <button class="volume-btn" id="left-music-volume-down" title="降低音量">
+            <i class="fa fa-volume-down"></i>
+          </button>
+          <button class="volume-btn" id="left-music-volume-up" title="提高音量">
+            <i class="fa fa-volume-up"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 引入音乐配置文件 -->
+<script src="/js/music-config.js"></script>
+
+<!-- 引入侧边栏装饰模块JavaScript -->
+<script src="/js/sidebar-modules.js"></script>
+
+
+
+</body>
+</html>
