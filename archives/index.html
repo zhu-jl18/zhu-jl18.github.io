@@ -152,12 +152,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -211,6 +211,236 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/13/LaTeX%E5%B7%A5%E4%BD%9C%E6%B5%81%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="makoMako">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pacific">
+      <meta itemprop="description" content="love math and dinosaurs">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Pacific">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/08/13/LaTeX%E5%B7%A5%E4%BD%9C%E6%B5%81%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">LaTeX工作流优化指南</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-08-13 17:52:13 / 修改时间：19:13:43" itemprop="dateCreated datePublished" datetime="2025-08-13T17:52:13+08:00">2025-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="LaTeX工作流优化指南"><a href="#LaTeX工作流优化指南" class="headerlink" title="LaTeX工作流优化指南"></a>LaTeX工作流优化指南</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本指南详细介绍了Cursor/VS Code中LaTeX工作流的优化配置，旨在提供快速、整洁、高效的LaTeX文档编写体验。</p>
+<h2 id="核心优化策略"><a href="#核心优化策略" class="headerlink" title="核心优化策略"></a>核心优化策略</h2><h3 id="1-文件管理优化"><a href="#1-文件管理优化" class="headerlink" title="1. 文件管理优化"></a>1. 文件管理优化</h3><p><strong>目标</strong>: 保持根目录整洁，只显示重要文件</p>
+<h4 id="配置原理"><a href="#配置原理" class="headerlink" title="配置原理"></a>配置原理</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;latex-workshop.latex.outDir&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./build&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;files.exclude&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;**/build/**&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;**/_minted*&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;search.exclude&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;**/build/**&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h4><ul>
+<li>✅ <code>.tex</code> 和 <code>.pdf</code> 文件在根目录可见</li>
+<li>✅ 所有辅助文件 (<code>.aux</code>, <code>.log</code>, <code>.out</code>, <code>.toc</code> 等) 隐藏到 <code>build/</code> 目录</li>
+<li>✅ 搜索时忽略辅助文件，提高搜索效率</li>
+<li>✅ 文件浏览器界面清爽整洁</li>
+</ul>
+<h3 id="2-编译引擎优化"><a href="#2-编译引擎优化" class="headerlink" title="2. 编译引擎优化"></a>2. 编译引擎优化</h3><p><strong>目标</strong>: 支持多种编译引擎，提供最佳兼容性</p>
+<h4 id="支持的引擎"><a href="#支持的引擎" class="headerlink" title="支持的引擎"></a>支持的引擎</h4><ol>
+<li><strong>XeLaTeX</strong>: 支持Unicode和现代字体</li>
+<li><strong>LuaLaTeX</strong>: 支持Lua脚本和复杂排版</li>
+<li><strong>pdfLaTeX</strong>: 传统引擎，兼容性最好</li>
+</ol>
+<h4 id="工具配置"><a href="#工具配置" class="headerlink" title="工具配置"></a>工具配置</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;latex-workshop.latex.tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;-synctex=1&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-interaction=nonstopmode&quot;</span><span class="punctuation">,</span> </span><br><span class="line">      <span class="string">&quot;-file-line-error&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-pdf&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-outdir=%OUTDIR%&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="关键参数说明"><a href="#关键参数说明" class="headerlink" title="关键参数说明"></a>关键参数说明</h4><ul>
+<li><code>-synctex=1</code>: 启用双向定位搜索</li>
+<li><code>-interaction=nonstopmode</code>: 非交互模式，适合自动化编译</li>
+<li><code>-file-line-error</code>: 错误信息包含文件路径和行号</li>
+<li><code>-pdf</code>: 强制PDF输出</li>
+<li><code>-outdir=%OUTDIR%</code>: 指定输出目录</li>
+</ul>
+<h3 id="3-PDF文件管理策略"><a href="#3-PDF文件管理策略" class="headerlink" title="3. PDF文件管理策略"></a>3. PDF文件管理策略</h3><p><strong>目标</strong>: PDF在根目录可见，同时保持内部预览功能</p>
+<h4 id="复制策略"><a href="#复制策略" class="headerlink" title="复制策略"></a>复制策略</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;copy-pdf&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;powershell&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;-Command&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;if (Test-Path &#x27;build/%DOCFILE%.pdf&#x27;) &#123; Copy-Item &#x27;build/%DOCFILE%.pdf&#x27; &#x27;%DOCFILE%.pdf&#x27; -Force &#125;&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><ol>
+<li><code>latexmk</code> 将PDF输出到 <code>build/</code> 目录</li>
+<li><code>copy-pdf</code> 工具将PDF复制到根目录</li>
+<li>根目录的PDF用于用户查看</li>
+<li><code>build/</code> 目录的PDF用于内部预览器</li>
+</ol>
+<h3 id="4-编译配方设计"><a href="#4-编译配方设计" class="headerlink" title="4. 编译配方设计"></a>4. 编译配方设计</h3><p><strong>目标</strong>: 提供灵活多样的编译选项</p>
+<h4 id="推荐配方"><a href="#推荐配方" class="headerlink" title="推荐配方"></a>推荐配方</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;latex-workshop.latex.recipes&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexmk (xelatex) → build/ → copy PDF&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;xelatexmk&quot;</span><span class="punctuation">,</span> <span class="string">&quot;copy-pdf&quot;</span><span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex → bibtex → xelatex → copy PDF&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;xelatexmk&quot;</span><span class="punctuation">,</span> <span class="string">&quot;bibtex&quot;</span><span class="punctuation">,</span> <span class="string">&quot;xelatexmk&quot;</span><span class="punctuation">,</span> <span class="string">&quot;copy-pdf&quot;</span><span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="配方选择指南"><a href="#配方选择指南" class="headerlink" title="配方选择指南"></a>配方选择指南</h4><ul>
+<li><strong>简单文档</strong>: 使用 <code>latexmk (xelatex) → build/ → copy PDF</code></li>
+<li><strong>带参考文献</strong>: 使用 <code>xelatex → bibtex → xelatex → copy PDF</code></li>
+<li><strong>复杂排版</strong>: 根据需求选择对应的引擎</li>
+</ul>
+<h3 id="5-自动编译优化"><a href="#5-自动编译优化" class="headerlink" title="5. 自动编译优化"></a>5. 自动编译优化</h3><p><strong>目标</strong>: 智能触发编译，避免不必要的重复编译</p>
+<h4 id="触发策略"><a href="#触发策略" class="headerlink" title="触发策略"></a>触发策略</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;latex-workshop.latex.autoBuild.run&quot;</span><span class="punctuation">:</span> <span class="string">&quot;onSave&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="优势分析"><a href="#优势分析" class="headerlink" title="优势分析"></a>优势分析</h4><ul>
+<li>✅ 比 <code>onFileChange</code> 更稳定，避免频繁编译</li>
+<li>✅ 只在保存时编译，减少资源消耗</li>
+<li>✅ 配合 <code>latexmk</code> 自动处理多遍编译</li>
+</ul>
+<h3 id="6-智能清理策略"><a href="#6-智能清理策略" class="headerlink" title="6. 智能清理策略"></a>6. 智能清理策略</h3><p><strong>目标</strong>: 自动清理辅助文件，保持目录整洁</p>
+<h4 id="清理配置"><a href="#清理配置" class="headerlink" title="清理配置"></a>清理配置</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;latex-workshop.latex.autoClean.run&quot;</span><span class="punctuation">:</span> <span class="string">&quot;onBuilt&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.latex.autoClean.cleanPattern&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="string">&quot;build/*.aux&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;build/*.log&quot;</span><span class="punctuation">,</span> </span><br><span class="line">  <span class="string">&quot;build/*.out&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;build/*.toc&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;build/*.fdb_latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;build/*.fls&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;build/*.xdv&quot;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="保护机制"><a href="#保护机制" class="headerlink" title="保护机制"></a>保护机制</h4><ul>
+<li>✅ 只清理 <code>build/</code> 目录中的文件</li>
+<li>✅ 保留 <code>*.synctex.gz</code> 文件，确保双向定位搜索</li>
+<li>✅ 保留PDF文件，确保预览功能正常</li>
+<li>✅ 只在编译成功后清理，避免误删</li>
+</ul>
+<h3 id="7-格式化优化"><a href="#7-格式化优化" class="headerlink" title="7. 格式化优化"></a>7. 格式化优化</h3><p><strong>目标</strong>: 快速、一致的代码格式化</p>
+<h4 id="格式化配置"><a href="#格式化配置" class="headerlink" title="格式化配置"></a>格式化配置</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;latex-workshop.formatting.latex&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexindent&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.formatting.latexindent.args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;--silent&quot;</span><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4><ul>
+<li>✅ 使用 <code>--silent</code> 参数减少输出</li>
+<li>✅ 简化 <code>.latexindent.yaml</code> 配置</li>
+<li>✅ 禁用耗时的格式化功能</li>
+</ul>
+<h2 id="错误处理机制"><a href="#错误处理机制" class="headerlink" title="错误处理机制"></a>错误处理机制</h2><h3 id="1-编译错误显示"><a href="#1-编译错误显示" class="headerlink" title="1. 编译错误显示"></a>1. 编译错误显示</h3><p><strong>配置</strong>: <code>-file-line-error</code> 参数确保错误信息包含文件路径和行号</p>
+<p><strong>效果</strong>:</p>
+<ul>
+<li>编译错误在”问题”面板中显示</li>
+<li>点击错误可直接跳转到对应源码行</li>
+<li>支持错误定位和快速修复</li>
+</ul>
+<h3 id="2-错误定位示例"><a href="#2-错误定位示例" class="headerlink" title="2. 错误定位示例"></a>2. 错误定位示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">! LaTeX Error: Command \undefinedcommand undefined.</span><br><span class="line">l.15 \undefinedcommand</span><br></pre></td></tr></table></figure>
+<p>点击错误可直接跳转到第15行。</p>
+<h2 id="双向定位搜索"><a href="#双向定位搜索" class="headerlink" title="双向定位搜索"></a>双向定位搜索</h2><h3 id="1-功能说明"><a href="#1-功能说明" class="headerlink" title="1. 功能说明"></a>1. 功能说明</h3><ul>
+<li><strong>正向搜索</strong>: 从源码点击跳转到PDF对应位置</li>
+<li><strong>反向搜索</strong>: 从PDF点击跳转到源码对应位置</li>
+</ul>
+<h3 id="2-保护机制"><a href="#2-保护机制" class="headerlink" title="2. 保护机制"></a>2. 保护机制</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;latex-workshop.latex.autoClean.cleanPattern&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="string">&quot;build/*.aux&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;build/*.log&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="comment">// 注意：不包含 &quot;build/*.synctex.gz&quot;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-验证方法"><a href="#3-验证方法" class="headerlink" title="3. 验证方法"></a>3. 验证方法</h3><ol>
+<li>编译文档生成PDF</li>
+<li>在源码中点击，检查PDF是否跳转到对应位置</li>
+<li>在PDF中点击，检查源码是否跳转到对应位置</li>
+</ol>
+<h2 id="性能优化要点"><a href="#性能优化要点" class="headerlink" title="性能优化要点"></a>性能优化要点</h2><h3 id="1-编译速度优化"><a href="#1-编译速度优化" class="headerlink" title="1. 编译速度优化"></a>1. 编译速度优化</h3><ul>
+<li>使用 <code>latexmk</code> 自动处理多遍编译</li>
+<li>参数顺序优化：<code>-pdf</code> 必须在引擎参数之前</li>
+<li>使用 <code>-interaction=nonstopmode</code> 避免交互等待</li>
+</ul>
+<h3 id="2-格式化速度优化"><a href="#2-格式化速度优化" class="headerlink" title="2. 格式化速度优化"></a>2. 格式化速度优化</h3><ul>
+<li>简化 <code>latexindent</code> 配置</li>
+<li>使用 <code>--silent</code> 参数</li>
+<li>禁用不必要的格式化功能</li>
+</ul>
+<h3 id="3-文件操作优化"><a href="#3-文件操作优化" class="headerlink" title="3. 文件操作优化"></a>3. 文件操作优化</h3><ul>
+<li>使用PowerShell的 <code>Copy-Item</code> 而非 <code>Move-Item</code></li>
+<li>保留PDF副本，避免预览器查找失败</li>
+<li>智能清理，只删除必要的辅助文件</li>
+</ul>
+<h2 id="故障排除"><a href="#故障排除" class="headerlink" title="故障排除"></a>故障排除</h2><h3 id="1-常见问题"><a href="#1-常见问题" class="headerlink" title="1. 常见问题"></a>1. 常见问题</h3><h4 id="PDF不显示在根目录"><a href="#PDF不显示在根目录" class="headerlink" title="PDF不显示在根目录"></a>PDF不显示在根目录</h4><p><strong>原因</strong>: PowerShell权限或路径问题<br><strong>解决</strong>: 检查PowerShell执行策略和文件路径</p>
+<h4 id="编译错误不显示"><a href="#编译错误不显示" class="headerlink" title="编译错误不显示"></a>编译错误不显示</h4><p><strong>原因</strong>: 缺少 <code>-file-line-error</code> 参数<br><strong>解决</strong>: 确认工具配置中包含该参数</p>
+<h4 id="双向定位搜索失效"><a href="#双向定位搜索失效" class="headerlink" title="双向定位搜索失效"></a>双向定位搜索失效</h4><p><strong>原因</strong>: <code>*.synctex.gz</code> 文件被清理<br><strong>解决</strong>: 确认清理配置中不包含synctex文件</p>
+<h4 id="内部预览器找不到PDF"><a href="#内部预览器找不到PDF" class="headerlink" title="内部预览器找不到PDF"></a>内部预览器找不到PDF</h4><p><strong>原因</strong>: PDF被移动到根目录，build目录中无副本<br><strong>解决</strong>: 使用复制而非移动策略</p>
+<h3 id="2-调试步骤"><a href="#2-调试步骤" class="headerlink" title="2. 调试步骤"></a>2. 调试步骤</h3><ol>
+<li>检查LaTeX环境是否正确安装</li>
+<li>验证PowerShell执行权限</li>
+<li>确认文件路径和权限</li>
+<li>查看编译日志中的错误信息</li>
+<li>测试手动编译是否成功</li>
+</ol>
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><h3 id="1-项目结构"><a href="#1-项目结构" class="headerlink" title="1. 项目结构"></a>1. 项目结构</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">project/</span><br><span class="line">├── main.tex          # 主文档</span><br><span class="line">├── main.pdf          # 生成的PDF</span><br><span class="line">├── build/            # 辅助文件目录（隐藏）</span><br><span class="line">│   ├── main.aux</span><br><span class="line">│   ├── main.log</span><br><span class="line">│   └── main.pdf      # PDF副本</span><br><span class="line">└── .vscode/          # VS Code配置</span><br><span class="line">    └── settings.json</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-工作流程"><a href="#2-工作流程" class="headerlink" title="2. 工作流程"></a>2. 工作流程</h3><ol>
+<li>编写 <code>.tex</code> 文件</li>
+<li>保存文件触发自动编译</li>
+<li>查看根目录的PDF文件</li>
+<li>使用内部预览器进行双向定位搜索</li>
+<li>编译错误自动显示在”问题”面板</li>
+</ol>
+<h3 id="3-配置维护"><a href="#3-配置维护" class="headerlink" title="3. 配置维护"></a>3. 配置维护</h3><ul>
+<li>定期更新LaTeX Workshop扩展</li>
+<li>根据项目需求调整编译配方</li>
+<li>监控编译性能和错误处理效果</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这套LaTeX工作流优化配置提供了：</p>
+<ul>
+<li>🚀 <strong>快速编译</strong>: 优化的编译参数和工具链</li>
+<li>🧹 <strong>整洁界面</strong>: 智能的文件管理和清理策略</li>
+<li>🔍 <strong>完整功能</strong>: 保持所有LaTeX功能，包括双向定位搜索</li>
+<li>🛠️ <strong>错误处理</strong>: 完善的编译错误显示和定位</li>
+<li>📱 <strong>多引擎支持</strong>: 支持xelatex、lualatex、pdflatex</li>
+<li>🤖 <strong>自动化</strong>: 保存时自动编译，编译后自动清理</li>
+</ul>
+<p>通过这套配置，您可以享受高效、整洁、功能完整的LaTeX文档编写体验。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/12/Ulti-Gemini-Plan/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -229,7 +459,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/12/Ulti-Gemini-Plan/" class="post-title-link" itemprop="url">Ulti-Gemini-Plan</a>
+          <a href="/2025/08/12/Ulti-Gemini-Plan/" class="post-title-link" itemprop="url">Ultimate Plan for Gemini API Calls</a>
         </h2>
 
         <div class="post-meta-container">
@@ -247,7 +477,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-13 00:35:11" itemprop="dateModified" datetime="2025-08-13T00:35:11+08:00">2025-08-13</time>
+      <time title="修改时间：2025-08-13 18:22:29" itemprop="dateModified" datetime="2025-08-13T18:22:29+08:00">2025-08-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -290,492 +520,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/08/12/Ulti-Gemini-Plan/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/10/Fourier-seriers-convergence-7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/10/Fourier-seriers-convergence-7/" class="post-title-link" itemprop="url">Fourier-seriers-convergence-7</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-08-10 04:59:53 / 修改时间：05:00:25" itemprop="dateCreated datePublished" datetime="2025-08-10T04:59:53+08:00">2025-08-10</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>437</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<ul>
-<li>* </li>
-</ul>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/08/10/Fourier-seriers-convergence-7/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/10/Fourier-seriers-convergence-6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/10/Fourier-seriers-convergence-6/" class="post-title-link" itemprop="url">Fourier-seriers-convergence-6</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-08-10 04:59:18 / 修改时间：16:11:55" itemprop="dateCreated datePublished" datetime="2025-08-10T04:59:18+08:00">2025-08-10</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>336</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<ul>
-<li>* </li>
-</ul>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/08/10/Fourier-seriers-convergence-6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/10/Fourier-seriers-convergence-5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/10/Fourier-seriers-convergence-5/" class="post-title-link" itemprop="url">Fourier-seriers-convergence-5</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-08-10 04:59:09 / 修改时间：16:11:32" itemprop="dateCreated datePublished" datetime="2025-08-10T04:59:09+08:00">2025-08-10</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>443</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<ul>
-<li>* </li>
-</ul>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/08/10/Fourier-seriers-convergence-5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/10/Fourier-seriers-convergence-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/10/Fourier-seriers-convergence-4/" class="post-title-link" itemprop="url">Fourier-seriers-convergence-4</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-08-10 04:58:12 / 修改时间：16:25:04" itemprop="dateCreated datePublished" datetime="2025-08-10T04:58:12+08:00">2025-08-10</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>215</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<ul>
-<li>* </li>
-</ul>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/08/10/Fourier-seriers-convergence-4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/09/Gemini-MathInstructor-More/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/09/Gemini-MathInstructor-More/" class="post-title-link" itemprop="url">Gemini-MathInstructor-More</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-08-09 23:03:32" itemprop="dateCreated datePublished" datetime="2025-08-09T23:03:32+08:00">2025-08-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-10 03:34:26" itemprop="dateModified" datetime="2025-08-10T03:34:26+08:00">2025-08-10</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>13</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<ul>
-<li>* </li>
-</ul>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/08/09/Gemini-MathInstructor-More/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -908,7 +652,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/09/duality-and-isomorphism-4/">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/09/Duality-and-Isomorphism-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -926,7 +670,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/09/duality-and-isomorphism-4/" class="post-title-link" itemprop="url">duality-and-isomorphism-4</a>
+          <a href="/2025/08/09/Duality-and-Isomorphism-4/" class="post-title-link" itemprop="url">Duality and Isomorpism IX</a>
         </h2>
 
         <div class="post-meta-container">
@@ -944,7 +688,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-10 04:32:11" itemprop="dateModified" datetime="2025-08-10T04:32:11+08:00">2025-08-10</time>
+      <time title="修改时间：2025-08-13 18:40:15" itemprop="dateModified" datetime="2025-08-13T18:40:15+08:00">2025-08-13</time>
     </span>
 
   
@@ -980,7 +724,7 @@
 </blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/08/09/duality-and-isomorphism-4/#more" rel="contents">
+              <a class="btn" href="/2025/08/09/Duality-and-Isomorphism-4/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1011,7 +755,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/09/duality-and-isomorphism-3/">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/09/Duality-and-Isomorphism-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1029,7 +773,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/09/duality-and-isomorphism-3/" class="post-title-link" itemprop="url">duality-and-isomorphism-3</a>
+          <a href="/2025/08/09/Duality-and-Isomorphism-3/" class="post-title-link" itemprop="url">Duality and Isomorpism I</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1047,7 +791,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-10 03:34:14" itemprop="dateModified" datetime="2025-08-10T03:34:14+08:00">2025-08-10</time>
+      <time title="修改时间：2025-08-13 18:40:19" itemprop="dateModified" datetime="2025-08-13T18:40:19+08:00">2025-08-13</time>
     </span>
 
   
@@ -1082,7 +826,7 @@
 </blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/08/09/duality-and-isomorphism-3/#more" rel="contents">
+              <a class="btn" href="/2025/08/09/Duality-and-Isomorphism-3/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1113,7 +857,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/09/duality-and-isomorphism-2/">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/09/Duality-and-Isomorphism-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1131,7 +875,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/09/duality-and-isomorphism-2/" class="post-title-link" itemprop="url">duality-and-isomorphism-2</a>
+          <a href="/2025/08/09/Duality-and-Isomorphism-2/" class="post-title-link" itemprop="url">Duality and Isomorpism II</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1149,7 +893,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-10 03:34:16" itemprop="dateModified" datetime="2025-08-10T03:34:16+08:00">2025-08-10</time>
+      <time title="修改时间：2025-08-13 18:40:32" itemprop="dateModified" datetime="2025-08-13T18:40:32+08:00">2025-08-13</time>
     </span>
 
   
@@ -1290,7 +1034,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/09/duality-and-isomorphism-1/">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/09/Duality-and-Isomorphism-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1308,7 +1052,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/09/duality-and-isomorphism-1/" class="post-title-link" itemprop="url">duality-and-isomorphism-1</a>
+          <a href="/2025/08/09/Duality-and-Isomorphism-1/" class="post-title-link" itemprop="url">Duality and Isomorpism I</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1326,7 +1070,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-10 03:35:51" itemprop="dateModified" datetime="2025-08-10T03:35:51+08:00">2025-08-10</time>
+      <time title="修改时间：2025-08-13 18:40:35" itemprop="dateModified" datetime="2025-08-13T18:40:35+08:00">2025-08-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1368,7 +1112,7 @@
 </blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/08/09/duality-and-isomorphism-1/#more" rel="contents">
+              <a class="btn" href="/2025/08/09/Duality-and-Isomorphism-1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1399,7 +1143,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/09/Fourier-seriers-convergence-1/">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/08/Design-Github-Profile-with-Gemini/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1417,422 +1161,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/09/Fourier-seriers-convergence-1/" class="post-title-link" itemprop="url">Part I — 概览与问题定位</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-08-09 08:00:00" itemprop="dateCreated datePublished" datetime="2025-08-09T08:00:00+08:00">2025-08-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-10 15:07:23" itemprop="dateModified" datetime="2025-08-10T15:07:23+08:00">2025-08-10</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>409</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>“引入傅里叶级数的基本记号，讨论各种收敛概念并说明为何 Cesàro/Fejér 平均是关键的求和方法。”</p>
-<hr>
-<h3 id="Part-I-—-概览与问题定位-Overview-amp-the-question-of-convergence"><a href="#Part-I-—-概览与问题定位-Overview-amp-the-question-of-convergence" class="headerlink" title="Part I — 概览与问题定位 / Overview &amp; the question of convergence"></a>Part I — 概览与问题定位 / Overview &amp; the question of convergence</h3><p><strong>导读（中文）</strong>：说明傅里叶级数的基本定义和记号，清晰区分各种收敛概念（点值、几乎处处、均匀、$L^p$）以及为何 Cesàro / Fejér 平均是自然且重要的方法。阐明本系列的路线与目标。</p>
-<h4 id="正式记号与定义"><a href="#正式记号与定义" class="headerlink" title="正式记号与定义"></a>正式记号与定义</h4><p>给定 $2\pi$-周期函数 $f\in L^1([ -\pi,\pi])$，定义其傅里叶系数</p>
-<p>$$<br>\hat f(n)=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(t)e^{-int},dt,\qquad n\in\mathbb Z,<br>$$</p>
-<p>傅里叶级数为</p>
-<p>$$<br>\sum_{n\in\mathbb Z}\hat f(n)e^{inx}.<br>$$</p>
-<p>第 $N$ 阶<strong>部分和</strong>定义为</p>
-<p>$$<br>S_N(f,x)=\sum_{n=-N}^N\hat f(n)e^{inx}.<br>$$</p>
-<h4 id="收敛性质关注点"><a href="#收敛性质关注点" class="headerlink" title="收敛性质关注点"></a>收敛性质关注点</h4><ul>
-<li>点值收敛：对固定 $x$，是否 $\lim_{N\to\infty}S_N(f,x)$ 存在？</li>
-<li>a.e.（几乎处处）收敛：对几乎所有 $x$ 成立？</li>
-<li>一致收敛：对所有 $x$ 同时收敛且速率相同？</li>
-<li>$L^p$ 收敛：$|S_N(f)-f|_{L^p}\to0$？</li>
-</ul>
-<h4 id="为什么要用-Cesaro-Fejer？"><a href="#为什么要用-Cesaro-Fejer？" class="headerlink" title="为什么要用 Cesàro / Fejér？"></a>为什么要用 Cesàro / Fejér？</h4><p>部分和常用的“Dirichlet 核”导致对 $L^1$ 函数控制力不足（$|D_N|_{L^1}\sim \log N$ 的增长会导致不良行为与不收敛示例）；而 Cesàro 平均（尤其 Fejér）使用正权重平均，生成非负、质量集中在原点的 Fejér 核，从而提供了更强的逼近性质（例如对连续函数的一致收敛，对 $L^1$ 的 $L^1$ 收敛与勒贝格点处收敛）。这是“求和法”在傅里叶理论中的典型应用。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/09/Fourier-seriers-convergence-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/09/Fourier-seriers-convergence-3/" class="post-title-link" itemprop="url">Part III — Dirichlet 定理（点值收敛）及其详细证明</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-08-09 08:00:00" itemprop="dateCreated datePublished" datetime="2025-08-09T08:00:00+08:00">2025-08-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-10 05:22:57" itemprop="dateModified" datetime="2025-08-10T05:22:57+08:00">2025-08-10</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>389</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>summary: “逐步给出 Dirichlet 定理的严格证明，包括必要引理、振荡积分估计与常数说明，适合课堂讲义级别的详尽证明。”</p>
-<p>Part III — Dirichlet 定理（点值收敛）及其详细证明 / Dirichlet theorem (pointwise convergence)</p>
-<p>定理陈述（中文）</p>
-<p>Dirichlet 定理：设 $f$ 为 $2\pi$-周期函数，并在点 $x$ 的某邻域内为分段 $C^1$（或有界变差）。则</p>
-<p>讨论与证明策略（概览）</p>
-<p>证明基于将部分和写为与 Dirichlet 核的卷积，并将积分分成“近点小区间”和“远点大区间”两部分：在小区间利用函数在 $x$ 处的局部行为控制误差；在远区间利用核的强烈振荡性（Riemann–Lebesgue 类型估计）使积分趋于零。为保持严格，我们将分几个引理来构建完整细致的证明，并给出明确的常数估计以便教学使用。</p>
-<p>引理与准备工作</p>
-<p>引理 3.1（Dirichlet 核的形式）  对于 $t\not\equiv0\pmod{2\pi}$，有</p>
-<p>并且 $D_N(0)=2N+1$。</p>
-<p>引理 3.2（振荡积分估计 — 一般形式） 若 $g\in L^1([\alpha,\beta])$ 且连续或可积，则</p>
-<p>这是 Riemann–Lebesgue 引理的一个具体振荡积分表现。</p>
-<p>引理 3.3（有界变差情形的替代） 若 $f$ 在 $x$ 邻域有界变差，则相应的振荡积分（写成 $g(t)\sin((N+\tfrac12)t)$ 的形式）可用分部积分（按变差）得到收敛到 0。</p>
-<p>正式证明（逐步；含常数说明）</p>
-<p>（证明省略于此处文档中有完整步奏，详见正文）</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/09/Fourier-seriers-convergence-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/09/Fourier-seriers-convergence-2/" class="post-title-link" itemprop="url">Part II — 符号、卷积与核：Dirichlet 核与 Fejér 核</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-08-09 08:00:00" itemprop="dateCreated datePublished" datetime="2025-08-09T08:00:00+08:00">2025-08-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-10 05:23:01" itemprop="dateModified" datetime="2025-08-10T05:23:01+08:00">2025-08-10</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>468</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>summary: “将部分和写成卷积，推导 Dirichlet 和 Fejér 核，并证明其重要性质（归一化、非负性、近似恒等元）。”</p>
-<h1 id="Part-II-—-符号、卷积与核：Dirichlet-核与-Fejer-核-Notation-convolution-Dirichlet-amp-Fejer-kernels"><a href="#Part-II-—-符号、卷积与核：Dirichlet-核与-Fejer-核-Notation-convolution-Dirichlet-amp-Fejer-kernels" class="headerlink" title="Part II — 符号、卷积与核：Dirichlet 核与 Fejér 核 / Notation, convolution, Dirichlet &amp; Fejér kernels"></a>Part II — 符号、卷积与核：Dirichlet 核与 Fejér 核 / Notation, convolution, Dirichlet &amp; Fejér kernels</h1><h2 id="部分和的卷积表达"><a href="#部分和的卷积表达" class="headerlink" title="部分和的卷积表达"></a>部分和的卷积表达</h2><p>对 $f\in L^1$，</p>
-<p>$$<br>S_N(f,x) = \sum_{n=-N}^N\hat f(n)e^{inx} = \frac{1}{2\pi}\int_{-\pi}^{\pi} f(x-t)D_N(t),dt,<br>$$</p>
-<p>其中</p>
-<p>$$<br>D_N(t)=\sum_{n=-N}^N e^{int}=\frac{\sin\big((N+\tfrac12)t\big)}{\sin(t/2)}.<br>$$</p>
-<p>（在 $t=0$ 取极限值 $D_N(0)=2N+1$。）</p>
-<h2 id="Cesaro-C-1-平均与-Fejer-核"><a href="#Cesaro-C-1-平均与-Fejer-核" class="headerlink" title="Cesàro (C,1) 平均与 Fejér 核"></a>Cesàro (C,1) 平均与 Fejér 核</h2><p>定义 Fejér 平均（C,1）：</p>
-<p>$$<br>\sigma_N(f,x)=\frac{1}{N+1}\sum_{k=0}^N S_k(f,x).<br>$$</p>
-<p>存在核 $F_N$ 使得</p>
-<p>$$<br>\sigma_N(f,x)=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x-t)F_N(t),dt,<br>$$</p>
-<p>且</p>
-<p>$$<br>F_N(t)=\frac{1}{N+1}\sum_{k=0}^N D_k(t)<br>      =\frac{1}{N+1}\left(\frac{\sin!\big(\tfrac{N+1}{2}t\big)}{\sin(t/2)}\right)^2.<br>$$</p>
-<h2 id="关键性质证明（逐条）"><a href="#关键性质证明（逐条）" class="headerlink" title="关键性质证明（逐条）"></a>关键性质证明（逐条）</h2><p><strong>命题 2.1（归一化）</strong>：$\dfrac{1}{2\pi}\int_{-\pi}^{\pi} F_N(t),dt = 1$.\ <em>证明</em>：由定义 $F_N$ 为部分和的平均，并且每个 $D_k$ 对应 Fourier 系数 $\widehat{1}(0)=1$，故 $F_N$ 的积分为 $2\pi$。</p>
-<p><strong>命题 2.2（非负性）</strong>：对所有 $t$ 有 $F_N(t)\ge0$.\ <em>证明</em>：由显式公式 $F_N(t)=\dfrac{1}{N+1}\dfrac{\sin^2(\tfrac{N+1}{2}t)}{\sin^2(t/2)}\ge0.$</p>
-<p><strong>命题 2.3（近似单位元 / concentration）</strong>：对于任意 $\delta&gt;0$，有</p>
-<p>$$<br>\int_{|t|\ge\delta} F_N(t),dt \to 0\quad (N\to\infty).<br>$$</p>
-<p><em>证明要点</em>：对 $|t|\ge\delta$ 有 $\sin^2(t/2)\ge c(\delta)&gt;0$. 因此 $F_N(t)\le \frac{1}{(N+1)c(\delta)}$，积分上界 $\le\frac{2\pi}{(N+1)c(\delta)}\to0$。</p>
-<p><strong>注（与 Dirichlet 核对比）</strong>：虽然 $\int D_N = 2\pi$（归一化），但 $|D_N|<em>{L^1}$ 随 $N$ 增大呈对数增长（可证明 $|D_N|</em>{L^1}\approx C\log N$），因此 $D_N$ 不是良性的近似单位元；而 $F_N$ 的非负性加上质量集中性质使其在 $L^1$ 与均匀逼近中更为有利。</p>
-<hr>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/08/LLM-api-balance/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/08/LLM-api-balance/" class="post-title-link" itemprop="url">LLM-api-balance</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-08-08 19:10:01 / 修改时间：21:27:01" itemprop="dateCreated datePublished" datetime="2025-08-08T19:10:01+08:00">2025-08-08</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>17</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<ul>
-<li>* </li>
-</ul>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/08/08/LLM-api-balance/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/08/design-github-profile-with-Gemini/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/08/design-github-profile-with-Gemini/" class="post-title-link" itemprop="url">和AI一起折腾：我的GitHub Profile进化史</a>
+          <a href="/2025/08/08/Design-Github-Profile-with-Gemini/" class="post-title-link" itemprop="url">The Evolution of My GitHub Profile</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1850,7 +1179,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-13 01:26:25" itemprop="dateModified" datetime="2025-08-13T01:26:25+08:00">2025-08-13</time>
+      <time title="修改时间：2025-08-13 18:18:43" itemprop="dateModified" datetime="2025-08-13T18:18:43+08:00">2025-08-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1896,317 +1225,7 @@
 </blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/08/08/design-github-profile-with-Gemini/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/03/test-for-math/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/03/test-for-math/" class="post-title-link" itemprop="url">test-for-math</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-08-03 02:02:30" itemprop="dateCreated datePublished" datetime="2025-08-03T02:02:30+08:00">2025-08-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-10 03:35:03" itemprop="dateModified" datetime="2025-08-10T03:35:03+08:00">2025-08-10</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>20</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<ul>
-<li>* </li>
-</ul>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/08/03/test-for-math/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/08/02/redeploy-record-by-llm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/02/redeploy-record-by-llm/" class="post-title-link" itemprop="url">redeploy-record-by-llm</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-08-02 18:34:56 / 修改时间：23:29:56" itemprop="dateCreated datePublished" datetime="2025-08-02T18:34:56+08:00">2025-08-02</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>22</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>通过llm重构我的博客 </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/08/02/redeploy-record-by-llm/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2025/06/19/VsCode-LaTex-Settings/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/06/19/VsCode-LaTex-Settings/" class="post-title-link" itemprop="url">VsCode-LaTeX-Settings</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-06-19 21:45:23" itemprop="dateCreated datePublished" datetime="2025-06-19T21:45:23+08:00">2025-06-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-02 15:52:12" itemprop="dateModified" datetime="2025-08-02T15:52:12+08:00">2025-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LaTeX/" itemprop="url" rel="index"><span itemprop="name">LaTeX</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/VsCode/" itemprop="url" rel="index"><span itemprop="name">VsCode</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>441</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>VsCode 配置 LaTeX 完整版</p>
-<blockquote>
-<ul>
-<li>* </li>
-</ul>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/06/19/VsCode-LaTex-Settings/#more" rel="contents">
+              <a class="btn" href="/2025/08/08/Design-Github-Profile-with-Gemini/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2451,121 +1470,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2021/08/04/Python-Rename-Tool/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/04/Python-Rename-Tool/" class="post-title-link" itemprop="url">Python批量重命名文件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-04 09:06:26" itemprop="dateCreated datePublished" datetime="2021-08-04T09:06:26+08:00">2021-08-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-02 23:29:58" itemprop="dateModified" datetime="2025-08-02T23:29:58+08:00">2025-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Method-and-Solution/" itemprop="url" rel="index"><span itemprop="name">Method and Solution</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>273</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>利用Python实现对文件的重命名。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/04/Python-Rename-Tool/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2021/04/30/English-Grammar-Overview/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2643,113 +1547,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/04/30/English-Grammar-Overview/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2021/04/09/LaTex-Algorithm-and-Pseudocode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/04/09/LaTex-Algorithm-and-Pseudocode/" class="post-title-link" itemprop="url">LaTex-Algorithm-and-Pseudocode</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-04-09 11:19:48" itemprop="dateCreated datePublished" datetime="2021-04-09T11:19:48+08:00">2021-04-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-10 02:38:00" itemprop="dateModified" datetime="2025-08-10T02:38:00+08:00">2025-08-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LaTeX/" itemprop="url" rel="index"><span itemprop="name">LaTeX</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>132</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Beautiful Algorithm-and-Pseudocode Style.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/09/LaTex-Algorithm-and-Pseudocode/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -3315,113 +2112,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2021/03/21/My-Hexo-Blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="makoMako">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pacific">
-      <meta itemprop="description" content="love math and dinosaurs">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Pacific">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/21/My-Hexo-Blog/" class="post-title-link" itemprop="url">我的NexT主题配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-21 00:27:45" itemprop="dateCreated datePublished" datetime="2021-03-21T00:27:45+08:00">2021-03-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-02 23:29:51" itemprop="dateModified" datetime="2025-08-02T23:29:51+08:00">2025-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>677</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Record my hexo-blog configs.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/21/My-Hexo-Blog/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/2021/03/12/Latex-Draw-a-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3541,13 +2231,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">26k</span>
+    <span title="站点总字数">23k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:33</span>
+    <span title="站点阅读时长">1:23</span>
   </span>
 </div>
   <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
