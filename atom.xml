@@ -133,9 +133,9 @@
     <category term="AI" scheme="https://zhu-jl18.github.io/categories/AI/"/>
     
     
-    <category term="AI" scheme="https://zhu-jl18.github.io/tags/AI/"/>
-    
     <category term="LaTeX" scheme="https://zhu-jl18.github.io/tags/LaTeX/"/>
+    
+    <category term="AI" scheme="https://zhu-jl18.github.io/tags/AI/"/>
     
   </entry>
   
@@ -158,9 +158,9 @@
     <category term="AI" scheme="https://zhu-jl18.github.io/categories/AI/"/>
     
     
-    <category term="LLM" scheme="https://zhu-jl18.github.io/tags/LLM/"/>
-    
     <category term="AI" scheme="https://zhu-jl18.github.io/tags/AI/"/>
+    
+    <category term="LLM" scheme="https://zhu-jl18.github.io/tags/LLM/"/>
     
     <category term="Gemini" scheme="https://zhu-jl18.github.io/tags/Gemini/"/>
     
