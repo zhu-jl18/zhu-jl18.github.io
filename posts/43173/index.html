@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -19,7 +20,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"zhu-jl18.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.2","exturl":true,"sidebar":{"position":"right","width_expanded":350,"width_dual_column":280,"display":"always","padding":18,"offset":13},"hljswrap":true,"codeblock":{"theme":{"light":"github","dark":"github-dark"},"prism":{"light":"prism-tomorrow","dark":"prism-tomorrow"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":200},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhu-jl18.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.23.2","exturl":true,"sidebar":{"position":"right","width_expanded":350,"width_dual_column":280,"display":"always","padding":18,"offset":13},"hljswrap":true,"codeblock":{"theme":{"light":"github","dark":"github-dark"},"prism":{"light":"prism-tomorrow","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":200},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="Expressions and vocabulary learned from the episode.">
 <meta property="og:type" content="article">
@@ -53,16 +54,21 @@
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
 <script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
   
-
-
-
-
-
-
-  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
@@ -73,7 +79,48 @@
 <script src="/js/third-party/math/mathjax.js" defer></script>
 
 
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zhu-jl18.github.io/posts/43173/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+<!-- 字体预加载优化 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<!-- 字体加载优化 -->
+<style>
+  /* 字体显示优化 */
+  @font-face {
+    font-family: 'Source Han Sans SC';
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Fira Code';
+    font-display: swap;
+  }
+</style>
+
+<!-- 关键CSS内联优化 -->
+<style>
+  /* 关键样式提前加载，减少FOUC */
+  body {
+    font-display: swap;
+  }
+  
+  /* 减少布局抖动 */
+  .sidebar {
+    contain: layout style;
+  }
+  
+  .main-inner {
+    contain: layout;
+  }
+</style>
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -101,11 +148,12 @@
       <p class="site-title">Dirac Sea</p>
       <i class="logo-line"></i>
     </a>
-      <img class="custom-logo-image" src="/images/evolution.png" alt="Dirac Sea">
+      <img class="custom-logo-image" src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog@main/logo/evolution.png" alt="Dirac Sea">
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -113,12 +161,38 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-timeline"><a href="/" rel="section"><i class="fa fa-bookmark fa-fw"></i>Timeline</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-timeline"><a href="/" rel="section"><i class="fa fa-bookmark fa-fw"></i>Timeline</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-milestones"><a href="/milestones/" rel="section"><i class="fa fa-trophy fa-fw"></i>Milestones</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </header>
         
@@ -144,16 +218,15 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="makoMako"
-      src="/images/avatar.jpg">
+      src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog@main/avatar/avatar.jpg">
   <p class="site-author-name" itemprop="name">makoMako</p>
   <div class="site-description" itemprop="description">love math and dinosaurs</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
-          <a href="/categories/">
         <span class="site-state-item-count">8</span>
-        <span class="site-state-item-name">分类</span></a>
+        <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
@@ -191,7 +264,7 @@
 <!-- 自定义侧边栏模块 - 在Next主题默认侧边栏基础上添加 -->
 
 <!-- 背景融合图片 -->
-<div style="margin: 20px 0; text-align: center;">
+<div class="sidebar-bottom-image" style="margin: 20px 0; text-align: center;">
   <a href="https://ncatlab.org/nlab/show/HomePage" target="_blank" rel="noopener noreferrer">
     <img src="/images/book.png" alt="The Book of Secret Knowledge" style="width: 100%; max-width: 160px; height: auto; border: none; box-shadow: none; opacity: 1; margin: 0 auto; display: block;">
   </a>
@@ -240,7 +313,7 @@
     <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/posts/43173/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog@main/avatar/avatar.jpg">
       <meta itemprop="name" content="makoMako">
     </span>
 
@@ -286,6 +359,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
@@ -366,6 +446,45 @@
 
     <footer class="post-footer"><!-- 文章底部自定义内容 -->
 
+
+
+<div class="giscus-container">
+  <script src="https://giscus.app/client.js"
+          data-repo="zhu-jl18/zhu-jl18.github.io"
+          data-repo-id=""
+          data-category="General"
+          data-category-id=""
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+
+<style>
+.giscus-container {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color, #e1e4e8);
+}
+
+.giscus {
+  width: 100%;
+}
+
+/* 暗黑模式适配 */
+[data-theme="dark"] .giscus-container {
+  border-top-color: var(--border-color, #30363d);
+}
+</style>
+
+
           <div class="followme">
   <span>欢迎关注我的其它发布渠道</span>
 
@@ -435,6 +554,24 @@
     <span title="站点阅读时长">1:41</span>
   </span>
 </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
   <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
   </div><!-- 页脚自定义内容 -->
 
@@ -460,86 +597,662 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-<!-- 左侧装饰模块 -->
-<div id="left-sidebar-modules" class="left-sidebar-modules">
+<!-- 简洁音乐播放器 -->
+<div id="music-player-widget" class="music-player-widget">
   <!-- 收缩按钮 -->
-  <div class="collapse-toggle" id="collapse-toggle" title="收起/展开">
+  <div class="player-toggle" id="player-toggle" title="收起/展开">
     <i class="fa fa-chevron-left"></i>
   </div>
   
-  <!-- 时钟模块 -->
-  <div class="left-module clock-module">
-    <div class="module-title">
-      <i class="fa-solid fa-clock"></i> 时间
+  <!-- 音乐播放器主体 -->
+  <div class="music-player">
+    <div class="player-header">
+      <i class="fa fa-music"></i>
+      <span>音乐播放器</span>
     </div>
-    <div class="clock-display" id="left-clock">
-      <div class="time">--:--:--</div>
-      <div class="date">----年--月--日</div>
-      <div class="week">星期-</div>
+    
+    <!-- 歌曲信息 -->
+    <div class="song-info">
+      <div class="song-title" id="song-title">未选择歌曲</div>
+      <div class="song-artist" id="song-artist">-</div>
     </div>
-  </div>
-
-  <!-- 天气模块 -->
-  <div class="left-module weather-module">
-    <div class="module-title">
-      <i class="fa fa-cloud"></i> 天气
+    
+    <!-- 播放控制按钮 -->
+    <div class="player-controls">
+      <button class="control-btn" id="prev-btn" title="上一首">
+        <i class="fa fa-step-backward"></i>
+      </button>
+      <button class="control-btn play-btn" id="play-btn" title="播放/暂停">
+        <i class="fa fa-play"></i>
+      </button>
+      <button class="control-btn" id="next-btn" title="下一首">
+        <i class="fa fa-step-forward"></i>
+      </button>
+      <button class="control-btn" id="shuffle-btn" title="随机播放">
+        <i class="fa fa-random"></i>
+      </button>
     </div>
-    <div class="weather-display" id="left-weather">
-      <div class="weather-loading">正在获取天气...</div>
-    </div>
-  </div>
-
-  <!-- 音乐播放器模块 -->
-  <div class="left-module music-module">
-    <div class="module-title">
-      <i class="fa fa-music"></i >音乐
-    </div>
-    <div class="music-player" id="left-music">
-      <div class="music-info">
-        <div class="song-title">暂无播放</div>
-        <div class="song-artist">-</div>
+    
+    <!-- 进度条 -->
+    <div class="progress-section">
+      <div class="progress-bar" id="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+        <div class="progress-handle" id="progress-handle"></div>
       </div>
-      <div class="music-controls">
-        <button class="music-btn" id="left-music-prev" title="上一首">
-          <i class="fa fa-step-backward"></i>
-        </button>
-        <button class="music-btn" id="left-music-play" title="播放/暂停">
-          <i class="fa fa-play"></i>
-        </button>
-        <button class="music-btn" id="left-music-next" title="下一首">
-          <i class="fa fa-step-forward"></i>
+      <div class="time-info">
+        <span id="current-time">0:00</span>
+        <span id="total-time">0:00</span>
+      </div>
+    </div>
+    
+    <!-- 音量控制 -->
+    <div class="volume-section">
+      <i class="fa fa-volume-up volume-icon"></i>
+      <div class="volume-bar" id="volume-bar">
+        <div class="volume-fill" id="volume-fill"></div>
+        <div class="volume-handle" id="volume-handle"></div>
+      </div>
+      <span class="volume-text" id="volume-text">30%</span>
+    </div>
+    
+    <!-- 播放列表 -->
+    <div class="playlist-section">
+      <div class="playlist-header">
+        <span>播放列表</span>
+        <button class="playlist-toggle" id="playlist-toggle">
+          <i class="fa fa-chevron-down"></i>
         </button>
       </div>
-      <div class="music-progress">
-        <div class="progress-bar">
-          <div class="progress-fill" id="left-music-progress-fill"></div>
-        </div>
-        <div class="time-display">
-          <span id="left-music-current-time">0:00</span>
-          <span id="left-music-total-time">0:00</span>
-        </div>
-      </div>
-      <div class="music-volume">
-        <i class="fa fa-volume-up"></i>
-        <span class="volume-display" id="left-music-volume-display">30%</span>
-        <div class="volume-controls">
-          <button class="volume-btn" id="left-music-volume-down" title="降低音量">
-            <i class="fa fa-volume-down"></i>
-          </button>
-          <button class="volume-btn" id="left-music-volume-up" title="提高音量">
-            <i class="fa fa-volume-up"></i>
-          </button>
-        </div>
+      <div class="playlist" id="playlist">
+        <div class="playlist-item loading">正在加载歌曲...</div>
       </div>
     </div>
   </div>
+  
+  <!-- 隐藏的音频元素 -->
+  <audio id="audio-player" preload="metadata"></audio>
 </div>
 
-<!-- 引入音乐配置文件 -->
-<script src="/js/music-config.js"></script>
+<script>
+// 音乐播放器配置
+const MUSIC_CONFIG = {
+  // GitHub CDN 基础路径
+  cdnBase: 'https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog@main/music/',
+  
+  // 音乐列表 - 请根据你的实际文件修改
+  playlist: [
+    {
+      title: '示例歌曲1',
+      artist: '示例艺术家',
+      file: 'song1.mp3'
+    },
+    {
+      title: '示例歌曲2', 
+      artist: '示例艺术家',
+      file: 'song2.mp3'
+    },
+    {
+      title: '示例歌曲3',
+      artist: '示例艺术家', 
+      file: 'song3.mp3'
+    }
+  ]
+};
 
-<!-- 引入侧边栏装饰模块JavaScript -->
-<script src="/js/sidebar-modules.js"></script>
+// 音乐播放器类
+class MusicPlayer {
+  constructor() {
+    this.audio = document.getElementById('audio-player');
+    this.currentIndex = 0;
+    this.isPlaying = false;
+    this.isShuffled = false;
+    this.volume = 0.3;
+    this.isPlaylistVisible = false;
+    
+    this.initElements();
+    this.initEvents();
+    this.loadPlaylist();
+    this.updateVolumeDisplay();
+  }
+  
+  initElements() {
+    // 播放控制元素
+    this.playBtn = document.getElementById('play-btn');
+    this.prevBtn = document.getElementById('prev-btn');
+    this.nextBtn = document.getElementById('next-btn');
+    this.shuffleBtn = document.getElementById('shuffle-btn');
+    
+    // 信息显示元素
+    this.songTitle = document.getElementById('song-title');
+    this.songArtist = document.getElementById('song-artist');
+    this.currentTime = document.getElementById('current-time');
+    this.totalTime = document.getElementById('total-time');
+    
+    // 进度条元素
+    this.progressBar = document.getElementById('progress-bar');
+    this.progressFill = document.getElementById('progress-fill');
+    this.progressHandle = document.getElementById('progress-handle');
+    
+    // 音量控制元素
+    this.volumeBar = document.getElementById('volume-bar');
+    this.volumeFill = document.getElementById('volume-fill');
+    this.volumeHandle = document.getElementById('volume-handle');
+    this.volumeText = document.getElementById('volume-text');
+    
+    // 播放列表元素
+    this.playlist = document.getElementById('playlist');
+    this.playlistToggle = document.getElementById('playlist-toggle');
+    
+    // 收缩控制
+    this.playerToggle = document.getElementById('player-toggle');
+    this.musicWidget = document.getElementById('music-player-widget');
+  }
+  
+  initEvents() {
+    // 播放控制事件
+    this.playBtn.addEventListener('click', () => this.togglePlay());
+    this.prevBtn.addEventListener('click', () => this.previousSong());
+    this.nextBtn.addEventListener('click', () => this.nextSong());
+    this.shuffleBtn.addEventListener('click', () => this.toggleShuffle());
+    
+    // 音频事件
+    this.audio.addEventListener('loadedmetadata', () => this.updateDuration());
+    this.audio.addEventListener('timeupdate', () => this.updateProgress());
+    this.audio.addEventListener('ended', () => this.nextSong());
+    this.audio.addEventListener('error', (e) => this.handleError(e));
+    
+    // 进度条事件
+    this.progressBar.addEventListener('click', (e) => this.seekTo(e));
+    this.initDragHandler(this.progressHandle, this.progressBar, (progress) => {
+      this.audio.currentTime = this.audio.duration * progress;
+    });
+    
+    // 音量控制事件
+    this.volumeBar.addEventListener('click', (e) => this.setVolume(e));
+    this.initDragHandler(this.volumeHandle, this.volumeBar, (volume) => {
+      this.volume = volume;
+      this.audio.volume = volume;
+      this.updateVolumeDisplay();
+    });
+    
+    // 播放列表事件
+    this.playlistToggle.addEventListener('click', () => this.togglePlaylist());
+    
+    // 收缩事件
+    this.playerToggle.addEventListener('click', () => this.toggleWidget());
+  }
+  
+  loadPlaylist() {
+    this.playlist.innerHTML = '';
+    MUSIC_CONFIG.playlist.forEach((song, index) => {
+      const item = document.createElement('div');
+      item.className = 'playlist-item';
+      item.innerHTML = `
+        <span class="song-info">
+          <strong>${song.title}</strong>
+          <small>${song.artist}</small>
+        </span>
+      `;
+      item.addEventListener('click', () => this.playSong(index));
+      this.playlist.appendChild(item);
+    });
+    
+    // 加载第一首歌曲
+    if (MUSIC_CONFIG.playlist.length > 0) {
+      this.loadSong(0);
+    }
+  }
+  
+  loadSong(index) {
+    if (index < 0 || index >= MUSIC_CONFIG.playlist.length) return;
+    
+    this.currentIndex = index;
+    const song = MUSIC_CONFIG.playlist[index];
+    
+    this.songTitle.textContent = song.title;
+    this.songArtist.textContent = song.artist;
+    this.audio.src = MUSIC_CONFIG.cdnBase + song.file;
+    
+    // 更新播放列表高亮
+    this.updatePlaylistHighlight();
+  }
+  
+  playSong(index) {
+    this.loadSong(index);
+    this.play();
+  }
+  
+  togglePlay() {
+    if (this.isPlaying) {
+      this.pause();
+    } else {
+      this.play();
+    }
+  }
+  
+  play() {
+    if (this.audio.src) {
+      this.audio.play().then(() => {
+        this.isPlaying = true;
+        this.playBtn.innerHTML = '<i class="fa fa-pause"></i>';
+      }).catch(e => this.handleError(e));
+    }
+  }
+  
+  pause() {
+    this.audio.pause();
+    this.isPlaying = false;
+    this.playBtn.innerHTML = '<i class="fa fa-play"></i>';
+  }
+  
+  previousSong() {
+    let newIndex = this.currentIndex - 1;
+    if (newIndex < 0) {
+      newIndex = MUSIC_CONFIG.playlist.length - 1;
+    }
+    this.playSong(newIndex);
+  }
+  
+  nextSong() {
+    let newIndex;
+    if (this.isShuffled) {
+      newIndex = Math.floor(Math.random() * MUSIC_CONFIG.playlist.length);
+    } else {
+      newIndex = (this.currentIndex + 1) % MUSIC_CONFIG.playlist.length;
+    }
+    this.playSong(newIndex);
+  }
+  
+  toggleShuffle() {
+    this.isShuffled = !this.isShuffled;
+    this.shuffleBtn.classList.toggle('active', this.isShuffled);
+  }
+  
+  seekTo(e) {
+    const rect = this.progressBar.getBoundingClientRect();
+    const progress = (e.clientX - rect.left) / rect.width;
+    this.audio.currentTime = this.audio.duration * progress;
+  }
+  
+  setVolume(e) {
+    const rect = this.volumeBar.getBoundingClientRect();
+    const volume = (e.clientX - rect.left) / rect.width;
+    this.volume = Math.max(0, Math.min(1, volume));
+    this.audio.volume = this.volume;
+    this.updateVolumeDisplay();
+  }
+  
+  updateProgress() {
+    if (this.audio.duration) {
+      const progress = this.audio.currentTime / this.audio.duration;
+      this.progressFill.style.width = `${progress * 100}%`;
+      this.progressHandle.style.left = `${progress * 100}%`;
+      this.currentTime.textContent = this.formatTime(this.audio.currentTime);
+    }
+  }
+  
+  updateDuration() {
+    this.totalTime.textContent = this.formatTime(this.audio.duration);
+  }
+  
+  updateVolumeDisplay() {
+    this.volumeFill.style.width = `${this.volume * 100}%`;
+    this.volumeHandle.style.left = `${this.volume * 100}%`;
+    this.volumeText.textContent = `${Math.round(this.volume * 100)}%`;
+  }
+  
+  updatePlaylistHighlight() {
+    const items = this.playlist.querySelectorAll('.playlist-item');
+    items.forEach((item, index) => {
+      item.classList.toggle('active', index === this.currentIndex);
+    });
+  }
+  
+  togglePlaylist() {
+    this.isPlaylistVisible = !this.isPlaylistVisible;
+    this.playlist.style.display = this.isPlaylistVisible ? 'block' : 'none';
+    this.playlistToggle.innerHTML = this.isPlaylistVisible 
+      ? '<i class="fa fa-chevron-up"></i>' 
+      : '<i class="fa fa-chevron-down"></i>';
+  }
+  
+  toggleWidget() {
+    this.musicWidget.classList.toggle('collapsed');
+    const icon = this.playerToggle.querySelector('i');
+    icon.className = this.musicWidget.classList.contains('collapsed') 
+      ? 'fa fa-chevron-right' 
+      : 'fa fa-chevron-left';
+  }
+  
+  initDragHandler(handle, container, callback) {
+    let isDragging = false;
+    
+    handle.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      e.preventDefault();
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      
+      const rect = container.getBoundingClientRect();
+      const progress = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      callback(progress);
+    });
+    
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+  }
+  
+  formatTime(seconds) {
+    if (isNaN(seconds)) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  }
+  
+  handleError(e) {
+    console.error('音频播放错误:', e);
+    this.songTitle.textContent = '播放出错';
+    this.songArtist.textContent = '请检查音频文件';
+  }
+}
+
+// 延迟初始化音乐播放器
+function initMusicPlayer() {
+  if (window.musicPlayerLoaded) return;
+  window.musicPlayerLoaded = true;
+  
+  // 等待DOM完全加载后初始化
+  setTimeout(() => {
+    window.musicPlayer = new MusicPlayer();
+  }, 100);
+}
+
+// 页面加载完成后延迟加载
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(initMusicPlayer, 1000);
+  });
+} else {
+  setTimeout(initMusicPlayer, 1000);
+}
+
+// 用户交互后立即加载
+document.addEventListener('click', initMusicPlayer, { once: true });
+document.addEventListener('scroll', initMusicPlayer, { once: true });
+</script>
+
+<!-- 控制台彩蛋 -->
+<script>
+(function() {
+  // 检查是否已经显示过彩蛋
+  if (sessionStorage.getItem('consoleEasterEggShown')) return;
+  
+  // 标记已显示
+  sessionStorage.setItem('consoleEasterEggShown', 'true');
+  
+  // 样式设置
+  const styles = {
+    title: 'color: #ff6b6b; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);',
+    subtitle: 'color: #4ecdc4; font-size: 16px; font-weight: bold;',
+    text: 'color: #45b7d1; font-size: 14px;',
+    math: 'color: #96ceb4; font-size: 12px; font-family: monospace;',
+    contact: 'color: #ffeaa7; font-size: 13px; font-weight: bold;'
+  };
+  
+  console.log('%c🦕 Dirac Sea - 狄拉克之海', styles.title);
+  console.log('%c═══════════════════════════════════════', 'color: #ddd;');
+  console.log('%c👋 你好，好奇的开发者！', styles.subtitle);
+  console.log('%c欢迎来到我的数学与技术世界', styles.text);
+  
+  console.log('\n%c📊 博客统计:', styles.subtitle);
+  console.log('%c• 主要内容: 数学笔记、技术文章、学习记录', styles.text);
+  console.log('%c• 技术栈: Hexo + NexT + GitHub Pages', styles.text);
+  console.log('%c• 特色功能: 数学公式渲染、暗黑模式、评论系统', styles.text);
+  
+  console.log('\n%c🧮 数学公式示例:', styles.subtitle);
+  console.log('%c∫_{-∞}^{+∞} e^{-x²} dx = √π', styles.math);
+  console.log('%cE = mc²', styles.math);
+  console.log('%ce^{iπ} + 1 = 0', styles.math);
+  
+  console.log('\n%c🔍 隐藏功能:', styles.subtitle);
+  console.log('%c• 试试访问不存在的页面，有小恐龙游戏哦！', styles.text);
+  console.log('%c• 数学图片支持点击放大查看', styles.text);
+  console.log('%c• 全站支持暗黑模式切换', styles.text);
+  
+  console.log('\n%c💬 联系方式:', styles.contact);
+  console.log('%cGitHub: https://github.com/zhu-jl18', styles.contact);
+  console.log('%cEmail: [在About页面查看]', styles.contact);
+  
+  console.log('%c🎯 彩蛋提示:', styles.subtitle);
+  console.log('%c输入 blog.stats() 查看博客统计', styles.text);
+  console.log('%c输入 blog.math() 显示随机数学公式', styles.text);
+  console.log('%c输入 blog.about() 了解更多信息', styles.text);
+  console.log('%c输入 blog.show() 重新显示这个欢迎信息', styles.text);
+  
+  console.log('\n%c🚀 快捷方式:', styles.subtitle);
+  console.log('%c双击字母键 E 可以快速重新显示控制台彩蛋', styles.text);
+  
+  console.log('\n%c═══════════════════════════════════════', 'color: #ddd;');
+  console.log('%c感谢你的访问！记得在评论区留言 😊', styles.text);
+  
+  // 添加交互式功能
+  window.blog = {
+    stats: function() {
+      const posts = document.querySelectorAll('.post-title, .post-meta').length;
+      console.log('%c📊 博客统计数据', 'color: #ff6b6b; font-size: 16px; font-weight: bold;');
+      console.log(`%c当前页面加载时间: ${performance.now().toFixed(2)}ms`, 'color: #4ecdc4;');
+      console.log(`%c页面元素数量: ${document.querySelectorAll('*').length}`, 'color: #4ecdc4;');
+      console.log(`%c图片数量: ${document.querySelectorAll('img').length}`, 'color: #4ecdc4;');
+      console.log(`%c链接数量: ${document.querySelectorAll('a').length}`, 'color: #4ecdc4;');
+    },
+    
+    math: function() {
+      const formulas = [
+        '∮ E⃗ · dA⃗ = Q/ε₀  (高斯定律)',
+        '∇ × B⃗ = μ₀J⃗ + μ₀ε₀∂E⃗/∂t  (安培定律)',
+        'ψ(x,t) = ∑ cₙφₙ(x)e^{-iEₙt/ℏ}  (薛定谔方程解)',
+        'S = k ln Ω  (玻尔兹曼熵公式)',
+        'ds² = -c²dt² + dx² + dy² + dz²  (闵可夫斯基度规)',
+        'Γ(z) = ∫₀^∞ t^{z-1}e^{-t}dt  (伽马函数)',
+        '∑_{n=1}^∞ 1/n² = π²/6  (巴塞尔问题)'
+      ];
+      const formula = formulas[Math.floor(Math.random() * formulas.length)];
+      console.log('%c🧮 随机数学公式:', 'color: #ff6b6b; font-size: 16px; font-weight: bold;');
+      console.log(`%c${formula}`, 'color: #96ceb4; font-size: 14px; font-family: monospace;');
+    },
+    
+    about: function() {
+      console.log('%c🎓 关于博主', 'color: #ff6b6b; font-size: 16px; font-weight: bold;');
+      console.log('%c• 数学爱好者，喜欢探索数学的美妙', 'color: #4ecdc4;');
+      console.log('%c• 技术学习者，持续关注新技术发展', 'color: #4ecdc4;');
+      console.log('%c• 知识分享者，乐于记录学习心得', 'color: #4ecdc4;');
+      console.log('%c博客主要分享数学学习笔记和技术实践经验', 'color: #45b7d1;');
+    },
+    
+    show: function() {
+      // 重新显示完整的控制台彩蛋
+      console.clear();
+      console.log('%c🦕 Dirac Sea - 狄拉克之海', 'color: #ff6b6b; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
+      console.log('%c═══════════════════════════════════════', 'color: #ddd;');
+      console.log('%c👋 你好，好奇的开发者！', 'color: #4ecdc4; font-size: 16px; font-weight: bold;');
+      console.log('%c欢迎来到我的数学与技术世界', 'color: #45b7d1; font-size: 14px;');
+      
+      console.log('\n%c📊 博客统计:', 'color: #4ecdc4; font-size: 16px; font-weight: bold;');
+      console.log('%c• 主要内容: 数学笔记、技术文章、学习记录', 'color: #45b7d1; font-size: 14px;');
+      console.log('%c• 技术栈: Hexo + NexT + GitHub Pages', 'color: #45b7d1; font-size: 14px;');
+      console.log('%c• 特色功能: 数学公式渲染、暗黑模式、评论系统', 'color: #45b7d1; font-size: 14px;');
+      
+      console.log('\n%c🧮 数学公式示例:', 'color: #4ecdc4; font-size: 16px; font-weight: bold;');
+      console.log('%c∫_{-∞}^{+∞} e^{-x²} dx = √π', 'color: #96ceb4; font-size: 12px; font-family: monospace;');
+      console.log('%cE = mc²', 'color: #96ceb4; font-size: 12px; font-family: monospace;');
+      console.log('%ce^{iπ} + 1 = 0', 'color: #96ceb4; font-size: 12px; font-family: monospace;');
+      
+      console.log('\n%c🔍 隐藏功能:', 'color: #4ecdc4; font-size: 16px; font-weight: bold;');
+      console.log('%c• 试试访问不存在的页面，有小恐龙游戏哦！', 'color: #45b7d1; font-size: 14px;');
+      console.log('%c• 数学图片支持点击放大查看', 'color: #45b7d1; font-size: 14px;');
+      console.log('%c• 全站支持暗黑模式切换', 'color: #45b7d1; font-size: 14px;');
+      
+      console.log('\n%c💬 联系方式:', 'color: #ffeaa7; font-size: 13px; font-weight: bold;');
+      console.log('%cGitHub: https://github.com/zhu-jl18', 'color: #ffeaa7; font-size: 13px; font-weight: bold;');
+      console.log('%cEmail: [在About页面查看]', 'color: #ffeaa7; font-size: 13px; font-weight: bold;');
+      
+      console.log('\n%c🎯 彩蛋提示:', 'color: #4ecdc4; font-size: 16px; font-weight: bold;');
+      console.log('%c输入 blog.stats() 查看博客统计', 'color: #45b7d1; font-size: 14px;');
+      console.log('%c输入 blog.math() 显示随机数学公式', 'color: #45b7d1; font-size: 14px;');
+      console.log('%c输入 blog.about() 了解更多信息', 'color: #45b7d1; font-size: 14px;');
+      console.log('%c输入 blog.show() 重新显示这个欢迎信息', 'color: #45b7d1; font-size: 14px;');
+      
+      console.log('\n%c🚀 快捷方式:', 'color: #4ecdc4; font-size: 16px; font-weight: bold;');
+      console.log('%c双击字母键 E 可以快速重新显示控制台彩蛋', 'color: #45b7d1; font-size: 14px;');
+      
+      console.log('\n%c═══════════════════════════════════════', 'color: #ddd;');
+      console.log('%c感谢你的访问！记得在评论区留言 😊', 'color: #45b7d1; font-size: 14px;');
+    }
+  };
+  
+})();
+</script>
+
+<!-- 更多趣味彩蛋 -->
+<script>
+// Konami Code 彩蛋 (上上下下左右左右BA)
+(function() {
+  const konamiCode = [
+    'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+    'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+    'KeyB', 'KeyA'
+  ];
+  let konamiIndex = 0;
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.code === konamiCode[konamiIndex]) {
+      konamiIndex++;
+      if (konamiIndex === konamiCode.length) {
+        // 触发彩蛋效果
+        triggerKonamiEasterEgg();
+        konamiIndex = 0;
+      }
+    } else {
+      konamiIndex = 0;
+    }
+  });
+  
+  function triggerKonamiEasterEgg() {
+    // 创建彩虹色文字效果
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes rainbow {
+        0% { color: #ff0000; }
+        16% { color: #ff8000; }
+        33% { color: #ffff00; }
+        50% { color: #00ff00; }
+        66% { color: #0000ff; }
+        83% { color: #8000ff; }
+        100% { color: #ff0000; }
+      }
+      .konami-rainbow { animation: rainbow 1s infinite; }
+    `;
+    document.head.appendChild(style);
+    
+    // 应用效果到页面标题
+    const title = document.querySelector('.site-title, h1');
+    if (title) {
+      title.classList.add('konami-rainbow');
+      setTimeout(() => {
+        title.classList.remove('konami-rainbow');
+        document.head.removeChild(style);
+      }, 5000);
+    }
+    
+    console.log('%c🎉 Konami Code 激活！', 'color: #ff6b6b; font-size: 20px; font-weight: bold;');
+    console.log('%c恭喜你发现了隐藏彩蛋！', 'color: #4ecdc4; font-size: 16px;');
+    alert('🎉 Konami Code 彩蛋激活！\n你真是个有趣的访客！');
+  }
+})();
+
+// 鼠标点击数学符号特效
+(function() {
+  const mathSymbols = ['∫', '∑', '∏', '∞', 'π', 'Ω', 'Δ', '∇', '∂', '∈', '∪', '∩', '⊆', '⊇', '≈', '≡', '±', '√'];
+  
+  document.addEventListener('click', function(e) {
+    // 随机决定是否显示特效 (20% 概率)
+    if (Math.random() > 0.8) {
+      createMathSymbolEffect(e.clientX, e.clientY);
+    }
+  });
+  
+  function createMathSymbolEffect(x, y) {
+    const symbol = mathSymbols[Math.floor(Math.random() * mathSymbols.length)];
+    const element = document.createElement('div');
+    
+    element.textContent = symbol;
+    element.style.cssText = `
+      position: fixed;
+      left: ${x}px;
+      top: ${y}px;
+      font-size: 20px;
+      color: #4ecdc4;
+      font-weight: bold;
+      pointer-events: none;
+      z-index: 9999;
+      animation: float-up 2s ease-out forwards;
+    `;
+    
+    // 添加动画
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes float-up {
+        0% { opacity: 1; transform: translateY(0) scale(1); }
+        100% { opacity: 0; transform: translateY(-50px) scale(1.5); }
+      }
+    `;
+    if (!document.querySelector('#math-symbol-animation')) {
+      style.id = 'math-symbol-animation';
+      document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(element);
+    
+    // 2秒后移除元素
+    setTimeout(() => {
+      if (element.parentNode) {
+        element.parentNode.removeChild(element);
+      }
+    }, 2000);
+  }
+})();
+
+// 双击E键快捷方式 - 快速显示控制台彩蛋
+(function() {
+  let lastEKeyTime = 0;
+  const doubleClickThreshold = 300; // 300ms内为双击
+  
+  document.addEventListener('keydown', function(e) {
+    // 只在没有聚焦到输入框且没有修饰键的情况下触发
+    if (e.code === 'KeyE' && 
+        !e.ctrlKey && !e.altKey && !e.shiftKey && !e.metaKey && 
+        !document.activeElement.matches('input, textarea, [contenteditable]') &&
+        !document.querySelector('.local-search-pop-overlay')) {
+      
+      const currentTime = Date.now();
+      
+      // 检查是否为双击
+      if (currentTime - lastEKeyTime < doubleClickThreshold) {
+        // 双击E键触发，不阻止默认行为
+        if (window.blog && window.blog.show) {
+          window.blog.show();
+        }
+        lastEKeyTime = 0; // 重置，防止连续触发
+      } else {
+        lastEKeyTime = currentTime;
+      }
+    }
+  });
+})();
+</script>
 
 
 
