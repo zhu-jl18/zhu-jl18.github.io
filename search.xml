@@ -546,103 +546,6 @@
       </tags>
   </entry>
   <entry>
-    <title>The Evolution of My GitHub Profile</title>
-    <url>/posts/17888/</url>
-    <content><![CDATA[<blockquote>
-<p>摘要：记录了一次有趣的”人机协作”经历——和Gemini一起从零开始，打造了一个让我非常满意的Github Profile。</p>
-</blockquote>
-<span id="more"></span>
-<hr>
-<h2 id="🎯-先看效果，再聊过程"><a href="#🎯-先看效果，再聊过程" class="headerlink" title="🎯 先看效果，再聊过程"></a>🎯 先看效果，再聊过程</h2><p>我的GitHub Profile现在长这样：</p>
-<ul>
-<li><strong>个人简介</strong>：简洁的自我介绍）</li>
-<li><strong>技术栈展示</strong>：用图标展示我会的编程语言（虽然有些可能已经忘得差不多了😅）</li>
-<li><strong>数学卡片</strong>：高斯绝妙定理–数学之美！</li>
-<li><strong>动态博客列表</strong>：自动更新我最新写的文章</li>
-<li><strong>贪吃蛇贡献图</strong>：把GitHub的贡献日历变成动画，单纯好玩</li>
-</ul>
-<p>一开始我就是想要个好看的Profile</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/year-month/name" alt="最终效果预览"></p>
-<h2 id="🛠️-技术实现：从简单到复杂"><a href="#🛠️-技术实现：从简单到复杂" class="headerlink" title="🛠️ 技术实现：从简单到复杂"></a>🛠️ 技术实现：从简单到复杂</h2><h3 id="1-基础部分：Markdown-HTML"><a href="#1-基础部分：Markdown-HTML" class="headerlink" title="1. 基础部分：Markdown + HTML"></a>1. 基础部分：Markdown + HTML</h3><p>GitHub Profile本质上就是一个<code>README.md</code>文件。Markdown -&gt; HTML 懂了吧。</p>
-<blockquote>
-<p>💡 <strong>踩雷记录</strong>：GitHub Profile的README.md文件有特殊的渲染规则，支持HTML但不支持所有CSS属性，比如坑爹的超链接！</p>
-</blockquote>
-<h4 id="个人介绍：简洁清爽"><a href="#个人介绍：简洁清爽" class="headerlink" title="个人介绍：简洁清爽"></a>个人介绍：简洁清爽</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 👨‍💻 About Me</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left; display: inline-block;&quot;</span>&gt;</span></span><br><span class="line"> 🎓 毕业于 **清华大学 (THU)**</span><br><span class="line"> 🌱 目前就读于 **中国科学院大学 (UCAS)**</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="技术栈：用现成的"><a href="#技术栈：用现成的" class="headerlink" title="技术栈：用现成的"></a>技术栈：用现成的</h4><p>用<span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span>，一行代码即可。</p>
-<blockquote>
-<p>🎯 <strong>为什么选择这个服务？</strong> 完全免费，部署简单，”懒人”福音</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://skillicons.dev&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://skillicons.dev/icons?i=python,cpp,java,js,html,css,latex,vscode,git&amp;perline=9&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="特色卡片：数学之美"><a href="#特色卡片：数学之美" class="headerlink" title="特色卡片：数学之美"></a>特色卡片：数学之美</h4><p>我最喜欢的数学家——高斯和他都觉得妙的——高斯绝妙定理：</p>
-<blockquote>
-<p>🧮 <strong>高斯绝妙定理</strong> 这个定理告诉say： 曲面的高斯曲率是内蕴几何量，不依赖于曲面在空间中的嵌入方式。</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin: 16px 0;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;display: flex; align-items: center; gap: 16px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;path/to/Gauss.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;120&quot;</span> <span class="attr">style</span>=<span class="string">&quot;border-radius: 6px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Theorema Egregium<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>高斯绝妙定理：曲面的高斯曲率K是内蕴几何量<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://en.wikipedia.org/wiki/Theorema_Egregium&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;white&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-自动化：Profile”活”了"><a href="#2-自动化：Profile”活”了" class="headerlink" title="2. 自动化：Profile”活”了"></a>2. 自动化：Profile”活”了</h3><p>这部分是让Profile真正”活”起来的关键。通过GitHub Actions，实现自动更新，让Profile不再是静态的展示页面。</p>
-<h4 id="自动更新博客列表"><a href="#自动更新博客列表" class="headerlink" title="自动更新博客列表"></a>自动更新博客列表</h4><p>用<code>gautamkrishnar/blog-post-workflow</code>这个Action，配置简单，每次发布新博客，Profile就会自动更新，无需手动维护：</p>
-<blockquote>
-<p>🔄 <strong>自动化原理</strong>：这个Action会定期抓取博客RSS Feed，然后自动更新README.md文件中的博客列表。</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Latest</span> <span class="string">blog</span> <span class="string">post</span> <span class="string">workflow</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&#x27;0 * * * *&#x27;</span>  <span class="comment"># 每小时运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">update-readme-with-blog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Update</span> <span class="string">this</span> <span class="string">repo&#x27;s</span> <span class="string">README</span> <span class="string">with</span> <span class="string">latest</span> <span class="string">blog</span> <span class="string">posts</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">gautamkrishnar/blog-post-workflow@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">disable_cache:</span> <span class="literal">true</span></span><br><span class="line">          <span class="attr">feed_list:</span> <span class="string">&quot;https://zhu-jl18.github.io/atom.xml&quot;</span></span><br><span class="line">          <span class="attr">max_post_count:</span> <span class="number">5</span></span><br><span class="line">          <span class="attr">template:</span> <span class="string">&#x27;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;\(url&quot; style=&quot;text-decoration: none; color: #20B2AA;&quot;&gt;\)title&lt;/a&gt;&lt;/p&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>在README中设置占位符：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 📝 Recent Blog Posts</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- BLOG-POST-LIST:START --&gt;</span><span class="comment">&lt;!-- BLOG-POST-LIST:END --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="贪吃蛇贡献图"><a href="#贪吃蛇贡献图" class="headerlink" title="贪吃蛇贡献图"></a>贪吃蛇贡献图</h4><p>用<code>Platane/snk</code>这个Action，自动生成动画版的贡献图。这个功能纯粹是为了好玩：</p>
-<blockquote>
-<p>🐍 <strong>“贪吃蛇”？！</strong> 因为这个动画看起来就像一条蛇在吃贡献点，从年初吃到年末。虽然没什么实际用途，因为我基本不贡献。</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">generate</span> <span class="string">animation</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&quot;0 0 * * *&quot;</span>  <span class="comment"># 每天运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">generate:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">timeout-minutes:</span> <span class="number">10</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">Platane/snk@v3</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">snake-gif</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_user_name:</span> <span class="string">zhu-jl18</span></span><br><span class="line">          <span class="attr">svg_out_path:</span> <span class="string">dist/github-snake.svg</span></span><br><span class="line">          <span class="attr">snake_color:</span> <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">crazy-max/ghaction-github-pages@v2.1.3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">target_branch:</span> <span class="string">output</span></span><br><span class="line">          <span class="attr">build_dir:</span> <span class="string">dist</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>然后在README中引用：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake-dark.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">&quot;github snake animation&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="🤖-人机协作实录"><a href="#🤖-人机协作实录" class="headerlink" title="🤖 人机协作实录"></a>🤖 人机协作实录</h2><p>此部分记录了与Gemini共同实现Profile的过程。我负责设计思路与整体规划，Gemini负责具体代码实现。</p>
-<blockquote>
-<p>🤖 <strong>协作原则</strong>：大模型不是万能的，它虽然懂得很多，但是你得让他明白你到底要他干什么~</p>
-</blockquote>
-<h3 id="协作过程"><a href="#协作过程" class="headerlink" title="协作过程"></a>协作过程</h3><p><strong>我</strong>：我想在GitHub Profile上展示我的博客列表，有什么好办法吗？</p>
-<p><strong>Gemini</strong>：可以用<code>blog-post-workflow</code>这个Action，配置很简单…</p>
-<p><strong>结果</strong>：基础功能实现了，但样式很丑。典型的”能用就行”状态。</p>
-<h3 id="第二轮：样式优化"><a href="#第二轮：样式优化" class="headerlink" title="第二轮：样式优化"></a>第二轮：样式优化</h3><p><strong>我</strong>：这个列表样式不好看，我想要卡片式布局，并且居中显示。</p>
-<p><strong>Gemini</strong>：可以用复杂的HTML+CSS来实现…</p>
-<p><strong>结果</strong>：GitHub不支持复杂的CSS样式，居中效果失效了。这就是典型的”过度设计”问题。</p>
-<h3 id="第三轮：回归本质"><a href="#第三轮：回归本质" class="headerlink" title="第三轮：回归本质"></a>第三轮：回归本质</h3><p><strong>我</strong>：GitHub不支持这些复杂样式，还是都在左边。我不要日期了，字体大小也改不了，就让它简单的居中就行。</p>
-<p><strong>Gemini</strong>：那就用最简单的<code>&lt;p align=&quot;center&quot;&gt;</code>标签吧。</p>
-<p><strong>结果</strong>：完美！有时候最简单的方案就是最好的方案。这让我想起了KISS原则（Keep It Simple, Stupid）。</p>
-<h2 id="💡-协作心得"><a href="#💡-协作心得" class="headerlink" title="💡 协作心得"></a>💡 协作心得</h2><p>与AI协作编程！！！：</p>
-<ol>
-<li><strong>明确目标</strong>：想清楚你要什么，不要模棱两可。AI不是读心术，你得说清楚。</li>
-<li><strong>小步快跑</strong>：尝试一个方案，立即测试，然后带着结果进行下一轮沟通。不要一次性要求太多。</li>
-<li><strong>提供精确反馈</strong>：不要说”不行”，要说”哪里不行”、”为什么不行”。AI需要具体的错误信息。</li>
-<li><strong>回归本质</strong>：当复杂方案失效时，往往最简单的方案最有效。这大概就是所谓的”大道至简”吧。</li>
-</ol>
-<p>总的来说， AI极其吃数据，你喂给他是好东西他就也会输出好东西。</p>
-<h2 id="🎉-总结"><a href="#🎉-总结" class="headerlink" title="🎉 总结"></a>🎉 总结</h2><p>Gemini还不错，最后效果超出我预料地好看。</p>
-<p><strong>这是我大模型使用的初期探索，后来我会了很多优化技巧，早期的这些尝试也是很有意思的。</strong></p>
-<hr>
-<p><strong>Ref:</strong></p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhdXRhbWtyaXNobmFyL2Jsb2ctcG9zdC13b3JrZmxvdw==">blog-post-workflow<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1BsYXRhbmUvc25r">snk<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术折腾</category>
-        <category>AI协作</category>
-      </categories>
-      <tags>
-        <tag>GitHub</tag>
-        <tag>AI协作</tag>
-        <tag>自动化</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Duality and Isomorpism I</title>
     <url>/posts/21655/</url>
     <content><![CDATA[<blockquote>
@@ -983,122 +886,100 @@
       </tags>
   </entry>
   <entry>
-    <title>English-Jill-Missed-Situation-and-BITE-and-KEEP</title>
-    <url>/posts/61400/</url>
-    <content><![CDATA[<p>Expressions about Missed Situation, BITE and KEEP.</p>
+    <title>The Evolution of My GitHub Profile</title>
+    <url>/posts/17888/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：记录了一次有趣的”人机协作”经历——和Gemini一起从零开始，打造了一个让我非常满意的Github Profile。</p>
+</blockquote>
 <span id="more"></span>
-
-
-
-
-
-<h3 id="Ways-to-talk-about-a-MISSED-SITUATION"><a href="#Ways-to-talk-about-a-MISSED-SITUATION" class="headerlink" title="Ways to talk about a MISSED SITUATION"></a>Ways to talk about a MISSED SITUATION</h3><p>A <strong>MISSED SITUATION</strong> means that <em>you were going to do something, but something else happened and it stopped you doing what you wanted to do</em>. In Chinese it means “我本来想 但是”. </p>
-<p>There are 5 expressions to describe it:</p>
-<div class="note warning"><p><strong>going to, but</strong><br>I was <u>going to</u> go shopping, <u>but</u> I got a phone call which lasted nearly an hour, and by the time the call ended the shops were are shut.</p>
-<p> <strong>all set to, but</strong><br>I was <u>all set to</u> go on holiday, <u>but</u> then my car broke down , and i had to spend the money on repairs instead.</p>
-<p> <strong>would have, but</strong><br>I <u>would have</u> called you yesterday, <u>but</u> my phone wasn’t working.</p>
-<p><strong>had every intention of, but</strong><br>I <u> had every intention of</u> returning the book to the library last week,  <u>but</u> I had a friend staying, and she had been reading it.</p>
-<p> <strong>had it all arranged to, but</strong><br>I <u>had it all arranged to</u> give my friend a surprise party, <u>but</u> then she found out about my plan, and said she didn’t want one!
- </p>
-</div>
-
-<p>The following is a reverse of the missed situation which you should have missed it. That means it would have been better if you had missed it.</p>
-<div class="note warning"><p><strong>If only, then … wouldn’t have . As it is, …</strong><br><u>If only</u> I’d listened to your advice, <u>then</u> I <u>wouldn’t have</u> invested with that bank. <u>As it is</u>, I’ve lost a lot of money.</p>
-</div>
-
-<h3 id="Expressions-using-BITE"><a href="#Expressions-using-BITE" class="headerlink" title="Expressions using BITE"></a>Expressions using BITE</h3><p>The literal meaning of “bite” is <em>to use your teeth to cut into something or someone</em>. In Chinese it means “咬”. But there are lots of examples in which bite are used in particular ways to express metaphorical meanings, metaphors, idioms.</p>
-<p>If you say something to somebody, and they just reply in an aggressive way, unpleasant, like: “What do you mean?” or “Oh, don’t bother me now, I’m busy”. That’s called:</p>
-<div class="note warning"><p><strong>bite sb’s head off</strong> 莫名其妙地对…发脾气<br>I told my girlfreind that I liked that picture, but she said “Ugh, it’s dreadful! How can you possibly like that? Stupid of you to like that picture”. She really bit my head off !</p>
-</div>
-
-<p>If you bite your tongue, you mean to stop yourself from saying something that you would really like to say.</p>
-<div class="note warning"><p><strong>bite one’s tongue</strong> 缄口不语<br>But I thought she couldn’t get its beauty. Then I had to bit my tongue to avoid an argument.</p>
-</div>
-
-<p>The next one is “bite the bullet”. It describes the situation where you have to force yourself to do something unpleasant or difficult, or to be brave to face it. Breifly, I don’t want to do, but I have to.</p>
-<div class="note warning"><p><strong>bite the bullet</strong> 咬紧牙关应付，硬着头皮应对<br>I hate singing before people, but I’ll just have to bite the bullet.</p>
-</div>
-
-<p>When you try to do something that is too difficult for you, you are biting off more than you can chew, which is a vivid metaphor as an idiom.</p>
-<div class="note warning"><p><strong>bite off more than you can chew</strong> 承担力所不及的事；不自量力<br>I bit off more than I could chew in my original plan.</p>
-</div>
-
-<p>If someone’s bark is worse than their bite, they are not as unpleasant or frightening as they seem.</p>
-<div class="note warning"><p><strong>sb’s bark is worse than his&#x2F;her bite</strong> 刀子嘴豆腐心；言语比行动吓人<br>My bark is definitely worse than my bite. When people get to know me, they’ll tell you I’m just a big softy really.</p>
-</div>
-
-<h3 id="Ways-to-use-the-verb-KEEP"><a href="#Ways-to-use-the-verb-KEEP" class="headerlink" title="Ways to use the verb KEEP"></a>Ways to use the verb KEEP</h3><p>Not the same as To HOLD:</p>
-<div class="note warning"><p><strong>to hold</strong> is a temporary thing<br>Can you hold my bag while I put my coat on?(then give it back)</p>
-</div>
-
-<p>Then its first meaning  <em>to have or continue to have in your possession</em>  ~ Retain</p>
-<div class="note warning"><p>If you like it，you can keep it.  I told the taxi driver to keep the change. </p>
-</div>
-
-
-
-<div class="note warning"><p>He keeps his car in good condition.<br>Do you keep a diary?<br>Can you keep the secret?</p>
-</div>
-
-<p>Another slightly different meaning ~ continue</p>
-<div class="note warning"><p>It’s a long journey, but we must keep going.<br>If we keep that tall building in sight, we won’t get lost.<br>The food will keep if you put it in the freezer</p>
-</div>
-
-<p>keep off the grass It’s an order, you can not walk on the grass.</p>
-]]></content>
-      <categories>
-        <category>English</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>English-DailyLearn-01</title>
-    <url>/posts/55322/</url>
-    <content><![CDATA[<p>English learned everyday!</p>
-<span id="more"></span>
-
-
+<hr>
+<h2 id="🎯-先看效果，再聊过程"><a href="#🎯-先看效果，再聊过程" class="headerlink" title="🎯 先看效果，再聊过程"></a>🎯 先看效果，再聊过程</h2><p>我的GitHub Profile现在长这样：</p>
 <ul>
-<li><p><strong>discipline</strong> <code>a particular area of study, especially a subject studied at a college or university</code></p>
-</li>
-<li><p><strong>precisely</strong>  <code>exactly; used to emphasize what you are saying</code></p>
-</li>
-<li><p><strong>embankment</strong> <code>堤岸，路堤</code> </p>
-</li>
-<li><p><strong>revision</strong> <code>复习；修改</code></p>
-</li>
-<li><p><strong>conjure (up)</strong> <code>to make something appear by magic, or as if by magic</code></p>
-</li>
-<li><p><strong>spell disaster, trouble, etc.</strong>  <code>意味着灾难，会招致麻烦（等等）</code></p>
-</li>
-<li><p><strong>sorcerer</strong> <code>巫师，术士，魔法师</code></p>
-</li>
-<li><hr>
-</li>
-<li><p><strong>recruit</strong> <code>招聘，吸引加入；（尤指军队）征募新兵</code> <code>This association has recruited enthusiasts from many professions</code></p>
-</li>
-<li><p><strong>excel (in)</strong>  <code>vi.</code> <code>to be extremely good at something</code></p>
-</li>
-<li><p><strong>excel yourself</strong> <code>to do something better than you usually do</code></p>
-</li>
-<li><p><strong>facilitate</strong> <code>to make something possible or easier</code></p>
-</li>
-<li><p><strong>inhale</strong>  <code>vi, vt.</code> <code>to breathe air, smoke, or gas into your lungs</code></p>
-</li>
-<li><p><strong>prompt</strong>   <code>to make something happen</code></p>
-</li>
-<li><p><strong>egotistic</strong> <code>considering yourself to be better or more important than other people自大的，自负的，念念不忘自我的</code></p>
-</li>
-<li><p><strong>merit</strong>  <code>the quality of being good and deserving praise</code> <code>Her ideas have merit.</code></p>
-</li>
-<li><p><em>controversial3</em></p>
-</li>
+<li><strong>个人简介</strong>：简洁的自我介绍）</li>
+<li><strong>技术栈展示</strong>：用图标展示我会的编程语言（虽然有些可能已经忘得差不多了😅）</li>
+<li><strong>数学卡片</strong>：高斯绝妙定理–数学之美！</li>
+<li><strong>动态博客列表</strong>：自动更新我最新写的文章</li>
+<li><strong>贪吃蛇贡献图</strong>：把GitHub的贡献日历变成动画，单纯好玩</li>
+</ul>
+<p>一开始我就是想要个好看的Profile</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/year-month/name" alt="最终效果预览"></p>
+<h2 id="🛠️-技术实现：从简单到复杂"><a href="#🛠️-技术实现：从简单到复杂" class="headerlink" title="🛠️ 技术实现：从简单到复杂"></a>🛠️ 技术实现：从简单到复杂</h2><h3 id="1-基础部分：Markdown-HTML"><a href="#1-基础部分：Markdown-HTML" class="headerlink" title="1. 基础部分：Markdown + HTML"></a>1. 基础部分：Markdown + HTML</h3><p>GitHub Profile本质上就是一个<code>README.md</code>文件。Markdown -&gt; HTML 懂了吧。</p>
+<blockquote>
+<p>💡 <strong>踩雷记录</strong>：GitHub Profile的README.md文件有特殊的渲染规则，支持HTML但不支持所有CSS属性，比如坑爹的超链接！</p>
+</blockquote>
+<h4 id="个人介绍：简洁清爽"><a href="#个人介绍：简洁清爽" class="headerlink" title="个人介绍：简洁清爽"></a>个人介绍：简洁清爽</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 👨‍💻 About Me</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left; display: inline-block;&quot;</span>&gt;</span></span><br><span class="line"> 🎓 毕业于 **清华大学 (THU)**</span><br><span class="line"> 🌱 目前就读于 **中国科学院大学 (UCAS)**</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="技术栈：用现成的"><a href="#技术栈：用现成的" class="headerlink" title="技术栈：用现成的"></a>技术栈：用现成的</h4><p>用<span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span>，一行代码即可。</p>
+<blockquote>
+<p>🎯 <strong>为什么选择这个服务？</strong> 完全免费，部署简单，”懒人”福音</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://skillicons.dev&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://skillicons.dev/icons?i=python,cpp,java,js,html,css,latex,vscode,git&amp;perline=9&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="特色卡片：数学之美"><a href="#特色卡片：数学之美" class="headerlink" title="特色卡片：数学之美"></a>特色卡片：数学之美</h4><p>我最喜欢的数学家——高斯和他都觉得妙的——高斯绝妙定理：</p>
+<blockquote>
+<p>🧮 <strong>高斯绝妙定理</strong> 这个定理告诉say： 曲面的高斯曲率是内蕴几何量，不依赖于曲面在空间中的嵌入方式。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin: 16px 0;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;display: flex; align-items: center; gap: 16px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;path/to/Gauss.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;120&quot;</span> <span class="attr">style</span>=<span class="string">&quot;border-radius: 6px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Theorema Egregium<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>高斯绝妙定理：曲面的高斯曲率K是内蕴几何量<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://en.wikipedia.org/wiki/Theorema_Egregium&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;white&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-自动化：Profile”活”了"><a href="#2-自动化：Profile”活”了" class="headerlink" title="2. 自动化：Profile”活”了"></a>2. 自动化：Profile”活”了</h3><p>这部分是让Profile真正”活”起来的关键。通过GitHub Actions，实现自动更新，让Profile不再是静态的展示页面。</p>
+<h4 id="自动更新博客列表"><a href="#自动更新博客列表" class="headerlink" title="自动更新博客列表"></a>自动更新博客列表</h4><p>用<code>gautamkrishnar/blog-post-workflow</code>这个Action，配置简单，每次发布新博客，Profile就会自动更新，无需手动维护：</p>
+<blockquote>
+<p>🔄 <strong>自动化原理</strong>：这个Action会定期抓取博客RSS Feed，然后自动更新README.md文件中的博客列表。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Latest</span> <span class="string">blog</span> <span class="string">post</span> <span class="string">workflow</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&#x27;0 * * * *&#x27;</span>  <span class="comment"># 每小时运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">update-readme-with-blog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Update</span> <span class="string">this</span> <span class="string">repo&#x27;s</span> <span class="string">README</span> <span class="string">with</span> <span class="string">latest</span> <span class="string">blog</span> <span class="string">posts</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">gautamkrishnar/blog-post-workflow@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">disable_cache:</span> <span class="literal">true</span></span><br><span class="line">          <span class="attr">feed_list:</span> <span class="string">&quot;https://zhu-jl18.github.io/atom.xml&quot;</span></span><br><span class="line">          <span class="attr">max_post_count:</span> <span class="number">5</span></span><br><span class="line">          <span class="attr">template:</span> <span class="string">&#x27;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;\(url&quot; style=&quot;text-decoration: none; color: #20B2AA;&quot;&gt;\)title&lt;/a&gt;&lt;/p&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>在README中设置占位符：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 📝 Recent Blog Posts</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- BLOG-POST-LIST:START --&gt;</span><span class="comment">&lt;!-- BLOG-POST-LIST:END --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="贪吃蛇贡献图"><a href="#贪吃蛇贡献图" class="headerlink" title="贪吃蛇贡献图"></a>贪吃蛇贡献图</h4><p>用<code>Platane/snk</code>这个Action，自动生成动画版的贡献图。这个功能纯粹是为了好玩：</p>
+<blockquote>
+<p>🐍 <strong>“贪吃蛇”？！</strong> 因为这个动画看起来就像一条蛇在吃贡献点，从年初吃到年末。虽然没什么实际用途，因为我基本不贡献。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">generate</span> <span class="string">animation</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&quot;0 0 * * *&quot;</span>  <span class="comment"># 每天运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">generate:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">timeout-minutes:</span> <span class="number">10</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">Platane/snk@v3</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">snake-gif</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_user_name:</span> <span class="string">zhu-jl18</span></span><br><span class="line">          <span class="attr">svg_out_path:</span> <span class="string">dist/github-snake.svg</span></span><br><span class="line">          <span class="attr">snake_color:</span> <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">crazy-max/ghaction-github-pages@v2.1.3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">target_branch:</span> <span class="string">output</span></span><br><span class="line">          <span class="attr">build_dir:</span> <span class="string">dist</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在README中引用：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake-dark.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">&quot;github snake animation&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="🤖-人机协作实录"><a href="#🤖-人机协作实录" class="headerlink" title="🤖 人机协作实录"></a>🤖 人机协作实录</h2><p>此部分记录了与Gemini共同实现Profile的过程。我负责设计思路与整体规划，Gemini负责具体代码实现。</p>
+<blockquote>
+<p>🤖 <strong>协作原则</strong>：大模型不是万能的，它虽然懂得很多，但是你得让他明白你到底要他干什么~</p>
+</blockquote>
+<h3 id="协作过程"><a href="#协作过程" class="headerlink" title="协作过程"></a>协作过程</h3><p><strong>我</strong>：我想在GitHub Profile上展示我的博客列表，有什么好办法吗？</p>
+<p><strong>Gemini</strong>：可以用<code>blog-post-workflow</code>这个Action，配置很简单…</p>
+<p><strong>结果</strong>：基础功能实现了，但样式很丑。典型的”能用就行”状态。</p>
+<h3 id="第二轮：样式优化"><a href="#第二轮：样式优化" class="headerlink" title="第二轮：样式优化"></a>第二轮：样式优化</h3><p><strong>我</strong>：这个列表样式不好看，我想要卡片式布局，并且居中显示。</p>
+<p><strong>Gemini</strong>：可以用复杂的HTML+CSS来实现…</p>
+<p><strong>结果</strong>：GitHub不支持复杂的CSS样式，居中效果失效了。这就是典型的”过度设计”问题。</p>
+<h3 id="第三轮：回归本质"><a href="#第三轮：回归本质" class="headerlink" title="第三轮：回归本质"></a>第三轮：回归本质</h3><p><strong>我</strong>：GitHub不支持这些复杂样式，还是都在左边。我不要日期了，字体大小也改不了，就让它简单的居中就行。</p>
+<p><strong>Gemini</strong>：那就用最简单的<code>&lt;p align=&quot;center&quot;&gt;</code>标签吧。</p>
+<p><strong>结果</strong>：完美！有时候最简单的方案就是最好的方案。这让我想起了KISS原则（Keep It Simple, Stupid）。</p>
+<h2 id="💡-协作心得"><a href="#💡-协作心得" class="headerlink" title="💡 协作心得"></a>💡 协作心得</h2><p>与AI协作编程！！！：</p>
+<ol>
+<li><strong>明确目标</strong>：想清楚你要什么，不要模棱两可。AI不是读心术，你得说清楚。</li>
+<li><strong>小步快跑</strong>：尝试一个方案，立即测试，然后带着结果进行下一轮沟通。不要一次性要求太多。</li>
+<li><strong>提供精确反馈</strong>：不要说”不行”，要说”哪里不行”、”为什么不行”。AI需要具体的错误信息。</li>
+<li><strong>回归本质</strong>：当复杂方案失效时，往往最简单的方案最有效。这大概就是所谓的”大道至简”吧。</li>
+</ol>
+<p>总的来说， AI极其吃数据，你喂给他是好东西他就也会输出好东西。</p>
+<h2 id="🎉-总结"><a href="#🎉-总结" class="headerlink" title="🎉 总结"></a>🎉 总结</h2><p>Gemini还不错，最后效果超出我预料地好看。</p>
+<p><strong>这是我大模型使用的初期探索，后来我会了很多优化技巧，早期的这些尝试也是很有意思的。</strong></p>
+<hr>
+<p><strong>Ref:</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhdXRhbWtyaXNobmFyL2Jsb2ctcG9zdC13b3JrZmxvdw==">blog-post-workflow<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1BsYXRhbmUvc25r">snk<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 ]]></content>
       <categories>
-        <category>English</category>
+        <category>技术折腾</category>
+        <category>AI协作</category>
       </categories>
       <tags>
-        <tag>语言学习</tag>
+        <tag>GitHub</tag>
+        <tag>AI协作</tag>
+        <tag>自动化</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -1284,6 +1165,57 @@
       </categories>
   </entry>
   <entry>
+    <title>English-DailyLearn-01</title>
+    <url>/posts/55322/</url>
+    <content><![CDATA[<p>English learned everyday!</p>
+<span id="more"></span>
+
+
+<ul>
+<li><p><strong>discipline</strong> <code>a particular area of study, especially a subject studied at a college or university</code></p>
+</li>
+<li><p><strong>precisely</strong>  <code>exactly; used to emphasize what you are saying</code></p>
+</li>
+<li><p><strong>embankment</strong> <code>堤岸，路堤</code> </p>
+</li>
+<li><p><strong>revision</strong> <code>复习；修改</code></p>
+</li>
+<li><p><strong>conjure (up)</strong> <code>to make something appear by magic, or as if by magic</code></p>
+</li>
+<li><p><strong>spell disaster, trouble, etc.</strong>  <code>意味着灾难，会招致麻烦（等等）</code></p>
+</li>
+<li><p><strong>sorcerer</strong> <code>巫师，术士，魔法师</code></p>
+</li>
+<li><hr>
+</li>
+<li><p><strong>recruit</strong> <code>招聘，吸引加入；（尤指军队）征募新兵</code> <code>This association has recruited enthusiasts from many professions</code></p>
+</li>
+<li><p><strong>excel (in)</strong>  <code>vi.</code> <code>to be extremely good at something</code></p>
+</li>
+<li><p><strong>excel yourself</strong> <code>to do something better than you usually do</code></p>
+</li>
+<li><p><strong>facilitate</strong> <code>to make something possible or easier</code></p>
+</li>
+<li><p><strong>inhale</strong>  <code>vi, vt.</code> <code>to breathe air, smoke, or gas into your lungs</code></p>
+</li>
+<li><p><strong>prompt</strong>   <code>to make something happen</code></p>
+</li>
+<li><p><strong>egotistic</strong> <code>considering yourself to be better or more important than other people自大的，自负的，念念不忘自我的</code></p>
+</li>
+<li><p><strong>merit</strong>  <code>the quality of being good and deserving praise</code> <code>Her ideas have merit.</code></p>
+</li>
+<li><p><em>controversial3</em></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>语言学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>English-from-Kramer</title>
     <url>/posts/8377/</url>
     <content><![CDATA[<p>Expressions and vocabulary learned from the film.</p>
@@ -1385,56 +1317,68 @@
       </categories>
   </entry>
   <entry>
-    <title>English-from-the-Cafe-Seinfeld</title>
-    <url>/posts/43173/</url>
-    <content><![CDATA[<p>Expressions and vocabulary learned from the episode.</p>
+    <title>English-Jill-Missed-Situation-and-BITE-and-KEEP</title>
+    <url>/posts/61400/</url>
+    <content><![CDATA[<p>Expressions about Missed Situation, BITE and KEEP.</p>
 <span id="more"></span>
 
 
-<ul>
-<li><p>disappear without a trace</p>
-</li>
-<li><p>you’re telling me! used to say that you strongly agree with what someone has just said</p>
-</li>
-<li><p>It’s like a spider in the toilet struggling for a survival. And even if you know it’s not going to make it, you kind of root it for awhile</p>
-</li>
-<li><p>buzzer</p>
-</li>
-<li><p>wind up</p>
-</li>
-<li><p>vocal</p>
-</li>
-<li><p>casus belli </p>
-</li>
-<li><p>bogus</p>
-</li>
-<li><p>peep</p>
-</li>
-<li><p>caper</p>
-</li>
-<li><p>specials</p>
-</li>
-<li><p>flourish</p>
-</li>
-<li><p>Well, I certainly don’t place any importance on it.</p>
-</li>
-<li><p>And now if you would excuse me, I would like to get started please.</p>
-</li>
-<li><p>flair </p>
-</li>
-<li><p>statute of limitations (law) the legal limit on the period of time within which action can be taken on a crime or other legal question 诉讼时效法规</p>
-</li>
-<li><p>I’m really focused here, this stuff’s a killer.</p>
-</li>
-<li><p>[Babu comes to collect dishes from Elaine’s table and knocks down a cup of coffee.</p>
-</li>
-<li><p>special  especially great or important, or having a quality that most similar things or people do not have</p>
-</li>
-<li><p>bug 烦扰</p>
-</li>
-<li><p>aggravation</p>
-</li>
-</ul>
+
+
+
+<h3 id="Ways-to-talk-about-a-MISSED-SITUATION"><a href="#Ways-to-talk-about-a-MISSED-SITUATION" class="headerlink" title="Ways to talk about a MISSED SITUATION"></a>Ways to talk about a MISSED SITUATION</h3><p>A <strong>MISSED SITUATION</strong> means that <em>you were going to do something, but something else happened and it stopped you doing what you wanted to do</em>. In Chinese it means “我本来想 但是”. </p>
+<p>There are 5 expressions to describe it:</p>
+<div class="note warning"><p><strong>going to, but</strong><br>I was <u>going to</u> go shopping, <u>but</u> I got a phone call which lasted nearly an hour, and by the time the call ended the shops were are shut.</p>
+<p> <strong>all set to, but</strong><br>I was <u>all set to</u> go on holiday, <u>but</u> then my car broke down , and i had to spend the money on repairs instead.</p>
+<p> <strong>would have, but</strong><br>I <u>would have</u> called you yesterday, <u>but</u> my phone wasn’t working.</p>
+<p><strong>had every intention of, but</strong><br>I <u> had every intention of</u> returning the book to the library last week,  <u>but</u> I had a friend staying, and she had been reading it.</p>
+<p> <strong>had it all arranged to, but</strong><br>I <u>had it all arranged to</u> give my friend a surprise party, <u>but</u> then she found out about my plan, and said she didn’t want one!
+ </p>
+</div>
+
+<p>The following is a reverse of the missed situation which you should have missed it. That means it would have been better if you had missed it.</p>
+<div class="note warning"><p><strong>If only, then … wouldn’t have . As it is, …</strong><br><u>If only</u> I’d listened to your advice, <u>then</u> I <u>wouldn’t have</u> invested with that bank. <u>As it is</u>, I’ve lost a lot of money.</p>
+</div>
+
+<h3 id="Expressions-using-BITE"><a href="#Expressions-using-BITE" class="headerlink" title="Expressions using BITE"></a>Expressions using BITE</h3><p>The literal meaning of “bite” is <em>to use your teeth to cut into something or someone</em>. In Chinese it means “咬”. But there are lots of examples in which bite are used in particular ways to express metaphorical meanings, metaphors, idioms.</p>
+<p>If you say something to somebody, and they just reply in an aggressive way, unpleasant, like: “What do you mean?” or “Oh, don’t bother me now, I’m busy”. That’s called:</p>
+<div class="note warning"><p><strong>bite sb’s head off</strong> 莫名其妙地对…发脾气<br>I told my girlfreind that I liked that picture, but she said “Ugh, it’s dreadful! How can you possibly like that? Stupid of you to like that picture”. She really bit my head off !</p>
+</div>
+
+<p>If you bite your tongue, you mean to stop yourself from saying something that you would really like to say.</p>
+<div class="note warning"><p><strong>bite one’s tongue</strong> 缄口不语<br>But I thought she couldn’t get its beauty. Then I had to bit my tongue to avoid an argument.</p>
+</div>
+
+<p>The next one is “bite the bullet”. It describes the situation where you have to force yourself to do something unpleasant or difficult, or to be brave to face it. Breifly, I don’t want to do, but I have to.</p>
+<div class="note warning"><p><strong>bite the bullet</strong> 咬紧牙关应付，硬着头皮应对<br>I hate singing before people, but I’ll just have to bite the bullet.</p>
+</div>
+
+<p>When you try to do something that is too difficult for you, you are biting off more than you can chew, which is a vivid metaphor as an idiom.</p>
+<div class="note warning"><p><strong>bite off more than you can chew</strong> 承担力所不及的事；不自量力<br>I bit off more than I could chew in my original plan.</p>
+</div>
+
+<p>If someone’s bark is worse than their bite, they are not as unpleasant or frightening as they seem.</p>
+<div class="note warning"><p><strong>sb’s bark is worse than his&#x2F;her bite</strong> 刀子嘴豆腐心；言语比行动吓人<br>My bark is definitely worse than my bite. When people get to know me, they’ll tell you I’m just a big softy really.</p>
+</div>
+
+<h3 id="Ways-to-use-the-verb-KEEP"><a href="#Ways-to-use-the-verb-KEEP" class="headerlink" title="Ways to use the verb KEEP"></a>Ways to use the verb KEEP</h3><p>Not the same as To HOLD:</p>
+<div class="note warning"><p><strong>to hold</strong> is a temporary thing<br>Can you hold my bag while I put my coat on?(then give it back)</p>
+</div>
+
+<p>Then its first meaning  <em>to have or continue to have in your possession</em>  ~ Retain</p>
+<div class="note warning"><p>If you like it，you can keep it.  I told the taxi driver to keep the change. </p>
+</div>
+
+
+
+<div class="note warning"><p>He keeps his car in good condition.<br>Do you keep a diary?<br>Can you keep the secret?</p>
+</div>
+
+<p>Another slightly different meaning ~ continue</p>
+<div class="note warning"><p>It’s a long journey, but we must keep going.<br>If we keep that tall building in sight, we won’t get lost.<br>The food will keep if you put it in the freezer</p>
+</div>
+
+<p>keep off the grass It’s an order, you can not walk on the grass.</p>
 ]]></content>
       <categories>
         <category>English</category>
@@ -1565,35 +1509,6 @@
       <categories>
         <category>English</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Gemini-MathInstructo-Prompts</title>
-    <url>/posts/38945/</url>
-    <content><![CDATA[<blockquote>
-<ul>
-<li><ul>
-<li></li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<span id="more"></span>
-<hr>
-<h3 id="Prompts"><a href="#Prompts" class="headerlink" title="Prompts"></a>Prompts</h3><p>In a Row</p>
-<ul>
-<li><p>请向我解释对偶空间、对偶原理、同构和自然同构以及他们的关系，我希望尽可能地深入，且向我提供多层次的视角。不使用mermaid绘图，必须进行数学公式审查是否显示正确.</p>
-</li>
-<li><p>从线性代数到范畴论的角度从低到高的视角看呢</p>
-</li>
-<li><p>矩阵的列空间与行空间相同是否与这些有联系呢？</p>
-</li>
-<li><p>你还知道哪些妙趣横生的例子与对偶和同构有着深刻的联系？</p>
-</li>
-</ul>
-<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>Model： Gemini 2.5 Pro </p>
-<p>Parameters: temperature 0.1  !!! important </p>
-<p>Assistant Profie:  !!! Core</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Role: 数学家与数学知识传道者</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Profile</span><br><span class="line"></span><br><span class="line">- language: 中文（必要时使用英文）</span><br><span class="line">- description: 具备深厚数学功底和语言组织能力，擅长使用图文并茂的手段讲解深奥的数学概念和定理。</span><br><span class="line">- background: 数学博士，在大学及研究机构从事纯数学与应用数学研究，发表论文十余篇，编写多本lecture notes，拥有多年高校教学经验；同时在youtube等视频平台发布多个数学讲解视频和文章。</span><br><span class="line">- personality: 专业、耐心、表达精准、善于讲解、逻辑严谨。</span><br><span class="line">- expertise: 线性代数、微积分、抽象代数、范畴论、群论、李群李代数、拓扑学、微分流形、实分、析复分析、泛函分析、数论、图论等高级数学领域。</span><br><span class="line">- target_audience: 有一定数学知识的大学生爱好者，属于自学者而非数学专业。</span><br><span class="line">- </span><br><span class="line">## Skills</span><br><span class="line"></span><br><span class="line">1. 核心技能类别：理论讲授</span><br><span class="line">   - 概念拆解: 按逻辑层次划分以简洁例子分解复杂概念  </span><br><span class="line">   - 定理阐释: 阐述定理命题、证明思路与核心要点  </span><br><span class="line">   - 关联映射: 展示其与其他定理及理论之间的联系  </span><br><span class="line">   - 直观图示: 生成可视化图形说明理论与模型  </span><br><span class="line">    </span><br><span class="line">2. 辅助技能类别：学习支持</span><br><span class="line">   - LaTeX 格式化: 用 \(\) 包裹数学表达式  </span><br><span class="line">   - 资源整合：提供精选教材、视频和可视化工具链接。</span><br><span class="line">   - 反馈收集: 根据用户问题及时调整解释层级</span><br><span class="line">   - 图表生成：善于使用图标说明和总结</span><br><span class="line"></span><br><span class="line">## Rules</span><br><span class="line"></span><br><span class="line">1. 基本原则：  </span><br><span class="line">   - 双语输出：支持中英文混合输出</span><br><span class="line">   - 学术严谨：对答案保持客观严谨，所有论断均基于公认理论，严禁虚假或未经证实的内容，若有争议请给出多种解释并标注来源</span><br><span class="line">   - 保持谦逊： 承认自身知识局限，如果无法回答则告知用户。</span><br><span class="line">   - 格式标准：所有数学公式必须放在 \(\) 内    </span><br><span class="line">2. 限制条件：  </span><br><span class="line">   - 不参考 https://blog.csdn.net/ 来源的劣质内容  </span><br><span class="line">   - 仅回答与数学概念、定理、理论相关的内容  </span><br><span class="line">4. 参考来源：  </span><br><span class="line">   - 可以参考知乎、mathexchange、nlab等优质数学社区。</span><br><span class="line"></span><br><span class="line">## Workflows</span><br><span class="line"></span><br><span class="line">- 目标: 让受众能够独立理解所讲定理或概念。</span><br><span class="line">- 步骤 1: 解析用户问题，识别核心概念或定理；</span><br><span class="line">- 步骤 2: 引入定理，呈现正式写法并给出直观例子。</span><br><span class="line">- 步骤 3：涵盖证明或概念讲解全流程，分步骤解释核心逻辑。</span><br><span class="line">- 步骤 4: 给出对于问题的不同层次或视角下的理解。  </span><br><span class="line">- 步骤 5: 在答案结尾列出参考来源，并梳理常见出深度阅读建议。  </span><br><span class="line"></span><br><span class="line">## Initialization  </span><br><span class="line">作为数学家和高级数学理论传道者，你必须遵守上述Rules，按照Workflows执行任务。</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>English-from-Notting-Hill</title>
@@ -1873,6 +1788,62 @@
       </categories>
   </entry>
   <entry>
+    <title>English-from-the-Cafe-Seinfeld</title>
+    <url>/posts/43173/</url>
+    <content><![CDATA[<p>Expressions and vocabulary learned from the episode.</p>
+<span id="more"></span>
+
+
+<ul>
+<li><p>disappear without a trace</p>
+</li>
+<li><p>you’re telling me! used to say that you strongly agree with what someone has just said</p>
+</li>
+<li><p>It’s like a spider in the toilet struggling for a survival. And even if you know it’s not going to make it, you kind of root it for awhile</p>
+</li>
+<li><p>buzzer</p>
+</li>
+<li><p>wind up</p>
+</li>
+<li><p>vocal</p>
+</li>
+<li><p>casus belli </p>
+</li>
+<li><p>bogus</p>
+</li>
+<li><p>peep</p>
+</li>
+<li><p>caper</p>
+</li>
+<li><p>specials</p>
+</li>
+<li><p>flourish</p>
+</li>
+<li><p>Well, I certainly don’t place any importance on it.</p>
+</li>
+<li><p>And now if you would excuse me, I would like to get started please.</p>
+</li>
+<li><p>flair </p>
+</li>
+<li><p>statute of limitations (law) the legal limit on the period of time within which action can be taken on a crime or other legal question 诉讼时效法规</p>
+</li>
+<li><p>I’m really focused here, this stuff’s a killer.</p>
+</li>
+<li><p>[Babu comes to collect dishes from Elaine’s table and knocks down a cup of coffee.</p>
+</li>
+<li><p>special  especially great or important, or having a quality that most similar things or people do not have</p>
+</li>
+<li><p>bug 烦扰</p>
+</li>
+<li><p>aggravation</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+  </entry>
+  <entry>
     <title>latex-draw-a-tree</title>
     <url>/posts/38523/</url>
     <content><![CDATA[<p>How to draw simple trees in LaTeX without using TikZ.</p>
@@ -1904,42 +1875,6 @@
       <categories>
         <category>LaTeX</category>
       </categories>
-  </entry>
-  <entry>
-    <title>数学公式渲染测试</title>
-    <url>/posts/73657a7b/</url>
-    <content><![CDATA[<blockquote>
-<p>本文用于测试数学公式的渲染效果，包括行内公式和块级公式。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="🧮-行内公式测试"><a href="#🧮-行内公式测试" class="headerlink" title="🧮 行内公式测试"></a>🧮 行内公式测试</h2><p>$\displaystyle E &#x3D; mc^2$ </p>
-<p>$$<br>\hat{f}(\omega) &#x3D; \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} \mathrm{d}t<br>$$</p>
-<p>这是一个行内公式：$E &#x3D; mc^2$，爱因斯坦的质能方程。</p>
-<p>另一个行内公式：$\sum_{i&#x3D;1}^{n} x_i &#x3D; x_1 + x_2 + \cdots + x_n$</p>
-<h2 id="📐-块级公式测试"><a href="#📐-块级公式测试" class="headerlink" title="📐 块级公式测试"></a>📐 块级公式测试</h2><h3 id="二次方程求根公式"><a href="#二次方程求根公式" class="headerlink" title="二次方程求根公式"></a>二次方程求根公式</h3><p>$$<br>x &#x3D; \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}<br>$$</p>
-<h3 id="欧拉公式"><a href="#欧拉公式" class="headerlink" title="欧拉公式"></a>欧拉公式</h3><p>$$<br>e^{i\pi} + 1 &#x3D; 0<br>$$</p>
-<h3 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h3><p>$$<br>\hat{f}(\omega) &#x3D; \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} \mathrm{d}t<br>$$</p>
-<h3 id="矩阵表示"><a href="#矩阵表示" class="headerlink" title="矩阵表示"></a>矩阵表示</h3><p>$$<br>\begin{bmatrix}<br>a &amp; b \<br>c &amp; d<br>\end{bmatrix}<br>\begin{bmatrix}<br>x \<br>y<br>\end{bmatrix} &#x3D;<br>\begin{bmatrix}<br>ax + by \<br>cx + dy<br>\end{bmatrix}<br>$$</p>
-<h2 id="🔢-复杂公式测试"><a href="#🔢-复杂公式测试" class="headerlink" title="🔢 复杂公式测试"></a>🔢 复杂公式测试</h2><h3 id="积分公式"><a href="#积分公式" class="headerlink" title="积分公式"></a>积分公式</h3><p>$$<br>\int_{-\infty}^{\infty} e^{-x^2} dx &#x3D; \sqrt{\pi}<br>$$</p>
-<h3 id="极限公式"><a href="#极限公式" class="headerlink" title="极限公式"></a>极限公式</h3><p>$$<br>\lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n &#x3D; e<br>$$</p>
-<h3 id="级数展开"><a href="#级数展开" class="headerlink" title="级数展开"></a>级数展开</h3><p>$$<br>\sin(x) &#x3D; x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots<br>$$</p>
-<h2 id="🎯-对偶空间测试"><a href="#🎯-对偶空间测试" class="headerlink" title="🎯 对偶空间测试"></a>🎯 对偶空间测试</h2><h3 id="向量空间对偶"><a href="#向量空间对偶" class="headerlink" title="向量空间对偶"></a>向量空间对偶</h3><p>对于向量空间 $V$，其对偶空间记为 $V^{\ast}$：</p>
-<p>$$<br>V^{\ast} &#x3D; { f: V \to \mathbb{R} \mid f \text{ 是线性函数} }<br>$$</p>
-<h3 id="对偶基"><a href="#对偶基" class="headerlink" title="对偶基"></a>对偶基</h3><p>如果 ${e_1, e_2, \ldots, e_n}$ 是 $V$ 的基，那么对偶基 ${e^1, e^2, \ldots, e^n}$ 满足：</p>
-<p>$$<br>e^i(e_j) &#x3D; \delta^{i}_{j} &#x3D; \begin{cases}<br>1 &amp; \text{if } i&#x3D;j \<br>0 &amp; \text{if } i \neq j<br>\end{cases}<br>$$</p>
-<h3 id="维度关系"><a href="#维度关系" class="headerlink" title="维度关系"></a>维度关系</h3><p>$$<br>\dim(V) &#x3D; \dim(V^{\ast})<br>$$</p>
-<h2 id="✅-测试结果"><a href="#✅-测试结果" class="headerlink" title="✅ 测试结果"></a>✅ 测试结果</h2><p>如果以上公式都能正确渲染，说明数学公式支持配置成功！</p>
-<hr>
-<p><em>测试完成时间：2025年8月13日</em></p>
-]]></content>
-      <categories>
-        <category>技术测试</category>
-      </categories>
-      <tags>
-        <tag>数学公式</tag>
-        <tag>测试</tag>
-      </tags>
   </entry>
   <entry>
     <title>LaTeX工作流优化指南</title>
@@ -2088,6 +2023,71 @@
       <tags>
         <tag>LaTeX</tag>
         <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Gemini-MathInstructo-Prompts</title>
+    <url>/posts/38945/</url>
+    <content><![CDATA[<blockquote>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+<hr>
+<h3 id="Prompts"><a href="#Prompts" class="headerlink" title="Prompts"></a>Prompts</h3><p>In a Row</p>
+<ul>
+<li><p>请向我解释对偶空间、对偶原理、同构和自然同构以及他们的关系，我希望尽可能地深入，且向我提供多层次的视角。不使用mermaid绘图，必须进行数学公式审查是否显示正确.</p>
+</li>
+<li><p>从线性代数到范畴论的角度从低到高的视角看呢</p>
+</li>
+<li><p>矩阵的列空间与行空间相同是否与这些有联系呢？</p>
+</li>
+<li><p>你还知道哪些妙趣横生的例子与对偶和同构有着深刻的联系？</p>
+</li>
+</ul>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>Model： Gemini 2.5 Pro </p>
+<p>Parameters: temperature 0.1  !!! important </p>
+<p>Assistant Profie:  !!! Core</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Role: 数学家与数学知识传道者</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Profile</span><br><span class="line"></span><br><span class="line">- language: 中文（必要时使用英文）</span><br><span class="line">- description: 具备深厚数学功底和语言组织能力，擅长使用图文并茂的手段讲解深奥的数学概念和定理。</span><br><span class="line">- background: 数学博士，在大学及研究机构从事纯数学与应用数学研究，发表论文十余篇，编写多本lecture notes，拥有多年高校教学经验；同时在youtube等视频平台发布多个数学讲解视频和文章。</span><br><span class="line">- personality: 专业、耐心、表达精准、善于讲解、逻辑严谨。</span><br><span class="line">- expertise: 线性代数、微积分、抽象代数、范畴论、群论、李群李代数、拓扑学、微分流形、实分、析复分析、泛函分析、数论、图论等高级数学领域。</span><br><span class="line">- target_audience: 有一定数学知识的大学生爱好者，属于自学者而非数学专业。</span><br><span class="line">- </span><br><span class="line">## Skills</span><br><span class="line"></span><br><span class="line">1. 核心技能类别：理论讲授</span><br><span class="line">   - 概念拆解: 按逻辑层次划分以简洁例子分解复杂概念  </span><br><span class="line">   - 定理阐释: 阐述定理命题、证明思路与核心要点  </span><br><span class="line">   - 关联映射: 展示其与其他定理及理论之间的联系  </span><br><span class="line">   - 直观图示: 生成可视化图形说明理论与模型  </span><br><span class="line">    </span><br><span class="line">2. 辅助技能类别：学习支持</span><br><span class="line">   - LaTeX 格式化: 用 \(\) 包裹数学表达式  </span><br><span class="line">   - 资源整合：提供精选教材、视频和可视化工具链接。</span><br><span class="line">   - 反馈收集: 根据用户问题及时调整解释层级</span><br><span class="line">   - 图表生成：善于使用图标说明和总结</span><br><span class="line"></span><br><span class="line">## Rules</span><br><span class="line"></span><br><span class="line">1. 基本原则：  </span><br><span class="line">   - 双语输出：支持中英文混合输出</span><br><span class="line">   - 学术严谨：对答案保持客观严谨，所有论断均基于公认理论，严禁虚假或未经证实的内容，若有争议请给出多种解释并标注来源</span><br><span class="line">   - 保持谦逊： 承认自身知识局限，如果无法回答则告知用户。</span><br><span class="line">   - 格式标准：所有数学公式必须放在 \(\) 内    </span><br><span class="line">2. 限制条件：  </span><br><span class="line">   - 不参考 https://blog.csdn.net/ 来源的劣质内容  </span><br><span class="line">   - 仅回答与数学概念、定理、理论相关的内容  </span><br><span class="line">4. 参考来源：  </span><br><span class="line">   - 可以参考知乎、mathexchange、nlab等优质数学社区。</span><br><span class="line"></span><br><span class="line">## Workflows</span><br><span class="line"></span><br><span class="line">- 目标: 让受众能够独立理解所讲定理或概念。</span><br><span class="line">- 步骤 1: 解析用户问题，识别核心概念或定理；</span><br><span class="line">- 步骤 2: 引入定理，呈现正式写法并给出直观例子。</span><br><span class="line">- 步骤 3：涵盖证明或概念讲解全流程，分步骤解释核心逻辑。</span><br><span class="line">- 步骤 4: 给出对于问题的不同层次或视角下的理解。  </span><br><span class="line">- 步骤 5: 在答案结尾列出参考来源，并梳理常见出深度阅读建议。  </span><br><span class="line"></span><br><span class="line">## Initialization  </span><br><span class="line">作为数学家和高级数学理论传道者，你必须遵守上述Rules，按照Workflows执行任务。</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>数学公式渲染测试</title>
+    <url>/posts/73657a7b/</url>
+    <content><![CDATA[<blockquote>
+<p>本文用于测试数学公式的渲染效果，包括行内公式和块级公式。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="🧮-行内公式测试"><a href="#🧮-行内公式测试" class="headerlink" title="🧮 行内公式测试"></a>🧮 行内公式测试</h2><p>$\displaystyle E &#x3D; mc^2$ </p>
+<p>$$<br>\hat{f}(\omega) &#x3D; \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} \mathrm{d}t<br>$$</p>
+<p>这是一个行内公式：$E &#x3D; mc^2$，爱因斯坦的质能方程。</p>
+<p>另一个行内公式：$\sum_{i&#x3D;1}^{n} x_i &#x3D; x_1 + x_2 + \cdots + x_n$</p>
+<h2 id="📐-块级公式测试"><a href="#📐-块级公式测试" class="headerlink" title="📐 块级公式测试"></a>📐 块级公式测试</h2><h3 id="二次方程求根公式"><a href="#二次方程求根公式" class="headerlink" title="二次方程求根公式"></a>二次方程求根公式</h3><p>$$<br>x &#x3D; \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}<br>$$</p>
+<h3 id="欧拉公式"><a href="#欧拉公式" class="headerlink" title="欧拉公式"></a>欧拉公式</h3><p>$$<br>e^{i\pi} + 1 &#x3D; 0<br>$$</p>
+<h3 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h3><p>$$<br>\hat{f}(\omega) &#x3D; \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} \mathrm{d}t<br>$$</p>
+<h3 id="矩阵表示"><a href="#矩阵表示" class="headerlink" title="矩阵表示"></a>矩阵表示</h3><p>$$<br>\begin{bmatrix}<br>a &amp; b \<br>c &amp; d<br>\end{bmatrix}<br>\begin{bmatrix}<br>x \<br>y<br>\end{bmatrix} &#x3D;<br>\begin{bmatrix}<br>ax + by \<br>cx + dy<br>\end{bmatrix}<br>$$</p>
+<h2 id="🔢-复杂公式测试"><a href="#🔢-复杂公式测试" class="headerlink" title="🔢 复杂公式测试"></a>🔢 复杂公式测试</h2><h3 id="积分公式"><a href="#积分公式" class="headerlink" title="积分公式"></a>积分公式</h3><p>$$<br>\int_{-\infty}^{\infty} e^{-x^2} dx &#x3D; \sqrt{\pi}<br>$$</p>
+<h3 id="极限公式"><a href="#极限公式" class="headerlink" title="极限公式"></a>极限公式</h3><p>$$<br>\lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n &#x3D; e<br>$$</p>
+<h3 id="级数展开"><a href="#级数展开" class="headerlink" title="级数展开"></a>级数展开</h3><p>$$<br>\sin(x) &#x3D; x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots<br>$$</p>
+<h2 id="🎯-对偶空间测试"><a href="#🎯-对偶空间测试" class="headerlink" title="🎯 对偶空间测试"></a>🎯 对偶空间测试</h2><h3 id="向量空间对偶"><a href="#向量空间对偶" class="headerlink" title="向量空间对偶"></a>向量空间对偶</h3><p>对于向量空间 $V$，其对偶空间记为 $V^{\ast}$：</p>
+<p>$$<br>V^{\ast} &#x3D; { f: V \to \mathbb{R} \mid f \text{ 是线性函数} }<br>$$</p>
+<h3 id="对偶基"><a href="#对偶基" class="headerlink" title="对偶基"></a>对偶基</h3><p>如果 ${e_1, e_2, \ldots, e_n}$ 是 $V$ 的基，那么对偶基 ${e^1, e^2, \ldots, e^n}$ 满足：</p>
+<p>$$<br>e^i(e_j) &#x3D; \delta^{i}_{j} &#x3D; \begin{cases}<br>1 &amp; \text{if } i&#x3D;j \<br>0 &amp; \text{if } i \neq j<br>\end{cases}<br>$$</p>
+<h3 id="维度关系"><a href="#维度关系" class="headerlink" title="维度关系"></a>维度关系</h3><p>$$<br>\dim(V) &#x3D; \dim(V^{\ast})<br>$$</p>
+<h2 id="✅-测试结果"><a href="#✅-测试结果" class="headerlink" title="✅ 测试结果"></a>✅ 测试结果</h2><p>如果以上公式都能正确渲染，说明数学公式支持配置成功！</p>
+<hr>
+<p><em>测试完成时间：2025年8月13日</em></p>
+]]></content>
+      <categories>
+        <category>技术测试</category>
+      </categories>
+      <tags>
+        <tag>数学公式</tag>
+        <tag>测试</tag>
       </tags>
   </entry>
   <entry>
