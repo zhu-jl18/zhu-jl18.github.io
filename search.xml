@@ -1,103 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>The Evolution of My GitHub Profile</title>
-    <url>/posts/17888/</url>
-    <content><![CDATA[<blockquote>
-<p>摘要：记录了一次有趣的”人机协作”经历——和Gemini一起从零开始，打造了一个让我非常满意的Github Profile。</p>
-</blockquote>
-<span id="more"></span>
-<hr>
-<h2 id="🎯-先看效果，再聊过程"><a href="#🎯-先看效果，再聊过程" class="headerlink" title="🎯 先看效果，再聊过程"></a>🎯 先看效果，再聊过程</h2><p>我的GitHub Profile现在长这样：</p>
-<ul>
-<li><strong>个人简介</strong>：简洁的自我介绍）</li>
-<li><strong>技术栈展示</strong>：用图标展示我会的编程语言（虽然有些可能已经忘得差不多了😅）</li>
-<li><strong>数学卡片</strong>：高斯绝妙定理–数学之美！</li>
-<li><strong>动态博客列表</strong>：自动更新我最新写的文章</li>
-<li><strong>贪吃蛇贡献图</strong>：把GitHub的贡献日历变成动画，单纯好玩</li>
-</ul>
-<p>一开始我就是想要个好看的Profile</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/year-month/name" alt="最终效果预览"></p>
-<h2 id="🛠️-技术实现：从简单到复杂"><a href="#🛠️-技术实现：从简单到复杂" class="headerlink" title="🛠️ 技术实现：从简单到复杂"></a>🛠️ 技术实现：从简单到复杂</h2><h3 id="1-基础部分：Markdown-HTML"><a href="#1-基础部分：Markdown-HTML" class="headerlink" title="1. 基础部分：Markdown + HTML"></a>1. 基础部分：Markdown + HTML</h3><p>GitHub Profile本质上就是一个<code>README.md</code>文件。Markdown -&gt; HTML 懂了吧。</p>
-<blockquote>
-<p>💡 <strong>踩雷记录</strong>：GitHub Profile的README.md文件有特殊的渲染规则，支持HTML但不支持所有CSS属性，比如坑爹的超链接！</p>
-</blockquote>
-<h4 id="个人介绍：简洁清爽"><a href="#个人介绍：简洁清爽" class="headerlink" title="个人介绍：简洁清爽"></a>个人介绍：简洁清爽</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 👨‍💻 About Me</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left; display: inline-block;&quot;</span>&gt;</span></span><br><span class="line"> 🎓 毕业于 **清华大学 (THU)**</span><br><span class="line"> 🌱 目前就读于 **中国科学院大学 (UCAS)**</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="技术栈：用现成的"><a href="#技术栈：用现成的" class="headerlink" title="技术栈：用现成的"></a>技术栈：用现成的</h4><p>用<span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span>，一行代码即可。</p>
-<blockquote>
-<p>🎯 <strong>为什么选择这个服务？</strong> 完全免费，部署简单，”懒人”福音</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://skillicons.dev&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://skillicons.dev/icons?i=python,cpp,java,js,html,css,latex,vscode,git&amp;perline=9&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="特色卡片：数学之美"><a href="#特色卡片：数学之美" class="headerlink" title="特色卡片：数学之美"></a>特色卡片：数学之美</h4><p>我最喜欢的数学家——高斯和他都觉得妙的——高斯绝妙定理：</p>
-<blockquote>
-<p>🧮 <strong>高斯绝妙定理</strong> 这个定理告诉say： 曲面的高斯曲率是内蕴几何量，不依赖于曲面在空间中的嵌入方式。</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin: 16px 0;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;display: flex; align-items: center; gap: 16px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;path/to/Gauss.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;120&quot;</span> <span class="attr">style</span>=<span class="string">&quot;border-radius: 6px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Theorema Egregium<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>高斯绝妙定理：曲面的高斯曲率K是内蕴几何量<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://en.wikipedia.org/wiki/Theorema_Egregium&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;white&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-自动化：Profile”活”了"><a href="#2-自动化：Profile”活”了" class="headerlink" title="2. 自动化：Profile”活”了"></a>2. 自动化：Profile”活”了</h3><p>这部分是让Profile真正”活”起来的关键。通过GitHub Actions，实现自动更新，让Profile不再是静态的展示页面。</p>
-<h4 id="自动更新博客列表"><a href="#自动更新博客列表" class="headerlink" title="自动更新博客列表"></a>自动更新博客列表</h4><p>用<code>gautamkrishnar/blog-post-workflow</code>这个Action，配置简单，每次发布新博客，Profile就会自动更新，无需手动维护：</p>
-<blockquote>
-<p>🔄 <strong>自动化原理</strong>：这个Action会定期抓取博客RSS Feed，然后自动更新README.md文件中的博客列表。</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Latest</span> <span class="string">blog</span> <span class="string">post</span> <span class="string">workflow</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&#x27;0 * * * *&#x27;</span>  <span class="comment"># 每小时运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">update-readme-with-blog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Update</span> <span class="string">this</span> <span class="string">repo&#x27;s</span> <span class="string">README</span> <span class="string">with</span> <span class="string">latest</span> <span class="string">blog</span> <span class="string">posts</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">gautamkrishnar/blog-post-workflow@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">disable_cache:</span> <span class="literal">true</span></span><br><span class="line">          <span class="attr">feed_list:</span> <span class="string">&quot;https://zhu-jl18.github.io/atom.xml&quot;</span></span><br><span class="line">          <span class="attr">max_post_count:</span> <span class="number">5</span></span><br><span class="line">          <span class="attr">template:</span> <span class="string">&#x27;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;\(url&quot; style=&quot;text-decoration: none; color: #20B2AA;&quot;&gt;\)title&lt;/a&gt;&lt;/p&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>在README中设置占位符：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 📝 Recent Blog Posts</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- BLOG-POST-LIST:START --&gt;</span><span class="comment">&lt;!-- BLOG-POST-LIST:END --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="贪吃蛇贡献图"><a href="#贪吃蛇贡献图" class="headerlink" title="贪吃蛇贡献图"></a>贪吃蛇贡献图</h4><p>用<code>Platane/snk</code>这个Action，自动生成动画版的贡献图。这个功能纯粹是为了好玩：</p>
-<blockquote>
-<p>🐍 <strong>“贪吃蛇”？！</strong> 因为这个动画看起来就像一条蛇在吃贡献点，从年初吃到年末。虽然没什么实际用途，因为我基本不贡献。</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">generate</span> <span class="string">animation</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&quot;0 0 * * *&quot;</span>  <span class="comment"># 每天运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">generate:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">timeout-minutes:</span> <span class="number">10</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">Platane/snk@v3</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">snake-gif</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_user_name:</span> <span class="string">zhu-jl18</span></span><br><span class="line">          <span class="attr">svg_out_path:</span> <span class="string">dist/github-snake.svg</span></span><br><span class="line">          <span class="attr">snake_color:</span> <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">crazy-max/ghaction-github-pages@v2.1.3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">target_branch:</span> <span class="string">output</span></span><br><span class="line">          <span class="attr">build_dir:</span> <span class="string">dist</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>然后在README中引用：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake-dark.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">&quot;github snake animation&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="🤖-人机协作实录"><a href="#🤖-人机协作实录" class="headerlink" title="🤖 人机协作实录"></a>🤖 人机协作实录</h2><p>此部分记录了与Gemini共同实现Profile的过程。我负责设计思路与整体规划，Gemini负责具体代码实现。</p>
-<blockquote>
-<p>🤖 <strong>协作原则</strong>：大模型不是万能的，它虽然懂得很多，但是你得让他明白你到底要他干什么~</p>
-</blockquote>
-<h3 id="协作过程"><a href="#协作过程" class="headerlink" title="协作过程"></a>协作过程</h3><p><strong>我</strong>：我想在GitHub Profile上展示我的博客列表，有什么好办法吗？</p>
-<p><strong>Gemini</strong>：可以用<code>blog-post-workflow</code>这个Action，配置很简单…</p>
-<p><strong>结果</strong>：基础功能实现了，但样式很丑。典型的”能用就行”状态。</p>
-<h3 id="第二轮：样式优化"><a href="#第二轮：样式优化" class="headerlink" title="第二轮：样式优化"></a>第二轮：样式优化</h3><p><strong>我</strong>：这个列表样式不好看，我想要卡片式布局，并且居中显示。</p>
-<p><strong>Gemini</strong>：可以用复杂的HTML+CSS来实现…</p>
-<p><strong>结果</strong>：GitHub不支持复杂的CSS样式，居中效果失效了。这就是典型的”过度设计”问题。</p>
-<h3 id="第三轮：回归本质"><a href="#第三轮：回归本质" class="headerlink" title="第三轮：回归本质"></a>第三轮：回归本质</h3><p><strong>我</strong>：GitHub不支持这些复杂样式，还是都在左边。我不要日期了，字体大小也改不了，就让它简单的居中就行。</p>
-<p><strong>Gemini</strong>：那就用最简单的<code>&lt;p align=&quot;center&quot;&gt;</code>标签吧。</p>
-<p><strong>结果</strong>：完美！有时候最简单的方案就是最好的方案。这让我想起了KISS原则（Keep It Simple, Stupid）。</p>
-<h2 id="💡-协作心得"><a href="#💡-协作心得" class="headerlink" title="💡 协作心得"></a>💡 协作心得</h2><p>与AI协作编程！！！：</p>
-<ol>
-<li><strong>明确目标</strong>：想清楚你要什么，不要模棱两可。AI不是读心术，你得说清楚。</li>
-<li><strong>小步快跑</strong>：尝试一个方案，立即测试，然后带着结果进行下一轮沟通。不要一次性要求太多。</li>
-<li><strong>提供精确反馈</strong>：不要说”不行”，要说”哪里不行”、”为什么不行”。AI需要具体的错误信息。</li>
-<li><strong>回归本质</strong>：当复杂方案失效时，往往最简单的方案最有效。这大概就是所谓的”大道至简”吧。</li>
-</ol>
-<p>总的来说， AI极其吃数据，你喂给他是好东西他就也会输出好东西。</p>
-<h2 id="🎉-总结"><a href="#🎉-总结" class="headerlink" title="🎉 总结"></a>🎉 总结</h2><p>Gemini还不错，最后效果超出我预料地好看。</p>
-<p><strong>这是我大模型使用的初期探索，后来我会了很多优化技巧，早期的这些尝试也是很有意思的。</strong></p>
-<hr>
-<p><strong>Ref:</strong></p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhdXRhbWtyaXNobmFyL2Jsb2ctcG9zdC13b3JrZmxvdw==">blog-post-workflow<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1BsYXRhbmUvc25r">snk<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术折腾</category>
-        <category>AI协作</category>
-      </categories>
-      <tags>
-        <tag>GitHub</tag>
-        <tag>AI协作</tag>
-        <tag>自动化</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>博客配置更新总结 - 数学公式、永久链接与置顶功能</title>
     <url>/posts/2025-08-13-config-updates/</url>
     <content><![CDATA[<blockquote>
@@ -319,101 +222,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Duality and Isomorpism II</title>
-    <url>/posts/22740/</url>
-    <content><![CDATA[<span id="more"></span>
-<hr>
-<p>$\frac{1}{2} $<br>好的，这是一个绝佳的问题。它恰好展示了数学思想如何从具体计算的领域（线性代数）升华到关注结构与关系的普适模式（范畴论）。我们将沿着这条“抽象阶梯”逐级攀登。</p>
-<h3 id="阶梯底层：线性代数视角-The-“What”-and-“How”"><a href="#阶梯底层：线性代数视角-The-“What”-and-“How”" class="headerlink" title="阶梯底层：线性代数视角 (The “What” and “How”)"></a>阶梯底层：线性代数视角 (The “What” and “How”)</h3><p>在这一层，我们关心的是具体的对象、定义和计算。</p>
-<h4 id="第-1-步：定义基本对象-——-向量空间与线性映射"><a href="#第-1-步：定义基本对象-——-向量空间与线性映射" class="headerlink" title="第 1 步：定义基本对象 —— 向量空间与线性映射"></a>第 1 步：定义基本对象 —— 向量空间与线性映射</h4><ul>
-<li><strong>对象 (Object)</strong>: 向量空间 $V$，例如 $\mathbb{R}^n$。它的元素是向量。</li>
-<li><strong>态射 (Morphism)</strong>: 线性映射 $T: V \to W$。它保持向量空间的结构（加法和标量乘法）。</li>
-</ul>
-<h4 id="第-2-步：构造对偶空间-——-一个新的、相关的空间"><a href="#第-2-步：构造对偶空间-——-一个新的、相关的空间" class="headerlink" title="第 2 步：构造对偶空间 —— 一个新的、相关的空间"></a>第 2 步：构造对偶空间 —— 一个新的、相关的空间</h4><p>我们从一个向量空间 $V$ 出发，可以构造出它的<strong>对偶空间 (Dual Space)</strong> $V^{\ast}{\ast}{\ast}*$。</p>
-<ul>
-<li><strong>定义</strong>: $V^{\ast}{\ast}{\ast}<em>$ 是所有从 $V$ 到其标量域 $F$ 的线性映射（称为*<em>线性泛函</em></em>）的集合。</li>
-<li><strong>核心思想</strong>: $V^{\ast}{\ast}{\ast}*$ 中的每个元素 $f$ 都是一个“测量工具”，它接收一个向量 $v \in V$，然后输出一个标量 $f(v) \in F$。</li>
-<li><strong>关键结果 (有限维)</strong>: 如果 $V$ 有一组基 ${e_1, \dots, e_n}$，那么 $V^{\ast}{\ast}{\ast}<em>$ 就有一组对应的*<em>对偶基</em></em> ${E^{\ast}{\ast}1, \dots, E^{\ast}{\ast}n}$，定义为 $E^{\ast}{\ast}i(e_j) &#x3D; \delta^{i}_{j}$。这直接导出一个重要结论：$\dim(V) &#x3D; \dim(V^{\ast}{\ast}{\ast}*)$。</li>
-</ul>
-<h4 id="第-3-步：发现同构-——-“看起来一样”"><a href="#第-3-步：发现同构-——-“看起来一样”" class="headerlink" title="第 3 步：发现同构 —— “看起来一样”"></a>第 3 步：发现同构 —— “看起来一样”</h4><ul>
-<li><strong>定义</strong>: 两个向量空间 $V$ 和 $W$ <strong>同构 (Isomorphic)</strong>，记为 $V \cong W$，如果存在一个可逆的线性映射（同构映射）$T: V \to W$。</li>
-<li><strong>判据 (有限维)</strong>: $V \cong W \iff \dim(V) &#x3D; \dim(W)$。</li>
-<li><strong>直接推论</strong>: 因为 $\dim(V) &#x3D; \dim(V^{\ast}{\ast}{\ast}<em>)$，所以任何有限维向量空间都与其对偶空间同构：$V \cong V^{\ast}{\ast}{\ast}</em>$。</li>
-</ul>
-<p><strong>但是，这里有一个陷阱！</strong> 这个同构是如何建立的？我们通常会定义一个映射，将基向量 $e_i$ 映射到对偶基向量 $E^{\ast}{\ast}i$。这意味着这个同构映射<strong>依赖于我们最初选择的基</strong>。换一套基，同构映射就变了。这种依赖于任意选择的同构，在数学上被认为是“不自然的”(non-canonical)。</p>
-<h4 id="第-4-步：寻找更好的同构-——-双对偶与自然性"><a href="#第-4-步：寻找更好的同构-——-双对偶与自然性" class="headerlink" title="第 4 步：寻找更好的同构 —— 双对偶与自然性"></a>第 4 步：寻找更好的同构 —— 双对偶与自然性</h4><p>为了摆脱对基的依赖，我们进行第二次对偶，构造<strong>双对偶空间 (Double Dual Space)</strong> $V^{\ast}{\ast}{\ast}{\ast\ast} &#x3D; (V^{\ast}{\ast}{\ast}*)^\ast$。</p>
-<ul>
-<li><strong>维数</strong>: 显然，$\dim(V^{\ast}{\ast}{\ast}{\ast\ast}) &#x3D; \dim(V^{\ast}{\ast}{\ast}*) &#x3D; \dim(V)$，所以 $V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$。</li>
-<li><strong>寻找自然同构</strong>: 我们能否找到一个不依赖于基的同构映射 $\Phi: V \to V^{\ast}{\ast}{\ast}{\ast\ast}$？答案是肯定的。</li>
-</ul>
-<p>对于每个向量 $v \in V$，我们可以定义一个“求值映射” $\text{ev}_v \in V^{\ast}{\ast}{\ast}{\ast\ast}$。这个映射 $\text{ev}_v$ 的作用是接收一个泛函 $f \in V^{\ast}{\ast}{\ast}<em>$，然后输出 $f$ 在 $v$ 上的值。<br>$<br>\text{ev}_v(f) &#x3D; f(v)<br>$<br>现在，我们定义*<em>自然映射</em></em> $\Phi: V \to V^{\ast}{\ast}{\ast}{\ast\ast}$ 为：<br>$<br>\Phi(v) &#x3D; \text{ev}_v<br>$<br>这个定义完全没有提到任何基！它只用到了向量空间最基本的“泛函作用于向量”的操作。可以证明，在有限维情况下，这个映射 $\Phi$ 是一个同构。因此，我们称 $V$ 和 $V^{\ast}{\ast}{\ast}{\ast\ast}$ 是<strong>自然同构 (Naturally Isomorphic)</strong> 的。</p>
-<p><strong>线性代数层级的总结:</strong></p>
-<ul>
-<li><strong>同构</strong>是一个关于“大小”（维数）相同的概念。</li>
-<li><strong>自然同构</strong>是一个关于“结构性连接”的概念，它不依赖于任何任意的人为选择（如坐标系）。</li>
-<li>$V \cong V^{\ast}{\ast}{\ast}*$ 是一个非自然的同构。</li>
-<li>$V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$ 是一个自然的同构。</li>
-<li><strong>对偶原理</strong>正是这种自然同构的结果。因为 $V$ 和它的“对偶的对偶”是自然一体的，所以任何只涉及向量空间内在结构的定理，都可以被“翻译”成一个关于对偶空间的定理。</li>
-</ul>
-<hr>
-<h3 id="阶梯中层：视角提升-——-关注映射与函子-The-“Why”"><a href="#阶梯中层：视角提升-——-关注映射与函子-The-“Why”" class="headerlink" title="阶梯中层：视角提升 —— 关注映射与函子 (The “Why”)"></a>阶梯中层：视角提升 —— 关注映射与函子 (The “Why”)</h3><p>现在我们开始用范畴论的“语言预科”来重新审视这些概念。我们不再只关注单个空间，而是关注<strong>空间之间的关系（映射）<strong>以及</strong>这些关系如何被转换</strong>。</p>
-<h4 id="第-1-步：将对偶化视为一个过程-Functor"><a href="#第-1-步：将对偶化视为一个过程-Functor" class="headerlink" title="第 1 步：将对偶化视为一个过程 (Functor)"></a>第 1 步：将对偶化视为一个过程 (Functor)</h4><p>对偶化不仅仅是作用于一个对象的构造，它还是一个作用于<strong>映射</strong>的过程。</p>
-<ul>
-<li>给定一个线性映射 $T: V \to W$。</li>
-<li>我们可以定义其<strong>对偶映射 (Dual Map)</strong> $T^{\ast}<em>: W^{\ast}</em> \to V^{\ast}{\ast}{\ast}*$。</li>
-<li>它的定义方式是：对于任意 $g \in W^{\ast}<em>$，$T^{\ast}</em>(g)$ 是一个 $V^{\ast}{\ast}{\ast}<em>$ 中的元素，其定义为：<br>$<br>(T^{\ast}</em>(g))(v) &#x3D; g(T(v)) \quad \text{for all } v \in V<br>$<br>这个过程可以被看作是函数复合：$V \stackrel{T}{\rightarrow} W \stackrel{g}{\rightarrow} F$。所以 $T^{\ast}*(g) &#x3D; g \circ T$。</li>
-</ul>
-<p><strong>请注意一个至关重要的细节：箭头的方向反转了！</strong><br>$T$ 是从 $V$ 到 $W$，而 $T^{\ast}<em>$ 是从 $W^{\ast}</em>$ 到 $V^{\ast}{\ast}{\ast}*$。</p>
-<p>这个“将对象映射到对偶对象，将映射映射到对偶映射”的整个过程，我们称之为<strong>对偶函子 (Duality Functor)</strong>。因为它反转了箭头，所以它是一个<strong>逆变函子 (Contravariant Functor)</strong>。</p>
-<h4 id="第-2-步：双对偶过程"><a href="#第-2-步：双对偶过程" class="headerlink" title="第 2 步：双对偶过程"></a>第 2 步：双对偶过程</h4><p>同样，我们可以对对偶映射再做一次对偶，得到<strong>双对偶映射 (Double Dual Map)</strong> $T^{\ast}{\ast\ast}: V^{\ast}{\ast}{\ast}{\ast\ast} \to W^{\ast}{\ast\ast}$。<br>$<br>T^{\ast}{\ast\ast} &#x3D; (T^{\ast}*)^\ast<br>$<br>由于我们连续两次反转了箭头，所以最终箭头的方向又变回来了！</p>
-<ul>
-<li>$T: V \to W$</li>
-<li>$T^{\ast}<em>: W^{\ast}</em> \to V^{\ast}{\ast}{\ast}*$</li>
-<li>$T^{\ast}{\ast\ast}: (V^{\ast}{\ast}{\ast}<em>)^\ast \to (W^{\ast}</em>)^\ast \implies T^{\ast}{\ast\ast}: V^{\ast}{\ast}{\ast}{\ast\ast} \to W^{\ast}{\ast\ast}$</li>
-</ul>
-<p>所以，双对偶过程是一个<strong>协变函子 (Covariant Functor)</strong>。</p>
-<h4 id="第-3-步：用函子的语言重新审视“自然性”"><a href="#第-3-步：用函子的语言重新审视“自然性”" class="headerlink" title="第 3 步：用函子的语言重新审视“自然性”"></a>第 3 步：用函子的语言重新审视“自然性”</h4><p>“自然性”在范畴论中有极其严格的定义。一个<strong>自然变换 (Natural Transformation)</strong> $\eta$ 是连接两个函子 $F, G$ 的“桥梁”。它要求对于任何一个映射 $T: V \to W$，下面的图表都必须<strong>交换 (commute)</strong>。</p>
-<p>交换意味着从左上角到右下角有两条路径，无论走哪条路，结果都必须一样。即 $G(T) \circ \eta_V &#x3D; \eta_W \circ F(T)$。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"> F(V) --- F(T) ---&gt; F(W)</span><br><span class="line">  |                   |</span><br><span class="line">η_V |                 | η_W</span><br><span class="line">  |                   |</span><br><span class="line">  v                   v</span><br><span class="line"> G(V) --- G(T) ---&gt; G(W)</span><br></pre></td></tr></table></figure>
-
-<p>现在，让我们把这个抽象的图表应用到我们的问题上：</p>
-<ul>
-<li>设 $F$ 为<strong>恒等函子 (Identity Functor)</strong> $Id$，它把每个对象和映射都映射到其自身。$Id(V) &#x3D; V, Id(T) &#x3D; T$。</li>
-<li>设 $G$ 为<strong>双对偶函子 (Double Dual Functor)</strong> $(\cdot)^{\ast\ast}$。$G(V) &#x3D; V^{\ast}{\ast}{\ast}{\ast\ast}, G(T) &#x3D; T^{\ast}{\ast\ast}$。</li>
-<li>设自然变换的分量 $\eta_V$ 就是我们之前定义的自然映射 $\Phi_V: V \to V^{\ast}{\ast}{\ast}{\ast\ast}$。</li>
-</ul>
-<p>那么，$V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$ 的<strong>自然性</strong>就意味着下面这个图表对于<strong>任何</strong>线性映射 $T: V \to W$ 都是交换的：<br>$<br>\begin{CD}<br>V @&gt;T&gt;&gt; W \<br>@V\Phi_V VV @VV\Phi_W V \<br>V^{\ast}{\ast}{\ast}{\ast\ast} @&gt;&gt;T^{\ast}{\ast\ast}&gt; W^{\ast}{\ast\ast}<br>\end{CD}<br>$<br>(这里用CD环境的语法表示交换图)</p>
-<p>这个图表的交换性意味着：$\Phi_W \circ T &#x3D; T^{\ast}{\ast\ast} \circ \Phi_V$。我们可以验证这确实成立，这为“自然性”提供了坚实的数学基础。</p>
-<p><strong>为什么 $V \cong V^{\ast}{\ast}{\ast}*$ 不是自然的？</strong><br>因为对偶函子是逆变的。任何试图在恒等函子（协变）和对偶函子（逆变）之间建立自然变换的尝试都会在定义上失败。你无法让一个保持箭头方向的过程和一个反转箭头方向的过程以一种“自然”的方式协调工作。</p>
-<hr>
-<h3 id="阶梯顶层：范畴论视角-The-“Essence”"><a href="#阶梯顶层：范畴论视角-The-“Essence”" class="headerlink" title="阶梯顶层：范畴论视角 (The “Essence”)"></a>阶梯顶层：范畴论视角 (The “Essence”)</h3><p>在这一层，我们完全抛开向量、基等具体元素，只关注结构和关系本身。</p>
-<ul>
-<li><strong>向量空间范畴 ($\textbf{Vect}_F$)</strong>: 对象是所有 $F$-向量空间，态射是所有线性映射。</li>
-<li><strong>恒等函子 ($Id$)</strong>: $Id: \textbf{Vect}_F \to \textbf{Vect}_F$。</li>
-<li><strong>对偶函子 ($(\cdot)^\ast$)</strong>: $(\cdot)^\ast: \textbf{Vect}_F \to \textbf{Vect}_F^{\ast}{\text{op}}$。它是一个从 $\textbf{Vect}_F$ 到其<strong>对偶范畴 (opposite category)</strong> 的函子。对偶范畴的对象不变，但所有态射方向反转。</li>
-<li><strong>双对偶函子 ($(\cdot)^{\ast\ast}$)</strong>: $(\cdot)^{\ast\ast}: \textbf{Vect}_F \to \textbf{Vect}_F$。它是两个逆变函子的复合，所以是协变的。</li>
-</ul>
-<p><strong>核心结论的范畴论表述:</strong></p>
-<ol>
-<li><p><strong>自然同构</strong>: 存在一个<strong>自然同构</strong> $\Phi: Id \Rightarrow (\cdot)^{\ast\ast}$。这里的 $\Rightarrow$ 符号表示自然变换。这个自然同构的每个分量 $\Phi_V: V \to V^{\ast}{\ast}{\ast}{\ast\ast}$ 在有限维向量空间范畴的子范畴中都是一个同构。</p>
-</li>
-<li><p><strong>对偶原理</strong>: 在范畴论中，对偶性是一个基本原则。对于任何范畴 $\mathcal{C}$，都存在其对偶范畴 $\mathcal{C}^{\text{op}}$。任何在 $\mathcal{C}$ 中成立的、只用对象和态射表述的定理，都有一个在 $\mathcal{C}^{\text{op}}$ 中成立的对偶定理。<br> 线性代数中的对偶原理，是这个普适原理的一个特例。$V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$ 的自然同构使得我们可以将关于 $V$ 的陈述（在 $\textbf{Vect}_F$ 中）与关于 $V^{\ast}{\ast}{\ast}*$ 的陈述（其对偶空间是 $V^{\ast}{\ast}{\ast}{\ast\ast}$，也在 $\textbf{Vect}_F$ 中）联系起来，从而揭示了这种深刻的对称性。</p>
-</li>
-<li><p><strong>反思性 (Reflexivity)</strong>: 一个对象 $X$ 如果通过某种典范的方式同构于它的“双对偶” $X^{\ast\ast}$，我们就称这个对象是<strong>反思的 (reflexive)</strong>。有限维向量空间就是反思的。这个概念在泛函分析等领域非常重要，因为无穷维巴拿赫空间不总是反思的。</p>
-</li>
-</ol>
-<h3 id="总结：攀登抽象阶梯"><a href="#总结：攀登抽象阶梯" class="headerlink" title="总结：攀登抽象阶梯"></a>总结：攀登抽象阶梯</h3><ul>
-<li><strong>线性代数 (底层)</strong>: 提供了具体的计算工具和直观感受。我们“发现”了 $V \cong V^{\ast}{\ast}{\ast}*$ 和 $V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$，并凭直觉感受到了后者的“优越性”。</li>
-<li><strong>视角提升 (中层)</strong>: 引入函子的思想，将“构造”提升为“过程”，将“映射”的变换规则系统化。我们用交换图精确定义了“自然性”，解释了为什么 $V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$ 优越。</li>
-<li><strong>范畴论 (顶层)</strong>: 抽离了一切具体内容，只剩下结构和关系。在这里，$V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$ 不再是一个孤立的事实，而是被称为“恒等函子与双对偶函子之间的自然同构”的普适模式的一个实例。对偶原理也从一个技巧升华为范畴论内在对称性的体现。</li>
-</ul>
-<p>通过这三个层次的攀登，我们看到数学是如何从处理具体问题，发展到识别模式，最终研究这些模式本身的。</p>
-]]></content>
-      <tags>
-        <tag>math</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Duality and Isomorpism I</title>
     <url>/posts/21656/</url>
     <content><![CDATA[<blockquote>
@@ -514,105 +322,6 @@
       <categories>
         <category>Math</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Duality and Isomorpism I</title>
-    <url>/posts/21655/</url>
-    <content><![CDATA[<blockquote>
-<ul>
-<li><ul>
-<li></li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<span id="more"></span>
-<hr>
-<p>问得非常好！这正是一个将抽象理论与具体矩阵计算联系起来的绝佳例子。</p>
-<p><strong>答案是：是的，存在着深刻而本质的联系。</strong> “矩阵的行空间维数等于列空间维数”（即行秩等于列秩）这个在初等线性代数中通常靠高斯消元法来证明的结论，其背后真正的理论支撑正是<strong>对偶空间</strong>的性质。</p>
-<p>让我们一步步揭示这个联系。</p>
-<h3 id="第-1-步：将矩阵视为线性映射"><a href="#第-1-步：将矩阵视为线性映射" class="headerlink" title="第 1 步：将矩阵视为线性映射"></a>第 1 步：将矩阵视为线性映射</h3><p>这是最关键的一步。一个 $m \times n$ 的矩阵 $A$ 不仅仅是一个数字网格，它本质上定义了一个从 $n$ 维空间到 $m$ 维空间的线性映射。</p>
-<ul>
-<li>设 $T_A: \mathbb{R}^n \to \mathbb{R}^m$，其定义为 $T_A(x) &#x3D; Ax$，其中 $x$ 是 $\mathbb{R}^n$ 中的列向量。</li>
-</ul>
-<p>现在，我们来识别矩阵的四个基本子空间在这个映射视角下是什么：</p>
-<ol>
-<li><p><strong>列空间 (Column Space)</strong>, $\text{col}(A)$:</p>
-<ul>
-<li>定义：矩阵 $A$ 各列向量的所有线性组合。</li>
-<li>映射视角：它正是线性映射 $T_A$ 的<strong>像 (Image)</strong>。</li>
-<li>$ \text{col}(A) &#x3D; \text{Im}(T_A) &#x3D; { Ax \mid x \in \mathbb{R}^n } \subseteq \mathbb{R}^m $</li>
-</ul>
-</li>
-<li><p><strong>零空间 (Null Space)</strong>, $\text{null}(A)$:</p>
-<ul>
-<li>定义：所有满足 $Ax&#x3D;0$ 的向量 $x$ 的集合。</li>
-<li>映射视角：它正是线性映射 $T_A$ 的<strong>核 (Kernel)</strong>。</li>
-<li>$ \text{null}(A) &#x3D; \ker(T_A) &#x3D; { x \in \mathbb{R}^n \mid Ax &#x3D; 0 } \subseteq \mathbb{R}^n $</li>
-</ul>
-</li>
-<li><p><strong>行空间 (Row Space)</strong>, $\text{row}(A)$:</p>
-<ul>
-<li>定义：矩阵 $A$ 各行向量的所有线性组合。</li>
-<li>这个空间在 $\mathbb{R}^n$ 中。它与 $T_A$ 的直接关系不那么明显，但它与 $A$ 的转置 $A^T$ 关系密切。</li>
-</ul>
-</li>
-<li><p><strong>左零空间 (Left Null Space)</strong>, $\text{null}(A^T)$:</p>
-<ul>
-<li>定义：所有满足 $A^T y &#x3D; 0$ 的向量 $y$ 的集合（或者等价地，$y^T A &#x3D; 0$）。</li>
-<li>它在 $\mathbb{R}^m$ 中。</li>
-</ul>
-</li>
-</ol>
-<h3 id="第-2-步：引入对偶映射与转置矩阵"><a href="#第-2-步：引入对偶映射与转置矩阵" class="headerlink" title="第 2 步：引入对偶映射与转置矩阵"></a>第 2 步：引入对偶映射与转置矩阵</h3><p>现在，我们之前讨论的抽象的<strong>对偶映射 (Dual Map)</strong> $T^{\ast}*$ 登场了。</p>
-<ul>
-<li>给定一个线性映射 $T: V \to W$，其对偶映射 $T^{\ast}<em>: W^{\ast}</em> \to V^{\ast}*$。</li>
-</ul>
-<p>当我们在处理具体的欧几里得空间 $\mathbb{R}^n$ 时，情况变得非常美妙。我们可以通过<strong>点积 (dot product)</strong> 将一个空间与其对偶空间进行一次“标准”的等同。</p>
-<ul>
-<li>我们可以将 $\mathbb{R}^n$ 中的一个向量 $v$ 与其对偶空间 $(\mathbb{R}^n)^\ast$ 中的一个线性泛函 $f_v$ 等同起来，定义为：<br>$ f_v(x) &#x3D; v \cdot x &#x3D; V^{\ast}T x $<br>这个对应关系 $v \leftrightarrow f_v$ 是一个同构。虽然它依赖于点积（即标准内积），但在标准欧氏空间中，我们通常默认使用这个同构，把它看作是一种“典范”的识别。</li>
-</ul>
-<p>在上述的识别下，抽象的对偶映射 $T_A^\ast: (\mathbb{R}^m)^\ast \to (\mathbb{R}^n)^\ast$ 究竟对应着哪个具体的矩阵运算呢？答案是：<strong>矩阵的转置 (Transpose)</strong>。</p>
-<p>设 $T_A: \mathbb{R}^n \to \mathbb{R}^m$ 是由矩阵 $A$ 定义的映射。其对偶映射 $T_A^\ast$ 由 $A^T$ 定义的映射 $T_{A^T}: \mathbb{R}^m \to \mathbb{R}^n$ 来代表。我们可以验证这一点：<br>根据对偶映射的定义 $(T^{\ast}*(g))(v) &#x3D; g(T(v))$，我们让 $g$ 对应于向量 $y \in \mathbb{R}^m$，$v$ 对应于向量 $x \in \mathbb{R}^n$。<br>$<br>(T_A^\ast(y))(x) &#x3D; y \cdot (T_A(x)) &#x3D; y^T (Ax) &#x3D; (y^T A) x &#x3D; (A^T y)^T x &#x3D; (A^T y) \cdot x<br>$<br>这表明，作用在 $x$ 上的泛函 $T_A^\ast(y)$ 与向量 $A^T y$ 所代表的泛函是同一个。因此，我们可以完全将对偶映射 $T_A^\ast$ 与由转置矩阵 $A^T$ 定义的映射 $T_{A^T}$ 等同起来。</p>
-<h3 id="第-3-步：用对偶理论重新表述问题"><a href="#第-3-步：用对偶理论重新表述问题" class="headerlink" title="第 3 步：用对偶理论重新表述问题"></a>第 3 步：用对偶理论重新表述问题</h3><p>现在，我们可以将原来的问题“行秩等于列秩”翻译成抽象语言：</p>
-<ul>
-<li><strong>列秩</strong>: $\text{rank}_{\text{col}}(A) &#x3D; \dim(\text{col}(A)) &#x3D; \dim(\text{Im}(T_A))$</li>
-<li><strong>行秩</strong>: $\text{rank}_{\text{row}}(A) &#x3D; \dim(\text{row}(A))$<ul>
-<li>注意到，$A$ 的行空间恰好是 $A^T$ 的<strong>列空间</strong>。</li>
-<li>所以，$\text{row}(A) &#x3D; \text{col}(A^T) &#x3D; \text{Im}(T_{A^T})$。</li>
-<li>因为 $T_{A^T}$ 代表了 $T_A^\ast$，所以 $\text{row}(A) &#x3D; \text{Im}(T_A^\ast)$ (在我们的标准识别下)。</li>
-</ul>
-</li>
-<li><strong>行秩</strong>: $\text{rank}_{\text{row}}(A) &#x3D; \dim(\text{Im}(T_A^\ast))$</li>
-</ul>
-<p>因此，<strong>“行秩 &#x3D; 列秩”</strong> 这个命题，在抽象层面上的等价表述是：<br>$<br>\dim(\text{Im}(T_A)) &#x3D; \dim(\text{Im}(T_A^\ast))<br>$<br><strong>一个线性映射的像的维数，等于其对偶映射的像的维数。</strong> 这听起来像一个更普适、更根本的定理。而事实也的确如此。</p>
-<h3 id="第-4-步：证明核心定理"><a href="#第-4-步：证明核心定理" class="headerlink" title="第 4 步：证明核心定理"></a>第 4 步：证明核心定理</h3><p>这个核心定理 $\dim(\text{Im}(T)) &#x3D; \dim(\text{Im}(T^{\ast}*))$ 可以完全在抽象的框架下被优雅地证明，无需任何矩阵计算。</p>
-<p>证明思路如下：</p>
-<ol>
-<li><p><strong>引入歼灭子 (Annihilator)</strong>: 对于 $V$ 的一个子空间 $S$，其歼灭子 $S^0 \subseteq V^{\ast}<em>$ 定义为所有能“歼灭”$S$ 中所有向量的泛函，即 $S^0 &#x3D; { f \in V^{\ast}</em> \mid f(s) &#x3D; 0 \text{ for all } s \in S }$。</p>
-</li>
-<li><p><strong>关键引理 1 (维数公式)</strong>: 对于有限维向量空间 $V$ 和其子空间 $S$，有：<br>$ \dim(S) + \dim(S^0) &#x3D; \dim(V) $</p>
-</li>
-<li><p><strong>关键引理 2 (像与核的关系)</strong>: 对于线性映射 $T: V \to W$，其对偶映射 $T^{\ast}<em>: W^{\ast}</em> \to V^{\ast}<em>$ 的<strong>核</strong>与原映射的<strong>像</strong>有关：<br>$ \ker(T^{\ast}</em>) &#x3D; (\text{Im}(T))^0 $<br>(证明：$g \in \ker(T^{\ast}<em>)$  $\iff$ $T^{\ast}</em>(g)&#x3D;0$  $\iff$ $g \circ T &#x3D; 0$  $\iff$ 对所有 $v \in V$，$g(T(v))&#x3D;0$  $\iff$ $g$ 歼灭了 $T$ 的整个像  $\iff$ $g \in (\text{Im}(T))^0$)</p>
-</li>
-<li><p><strong>开始证明</strong>:</p>
-<ul>
-<li>对 $T: V \to W$ 应用秩-零化度定理 (Rank-Nullity Theorem):<br>$ \dim(\text{Im}(T)) + \dim(\ker(T)) &#x3D; \dim(V) $</li>
-<li>对对偶映射 $T^{\ast}<em>: W^{\ast}</em> \to V^{\ast}<em>$ 应用秩-零化度定理:<br>$ \dim(\text{Im}(T^{\ast}</em>)) + \dim(\ker(T^{\ast}<em>)) &#x3D; \dim(W^{\ast}</em>) $</li>
-<li>我们知道 $\dim(W^{\ast}<em>) &#x3D; \dim(W)$。并且根据关键引理 2，$\ker(T^{\ast}</em>) &#x3D; (\text{Im}(T))^0$。代入上式：<br>$ \dim(\text{Im}(T^{\ast}*)) + \dim((\text{Im}(T))^0) &#x3D; \dim(W) $</li>
-<li>现在对 $W$ 的子空间 $\text{Im}(T)$ 应用关键引理 1 的维数公式：<br>$ \dim(\text{Im}(T)) + \dim((\text{Im}(T))^0) &#x3D; \dim(W) $</li>
-<li>比较最后两个方程，我们立刻得到：<br>$ \dim(\text{Im}(T)) &#x3D; \dim(\text{Im}(T^{\ast}*)) $</li>
-</ul>
-</li>
-</ol>
-<p>证明完毕。</p>
-<h3 id="总结与升华"><a href="#总结与升华" class="headerlink" title="总结与升华"></a>总结与升华</h3><ul>
-<li><strong>具体层面</strong>: 矩阵的行秩等于列秩。证明通常依赖于高斯消元，看起来像一个计算技巧的结果。</li>
-<li><strong>抽象层面</strong>: 任何一个有限维线性映射，其像的维数都等于其对偶映射的像的维数。</li>
-<li><strong>联系</strong>: 矩阵的转置运算 $A \to A^T$ 正是抽象对偶映射 $T \to T^{\ast}*$ 在标准坐标系和标准内积下的具体体现。行空间是转置矩阵的列空间，也就是对偶映射的像。</li>
-</ul>
-<p>所以，你观察到的这个现象，绝非巧合。它是深层数学结构——对偶性——在矩阵世界中的一个投影。这完美地展示了从具体计算（矩阵）上升到抽象结构（对偶空间）如何能揭示问题本质，并给出更优雅、更普适的解释。</p>
-]]></content>
   </entry>
   <entry>
     <title>博客阅读体验优化与主题自定义指南</title>
@@ -742,55 +451,295 @@
       </tags>
   </entry>
   <entry>
-    <title>English-DailyLearn-01</title>
-    <url>/posts/55322/</url>
-    <content><![CDATA[<p>English learned everyday!</p>
-<span id="more"></span>
-
-
+    <title>Duality and Isomorpism II</title>
+    <url>/posts/22740/</url>
+    <content><![CDATA[<span id="more"></span>
+<hr>
+<p>$\frac{1}{2} $<br>好的，这是一个绝佳的问题。它恰好展示了数学思想如何从具体计算的领域（线性代数）升华到关注结构与关系的普适模式（范畴论）。我们将沿着这条“抽象阶梯”逐级攀登。</p>
+<h3 id="阶梯底层：线性代数视角-The-“What”-and-“How”"><a href="#阶梯底层：线性代数视角-The-“What”-and-“How”" class="headerlink" title="阶梯底层：线性代数视角 (The “What” and “How”)"></a>阶梯底层：线性代数视角 (The “What” and “How”)</h3><p>在这一层，我们关心的是具体的对象、定义和计算。</p>
+<h4 id="第-1-步：定义基本对象-——-向量空间与线性映射"><a href="#第-1-步：定义基本对象-——-向量空间与线性映射" class="headerlink" title="第 1 步：定义基本对象 —— 向量空间与线性映射"></a>第 1 步：定义基本对象 —— 向量空间与线性映射</h4><ul>
+<li><strong>对象 (Object)</strong>: 向量空间 $V$，例如 $\mathbb{R}^n$。它的元素是向量。</li>
+<li><strong>态射 (Morphism)</strong>: 线性映射 $T: V \to W$。它保持向量空间的结构（加法和标量乘法）。</li>
+</ul>
+<h4 id="第-2-步：构造对偶空间-——-一个新的、相关的空间"><a href="#第-2-步：构造对偶空间-——-一个新的、相关的空间" class="headerlink" title="第 2 步：构造对偶空间 —— 一个新的、相关的空间"></a>第 2 步：构造对偶空间 —— 一个新的、相关的空间</h4><p>我们从一个向量空间 $V$ 出发，可以构造出它的<strong>对偶空间 (Dual Space)</strong> $V^{\ast}{\ast}{\ast}*$。</p>
 <ul>
-<li><p><strong>discipline</strong> <code>a particular area of study, especially a subject studied at a college or university</code></p>
+<li><strong>定义</strong>: $V^{\ast}{\ast}{\ast}<em>$ 是所有从 $V$ 到其标量域 $F$ 的线性映射（称为*<em>线性泛函</em></em>）的集合。</li>
+<li><strong>核心思想</strong>: $V^{\ast}{\ast}{\ast}*$ 中的每个元素 $f$ 都是一个“测量工具”，它接收一个向量 $v \in V$，然后输出一个标量 $f(v) \in F$。</li>
+<li><strong>关键结果 (有限维)</strong>: 如果 $V$ 有一组基 ${e_1, \dots, e_n}$，那么 $V^{\ast}{\ast}{\ast}<em>$ 就有一组对应的*<em>对偶基</em></em> ${E^{\ast}{\ast}1, \dots, E^{\ast}{\ast}n}$，定义为 $E^{\ast}{\ast}i(e_j) &#x3D; \delta^{i}_{j}$。这直接导出一个重要结论：$\dim(V) &#x3D; \dim(V^{\ast}{\ast}{\ast}*)$。</li>
+</ul>
+<h4 id="第-3-步：发现同构-——-“看起来一样”"><a href="#第-3-步：发现同构-——-“看起来一样”" class="headerlink" title="第 3 步：发现同构 —— “看起来一样”"></a>第 3 步：发现同构 —— “看起来一样”</h4><ul>
+<li><strong>定义</strong>: 两个向量空间 $V$ 和 $W$ <strong>同构 (Isomorphic)</strong>，记为 $V \cong W$，如果存在一个可逆的线性映射（同构映射）$T: V \to W$。</li>
+<li><strong>判据 (有限维)</strong>: $V \cong W \iff \dim(V) &#x3D; \dim(W)$。</li>
+<li><strong>直接推论</strong>: 因为 $\dim(V) &#x3D; \dim(V^{\ast}{\ast}{\ast}<em>)$，所以任何有限维向量空间都与其对偶空间同构：$V \cong V^{\ast}{\ast}{\ast}</em>$。</li>
+</ul>
+<p><strong>但是，这里有一个陷阱！</strong> 这个同构是如何建立的？我们通常会定义一个映射，将基向量 $e_i$ 映射到对偶基向量 $E^{\ast}{\ast}i$。这意味着这个同构映射<strong>依赖于我们最初选择的基</strong>。换一套基，同构映射就变了。这种依赖于任意选择的同构，在数学上被认为是“不自然的”(non-canonical)。</p>
+<h4 id="第-4-步：寻找更好的同构-——-双对偶与自然性"><a href="#第-4-步：寻找更好的同构-——-双对偶与自然性" class="headerlink" title="第 4 步：寻找更好的同构 —— 双对偶与自然性"></a>第 4 步：寻找更好的同构 —— 双对偶与自然性</h4><p>为了摆脱对基的依赖，我们进行第二次对偶，构造<strong>双对偶空间 (Double Dual Space)</strong> $V^{\ast}{\ast}{\ast}{\ast\ast} &#x3D; (V^{\ast}{\ast}{\ast}*)^\ast$。</p>
+<ul>
+<li><strong>维数</strong>: 显然，$\dim(V^{\ast}{\ast}{\ast}{\ast\ast}) &#x3D; \dim(V^{\ast}{\ast}{\ast}*) &#x3D; \dim(V)$，所以 $V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$。</li>
+<li><strong>寻找自然同构</strong>: 我们能否找到一个不依赖于基的同构映射 $\Phi: V \to V^{\ast}{\ast}{\ast}{\ast\ast}$？答案是肯定的。</li>
+</ul>
+<p>对于每个向量 $v \in V$，我们可以定义一个“求值映射” $\text{ev}_v \in V^{\ast}{\ast}{\ast}{\ast\ast}$。这个映射 $\text{ev}_v$ 的作用是接收一个泛函 $f \in V^{\ast}{\ast}{\ast}<em>$，然后输出 $f$ 在 $v$ 上的值。<br>$<br>\text{ev}_v(f) &#x3D; f(v)<br>$<br>现在，我们定义*<em>自然映射</em></em> $\Phi: V \to V^{\ast}{\ast}{\ast}{\ast\ast}$ 为：<br>$<br>\Phi(v) &#x3D; \text{ev}_v<br>$<br>这个定义完全没有提到任何基！它只用到了向量空间最基本的“泛函作用于向量”的操作。可以证明，在有限维情况下，这个映射 $\Phi$ 是一个同构。因此，我们称 $V$ 和 $V^{\ast}{\ast}{\ast}{\ast\ast}$ 是<strong>自然同构 (Naturally Isomorphic)</strong> 的。</p>
+<p><strong>线性代数层级的总结:</strong></p>
+<ul>
+<li><strong>同构</strong>是一个关于“大小”（维数）相同的概念。</li>
+<li><strong>自然同构</strong>是一个关于“结构性连接”的概念，它不依赖于任何任意的人为选择（如坐标系）。</li>
+<li>$V \cong V^{\ast}{\ast}{\ast}*$ 是一个非自然的同构。</li>
+<li>$V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$ 是一个自然的同构。</li>
+<li><strong>对偶原理</strong>正是这种自然同构的结果。因为 $V$ 和它的“对偶的对偶”是自然一体的，所以任何只涉及向量空间内在结构的定理，都可以被“翻译”成一个关于对偶空间的定理。</li>
+</ul>
+<hr>
+<h3 id="阶梯中层：视角提升-——-关注映射与函子-The-“Why”"><a href="#阶梯中层：视角提升-——-关注映射与函子-The-“Why”" class="headerlink" title="阶梯中层：视角提升 —— 关注映射与函子 (The “Why”)"></a>阶梯中层：视角提升 —— 关注映射与函子 (The “Why”)</h3><p>现在我们开始用范畴论的“语言预科”来重新审视这些概念。我们不再只关注单个空间，而是关注<strong>空间之间的关系（映射）<strong>以及</strong>这些关系如何被转换</strong>。</p>
+<h4 id="第-1-步：将对偶化视为一个过程-Functor"><a href="#第-1-步：将对偶化视为一个过程-Functor" class="headerlink" title="第 1 步：将对偶化视为一个过程 (Functor)"></a>第 1 步：将对偶化视为一个过程 (Functor)</h4><p>对偶化不仅仅是作用于一个对象的构造，它还是一个作用于<strong>映射</strong>的过程。</p>
+<ul>
+<li>给定一个线性映射 $T: V \to W$。</li>
+<li>我们可以定义其<strong>对偶映射 (Dual Map)</strong> $T^{\ast}<em>: W^{\ast}</em> \to V^{\ast}{\ast}{\ast}*$。</li>
+<li>它的定义方式是：对于任意 $g \in W^{\ast}<em>$，$T^{\ast}</em>(g)$ 是一个 $V^{\ast}{\ast}{\ast}<em>$ 中的元素，其定义为：<br>$<br>(T^{\ast}</em>(g))(v) &#x3D; g(T(v)) \quad \text{for all } v \in V<br>$<br>这个过程可以被看作是函数复合：$V \stackrel{T}{\rightarrow} W \stackrel{g}{\rightarrow} F$。所以 $T^{\ast}*(g) &#x3D; g \circ T$。</li>
+</ul>
+<p><strong>请注意一个至关重要的细节：箭头的方向反转了！</strong><br>$T$ 是从 $V$ 到 $W$，而 $T^{\ast}<em>$ 是从 $W^{\ast}</em>$ 到 $V^{\ast}{\ast}{\ast}*$。</p>
+<p>这个“将对象映射到对偶对象，将映射映射到对偶映射”的整个过程，我们称之为<strong>对偶函子 (Duality Functor)</strong>。因为它反转了箭头，所以它是一个<strong>逆变函子 (Contravariant Functor)</strong>。</p>
+<h4 id="第-2-步：双对偶过程"><a href="#第-2-步：双对偶过程" class="headerlink" title="第 2 步：双对偶过程"></a>第 2 步：双对偶过程</h4><p>同样，我们可以对对偶映射再做一次对偶，得到<strong>双对偶映射 (Double Dual Map)</strong> $T^{\ast}{\ast\ast}: V^{\ast}{\ast}{\ast}{\ast\ast} \to W^{\ast}{\ast\ast}$。<br>$<br>T^{\ast}{\ast\ast} &#x3D; (T^{\ast}*)^\ast<br>$<br>由于我们连续两次反转了箭头，所以最终箭头的方向又变回来了！</p>
+<ul>
+<li>$T: V \to W$</li>
+<li>$T^{\ast}<em>: W^{\ast}</em> \to V^{\ast}{\ast}{\ast}*$</li>
+<li>$T^{\ast}{\ast\ast}: (V^{\ast}{\ast}{\ast}<em>)^\ast \to (W^{\ast}</em>)^\ast \implies T^{\ast}{\ast\ast}: V^{\ast}{\ast}{\ast}{\ast\ast} \to W^{\ast}{\ast\ast}$</li>
+</ul>
+<p>所以，双对偶过程是一个<strong>协变函子 (Covariant Functor)</strong>。</p>
+<h4 id="第-3-步：用函子的语言重新审视“自然性”"><a href="#第-3-步：用函子的语言重新审视“自然性”" class="headerlink" title="第 3 步：用函子的语言重新审视“自然性”"></a>第 3 步：用函子的语言重新审视“自然性”</h4><p>“自然性”在范畴论中有极其严格的定义。一个<strong>自然变换 (Natural Transformation)</strong> $\eta$ 是连接两个函子 $F, G$ 的“桥梁”。它要求对于任何一个映射 $T: V \to W$，下面的图表都必须<strong>交换 (commute)</strong>。</p>
+<p>交换意味着从左上角到右下角有两条路径，无论走哪条路，结果都必须一样。即 $G(T) \circ \eta_V &#x3D; \eta_W \circ F(T)$。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"> F(V) --- F(T) ---&gt; F(W)</span><br><span class="line">  |                   |</span><br><span class="line">η_V |                 | η_W</span><br><span class="line">  |                   |</span><br><span class="line">  v                   v</span><br><span class="line"> G(V) --- G(T) ---&gt; G(W)</span><br></pre></td></tr></table></figure>
+
+<p>现在，让我们把这个抽象的图表应用到我们的问题上：</p>
+<ul>
+<li>设 $F$ 为<strong>恒等函子 (Identity Functor)</strong> $Id$，它把每个对象和映射都映射到其自身。$Id(V) &#x3D; V, Id(T) &#x3D; T$。</li>
+<li>设 $G$ 为<strong>双对偶函子 (Double Dual Functor)</strong> $(\cdot)^{\ast\ast}$。$G(V) &#x3D; V^{\ast}{\ast}{\ast}{\ast\ast}, G(T) &#x3D; T^{\ast}{\ast\ast}$。</li>
+<li>设自然变换的分量 $\eta_V$ 就是我们之前定义的自然映射 $\Phi_V: V \to V^{\ast}{\ast}{\ast}{\ast\ast}$。</li>
+</ul>
+<p>那么，$V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$ 的<strong>自然性</strong>就意味着下面这个图表对于<strong>任何</strong>线性映射 $T: V \to W$ 都是交换的：<br>$<br>\begin{CD}<br>V @&gt;T&gt;&gt; W \<br>@V\Phi_V VV @VV\Phi_W V \<br>V^{\ast}{\ast}{\ast}{\ast\ast} @&gt;&gt;T^{\ast}{\ast\ast}&gt; W^{\ast}{\ast\ast}<br>\end{CD}<br>$<br>(这里用CD环境的语法表示交换图)</p>
+<p>这个图表的交换性意味着：$\Phi_W \circ T &#x3D; T^{\ast}{\ast\ast} \circ \Phi_V$。我们可以验证这确实成立，这为“自然性”提供了坚实的数学基础。</p>
+<p><strong>为什么 $V \cong V^{\ast}{\ast}{\ast}*$ 不是自然的？</strong><br>因为对偶函子是逆变的。任何试图在恒等函子（协变）和对偶函子（逆变）之间建立自然变换的尝试都会在定义上失败。你无法让一个保持箭头方向的过程和一个反转箭头方向的过程以一种“自然”的方式协调工作。</p>
+<hr>
+<h3 id="阶梯顶层：范畴论视角-The-“Essence”"><a href="#阶梯顶层：范畴论视角-The-“Essence”" class="headerlink" title="阶梯顶层：范畴论视角 (The “Essence”)"></a>阶梯顶层：范畴论视角 (The “Essence”)</h3><p>在这一层，我们完全抛开向量、基等具体元素，只关注结构和关系本身。</p>
+<ul>
+<li><strong>向量空间范畴 ($\textbf{Vect}_F$)</strong>: 对象是所有 $F$-向量空间，态射是所有线性映射。</li>
+<li><strong>恒等函子 ($Id$)</strong>: $Id: \textbf{Vect}_F \to \textbf{Vect}_F$。</li>
+<li><strong>对偶函子 ($(\cdot)^\ast$)</strong>: $(\cdot)^\ast: \textbf{Vect}_F \to \textbf{Vect}_F^{\ast}{\text{op}}$。它是一个从 $\textbf{Vect}_F$ 到其<strong>对偶范畴 (opposite category)</strong> 的函子。对偶范畴的对象不变，但所有态射方向反转。</li>
+<li><strong>双对偶函子 ($(\cdot)^{\ast\ast}$)</strong>: $(\cdot)^{\ast\ast}: \textbf{Vect}_F \to \textbf{Vect}_F$。它是两个逆变函子的复合，所以是协变的。</li>
+</ul>
+<p><strong>核心结论的范畴论表述:</strong></p>
+<ol>
+<li><p><strong>自然同构</strong>: 存在一个<strong>自然同构</strong> $\Phi: Id \Rightarrow (\cdot)^{\ast\ast}$。这里的 $\Rightarrow$ 符号表示自然变换。这个自然同构的每个分量 $\Phi_V: V \to V^{\ast}{\ast}{\ast}{\ast\ast}$ 在有限维向量空间范畴的子范畴中都是一个同构。</p>
 </li>
-<li><p><strong>precisely</strong>  <code>exactly; used to emphasize what you are saying</code></p>
+<li><p><strong>对偶原理</strong>: 在范畴论中，对偶性是一个基本原则。对于任何范畴 $\mathcal{C}$，都存在其对偶范畴 $\mathcal{C}^{\text{op}}$。任何在 $\mathcal{C}$ 中成立的、只用对象和态射表述的定理，都有一个在 $\mathcal{C}^{\text{op}}$ 中成立的对偶定理。<br> 线性代数中的对偶原理，是这个普适原理的一个特例。$V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$ 的自然同构使得我们可以将关于 $V$ 的陈述（在 $\textbf{Vect}_F$ 中）与关于 $V^{\ast}{\ast}{\ast}*$ 的陈述（其对偶空间是 $V^{\ast}{\ast}{\ast}{\ast\ast}$，也在 $\textbf{Vect}_F$ 中）联系起来，从而揭示了这种深刻的对称性。</p>
 </li>
-<li><p><strong>embankment</strong> <code>堤岸，路堤</code> </p>
+<li><p><strong>反思性 (Reflexivity)</strong>: 一个对象 $X$ 如果通过某种典范的方式同构于它的“双对偶” $X^{\ast\ast}$，我们就称这个对象是<strong>反思的 (reflexive)</strong>。有限维向量空间就是反思的。这个概念在泛函分析等领域非常重要，因为无穷维巴拿赫空间不总是反思的。</p>
 </li>
-<li><p><strong>revision</strong> <code>复习；修改</code></p>
-</li>
-<li><p><strong>conjure (up)</strong> <code>to make something appear by magic, or as if by magic</code></p>
-</li>
-<li><p><strong>spell disaster, trouble, etc.</strong>  <code>意味着灾难，会招致麻烦（等等）</code></p>
-</li>
-<li><p><strong>sorcerer</strong> <code>巫师，术士，魔法师</code></p>
-</li>
-<li><hr>
-</li>
-<li><p><strong>recruit</strong> <code>招聘，吸引加入；（尤指军队）征募新兵</code> <code>This association has recruited enthusiasts from many professions</code></p>
-</li>
-<li><p><strong>excel (in)</strong>  <code>vi.</code> <code>to be extremely good at something</code></p>
-</li>
-<li><p><strong>excel yourself</strong> <code>to do something better than you usually do</code></p>
-</li>
-<li><p><strong>facilitate</strong> <code>to make something possible or easier</code></p>
-</li>
-<li><p><strong>inhale</strong>  <code>vi, vt.</code> <code>to breathe air, smoke, or gas into your lungs</code></p>
-</li>
-<li><p><strong>prompt</strong>   <code>to make something happen</code></p>
-</li>
-<li><p><strong>egotistic</strong> <code>considering yourself to be better or more important than other people自大的，自负的，念念不忘自我的</code></p>
-</li>
-<li><p><strong>merit</strong>  <code>the quality of being good and deserving praise</code> <code>Her ideas have merit.</code></p>
-</li>
-<li><p><em>controversial3</em></p>
-</li>
+</ol>
+<h3 id="总结：攀登抽象阶梯"><a href="#总结：攀登抽象阶梯" class="headerlink" title="总结：攀登抽象阶梯"></a>总结：攀登抽象阶梯</h3><ul>
+<li><strong>线性代数 (底层)</strong>: 提供了具体的计算工具和直观感受。我们“发现”了 $V \cong V^{\ast}{\ast}{\ast}*$ 和 $V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$，并凭直觉感受到了后者的“优越性”。</li>
+<li><strong>视角提升 (中层)</strong>: 引入函子的思想，将“构造”提升为“过程”，将“映射”的变换规则系统化。我们用交换图精确定义了“自然性”，解释了为什么 $V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$ 优越。</li>
+<li><strong>范畴论 (顶层)</strong>: 抽离了一切具体内容，只剩下结构和关系。在这里，$V \cong V^{\ast}{\ast}{\ast}{\ast\ast}$ 不再是一个孤立的事实，而是被称为“恒等函子与双对偶函子之间的自然同构”的普适模式的一个实例。对偶原理也从一个技巧升华为范畴论内在对称性的体现。</li>
+</ul>
+<p>通过这三个层次的攀登，我们看到数学是如何从处理具体问题，发展到识别模式，最终研究这些模式本身的。</p>
+]]></content>
+      <tags>
+        <tag>math</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>The Evolution of My GitHub Profile</title>
+    <url>/posts/17888/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：记录了一次有趣的”人机协作”经历——和Gemini一起从零开始，打造了一个让我非常满意的Github Profile。</p>
+</blockquote>
+<span id="more"></span>
+<hr>
+<h2 id="🎯-先看效果，再聊过程"><a href="#🎯-先看效果，再聊过程" class="headerlink" title="🎯 先看效果，再聊过程"></a>🎯 先看效果，再聊过程</h2><p>我的GitHub Profile现在长这样：</p>
+<ul>
+<li><strong>个人简介</strong>：简洁的自我介绍）</li>
+<li><strong>技术栈展示</strong>：用图标展示我会的编程语言（虽然有些可能已经忘得差不多了😅）</li>
+<li><strong>数学卡片</strong>：高斯绝妙定理–数学之美！</li>
+<li><strong>动态博客列表</strong>：自动更新我最新写的文章</li>
+<li><strong>贪吃蛇贡献图</strong>：把GitHub的贡献日历变成动画，单纯好玩</li>
+</ul>
+<p>一开始我就是想要个好看的Profile</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/year-month/name" alt="最终效果预览"></p>
+<h2 id="🛠️-技术实现：从简单到复杂"><a href="#🛠️-技术实现：从简单到复杂" class="headerlink" title="🛠️ 技术实现：从简单到复杂"></a>🛠️ 技术实现：从简单到复杂</h2><h3 id="1-基础部分：Markdown-HTML"><a href="#1-基础部分：Markdown-HTML" class="headerlink" title="1. 基础部分：Markdown + HTML"></a>1. 基础部分：Markdown + HTML</h3><p>GitHub Profile本质上就是一个<code>README.md</code>文件。Markdown -&gt; HTML 懂了吧。</p>
+<blockquote>
+<p>💡 <strong>踩雷记录</strong>：GitHub Profile的README.md文件有特殊的渲染规则，支持HTML但不支持所有CSS属性，比如坑爹的超链接！</p>
+</blockquote>
+<h4 id="个人介绍：简洁清爽"><a href="#个人介绍：简洁清爽" class="headerlink" title="个人介绍：简洁清爽"></a>个人介绍：简洁清爽</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 👨‍💻 About Me</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left; display: inline-block;&quot;</span>&gt;</span></span><br><span class="line"> 🎓 毕业于 **清华大学 (THU)**</span><br><span class="line"> 🌱 目前就读于 **中国科学院大学 (UCAS)**</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="技术栈：用现成的"><a href="#技术栈：用现成的" class="headerlink" title="技术栈：用现成的"></a>技术栈：用现成的</h4><p>用<span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span>，一行代码即可。</p>
+<blockquote>
+<p>🎯 <strong>为什么选择这个服务？</strong> 完全免费，部署简单，”懒人”福音</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://skillicons.dev&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://skillicons.dev/icons?i=python,cpp,java,js,html,css,latex,vscode,git&amp;perline=9&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="特色卡片：数学之美"><a href="#特色卡片：数学之美" class="headerlink" title="特色卡片：数学之美"></a>特色卡片：数学之美</h4><p>我最喜欢的数学家——高斯和他都觉得妙的——高斯绝妙定理：</p>
+<blockquote>
+<p>🧮 <strong>高斯绝妙定理</strong> 这个定理告诉say： 曲面的高斯曲率是内蕴几何量，不依赖于曲面在空间中的嵌入方式。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin: 16px 0;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;display: flex; align-items: center; gap: 16px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;path/to/Gauss.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;120&quot;</span> <span class="attr">style</span>=<span class="string">&quot;border-radius: 6px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Theorema Egregium<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>高斯绝妙定理：曲面的高斯曲率K是内蕴几何量<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://en.wikipedia.org/wiki/Theorema_Egregium&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;white&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-自动化：Profile”活”了"><a href="#2-自动化：Profile”活”了" class="headerlink" title="2. 自动化：Profile”活”了"></a>2. 自动化：Profile”活”了</h3><p>这部分是让Profile真正”活”起来的关键。通过GitHub Actions，实现自动更新，让Profile不再是静态的展示页面。</p>
+<h4 id="自动更新博客列表"><a href="#自动更新博客列表" class="headerlink" title="自动更新博客列表"></a>自动更新博客列表</h4><p>用<code>gautamkrishnar/blog-post-workflow</code>这个Action，配置简单，每次发布新博客，Profile就会自动更新，无需手动维护：</p>
+<blockquote>
+<p>🔄 <strong>自动化原理</strong>：这个Action会定期抓取博客RSS Feed，然后自动更新README.md文件中的博客列表。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Latest</span> <span class="string">blog</span> <span class="string">post</span> <span class="string">workflow</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&#x27;0 * * * *&#x27;</span>  <span class="comment"># 每小时运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">update-readme-with-blog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Update</span> <span class="string">this</span> <span class="string">repo&#x27;s</span> <span class="string">README</span> <span class="string">with</span> <span class="string">latest</span> <span class="string">blog</span> <span class="string">posts</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">gautamkrishnar/blog-post-workflow@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">disable_cache:</span> <span class="literal">true</span></span><br><span class="line">          <span class="attr">feed_list:</span> <span class="string">&quot;https://zhu-jl18.github.io/atom.xml&quot;</span></span><br><span class="line">          <span class="attr">max_post_count:</span> <span class="number">5</span></span><br><span class="line">          <span class="attr">template:</span> <span class="string">&#x27;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;\(url&quot; style=&quot;text-decoration: none; color: #20B2AA;&quot;&gt;\)title&lt;/a&gt;&lt;/p&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>在README中设置占位符：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 📝 Recent Blog Posts</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- BLOG-POST-LIST:START --&gt;</span><span class="comment">&lt;!-- BLOG-POST-LIST:END --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="贪吃蛇贡献图"><a href="#贪吃蛇贡献图" class="headerlink" title="贪吃蛇贡献图"></a>贪吃蛇贡献图</h4><p>用<code>Platane/snk</code>这个Action，自动生成动画版的贡献图。这个功能纯粹是为了好玩：</p>
+<blockquote>
+<p>🐍 <strong>“贪吃蛇”？！</strong> 因为这个动画看起来就像一条蛇在吃贡献点，从年初吃到年末。虽然没什么实际用途，因为我基本不贡献。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">generate</span> <span class="string">animation</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&quot;0 0 * * *&quot;</span>  <span class="comment"># 每天运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">generate:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">timeout-minutes:</span> <span class="number">10</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">Platane/snk@v3</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">snake-gif</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_user_name:</span> <span class="string">zhu-jl18</span></span><br><span class="line">          <span class="attr">svg_out_path:</span> <span class="string">dist/github-snake.svg</span></span><br><span class="line">          <span class="attr">snake_color:</span> <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">crazy-max/ghaction-github-pages@v2.1.3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">target_branch:</span> <span class="string">output</span></span><br><span class="line">          <span class="attr">build_dir:</span> <span class="string">dist</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在README中引用：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake-dark.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">&quot;github snake animation&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="🤖-人机协作实录"><a href="#🤖-人机协作实录" class="headerlink" title="🤖 人机协作实录"></a>🤖 人机协作实录</h2><p>此部分记录了与Gemini共同实现Profile的过程。我负责设计思路与整体规划，Gemini负责具体代码实现。</p>
+<blockquote>
+<p>🤖 <strong>协作原则</strong>：大模型不是万能的，它虽然懂得很多，但是你得让他明白你到底要他干什么~</p>
+</blockquote>
+<h3 id="协作过程"><a href="#协作过程" class="headerlink" title="协作过程"></a>协作过程</h3><p><strong>我</strong>：我想在GitHub Profile上展示我的博客列表，有什么好办法吗？</p>
+<p><strong>Gemini</strong>：可以用<code>blog-post-workflow</code>这个Action，配置很简单…</p>
+<p><strong>结果</strong>：基础功能实现了，但样式很丑。典型的”能用就行”状态。</p>
+<h3 id="第二轮：样式优化"><a href="#第二轮：样式优化" class="headerlink" title="第二轮：样式优化"></a>第二轮：样式优化</h3><p><strong>我</strong>：这个列表样式不好看，我想要卡片式布局，并且居中显示。</p>
+<p><strong>Gemini</strong>：可以用复杂的HTML+CSS来实现…</p>
+<p><strong>结果</strong>：GitHub不支持复杂的CSS样式，居中效果失效了。这就是典型的”过度设计”问题。</p>
+<h3 id="第三轮：回归本质"><a href="#第三轮：回归本质" class="headerlink" title="第三轮：回归本质"></a>第三轮：回归本质</h3><p><strong>我</strong>：GitHub不支持这些复杂样式，还是都在左边。我不要日期了，字体大小也改不了，就让它简单的居中就行。</p>
+<p><strong>Gemini</strong>：那就用最简单的<code>&lt;p align=&quot;center&quot;&gt;</code>标签吧。</p>
+<p><strong>结果</strong>：完美！有时候最简单的方案就是最好的方案。这让我想起了KISS原则（Keep It Simple, Stupid）。</p>
+<h2 id="💡-协作心得"><a href="#💡-协作心得" class="headerlink" title="💡 协作心得"></a>💡 协作心得</h2><p>与AI协作编程！！！：</p>
+<ol>
+<li><strong>明确目标</strong>：想清楚你要什么，不要模棱两可。AI不是读心术，你得说清楚。</li>
+<li><strong>小步快跑</strong>：尝试一个方案，立即测试，然后带着结果进行下一轮沟通。不要一次性要求太多。</li>
+<li><strong>提供精确反馈</strong>：不要说”不行”，要说”哪里不行”、”为什么不行”。AI需要具体的错误信息。</li>
+<li><strong>回归本质</strong>：当复杂方案失效时，往往最简单的方案最有效。这大概就是所谓的”大道至简”吧。</li>
+</ol>
+<p>总的来说， AI极其吃数据，你喂给他是好东西他就也会输出好东西。</p>
+<h2 id="🎉-总结"><a href="#🎉-总结" class="headerlink" title="🎉 总结"></a>🎉 总结</h2><p>Gemini还不错，最后效果超出我预料地好看。</p>
+<p><strong>这是我大模型使用的初期探索，后来我会了很多优化技巧，早期的这些尝试也是很有意思的。</strong></p>
+<hr>
+<p><strong>Ref:</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhdXRhbWtyaXNobmFyL2Jsb2ctcG9zdC13b3JrZmxvdw==">blog-post-workflow<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1BsYXRhbmUvc25r">snk<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 ]]></content>
       <categories>
-        <category>English</category>
+        <category>技术折腾</category>
+        <category>AI协作</category>
       </categories>
       <tags>
-        <tag>语言学习</tag>
+        <tag>GitHub</tag>
+        <tag>AI协作</tag>
+        <tag>自动化</tag>
+        <tag>前端</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Duality and Isomorpism I</title>
+    <url>/posts/21655/</url>
+    <content><![CDATA[<blockquote>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+<hr>
+<p>问得非常好！这正是一个将抽象理论与具体矩阵计算联系起来的绝佳例子。</p>
+<p><strong>答案是：是的，存在着深刻而本质的联系。</strong> “矩阵的行空间维数等于列空间维数”（即行秩等于列秩）这个在初等线性代数中通常靠高斯消元法来证明的结论，其背后真正的理论支撑正是<strong>对偶空间</strong>的性质。</p>
+<p>让我们一步步揭示这个联系。</p>
+<h3 id="第-1-步：将矩阵视为线性映射"><a href="#第-1-步：将矩阵视为线性映射" class="headerlink" title="第 1 步：将矩阵视为线性映射"></a>第 1 步：将矩阵视为线性映射</h3><p>这是最关键的一步。一个 $m \times n$ 的矩阵 $A$ 不仅仅是一个数字网格，它本质上定义了一个从 $n$ 维空间到 $m$ 维空间的线性映射。</p>
+<ul>
+<li>设 $T_A: \mathbb{R}^n \to \mathbb{R}^m$，其定义为 $T_A(x) &#x3D; Ax$，其中 $x$ 是 $\mathbb{R}^n$ 中的列向量。</li>
+</ul>
+<p>现在，我们来识别矩阵的四个基本子空间在这个映射视角下是什么：</p>
+<ol>
+<li><p><strong>列空间 (Column Space)</strong>, $\text{col}(A)$:</p>
+<ul>
+<li>定义：矩阵 $A$ 各列向量的所有线性组合。</li>
+<li>映射视角：它正是线性映射 $T_A$ 的<strong>像 (Image)</strong>。</li>
+<li>$ \text{col}(A) &#x3D; \text{Im}(T_A) &#x3D; { Ax \mid x \in \mathbb{R}^n } \subseteq \mathbb{R}^m $</li>
+</ul>
+</li>
+<li><p><strong>零空间 (Null Space)</strong>, $\text{null}(A)$:</p>
+<ul>
+<li>定义：所有满足 $Ax&#x3D;0$ 的向量 $x$ 的集合。</li>
+<li>映射视角：它正是线性映射 $T_A$ 的<strong>核 (Kernel)</strong>。</li>
+<li>$ \text{null}(A) &#x3D; \ker(T_A) &#x3D; { x \in \mathbb{R}^n \mid Ax &#x3D; 0 } \subseteq \mathbb{R}^n $</li>
+</ul>
+</li>
+<li><p><strong>行空间 (Row Space)</strong>, $\text{row}(A)$:</p>
+<ul>
+<li>定义：矩阵 $A$ 各行向量的所有线性组合。</li>
+<li>这个空间在 $\mathbb{R}^n$ 中。它与 $T_A$ 的直接关系不那么明显，但它与 $A$ 的转置 $A^T$ 关系密切。</li>
+</ul>
+</li>
+<li><p><strong>左零空间 (Left Null Space)</strong>, $\text{null}(A^T)$:</p>
+<ul>
+<li>定义：所有满足 $A^T y &#x3D; 0$ 的向量 $y$ 的集合（或者等价地，$y^T A &#x3D; 0$）。</li>
+<li>它在 $\mathbb{R}^m$ 中。</li>
+</ul>
+</li>
+</ol>
+<h3 id="第-2-步：引入对偶映射与转置矩阵"><a href="#第-2-步：引入对偶映射与转置矩阵" class="headerlink" title="第 2 步：引入对偶映射与转置矩阵"></a>第 2 步：引入对偶映射与转置矩阵</h3><p>现在，我们之前讨论的抽象的<strong>对偶映射 (Dual Map)</strong> $T^{\ast}*$ 登场了。</p>
+<ul>
+<li>给定一个线性映射 $T: V \to W$，其对偶映射 $T^{\ast}<em>: W^{\ast}</em> \to V^{\ast}*$。</li>
+</ul>
+<p>当我们在处理具体的欧几里得空间 $\mathbb{R}^n$ 时，情况变得非常美妙。我们可以通过<strong>点积 (dot product)</strong> 将一个空间与其对偶空间进行一次“标准”的等同。</p>
+<ul>
+<li>我们可以将 $\mathbb{R}^n$ 中的一个向量 $v$ 与其对偶空间 $(\mathbb{R}^n)^\ast$ 中的一个线性泛函 $f_v$ 等同起来，定义为：<br>$ f_v(x) &#x3D; v \cdot x &#x3D; V^{\ast}T x $<br>这个对应关系 $v \leftrightarrow f_v$ 是一个同构。虽然它依赖于点积（即标准内积），但在标准欧氏空间中，我们通常默认使用这个同构，把它看作是一种“典范”的识别。</li>
+</ul>
+<p>在上述的识别下，抽象的对偶映射 $T_A^\ast: (\mathbb{R}^m)^\ast \to (\mathbb{R}^n)^\ast$ 究竟对应着哪个具体的矩阵运算呢？答案是：<strong>矩阵的转置 (Transpose)</strong>。</p>
+<p>设 $T_A: \mathbb{R}^n \to \mathbb{R}^m$ 是由矩阵 $A$ 定义的映射。其对偶映射 $T_A^\ast$ 由 $A^T$ 定义的映射 $T_{A^T}: \mathbb{R}^m \to \mathbb{R}^n$ 来代表。我们可以验证这一点：<br>根据对偶映射的定义 $(T^{\ast}*(g))(v) &#x3D; g(T(v))$，我们让 $g$ 对应于向量 $y \in \mathbb{R}^m$，$v$ 对应于向量 $x \in \mathbb{R}^n$。<br>$<br>(T_A^\ast(y))(x) &#x3D; y \cdot (T_A(x)) &#x3D; y^T (Ax) &#x3D; (y^T A) x &#x3D; (A^T y)^T x &#x3D; (A^T y) \cdot x<br>$<br>这表明，作用在 $x$ 上的泛函 $T_A^\ast(y)$ 与向量 $A^T y$ 所代表的泛函是同一个。因此，我们可以完全将对偶映射 $T_A^\ast$ 与由转置矩阵 $A^T$ 定义的映射 $T_{A^T}$ 等同起来。</p>
+<h3 id="第-3-步：用对偶理论重新表述问题"><a href="#第-3-步：用对偶理论重新表述问题" class="headerlink" title="第 3 步：用对偶理论重新表述问题"></a>第 3 步：用对偶理论重新表述问题</h3><p>现在，我们可以将原来的问题“行秩等于列秩”翻译成抽象语言：</p>
+<ul>
+<li><strong>列秩</strong>: $\text{rank}_{\text{col}}(A) &#x3D; \dim(\text{col}(A)) &#x3D; \dim(\text{Im}(T_A))$</li>
+<li><strong>行秩</strong>: $\text{rank}_{\text{row}}(A) &#x3D; \dim(\text{row}(A))$<ul>
+<li>注意到，$A$ 的行空间恰好是 $A^T$ 的<strong>列空间</strong>。</li>
+<li>所以，$\text{row}(A) &#x3D; \text{col}(A^T) &#x3D; \text{Im}(T_{A^T})$。</li>
+<li>因为 $T_{A^T}$ 代表了 $T_A^\ast$，所以 $\text{row}(A) &#x3D; \text{Im}(T_A^\ast)$ (在我们的标准识别下)。</li>
+</ul>
+</li>
+<li><strong>行秩</strong>: $\text{rank}_{\text{row}}(A) &#x3D; \dim(\text{Im}(T_A^\ast))$</li>
+</ul>
+<p>因此，<strong>“行秩 &#x3D; 列秩”</strong> 这个命题，在抽象层面上的等价表述是：<br>$<br>\dim(\text{Im}(T_A)) &#x3D; \dim(\text{Im}(T_A^\ast))<br>$<br><strong>一个线性映射的像的维数，等于其对偶映射的像的维数。</strong> 这听起来像一个更普适、更根本的定理。而事实也的确如此。</p>
+<h3 id="第-4-步：证明核心定理"><a href="#第-4-步：证明核心定理" class="headerlink" title="第 4 步：证明核心定理"></a>第 4 步：证明核心定理</h3><p>这个核心定理 $\dim(\text{Im}(T)) &#x3D; \dim(\text{Im}(T^{\ast}*))$ 可以完全在抽象的框架下被优雅地证明，无需任何矩阵计算。</p>
+<p>证明思路如下：</p>
+<ol>
+<li><p><strong>引入歼灭子 (Annihilator)</strong>: 对于 $V$ 的一个子空间 $S$，其歼灭子 $S^0 \subseteq V^{\ast}<em>$ 定义为所有能“歼灭”$S$ 中所有向量的泛函，即 $S^0 &#x3D; { f \in V^{\ast}</em> \mid f(s) &#x3D; 0 \text{ for all } s \in S }$。</p>
+</li>
+<li><p><strong>关键引理 1 (维数公式)</strong>: 对于有限维向量空间 $V$ 和其子空间 $S$，有：<br>$ \dim(S) + \dim(S^0) &#x3D; \dim(V) $</p>
+</li>
+<li><p><strong>关键引理 2 (像与核的关系)</strong>: 对于线性映射 $T: V \to W$，其对偶映射 $T^{\ast}<em>: W^{\ast}</em> \to V^{\ast}<em>$ 的<strong>核</strong>与原映射的<strong>像</strong>有关：<br>$ \ker(T^{\ast}</em>) &#x3D; (\text{Im}(T))^0 $<br>(证明：$g \in \ker(T^{\ast}<em>)$  $\iff$ $T^{\ast}</em>(g)&#x3D;0$  $\iff$ $g \circ T &#x3D; 0$  $\iff$ 对所有 $v \in V$，$g(T(v))&#x3D;0$  $\iff$ $g$ 歼灭了 $T$ 的整个像  $\iff$ $g \in (\text{Im}(T))^0$)</p>
+</li>
+<li><p><strong>开始证明</strong>:</p>
+<ul>
+<li>对 $T: V \to W$ 应用秩-零化度定理 (Rank-Nullity Theorem):<br>$ \dim(\text{Im}(T)) + \dim(\ker(T)) &#x3D; \dim(V) $</li>
+<li>对对偶映射 $T^{\ast}<em>: W^{\ast}</em> \to V^{\ast}<em>$ 应用秩-零化度定理:<br>$ \dim(\text{Im}(T^{\ast}</em>)) + \dim(\ker(T^{\ast}<em>)) &#x3D; \dim(W^{\ast}</em>) $</li>
+<li>我们知道 $\dim(W^{\ast}<em>) &#x3D; \dim(W)$。并且根据关键引理 2，$\ker(T^{\ast}</em>) &#x3D; (\text{Im}(T))^0$。代入上式：<br>$ \dim(\text{Im}(T^{\ast}*)) + \dim((\text{Im}(T))^0) &#x3D; \dim(W) $</li>
+<li>现在对 $W$ 的子空间 $\text{Im}(T)$ 应用关键引理 1 的维数公式：<br>$ \dim(\text{Im}(T)) + \dim((\text{Im}(T))^0) &#x3D; \dim(W) $</li>
+<li>比较最后两个方程，我们立刻得到：<br>$ \dim(\text{Im}(T)) &#x3D; \dim(\text{Im}(T^{\ast}*)) $</li>
+</ul>
+</li>
+</ol>
+<p>证明完毕。</p>
+<h3 id="总结与升华"><a href="#总结与升华" class="headerlink" title="总结与升华"></a>总结与升华</h3><ul>
+<li><strong>具体层面</strong>: 矩阵的行秩等于列秩。证明通常依赖于高斯消元，看起来像一个计算技巧的结果。</li>
+<li><strong>抽象层面</strong>: 任何一个有限维线性映射，其像的维数都等于其对偶映射的像的维数。</li>
+<li><strong>联系</strong>: 矩阵的转置运算 $A \to A^T$ 正是抽象对偶映射 $T \to T^{\ast}*$ 在标准坐标系和标准内积下的具体体现。行空间是转置矩阵的列空间，也就是对偶映射的像。</li>
+</ul>
+<p>所以，你观察到的这个现象，绝非巧合。它是深层数学结构——对偶性——在矩阵世界中的一个投影。这完美地展示了从具体计算（矩阵）上升到抽象结构（对偶空间）如何能揭示问题本质，并给出更优雅、更普适的解释。</p>
+]]></content>
   </entry>
   <entry>
     <title>Duality and Isomorpism IX</title>
@@ -1031,6 +980,125 @@
         <tag>math</tag>
         <tag>duality</tag>
         <tag>isomorphism</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>English-Jill-Missed-Situation-and-BITE-and-KEEP</title>
+    <url>/posts/61400/</url>
+    <content><![CDATA[<p>Expressions about Missed Situation, BITE and KEEP.</p>
+<span id="more"></span>
+
+
+
+
+
+<h3 id="Ways-to-talk-about-a-MISSED-SITUATION"><a href="#Ways-to-talk-about-a-MISSED-SITUATION" class="headerlink" title="Ways to talk about a MISSED SITUATION"></a>Ways to talk about a MISSED SITUATION</h3><p>A <strong>MISSED SITUATION</strong> means that <em>you were going to do something, but something else happened and it stopped you doing what you wanted to do</em>. In Chinese it means “我本来想 但是”. </p>
+<p>There are 5 expressions to describe it:</p>
+<div class="note warning"><p><strong>going to, but</strong><br>I was <u>going to</u> go shopping, <u>but</u> I got a phone call which lasted nearly an hour, and by the time the call ended the shops were are shut.</p>
+<p> <strong>all set to, but</strong><br>I was <u>all set to</u> go on holiday, <u>but</u> then my car broke down , and i had to spend the money on repairs instead.</p>
+<p> <strong>would have, but</strong><br>I <u>would have</u> called you yesterday, <u>but</u> my phone wasn’t working.</p>
+<p><strong>had every intention of, but</strong><br>I <u> had every intention of</u> returning the book to the library last week,  <u>but</u> I had a friend staying, and she had been reading it.</p>
+<p> <strong>had it all arranged to, but</strong><br>I <u>had it all arranged to</u> give my friend a surprise party, <u>but</u> then she found out about my plan, and said she didn’t want one!
+ </p>
+</div>
+
+<p>The following is a reverse of the missed situation which you should have missed it. That means it would have been better if you had missed it.</p>
+<div class="note warning"><p><strong>If only, then … wouldn’t have . As it is, …</strong><br><u>If only</u> I’d listened to your advice, <u>then</u> I <u>wouldn’t have</u> invested with that bank. <u>As it is</u>, I’ve lost a lot of money.</p>
+</div>
+
+<h3 id="Expressions-using-BITE"><a href="#Expressions-using-BITE" class="headerlink" title="Expressions using BITE"></a>Expressions using BITE</h3><p>The literal meaning of “bite” is <em>to use your teeth to cut into something or someone</em>. In Chinese it means “咬”. But there are lots of examples in which bite are used in particular ways to express metaphorical meanings, metaphors, idioms.</p>
+<p>If you say something to somebody, and they just reply in an aggressive way, unpleasant, like: “What do you mean?” or “Oh, don’t bother me now, I’m busy”. That’s called:</p>
+<div class="note warning"><p><strong>bite sb’s head off</strong> 莫名其妙地对…发脾气<br>I told my girlfreind that I liked that picture, but she said “Ugh, it’s dreadful! How can you possibly like that? Stupid of you to like that picture”. She really bit my head off !</p>
+</div>
+
+<p>If you bite your tongue, you mean to stop yourself from saying something that you would really like to say.</p>
+<div class="note warning"><p><strong>bite one’s tongue</strong> 缄口不语<br>But I thought she couldn’t get its beauty. Then I had to bit my tongue to avoid an argument.</p>
+</div>
+
+<p>The next one is “bite the bullet”. It describes the situation where you have to force yourself to do something unpleasant or difficult, or to be brave to face it. Breifly, I don’t want to do, but I have to.</p>
+<div class="note warning"><p><strong>bite the bullet</strong> 咬紧牙关应付，硬着头皮应对<br>I hate singing before people, but I’ll just have to bite the bullet.</p>
+</div>
+
+<p>When you try to do something that is too difficult for you, you are biting off more than you can chew, which is a vivid metaphor as an idiom.</p>
+<div class="note warning"><p><strong>bite off more than you can chew</strong> 承担力所不及的事；不自量力<br>I bit off more than I could chew in my original plan.</p>
+</div>
+
+<p>If someone’s bark is worse than their bite, they are not as unpleasant or frightening as they seem.</p>
+<div class="note warning"><p><strong>sb’s bark is worse than his&#x2F;her bite</strong> 刀子嘴豆腐心；言语比行动吓人<br>My bark is definitely worse than my bite. When people get to know me, they’ll tell you I’m just a big softy really.</p>
+</div>
+
+<h3 id="Ways-to-use-the-verb-KEEP"><a href="#Ways-to-use-the-verb-KEEP" class="headerlink" title="Ways to use the verb KEEP"></a>Ways to use the verb KEEP</h3><p>Not the same as To HOLD:</p>
+<div class="note warning"><p><strong>to hold</strong> is a temporary thing<br>Can you hold my bag while I put my coat on?(then give it back)</p>
+</div>
+
+<p>Then its first meaning  <em>to have or continue to have in your possession</em>  ~ Retain</p>
+<div class="note warning"><p>If you like it，you can keep it.  I told the taxi driver to keep the change. </p>
+</div>
+
+
+
+<div class="note warning"><p>He keeps his car in good condition.<br>Do you keep a diary?<br>Can you keep the secret?</p>
+</div>
+
+<p>Another slightly different meaning ~ continue</p>
+<div class="note warning"><p>It’s a long journey, but we must keep going.<br>If we keep that tall building in sight, we won’t get lost.<br>The food will keep if you put it in the freezer</p>
+</div>
+
+<p>keep off the grass It’s an order, you can not walk on the grass.</p>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>English-DailyLearn-01</title>
+    <url>/posts/55322/</url>
+    <content><![CDATA[<p>English learned everyday!</p>
+<span id="more"></span>
+
+
+<ul>
+<li><p><strong>discipline</strong> <code>a particular area of study, especially a subject studied at a college or university</code></p>
+</li>
+<li><p><strong>precisely</strong>  <code>exactly; used to emphasize what you are saying</code></p>
+</li>
+<li><p><strong>embankment</strong> <code>堤岸，路堤</code> </p>
+</li>
+<li><p><strong>revision</strong> <code>复习；修改</code></p>
+</li>
+<li><p><strong>conjure (up)</strong> <code>to make something appear by magic, or as if by magic</code></p>
+</li>
+<li><p><strong>spell disaster, trouble, etc.</strong>  <code>意味着灾难，会招致麻烦（等等）</code></p>
+</li>
+<li><p><strong>sorcerer</strong> <code>巫师，术士，魔法师</code></p>
+</li>
+<li><hr>
+</li>
+<li><p><strong>recruit</strong> <code>招聘，吸引加入；（尤指军队）征募新兵</code> <code>This association has recruited enthusiasts from many professions</code></p>
+</li>
+<li><p><strong>excel (in)</strong>  <code>vi.</code> <code>to be extremely good at something</code></p>
+</li>
+<li><p><strong>excel yourself</strong> <code>to do something better than you usually do</code></p>
+</li>
+<li><p><strong>facilitate</strong> <code>to make something possible or easier</code></p>
+</li>
+<li><p><strong>inhale</strong>  <code>vi, vt.</code> <code>to breathe air, smoke, or gas into your lungs</code></p>
+</li>
+<li><p><strong>prompt</strong>   <code>to make something happen</code></p>
+</li>
+<li><p><strong>egotistic</strong> <code>considering yourself to be better or more important than other people自大的，自负的，念念不忘自我的</code></p>
+</li>
+<li><p><strong>merit</strong>  <code>the quality of being good and deserving praise</code> <code>Her ideas have merit.</code></p>
+</li>
+<li><p><em>controversial3</em></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>语言学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1317,72 +1385,215 @@
       </categories>
   </entry>
   <entry>
-    <title>English-Jill-Missed-Situation-and-BITE-and-KEEP</title>
-    <url>/posts/61400/</url>
-    <content><![CDATA[<p>Expressions about Missed Situation, BITE and KEEP.</p>
+    <title>English-from-the-Cafe-Seinfeld</title>
+    <url>/posts/43173/</url>
+    <content><![CDATA[<p>Expressions and vocabulary learned from the episode.</p>
 <span id="more"></span>
 
 
-
-
-
-<h3 id="Ways-to-talk-about-a-MISSED-SITUATION"><a href="#Ways-to-talk-about-a-MISSED-SITUATION" class="headerlink" title="Ways to talk about a MISSED SITUATION"></a>Ways to talk about a MISSED SITUATION</h3><p>A <strong>MISSED SITUATION</strong> means that <em>you were going to do something, but something else happened and it stopped you doing what you wanted to do</em>. In Chinese it means “我本来想 但是”. </p>
-<p>There are 5 expressions to describe it:</p>
-<div class="note warning"><p><strong>going to, but</strong><br>I was <u>going to</u> go shopping, <u>but</u> I got a phone call which lasted nearly an hour, and by the time the call ended the shops were are shut.</p>
-<p> <strong>all set to, but</strong><br>I was <u>all set to</u> go on holiday, <u>but</u> then my car broke down , and i had to spend the money on repairs instead.</p>
-<p> <strong>would have, but</strong><br>I <u>would have</u> called you yesterday, <u>but</u> my phone wasn’t working.</p>
-<p><strong>had every intention of, but</strong><br>I <u> had every intention of</u> returning the book to the library last week,  <u>but</u> I had a friend staying, and she had been reading it.</p>
-<p> <strong>had it all arranged to, but</strong><br>I <u>had it all arranged to</u> give my friend a surprise party, <u>but</u> then she found out about my plan, and said she didn’t want one!
- </p>
-</div>
-
-<p>The following is a reverse of the missed situation which you should have missed it. That means it would have been better if you had missed it.</p>
-<div class="note warning"><p><strong>If only, then … wouldn’t have . As it is, …</strong><br><u>If only</u> I’d listened to your advice, <u>then</u> I <u>wouldn’t have</u> invested with that bank. <u>As it is</u>, I’ve lost a lot of money.</p>
-</div>
-
-<h3 id="Expressions-using-BITE"><a href="#Expressions-using-BITE" class="headerlink" title="Expressions using BITE"></a>Expressions using BITE</h3><p>The literal meaning of “bite” is <em>to use your teeth to cut into something or someone</em>. In Chinese it means “咬”. But there are lots of examples in which bite are used in particular ways to express metaphorical meanings, metaphors, idioms.</p>
-<p>If you say something to somebody, and they just reply in an aggressive way, unpleasant, like: “What do you mean?” or “Oh, don’t bother me now, I’m busy”. That’s called:</p>
-<div class="note warning"><p><strong>bite sb’s head off</strong> 莫名其妙地对…发脾气<br>I told my girlfreind that I liked that picture, but she said “Ugh, it’s dreadful! How can you possibly like that? Stupid of you to like that picture”. She really bit my head off !</p>
-</div>
-
-<p>If you bite your tongue, you mean to stop yourself from saying something that you would really like to say.</p>
-<div class="note warning"><p><strong>bite one’s tongue</strong> 缄口不语<br>But I thought she couldn’t get its beauty. Then I had to bit my tongue to avoid an argument.</p>
-</div>
-
-<p>The next one is “bite the bullet”. It describes the situation where you have to force yourself to do something unpleasant or difficult, or to be brave to face it. Breifly, I don’t want to do, but I have to.</p>
-<div class="note warning"><p><strong>bite the bullet</strong> 咬紧牙关应付，硬着头皮应对<br>I hate singing before people, but I’ll just have to bite the bullet.</p>
-</div>
-
-<p>When you try to do something that is too difficult for you, you are biting off more than you can chew, which is a vivid metaphor as an idiom.</p>
-<div class="note warning"><p><strong>bite off more than you can chew</strong> 承担力所不及的事；不自量力<br>I bit off more than I could chew in my original plan.</p>
-</div>
-
-<p>If someone’s bark is worse than their bite, they are not as unpleasant or frightening as they seem.</p>
-<div class="note warning"><p><strong>sb’s bark is worse than his&#x2F;her bite</strong> 刀子嘴豆腐心；言语比行动吓人<br>My bark is definitely worse than my bite. When people get to know me, they’ll tell you I’m just a big softy really.</p>
-</div>
-
-<h3 id="Ways-to-use-the-verb-KEEP"><a href="#Ways-to-use-the-verb-KEEP" class="headerlink" title="Ways to use the verb KEEP"></a>Ways to use the verb KEEP</h3><p>Not the same as To HOLD:</p>
-<div class="note warning"><p><strong>to hold</strong> is a temporary thing<br>Can you hold my bag while I put my coat on?(then give it back)</p>
-</div>
-
-<p>Then its first meaning  <em>to have or continue to have in your possession</em>  ~ Retain</p>
-<div class="note warning"><p>If you like it，you can keep it.  I told the taxi driver to keep the change. </p>
-</div>
-
-
-
-<div class="note warning"><p>He keeps his car in good condition.<br>Do you keep a diary?<br>Can you keep the secret?</p>
-</div>
-
-<p>Another slightly different meaning ~ continue</p>
-<div class="note warning"><p>It’s a long journey, but we must keep going.<br>If we keep that tall building in sight, we won’t get lost.<br>The food will keep if you put it in the freezer</p>
-</div>
-
-<p>keep off the grass It’s an order, you can not walk on the grass.</p>
+<ul>
+<li><p>disappear without a trace</p>
+</li>
+<li><p>you’re telling me! used to say that you strongly agree with what someone has just said</p>
+</li>
+<li><p>It’s like a spider in the toilet struggling for a survival. And even if you know it’s not going to make it, you kind of root it for awhile</p>
+</li>
+<li><p>buzzer</p>
+</li>
+<li><p>wind up</p>
+</li>
+<li><p>vocal</p>
+</li>
+<li><p>casus belli </p>
+</li>
+<li><p>bogus</p>
+</li>
+<li><p>peep</p>
+</li>
+<li><p>caper</p>
+</li>
+<li><p>specials</p>
+</li>
+<li><p>flourish</p>
+</li>
+<li><p>Well, I certainly don’t place any importance on it.</p>
+</li>
+<li><p>And now if you would excuse me, I would like to get started please.</p>
+</li>
+<li><p>flair </p>
+</li>
+<li><p>statute of limitations (law) the legal limit on the period of time within which action can be taken on a crime or other legal question 诉讼时效法规</p>
+</li>
+<li><p>I’m really focused here, this stuff’s a killer.</p>
+</li>
+<li><p>[Babu comes to collect dishes from Elaine’s table and knocks down a cup of coffee.</p>
+</li>
+<li><p>special  especially great or important, or having a quality that most similar things or people do not have</p>
+</li>
+<li><p>bug 烦扰</p>
+</li>
+<li><p>aggravation</p>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>English</category>
       </categories>
+  </entry>
+  <entry>
+    <title>English-from-the-Jacket-Seinfeld</title>
+    <url>/posts/20013/</url>
+    <content><![CDATA[<p>Expressions and vocabulary learned from the episode.</p>
+<span id="more"></span>
+<h4 id="Vocabulary"><a href="#Vocabulary" class="headerlink" title="Vocabulary"></a>Vocabulary</h4><ul>
+<li><p><strong>outfit</strong>  <em><code>n.</code></em>  <code>a set of clothes worn for a particular occasion or activity</code></p>
+</li>
+<li><p><b>gonna</b> <code>informal for going to</code> </p>
+</li>
+<li><p><strong>nit(wit)</strong> <em><code>n.</code></em> <code>a silly or stupid person</code></p>
+</li>
+<li><p><strong>suede</strong>   &#x2F;sweɪd&#x2F; <em><code>n.</code></em>   <code>leather that is slightly rough to touch and is not shiny 绒面革</code></p>
+</li>
+<li><p><strong>ballpark</strong>  <code>an area or a range within which an amount is likely to be correct or within which something can be measured</code></p>
+</li>
+<li><p><strong>in the same ballpark</strong> <code>to be of a similar amount or at a similar level</code> </p>
+</li>
+<li><p><strong>be in the (right) ballpark</strong> <code>to be close to the correct amount</code></p>
+</li>
+<li><p><strong>a ballpark figure</strong> <code>a number that is approximately right</code></p>
+</li>
+<li><p><strong>relocate</strong> <em><code>v.</code></em> <code>to (cause a person or company to) move to a new place</code></p>
+</li>
+<li><p><strong>dual</strong>  <em><code>adj.</code></em>  <code>with two parts, or combining two things</code> || a dual purpose</p>
+</li>
+<li><p><strong>deserve a wider audience</strong>     <code>值得拥有更多的读者</code></p>
+</li>
+<li><p><strong>pajamas</strong> <em><code>n. pl</code></em> <code>clothes worn in bed, consisting of a loosely fitting shirt and pants</code> || a pair of ~</p>
+</li>
+<li><p><strong>institutionalized</strong> <em><code>adj.</code></em>  <code>1.(usually disapproving) that has happened or been done for so long that it is considered normal 由来已久的，成惯例的 2.not able to live and think independently because they have spent so long in an institution 失去自理能力的</code> || ~ racism</p>
+</li>
+<li><p><strong>composed</strong> <em><code>adj.</code></em> <code>calm and in control of your emotions</code></p>
+</li>
+<li><p><strong>grounded</strong> <em><code>adj.</code></em> <code>someone who is grounded makes good decisions and does not say or do stupid things；having a sensible and realistic attitude to life</code></p>
+</li>
+<li><p><strong>secure</strong> <em><code>adj.</code></em> <code>feeling happy and confident about yourself or a particular situation</code></p>
+</li>
+<li><p><strong>meet</strong> <em><code>vt.</code></em> <code>to experience something, often something unpleasant </code> || meet the challenge</p>
+</li>
+<li><p><strong>staunch</strong> <em><code>adj.</code></em> <code>always showing strong support in your opinions and attitude</code> || a ~ supporter</p>
+</li>
+<li><p><strong>heterosexuality</strong> &#x2F;ˌhetərəˌsekʃuˈæləti&#x2F; <em><code>n.</code></em>  <code>异性恋</code></p>
+</li>
+<li><p><strong>coy</strong>  <em><code>adj.</code></em> <code>intentionally keeping something secret</code></p>
+</li>
+<li><p><strong>double-park</strong> <em><code>v.</code></em>  <code>to park a car illegally next to a car that is already parked at the side of the road</code></p>
+</li>
+<li><p><strong>The Lure of Sirens’ Song</strong></p>
+</li>
+<li><p><strong>lobby</strong> <em><code>n</code></em> <code>a group of people who try to persuade the government or an official group to do something</code></p>
+</li>
+<li><p><strong>a regular person</strong> </p>
+</li>
+<li><p><strong>drivel</strong> &#x2F;ˈdrɪvl&#x2F; <em><code>n.</code></em> <code>ideas, statements or beliefs that you think are silly or not true; nonsense or boring and unnecessary information</code></p>
+</li>
+<li><p><strong>brutal</strong> <em><code>adj.</code></em> <code>cruel, violent, and completely without feelings; direct and clear about something unpleasant; not thinking of people’s feelings</code> || With ~ honesty</p>
+</li>
+<li><p><strong>intimidating</strong> <em><code>adj.</code></em> <code>making you feel frightened or nervous</code></p>
+</li>
+<li><p><strong>furious</strong> <em><code>adj.</code></em> <code>extremely angry</code></p>
+</li>
+<li><p><strong>mocking</strong> <em><code>adj.</code></em> <code>showing that you think somebody/something is silly 嘲弄的</code> || a ~ voice</p>
+</li>
+<li><p><strong>marshal</strong> <em><code>n.</code></em> <code>司仪，典礼官；执行官，警察局长； someone who is involved in a public event, especially a famous person chosen to lead a parade</code></p>
+</li>
+<li><p><strong>stuff</strong> <em><code>n.</code></em>  <code>things that someone says or does, when you are referring to them in a general way without saying exactly what they are</code></p>
+</li>
+<li><p><strong>moisture</strong> <em><code>n.</code></em> <code>水汽，水分，潮气</code></p>
+</li>
+<li><p><strong>pipe down</strong>  <code>to stop talking or making unnecessary noise</code></p>
+</li>
+</ul>
+<h4 id="Expressions"><a href="#Expressions" class="headerlink" title="Expressions"></a>Expressions</h4><ul>
+<li><p>I think I’ve seen enough.<br>我觉得我逛够了(看衣服)。</p>
+</li>
+<li><p>I need a buffer.<br>我需要点缓冲时间</p>
+</li>
+<li><p>I’ve got a ballpark.<br>我知道大致范围了。</p>
+</li>
+<li><p>I’m hearing the dual voices now. </p>
+</li>
+<li><p>Oh.. So, what did you pay for this?<br>I paid what it costs.</p>
+</li>
+<li><p>Hey. Hey, would you do me a solid?<br>Well, what kind of solid?</p>
+</li>
+<li><p>George holds out his hand for a handshake and Alton starts hacking, George withdraws his hand.</p>
+</li>
+<li><p>Would you excuse me a minute? I’m gonna go to the bathroom. I’ll be right back.</p>
+</li>
+<li><p>Where do you come up with this stuff?<br>你怎么想到这的？</p>
+</li>
+<li><p>Pipe down, chorus boy.</p>
+</li>
+</ul>
+<h4 id="Quote"><a href="#Quote" class="headerlink" title="Quote"></a>Quote</h4><ul>
+<li><blockquote>
+<p>I think eventually fashion won’t even exist. It won’t. I think eventually we’ll all be wearing the same thing. ‘Cause anytime I see a movie or a TV show where there’s people from the future of another planet, they’re all wearing the same thing.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>But, inside this jacket, I am composed, grounded, secure that I can meet an social challenge.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Can I say one thing to you? And I say this with an unblemished record of staunch heterosexuality. </p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>All fathers are intimidating. They’re intimidating because they are fathers. Once a man has children, for the rest of his life, his attitude is, “To hell with the world, I can make my own people. I’ll eat whatever I want. I’ll wear whatever I want, and I’ll create whoever I want.”</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Like the lure of the siren’s song. Never what it seems to be, yet who among us can resist?</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Now, why does moisture ruin leather? I don’t get this. Aren’t cows ouside most of the time? I don’t understand it. When it’s raining do cows go up to the farmhouse, “Let us in, we’re all wearing leather.. Open the door! We’re gonna ruin the whole outfit here..” “Is it suede?” “I am suede, the whole thing is suede, I can’t have this cleaned. It’s all I got!”</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Gemini-MathInstructo-Prompts</title>
+    <url>/posts/38945/</url>
+    <content><![CDATA[<blockquote>
+<ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+<hr>
+<h3 id="Prompts"><a href="#Prompts" class="headerlink" title="Prompts"></a>Prompts</h3><p>In a Row</p>
+<ul>
+<li><p>请向我解释对偶空间、对偶原理、同构和自然同构以及他们的关系，我希望尽可能地深入，且向我提供多层次的视角。不使用mermaid绘图，必须进行数学公式审查是否显示正确.</p>
+</li>
+<li><p>从线性代数到范畴论的角度从低到高的视角看呢</p>
+</li>
+<li><p>矩阵的列空间与行空间相同是否与这些有联系呢？</p>
+</li>
+<li><p>你还知道哪些妙趣横生的例子与对偶和同构有着深刻的联系？</p>
+</li>
+</ul>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>Model： Gemini 2.5 Pro </p>
+<p>Parameters: temperature 0.1  !!! important </p>
+<p>Assistant Profie:  !!! Core</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Role: 数学家与数学知识传道者</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Profile</span><br><span class="line"></span><br><span class="line">- language: 中文（必要时使用英文）</span><br><span class="line">- description: 具备深厚数学功底和语言组织能力，擅长使用图文并茂的手段讲解深奥的数学概念和定理。</span><br><span class="line">- background: 数学博士，在大学及研究机构从事纯数学与应用数学研究，发表论文十余篇，编写多本lecture notes，拥有多年高校教学经验；同时在youtube等视频平台发布多个数学讲解视频和文章。</span><br><span class="line">- personality: 专业、耐心、表达精准、善于讲解、逻辑严谨。</span><br><span class="line">- expertise: 线性代数、微积分、抽象代数、范畴论、群论、李群李代数、拓扑学、微分流形、实分、析复分析、泛函分析、数论、图论等高级数学领域。</span><br><span class="line">- target_audience: 有一定数学知识的大学生爱好者，属于自学者而非数学专业。</span><br><span class="line">- </span><br><span class="line">## Skills</span><br><span class="line"></span><br><span class="line">1. 核心技能类别：理论讲授</span><br><span class="line">   - 概念拆解: 按逻辑层次划分以简洁例子分解复杂概念  </span><br><span class="line">   - 定理阐释: 阐述定理命题、证明思路与核心要点  </span><br><span class="line">   - 关联映射: 展示其与其他定理及理论之间的联系  </span><br><span class="line">   - 直观图示: 生成可视化图形说明理论与模型  </span><br><span class="line">    </span><br><span class="line">2. 辅助技能类别：学习支持</span><br><span class="line">   - LaTeX 格式化: 用 \(\) 包裹数学表达式  </span><br><span class="line">   - 资源整合：提供精选教材、视频和可视化工具链接。</span><br><span class="line">   - 反馈收集: 根据用户问题及时调整解释层级</span><br><span class="line">   - 图表生成：善于使用图标说明和总结</span><br><span class="line"></span><br><span class="line">## Rules</span><br><span class="line"></span><br><span class="line">1. 基本原则：  </span><br><span class="line">   - 双语输出：支持中英文混合输出</span><br><span class="line">   - 学术严谨：对答案保持客观严谨，所有论断均基于公认理论，严禁虚假或未经证实的内容，若有争议请给出多种解释并标注来源</span><br><span class="line">   - 保持谦逊： 承认自身知识局限，如果无法回答则告知用户。</span><br><span class="line">   - 格式标准：所有数学公式必须放在 \(\) 内    </span><br><span class="line">2. 限制条件：  </span><br><span class="line">   - 不参考 https://blog.csdn.net/ 来源的劣质内容  </span><br><span class="line">   - 仅回答与数学概念、定理、理论相关的内容  </span><br><span class="line">4. 参考来源：  </span><br><span class="line">   - 可以参考知乎、mathexchange、nlab等优质数学社区。</span><br><span class="line"></span><br><span class="line">## Workflows</span><br><span class="line"></span><br><span class="line">- 目标: 让受众能够独立理解所讲定理或概念。</span><br><span class="line">- 步骤 1: 解析用户问题，识别核心概念或定理；</span><br><span class="line">- 步骤 2: 引入定理，呈现正式写法并给出直观例子。</span><br><span class="line">- 步骤 3：涵盖证明或概念讲解全流程，分步骤解释核心逻辑。</span><br><span class="line">- 步骤 4: 给出对于问题的不同层次或视角下的理解。  </span><br><span class="line">- 步骤 5: 在答案结尾列出参考来源，并梳理常见出深度阅读建议。  </span><br><span class="line"></span><br><span class="line">## Initialization  </span><br><span class="line">作为数学家和高级数学理论传道者，你必须遵守上述Rules，按照Workflows执行任务。</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>English-from-Notting-Hill</title>
@@ -1662,215 +1873,73 @@
       </categories>
   </entry>
   <entry>
-    <title>English-from-the-Cafe-Seinfeld</title>
-    <url>/posts/43173/</url>
-    <content><![CDATA[<p>Expressions and vocabulary learned from the episode.</p>
+    <title>latex-draw-a-tree</title>
+    <url>/posts/38523/</url>
+    <content><![CDATA[<p>How to draw simple trees in LaTeX without using TikZ.</p>
 <span id="more"></span>
-
-
+<p><strong>References:</strong></p>
 <ul>
-<li><p>disappear without a trace</p>
-</li>
-<li><p>you’re telling me! used to say that you strongly agree with what someone has just said</p>
-</li>
-<li><p>It’s like a spider in the toilet struggling for a survival. And even if you know it’s not going to make it, you kind of root it for awhile</p>
-</li>
-<li><p>buzzer</p>
-</li>
-<li><p>wind up</p>
-</li>
-<li><p>vocal</p>
-</li>
-<li><p>casus belli </p>
-</li>
-<li><p>bogus</p>
-</li>
-<li><p>peep</p>
-</li>
-<li><p>caper</p>
-</li>
-<li><p>specials</p>
-</li>
-<li><p>flourish</p>
-</li>
-<li><p>Well, I certainly don’t place any importance on it.</p>
-</li>
-<li><p>And now if you would excuse me, I would like to get started please.</p>
-</li>
-<li><p>flair </p>
-</li>
-<li><p>statute of limitations (law) the legal limit on the period of time within which action can be taken on a crime or other legal question 诉讼时效法规</p>
-</li>
-<li><p>I’m really focused here, this stuff’s a killer.</p>
-</li>
-<li><p>[Babu comes to collect dishes from Elaine’s table and knocks down a cup of coffee.</p>
-</li>
-<li><p>special  especially great or important, or having a quality that most similar things or people do not have</p>
-</li>
-<li><p>bug 烦扰</p>
-</li>
-<li><p>aggravation</p>
-</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90ZXguc3RhY2tleGNoYW5nZS5jb20vcXVlc3Rpb25zLzU0NDcvaG93LWNhbi1pLWRyYXctc2ltcGxlLXRyZWVzLWluLWxhdGV4">How can I draw simple trees in LaTeX?<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
+<p>There are ways to get LaTeX to draw it’s own trees that doesn’t involve learning an entirely new language like TikZ.</p>
+<h3 id="qtree-package"><a href="#qtree-package" class="headerlink" title="qtree package"></a>qtree package</h3><p>Consider the following TeX:</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\Tree</span>[.IP [.NP [.Det <span class="keyword">\textit</span>&#123;the&#125; ]</span><br><span class="line">               [.N<span class="keyword">\1</span> [.N <span class="keyword">\textit</span>&#123;package&#125; ]]]</span><br><span class="line">          [.I<span class="keyword">\1</span> [.I <span class="keyword">\textsc</span>&#123;3sg.Pres&#125; ]</span><br><span class="line">                [.VP [.V<span class="keyword">\1</span> [.V <span class="keyword">\textit</span>&#123;is&#125; ]</span><br><span class="line">                           [.AP [.Deg <span class="keyword">\textit</span>&#123;really&#125; ]</span><br><span class="line">                                [.A<span class="keyword">\1</span> [.A <span class="keyword">\textit</span>&#123;simple&#125; ]</span><br><span class="line">                                      <span class="keyword">\qroof</span>&#123;<span class="keyword">\textit</span>&#123;to use&#125;&#125;.CP ]]]]]]</span><br></pre></td></tr></table></figure>
+
+<p>This produces the following tree:</p>
+<img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-01.png">
+
+<p>The basic syntax is simply <code>[.node-name subtrees... ]</code>; <code>\qroof</code>, which draws the triangle, requires its node name at the end, instead. The <code>\1</code> is just a shortcut for a math-mode prime. In addition, qtree will always render <code>_</code> and <code>^</code> as sub- and super-scripts, too.</p>
+<h3 id="forest-package"><a href="#forest-package" class="headerlink" title="forest package"></a>forest package</h3><p>Here is a forest version of the code for the tree showed above:</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;forest&#125;</span><br><span class="line">  [IP</span><br><span class="line">    [NP</span><br><span class="line">     [Det</span><br><span class="line">       [<span class="keyword">\textit</span>&#123;the&#125;]</span><br><span class="line">     ]</span><br><span class="line">     [N<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">       [N</span><br><span class="line">         [<span class="keyword">\textit</span>&#123;package&#125;]</span><br><span class="line">       ]</span><br><span class="line">     ]</span><br><span class="line">    ]</span><br><span class="line">    [I<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">      [I</span><br><span class="line">        [<span class="keyword">\textsc</span>&#123;3sg.Pres&#125;</span><br><span class="line">        ]</span><br><span class="line">      ]</span><br><span class="line">      [VP</span><br><span class="line">        [V<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">          [V</span><br><span class="line">            [<span class="keyword">\textit</span>&#123;is&#125;]</span><br><span class="line">          ]</span><br><span class="line">          [AP</span><br><span class="line">            [Deg</span><br><span class="line">              [<span class="keyword">\textit</span>&#123;extremely&#125;]</span><br><span class="line">            ]</span><br><span class="line">            [A<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">              [A</span><br><span class="line">                [<span class="keyword">\textit</span>&#123;straightforward&#125;]</span><br><span class="line">              ]</span><br><span class="line">              [CP</span><br><span class="line">                [<span class="keyword">\textit</span>&#123;to wield&#125;, roof]</span><br><span class="line">              ]</span><br><span class="line">            ]</span><br><span class="line">          ]</span><br><span class="line">        ]</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line"><span class="keyword">\end</span>&#123;forest&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Easy to see its syntax~ And we can select some additional features: forest allows you to specify that nodes should be aligned on a common tier. To use this feature, you just write <code>, tier=&lt;name of tier&gt;</code> after the content of the node is specified.</p>
+<p>Here’s an extreme example:</p>
+<img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-02.png" style="width:59%">
+
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;forest&#125;</span><br><span class="line">  for tree=&#123;</span><br><span class="line">    fit=band,<span class="comment">% spaces the tree out a little to avoid collisions</span></span><br><span class="line">  &#125;</span><br><span class="line">  [things</span><br><span class="line">    [cabbages, tier=vegetables</span><br><span class="line">      [peaches, tier=fruits]</span><br><span class="line">    ]</span><br><span class="line">    [kings, tier=aristocrats]</span><br><span class="line">    [sealing wax</span><br><span class="line">      [queens, tier=aristocrats</span><br><span class="line">        [carrots, tier=vegetables]</span><br><span class="line">        [pineapple, tier=fruits]</span><br><span class="line">        [aubergine, tier=vegetables]</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line"><span class="keyword">\end</span>&#123;forest&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ditree-package"><a href="#ditree-package" class="headerlink" title="ditree package"></a>ditree package</h3><p> For non “graphical” tree, we can use the dirtree package:<br> <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\dirtree</span>&#123;<span class="comment">%</span></span><br><span class="line">.1 debug.</span><br><span class="line">.2 filename.</span><br><span class="line">.2 modules.</span><br><span class="line">.3 module.</span><br><span class="line">.3 module.</span><br><span class="line">.3 module.</span><br><span class="line">.2 level.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> It looks like this:<br> <img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-03.png"></p>
 ]]></content>
       <categories>
-        <category>English</category>
+        <category>LaTeX</category>
       </categories>
   </entry>
   <entry>
-    <title>Gemini-MathInstructo-Prompts</title>
-    <url>/posts/38945/</url>
+    <title>数学公式渲染测试</title>
+    <url>/posts/73657a7b/</url>
     <content><![CDATA[<blockquote>
-<ul>
-<li><ul>
-<li></li>
-</ul>
-</li>
-</ul>
+<p>本文用于测试数学公式的渲染效果，包括行内公式和块级公式。</p>
 </blockquote>
 <span id="more"></span>
+
+<h2 id="🧮-行内公式测试"><a href="#🧮-行内公式测试" class="headerlink" title="🧮 行内公式测试"></a>🧮 行内公式测试</h2><p>$\displaystyle E &#x3D; mc^2$ </p>
+<p>$$<br>\hat{f}(\omega) &#x3D; \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} \mathrm{d}t<br>$$</p>
+<p>这是一个行内公式：$E &#x3D; mc^2$，爱因斯坦的质能方程。</p>
+<p>另一个行内公式：$\sum_{i&#x3D;1}^{n} x_i &#x3D; x_1 + x_2 + \cdots + x_n$</p>
+<h2 id="📐-块级公式测试"><a href="#📐-块级公式测试" class="headerlink" title="📐 块级公式测试"></a>📐 块级公式测试</h2><h3 id="二次方程求根公式"><a href="#二次方程求根公式" class="headerlink" title="二次方程求根公式"></a>二次方程求根公式</h3><p>$$<br>x &#x3D; \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}<br>$$</p>
+<h3 id="欧拉公式"><a href="#欧拉公式" class="headerlink" title="欧拉公式"></a>欧拉公式</h3><p>$$<br>e^{i\pi} + 1 &#x3D; 0<br>$$</p>
+<h3 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h3><p>$$<br>\hat{f}(\omega) &#x3D; \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} \mathrm{d}t<br>$$</p>
+<h3 id="矩阵表示"><a href="#矩阵表示" class="headerlink" title="矩阵表示"></a>矩阵表示</h3><p>$$<br>\begin{bmatrix}<br>a &amp; b \<br>c &amp; d<br>\end{bmatrix}<br>\begin{bmatrix}<br>x \<br>y<br>\end{bmatrix} &#x3D;<br>\begin{bmatrix}<br>ax + by \<br>cx + dy<br>\end{bmatrix}<br>$$</p>
+<h2 id="🔢-复杂公式测试"><a href="#🔢-复杂公式测试" class="headerlink" title="🔢 复杂公式测试"></a>🔢 复杂公式测试</h2><h3 id="积分公式"><a href="#积分公式" class="headerlink" title="积分公式"></a>积分公式</h3><p>$$<br>\int_{-\infty}^{\infty} e^{-x^2} dx &#x3D; \sqrt{\pi}<br>$$</p>
+<h3 id="极限公式"><a href="#极限公式" class="headerlink" title="极限公式"></a>极限公式</h3><p>$$<br>\lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n &#x3D; e<br>$$</p>
+<h3 id="级数展开"><a href="#级数展开" class="headerlink" title="级数展开"></a>级数展开</h3><p>$$<br>\sin(x) &#x3D; x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots<br>$$</p>
+<h2 id="🎯-对偶空间测试"><a href="#🎯-对偶空间测试" class="headerlink" title="🎯 对偶空间测试"></a>🎯 对偶空间测试</h2><h3 id="向量空间对偶"><a href="#向量空间对偶" class="headerlink" title="向量空间对偶"></a>向量空间对偶</h3><p>对于向量空间 $V$，其对偶空间记为 $V^{\ast}$：</p>
+<p>$$<br>V^{\ast} &#x3D; { f: V \to \mathbb{R} \mid f \text{ 是线性函数} }<br>$$</p>
+<h3 id="对偶基"><a href="#对偶基" class="headerlink" title="对偶基"></a>对偶基</h3><p>如果 ${e_1, e_2, \ldots, e_n}$ 是 $V$ 的基，那么对偶基 ${e^1, e^2, \ldots, e^n}$ 满足：</p>
+<p>$$<br>e^i(e_j) &#x3D; \delta^{i}_{j} &#x3D; \begin{cases}<br>1 &amp; \text{if } i&#x3D;j \<br>0 &amp; \text{if } i \neq j<br>\end{cases}<br>$$</p>
+<h3 id="维度关系"><a href="#维度关系" class="headerlink" title="维度关系"></a>维度关系</h3><p>$$<br>\dim(V) &#x3D; \dim(V^{\ast})<br>$$</p>
+<h2 id="✅-测试结果"><a href="#✅-测试结果" class="headerlink" title="✅ 测试结果"></a>✅ 测试结果</h2><p>如果以上公式都能正确渲染，说明数学公式支持配置成功！</p>
 <hr>
-<h3 id="Prompts"><a href="#Prompts" class="headerlink" title="Prompts"></a>Prompts</h3><p>In a Row</p>
-<ul>
-<li><p>请向我解释对偶空间、对偶原理、同构和自然同构以及他们的关系，我希望尽可能地深入，且向我提供多层次的视角。不使用mermaid绘图，必须进行数学公式审查是否显示正确.</p>
-</li>
-<li><p>从线性代数到范畴论的角度从低到高的视角看呢</p>
-</li>
-<li><p>矩阵的列空间与行空间相同是否与这些有联系呢？</p>
-</li>
-<li><p>你还知道哪些妙趣横生的例子与对偶和同构有着深刻的联系？</p>
-</li>
-</ul>
-<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>Model： Gemini 2.5 Pro </p>
-<p>Parameters: temperature 0.1  !!! important </p>
-<p>Assistant Profie:  !!! Core</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Role: 数学家与数学知识传道者</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Profile</span><br><span class="line"></span><br><span class="line">- language: 中文（必要时使用英文）</span><br><span class="line">- description: 具备深厚数学功底和语言组织能力，擅长使用图文并茂的手段讲解深奥的数学概念和定理。</span><br><span class="line">- background: 数学博士，在大学及研究机构从事纯数学与应用数学研究，发表论文十余篇，编写多本lecture notes，拥有多年高校教学经验；同时在youtube等视频平台发布多个数学讲解视频和文章。</span><br><span class="line">- personality: 专业、耐心、表达精准、善于讲解、逻辑严谨。</span><br><span class="line">- expertise: 线性代数、微积分、抽象代数、范畴论、群论、李群李代数、拓扑学、微分流形、实分、析复分析、泛函分析、数论、图论等高级数学领域。</span><br><span class="line">- target_audience: 有一定数学知识的大学生爱好者，属于自学者而非数学专业。</span><br><span class="line">- </span><br><span class="line">## Skills</span><br><span class="line"></span><br><span class="line">1. 核心技能类别：理论讲授</span><br><span class="line">   - 概念拆解: 按逻辑层次划分以简洁例子分解复杂概念  </span><br><span class="line">   - 定理阐释: 阐述定理命题、证明思路与核心要点  </span><br><span class="line">   - 关联映射: 展示其与其他定理及理论之间的联系  </span><br><span class="line">   - 直观图示: 生成可视化图形说明理论与模型  </span><br><span class="line">    </span><br><span class="line">2. 辅助技能类别：学习支持</span><br><span class="line">   - LaTeX 格式化: 用 \(\) 包裹数学表达式  </span><br><span class="line">   - 资源整合：提供精选教材、视频和可视化工具链接。</span><br><span class="line">   - 反馈收集: 根据用户问题及时调整解释层级</span><br><span class="line">   - 图表生成：善于使用图标说明和总结</span><br><span class="line"></span><br><span class="line">## Rules</span><br><span class="line"></span><br><span class="line">1. 基本原则：  </span><br><span class="line">   - 双语输出：支持中英文混合输出</span><br><span class="line">   - 学术严谨：对答案保持客观严谨，所有论断均基于公认理论，严禁虚假或未经证实的内容，若有争议请给出多种解释并标注来源</span><br><span class="line">   - 保持谦逊： 承认自身知识局限，如果无法回答则告知用户。</span><br><span class="line">   - 格式标准：所有数学公式必须放在 \(\) 内    </span><br><span class="line">2. 限制条件：  </span><br><span class="line">   - 不参考 https://blog.csdn.net/ 来源的劣质内容  </span><br><span class="line">   - 仅回答与数学概念、定理、理论相关的内容  </span><br><span class="line">4. 参考来源：  </span><br><span class="line">   - 可以参考知乎、mathexchange、nlab等优质数学社区。</span><br><span class="line"></span><br><span class="line">## Workflows</span><br><span class="line"></span><br><span class="line">- 目标: 让受众能够独立理解所讲定理或概念。</span><br><span class="line">- 步骤 1: 解析用户问题，识别核心概念或定理；</span><br><span class="line">- 步骤 2: 引入定理，呈现正式写法并给出直观例子。</span><br><span class="line">- 步骤 3：涵盖证明或概念讲解全流程，分步骤解释核心逻辑。</span><br><span class="line">- 步骤 4: 给出对于问题的不同层次或视角下的理解。  </span><br><span class="line">- 步骤 5: 在答案结尾列出参考来源，并梳理常见出深度阅读建议。  </span><br><span class="line"></span><br><span class="line">## Initialization  </span><br><span class="line">作为数学家和高级数学理论传道者，你必须遵守上述Rules，按照Workflows执行任务。</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>English-from-the-Jacket-Seinfeld</title>
-    <url>/posts/20013/</url>
-    <content><![CDATA[<p>Expressions and vocabulary learned from the episode.</p>
-<span id="more"></span>
-<h4 id="Vocabulary"><a href="#Vocabulary" class="headerlink" title="Vocabulary"></a>Vocabulary</h4><ul>
-<li><p><strong>outfit</strong>  <em><code>n.</code></em>  <code>a set of clothes worn for a particular occasion or activity</code></p>
-</li>
-<li><p><b>gonna</b> <code>informal for going to</code> </p>
-</li>
-<li><p><strong>nit(wit)</strong> <em><code>n.</code></em> <code>a silly or stupid person</code></p>
-</li>
-<li><p><strong>suede</strong>   &#x2F;sweɪd&#x2F; <em><code>n.</code></em>   <code>leather that is slightly rough to touch and is not shiny 绒面革</code></p>
-</li>
-<li><p><strong>ballpark</strong>  <code>an area or a range within which an amount is likely to be correct or within which something can be measured</code></p>
-</li>
-<li><p><strong>in the same ballpark</strong> <code>to be of a similar amount or at a similar level</code> </p>
-</li>
-<li><p><strong>be in the (right) ballpark</strong> <code>to be close to the correct amount</code></p>
-</li>
-<li><p><strong>a ballpark figure</strong> <code>a number that is approximately right</code></p>
-</li>
-<li><p><strong>relocate</strong> <em><code>v.</code></em> <code>to (cause a person or company to) move to a new place</code></p>
-</li>
-<li><p><strong>dual</strong>  <em><code>adj.</code></em>  <code>with two parts, or combining two things</code> || a dual purpose</p>
-</li>
-<li><p><strong>deserve a wider audience</strong>     <code>值得拥有更多的读者</code></p>
-</li>
-<li><p><strong>pajamas</strong> <em><code>n. pl</code></em> <code>clothes worn in bed, consisting of a loosely fitting shirt and pants</code> || a pair of ~</p>
-</li>
-<li><p><strong>institutionalized</strong> <em><code>adj.</code></em>  <code>1.(usually disapproving) that has happened or been done for so long that it is considered normal 由来已久的，成惯例的 2.not able to live and think independently because they have spent so long in an institution 失去自理能力的</code> || ~ racism</p>
-</li>
-<li><p><strong>composed</strong> <em><code>adj.</code></em> <code>calm and in control of your emotions</code></p>
-</li>
-<li><p><strong>grounded</strong> <em><code>adj.</code></em> <code>someone who is grounded makes good decisions and does not say or do stupid things；having a sensible and realistic attitude to life</code></p>
-</li>
-<li><p><strong>secure</strong> <em><code>adj.</code></em> <code>feeling happy and confident about yourself or a particular situation</code></p>
-</li>
-<li><p><strong>meet</strong> <em><code>vt.</code></em> <code>to experience something, often something unpleasant </code> || meet the challenge</p>
-</li>
-<li><p><strong>staunch</strong> <em><code>adj.</code></em> <code>always showing strong support in your opinions and attitude</code> || a ~ supporter</p>
-</li>
-<li><p><strong>heterosexuality</strong> &#x2F;ˌhetərəˌsekʃuˈæləti&#x2F; <em><code>n.</code></em>  <code>异性恋</code></p>
-</li>
-<li><p><strong>coy</strong>  <em><code>adj.</code></em> <code>intentionally keeping something secret</code></p>
-</li>
-<li><p><strong>double-park</strong> <em><code>v.</code></em>  <code>to park a car illegally next to a car that is already parked at the side of the road</code></p>
-</li>
-<li><p><strong>The Lure of Sirens’ Song</strong></p>
-</li>
-<li><p><strong>lobby</strong> <em><code>n</code></em> <code>a group of people who try to persuade the government or an official group to do something</code></p>
-</li>
-<li><p><strong>a regular person</strong> </p>
-</li>
-<li><p><strong>drivel</strong> &#x2F;ˈdrɪvl&#x2F; <em><code>n.</code></em> <code>ideas, statements or beliefs that you think are silly or not true; nonsense or boring and unnecessary information</code></p>
-</li>
-<li><p><strong>brutal</strong> <em><code>adj.</code></em> <code>cruel, violent, and completely without feelings; direct and clear about something unpleasant; not thinking of people’s feelings</code> || With ~ honesty</p>
-</li>
-<li><p><strong>intimidating</strong> <em><code>adj.</code></em> <code>making you feel frightened or nervous</code></p>
-</li>
-<li><p><strong>furious</strong> <em><code>adj.</code></em> <code>extremely angry</code></p>
-</li>
-<li><p><strong>mocking</strong> <em><code>adj.</code></em> <code>showing that you think somebody/something is silly 嘲弄的</code> || a ~ voice</p>
-</li>
-<li><p><strong>marshal</strong> <em><code>n.</code></em> <code>司仪，典礼官；执行官，警察局长； someone who is involved in a public event, especially a famous person chosen to lead a parade</code></p>
-</li>
-<li><p><strong>stuff</strong> <em><code>n.</code></em>  <code>things that someone says or does, when you are referring to them in a general way without saying exactly what they are</code></p>
-</li>
-<li><p><strong>moisture</strong> <em><code>n.</code></em> <code>水汽，水分，潮气</code></p>
-</li>
-<li><p><strong>pipe down</strong>  <code>to stop talking or making unnecessary noise</code></p>
-</li>
-</ul>
-<h4 id="Expressions"><a href="#Expressions" class="headerlink" title="Expressions"></a>Expressions</h4><ul>
-<li><p>I think I’ve seen enough.<br>我觉得我逛够了(看衣服)。</p>
-</li>
-<li><p>I need a buffer.<br>我需要点缓冲时间</p>
-</li>
-<li><p>I’ve got a ballpark.<br>我知道大致范围了。</p>
-</li>
-<li><p>I’m hearing the dual voices now. </p>
-</li>
-<li><p>Oh.. So, what did you pay for this?<br>I paid what it costs.</p>
-</li>
-<li><p>Hey. Hey, would you do me a solid?<br>Well, what kind of solid?</p>
-</li>
-<li><p>George holds out his hand for a handshake and Alton starts hacking, George withdraws his hand.</p>
-</li>
-<li><p>Would you excuse me a minute? I’m gonna go to the bathroom. I’ll be right back.</p>
-</li>
-<li><p>Where do you come up with this stuff?<br>你怎么想到这的？</p>
-</li>
-<li><p>Pipe down, chorus boy.</p>
-</li>
-</ul>
-<h4 id="Quote"><a href="#Quote" class="headerlink" title="Quote"></a>Quote</h4><ul>
-<li><blockquote>
-<p>I think eventually fashion won’t even exist. It won’t. I think eventually we’ll all be wearing the same thing. ‘Cause anytime I see a movie or a TV show where there’s people from the future of another planet, they’re all wearing the same thing.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>But, inside this jacket, I am composed, grounded, secure that I can meet an social challenge.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>Can I say one thing to you? And I say this with an unblemished record of staunch heterosexuality. </p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>All fathers are intimidating. They’re intimidating because they are fathers. Once a man has children, for the rest of his life, his attitude is, “To hell with the world, I can make my own people. I’ll eat whatever I want. I’ll wear whatever I want, and I’ll create whoever I want.”</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>Like the lure of the siren’s song. Never what it seems to be, yet who among us can resist?</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>Now, why does moisture ruin leather? I don’t get this. Aren’t cows ouside most of the time? I don’t understand it. When it’s raining do cows go up to the farmhouse, “Let us in, we’re all wearing leather.. Open the door! We’re gonna ruin the whole outfit here..” “Is it suede?” “I am suede, the whole thing is suede, I can’t have this cleaned. It’s all I got!”</p>
-</blockquote>
-</li>
-</ul>
+<p><em>测试完成时间：2025年8月13日</em></p>
 ]]></content>
       <categories>
-        <category>English</category>
+        <category>技术测试</category>
       </categories>
+      <tags>
+        <tag>数学公式</tag>
+        <tag>测试</tag>
+      </tags>
   </entry>
   <entry>
     <title>LaTeX工作流优化指南</title>
@@ -2020,39 +2089,6 @@
         <tag>LaTeX</tag>
         <tag>AI</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>latex-draw-a-tree</title>
-    <url>/posts/38523/</url>
-    <content><![CDATA[<p>How to draw simple trees in LaTeX without using TikZ.</p>
-<span id="more"></span>
-<p><strong>References:</strong></p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly90ZXguc3RhY2tleGNoYW5nZS5jb20vcXVlc3Rpb25zLzU0NDcvaG93LWNhbi1pLWRyYXctc2ltcGxlLXRyZWVzLWluLWxhdGV4">How can I draw simple trees in LaTeX?<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<p>There are ways to get LaTeX to draw it’s own trees that doesn’t involve learning an entirely new language like TikZ.</p>
-<h3 id="qtree-package"><a href="#qtree-package" class="headerlink" title="qtree package"></a>qtree package</h3><p>Consider the following TeX:</p>
-<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\Tree</span>[.IP [.NP [.Det <span class="keyword">\textit</span>&#123;the&#125; ]</span><br><span class="line">               [.N<span class="keyword">\1</span> [.N <span class="keyword">\textit</span>&#123;package&#125; ]]]</span><br><span class="line">          [.I<span class="keyword">\1</span> [.I <span class="keyword">\textsc</span>&#123;3sg.Pres&#125; ]</span><br><span class="line">                [.VP [.V<span class="keyword">\1</span> [.V <span class="keyword">\textit</span>&#123;is&#125; ]</span><br><span class="line">                           [.AP [.Deg <span class="keyword">\textit</span>&#123;really&#125; ]</span><br><span class="line">                                [.A<span class="keyword">\1</span> [.A <span class="keyword">\textit</span>&#123;simple&#125; ]</span><br><span class="line">                                      <span class="keyword">\qroof</span>&#123;<span class="keyword">\textit</span>&#123;to use&#125;&#125;.CP ]]]]]]</span><br></pre></td></tr></table></figure>
-
-<p>This produces the following tree:</p>
-<img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-01.png">
-
-<p>The basic syntax is simply <code>[.node-name subtrees... ]</code>; <code>\qroof</code>, which draws the triangle, requires its node name at the end, instead. The <code>\1</code> is just a shortcut for a math-mode prime. In addition, qtree will always render <code>_</code> and <code>^</code> as sub- and super-scripts, too.</p>
-<h3 id="forest-package"><a href="#forest-package" class="headerlink" title="forest package"></a>forest package</h3><p>Here is a forest version of the code for the tree showed above:</p>
-<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;forest&#125;</span><br><span class="line">  [IP</span><br><span class="line">    [NP</span><br><span class="line">     [Det</span><br><span class="line">       [<span class="keyword">\textit</span>&#123;the&#125;]</span><br><span class="line">     ]</span><br><span class="line">     [N<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">       [N</span><br><span class="line">         [<span class="keyword">\textit</span>&#123;package&#125;]</span><br><span class="line">       ]</span><br><span class="line">     ]</span><br><span class="line">    ]</span><br><span class="line">    [I<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">      [I</span><br><span class="line">        [<span class="keyword">\textsc</span>&#123;3sg.Pres&#125;</span><br><span class="line">        ]</span><br><span class="line">      ]</span><br><span class="line">      [VP</span><br><span class="line">        [V<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">          [V</span><br><span class="line">            [<span class="keyword">\textit</span>&#123;is&#125;]</span><br><span class="line">          ]</span><br><span class="line">          [AP</span><br><span class="line">            [Deg</span><br><span class="line">              [<span class="keyword">\textit</span>&#123;extremely&#125;]</span><br><span class="line">            ]</span><br><span class="line">            [A<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">              [A</span><br><span class="line">                [<span class="keyword">\textit</span>&#123;straightforward&#125;]</span><br><span class="line">              ]</span><br><span class="line">              [CP</span><br><span class="line">                [<span class="keyword">\textit</span>&#123;to wield&#125;, roof]</span><br><span class="line">              ]</span><br><span class="line">            ]</span><br><span class="line">          ]</span><br><span class="line">        ]</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line"><span class="keyword">\end</span>&#123;forest&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Easy to see its syntax~ And we can select some additional features: forest allows you to specify that nodes should be aligned on a common tier. To use this feature, you just write <code>, tier=&lt;name of tier&gt;</code> after the content of the node is specified.</p>
-<p>Here’s an extreme example:</p>
-<img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-02.png" style="width:59%">
-
-<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;forest&#125;</span><br><span class="line">  for tree=&#123;</span><br><span class="line">    fit=band,<span class="comment">% spaces the tree out a little to avoid collisions</span></span><br><span class="line">  &#125;</span><br><span class="line">  [things</span><br><span class="line">    [cabbages, tier=vegetables</span><br><span class="line">      [peaches, tier=fruits]</span><br><span class="line">    ]</span><br><span class="line">    [kings, tier=aristocrats]</span><br><span class="line">    [sealing wax</span><br><span class="line">      [queens, tier=aristocrats</span><br><span class="line">        [carrots, tier=vegetables]</span><br><span class="line">        [pineapple, tier=fruits]</span><br><span class="line">        [aubergine, tier=vegetables]</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line"><span class="keyword">\end</span>&#123;forest&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="ditree-package"><a href="#ditree-package" class="headerlink" title="ditree package"></a>ditree package</h3><p> For non “graphical” tree, we can use the dirtree package:<br> <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\dirtree</span>&#123;<span class="comment">%</span></span><br><span class="line">.1 debug.</span><br><span class="line">.2 filename.</span><br><span class="line">.2 modules.</span><br><span class="line">.3 module.</span><br><span class="line">.3 module.</span><br><span class="line">.3 module.</span><br><span class="line">.2 level.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p> It looks like this:<br> <img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-03.png"></p>
-]]></content>
-      <categories>
-        <category>LaTeX</category>
-      </categories>
   </entry>
   <entry>
     <title>Ultimate Plan for Gemini API Calls</title>
@@ -2214,42 +2250,6 @@
         <tag>LLM</tag>
         <tag>Gemini</tag>
         <tag>API管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数学公式渲染测试</title>
-    <url>/posts/73657a7b/</url>
-    <content><![CDATA[<blockquote>
-<p>本文用于测试数学公式的渲染效果，包括行内公式和块级公式。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="🧮-行内公式测试"><a href="#🧮-行内公式测试" class="headerlink" title="🧮 行内公式测试"></a>🧮 行内公式测试</h2><p>$\displaystyle E &#x3D; mc^2$ </p>
-<p>$$<br>\hat{f}(\omega) &#x3D; \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} \mathrm{d}t<br>$$</p>
-<p>这是一个行内公式：$E &#x3D; mc^2$，爱因斯坦的质能方程。</p>
-<p>另一个行内公式：$\sum_{i&#x3D;1}^{n} x_i &#x3D; x_1 + x_2 + \cdots + x_n$</p>
-<h2 id="📐-块级公式测试"><a href="#📐-块级公式测试" class="headerlink" title="📐 块级公式测试"></a>📐 块级公式测试</h2><h3 id="二次方程求根公式"><a href="#二次方程求根公式" class="headerlink" title="二次方程求根公式"></a>二次方程求根公式</h3><p>$$<br>x &#x3D; \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}<br>$$</p>
-<h3 id="欧拉公式"><a href="#欧拉公式" class="headerlink" title="欧拉公式"></a>欧拉公式</h3><p>$$<br>e^{i\pi} + 1 &#x3D; 0<br>$$</p>
-<h3 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h3><p>$$<br>\hat{f}(\omega) &#x3D; \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} \mathrm{d}t<br>$$</p>
-<h3 id="矩阵表示"><a href="#矩阵表示" class="headerlink" title="矩阵表示"></a>矩阵表示</h3><p>$$<br>\begin{bmatrix}<br>a &amp; b \<br>c &amp; d<br>\end{bmatrix}<br>\begin{bmatrix}<br>x \<br>y<br>\end{bmatrix} &#x3D;<br>\begin{bmatrix}<br>ax + by \<br>cx + dy<br>\end{bmatrix}<br>$$</p>
-<h2 id="🔢-复杂公式测试"><a href="#🔢-复杂公式测试" class="headerlink" title="🔢 复杂公式测试"></a>🔢 复杂公式测试</h2><h3 id="积分公式"><a href="#积分公式" class="headerlink" title="积分公式"></a>积分公式</h3><p>$$<br>\int_{-\infty}^{\infty} e^{-x^2} dx &#x3D; \sqrt{\pi}<br>$$</p>
-<h3 id="极限公式"><a href="#极限公式" class="headerlink" title="极限公式"></a>极限公式</h3><p>$$<br>\lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n &#x3D; e<br>$$</p>
-<h3 id="级数展开"><a href="#级数展开" class="headerlink" title="级数展开"></a>级数展开</h3><p>$$<br>\sin(x) &#x3D; x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots<br>$$</p>
-<h2 id="🎯-对偶空间测试"><a href="#🎯-对偶空间测试" class="headerlink" title="🎯 对偶空间测试"></a>🎯 对偶空间测试</h2><h3 id="向量空间对偶"><a href="#向量空间对偶" class="headerlink" title="向量空间对偶"></a>向量空间对偶</h3><p>对于向量空间 $V$，其对偶空间记为 $V^{\ast}$：</p>
-<p>$$<br>V^{\ast} &#x3D; { f: V \to \mathbb{R} \mid f \text{ 是线性函数} }<br>$$</p>
-<h3 id="对偶基"><a href="#对偶基" class="headerlink" title="对偶基"></a>对偶基</h3><p>如果 ${e_1, e_2, \ldots, e_n}$ 是 $V$ 的基，那么对偶基 ${e^1, e^2, \ldots, e^n}$ 满足：</p>
-<p>$$<br>e^i(e_j) &#x3D; \delta^{i}_{j} &#x3D; \begin{cases}<br>1 &amp; \text{if } i&#x3D;j \<br>0 &amp; \text{if } i \neq j<br>\end{cases}<br>$$</p>
-<h3 id="维度关系"><a href="#维度关系" class="headerlink" title="维度关系"></a>维度关系</h3><p>$$<br>\dim(V) &#x3D; \dim(V^{\ast})<br>$$</p>
-<h2 id="✅-测试结果"><a href="#✅-测试结果" class="headerlink" title="✅ 测试结果"></a>✅ 测试结果</h2><p>如果以上公式都能正确渲染，说明数学公式支持配置成功！</p>
-<hr>
-<p><em>测试完成时间：2025年8月13日</em></p>
-]]></content>
-      <categories>
-        <category>技术测试</category>
-      </categories>
-      <tags>
-        <tag>数学公式</tag>
-        <tag>测试</tag>
       </tags>
   </entry>
 </search>
