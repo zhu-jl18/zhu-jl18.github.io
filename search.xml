@@ -1,329 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>博客配置更新总结 - 数学公式、永久链接与置顶功能</title>
-    <url>/posts/2025-08-13-config-updates/</url>
-    <content><![CDATA[<blockquote>
-<p>本文总结了近期对博客进行的一系列重要配置更新，包括数学公式渲染支持、永久链接优化、文章置顶功能等，为博客的阅读体验和功能完整性提供了重要提升。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="🎯-更新概述"><a href="#🎯-更新概述" class="headerlink" title="🎯 更新概述"></a>🎯 更新概述</h2><p>本次更新主要包含四个重要功能：</p>
-<ol>
-<li><strong>数学公式渲染支持</strong> - 解决LaTeX公式显示问题</li>
-<li><strong>永久链接优化</strong> - 使用abbrlink生成简洁稳定的URL</li>
-<li><strong>文章置顶功能</strong> - 重要文章可以置顶显示</li>
-<li><strong>Pjax页面加速</strong> - 提升页面切换速度，保持音乐播放连续性</li>
-</ol>
-<h2 id="🧮-数学公式渲染支持"><a href="#🧮-数学公式渲染支持" class="headerlink" title="🧮 数学公式渲染支持"></a>🧮 数学公式渲染支持</h2><h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><p>原有的Markdown渲染器对复杂数学公式支持不够完美，在渲染LaTeX公式时会出现渲染错误，如将 <code>_</code> 识别为Markdown斜体标识，导致公式渲染失败。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>采用 <code>hexo-renderer-pandoc</code> 作为新的渲染器，配合 <code>hexo-filter-mathjax</code> 插件完美解决上述问题。</p>
-<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装Pandoc（需要先下载安装）</span></span><br><span class="line"><span class="comment"># 卸载默认渲染器</span></span><br><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装Pandoc渲染器</span></span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装MathJax插件</span></span><br><span class="line">npm install hexo-filter-mathjax --save</span><br></pre></td></tr></table></figure>
-
-<h4 id="配置修改"><a href="#配置修改" class="headerlink" title="配置修改"></a>配置修改</h4><p><strong>站点配置文件 (<code>_config.yml</code>)</strong></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># MathJax Configuration</span></span><br><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">none</span> <span class="comment"># or &#x27;ams&#x27; or &#x27;all&#x27;</span></span><br><span class="line">  <span class="attr">single_dollars:</span> <span class="literal">true</span> <span class="comment"># enable single dollar signs as in-line math delimiters</span></span><br><span class="line">  <span class="attr">cjk_width:</span> <span class="number">0.9</span> <span class="comment"># relative CJK char width</span></span><br><span class="line">  <span class="attr">normal_width:</span> <span class="number">0.6</span> <span class="comment"># relative normal (monospace) width</span></span><br><span class="line">  <span class="attr">append_css:</span> <span class="literal">true</span> <span class="comment"># add CSS to pages rendered by MathJax</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">false</span> <span class="comment"># 如果设置为true,默认每篇文章都会被mathjax渲染</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># hexo-renderer-pandoc</span></span><br><span class="line"><span class="attr">pandoc:</span></span><br><span class="line">  <span class="attr">extra:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">toc:</span> <span class="comment"># will be passed as `--toc`</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">--mathjax</span> <span class="comment"># 启用MathJax支持</span></span><br><span class="line">  <span class="attr">extensions:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;+hard_line_breaks&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;+emoji&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;-implicit_figures&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;+tex_math_dollars&quot;</span> <span class="comment"># 支持美元符号数学公式</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;+tex_math_single_backslash&quot;</span> <span class="comment"># 支持单反斜杠</span></span><br><span class="line">  <span class="attr">template:</span> <span class="string">./pandoc_template.html</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>主题配置文件 (<code>_config.next.yml</code>)</strong></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">tags:</span> <span class="string">none</span></span><br><span class="line">  <span class="attr">katex:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">copy_tex:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p>在需要数学公式的文章Front-matter中添加：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">你的文章标题</span></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span>  <span class="comment"># 启用数学公式渲染</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="语法示例"><a href="#语法示例" class="headerlink" title="语法示例"></a>语法示例</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">行内公式：$E = mc^2$</span><br><span class="line"></span><br><span class="line">块级公式：</span><br><span class="line">$$</span><br><span class="line">\int<span class="emphasis">_&#123;-\infty&#125;^&#123;\infty&#125; e^&#123;-x^2&#125; dx = \sqrt&#123;\pi&#125;</span></span><br><span class="line"><span class="emphasis">$$</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="🔗-永久链接优化"><a href="#🔗-永久链接优化" class="headerlink" title="🔗 永久链接优化"></a>🔗 永久链接优化</h2><h3 id="问题背景-1"><a href="#问题背景-1" class="headerlink" title="问题背景"></a>问题背景</h3><p>由于我们写文章时title可能含有中文，因此会生成含有中文的URL，这会造成许多不可预料的问题。</p>
-<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>采用 <code>hexo-abbrlink</code> 插件生成简洁、稳定的永久链接。</p>
-<h4 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-
-<p><strong>站点配置文件 (<code>_config.yml</code>)</strong></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Abbrlink</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span> <span class="comment"># 算法： crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>   <span class="comment"># 进制： dec(default) and hex</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="效果对比"><a href="#效果对比" class="headerlink" title="效果对比"></a>效果对比</h4><ul>
-<li><strong>原来的URL格式</strong>：<code>/2025/08/13/博客阅读体验优化与主题自定义指南/</code></li>
-<li><strong>现在的URL格式</strong>：<code>/posts/24845/</code></li>
-</ul>
-<h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><ul>
-<li>✅ 解决中文URL编码问题</li>
-<li>✅ 链接稳定性，修改标题不影响URL</li>
-<li>✅ SEO友好，搜索引擎更喜欢简洁的URL</li>
-<li>✅ 便于分享和记忆</li>
-</ul>
-<h2 id="📌-文章置顶功能"><a href="#📌-文章置顶功能" class="headerlink" title="📌 文章置顶功能"></a>📌 文章置顶功能</h2><h3 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h3><p>重要文章可以置顶显示在首页顶部，通过设置 <code>top</code> 值控制置顶顺序。</p>
-<h4 id="安装配置-1"><a href="#安装配置-1" class="headerlink" title="安装配置"></a>安装配置</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 移除默认插件</span></span><br><span class="line">npm uninstall hexo-generator-index --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装置顶插件</span></span><br><span class="line">npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h4><p>在需要置顶的文章Front-matter中添加：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">你的文章标题</span></span><br><span class="line"><span class="attr">top:</span> <span class="number">10</span>  <span class="comment"># 数值越大，排序越靠前</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="置顶规则"><a href="#置顶规则" class="headerlink" title="置顶规则"></a>置顶规则</h4><ul>
-<li><code>top: true</code> 或 <code>top: 1</code> - 基础置顶</li>
-<li><code>top: 10</code> - 高优先级置顶</li>
-<li>数值越大，排序越靠前</li>
-</ul>
-<h4 id="当前置顶文章"><a href="#当前置顶文章" class="headerlink" title="当前置顶文章"></a>当前置顶文章</h4><ol>
-<li><strong>博客阅读体验优化与主题自定义指南</strong> - <code>top: 10</code></li>
-<li><strong>GitHub Profile设计</strong> - <code>top: 8</code></li>
-<li><strong>数学公式渲染测试</strong> - <code>top: 5</code></li>
-</ol>
-<h2 id="🚀-Pjax页面加速"><a href="#🚀-Pjax页面加速" class="headerlink" title="🚀 Pjax页面加速"></a>🚀 Pjax页面加速</h2><h3 id="功能说明-1"><a href="#功能说明-1" class="headerlink" title="功能说明"></a>功能说明</h3><p>Pjax（PushState + Ajax）是一种技术，可以在不刷新整个页面的情况下更新页面内容，从而提升页面切换速度并保持音乐播放的连续性。</p>
-<h3 id="主要优势"><a href="#主要优势" class="headerlink" title="主要优势"></a>主要优势</h3><ul>
-<li>⚡ <strong>页面切换加速</strong> - 只更新页面内容，不重新加载整个页面</li>
-<li>🎵 <strong>音乐播放连续性</strong> - 切换页面时音乐不会中断</li>
-<li>🎯 <strong>更好的用户体验</strong> - 减少页面闪烁，提供更流畅的浏览体验</li>
-<li>📱 <strong>移动端优化</strong> - 在移动设备上提供更快的响应速度</li>
-</ul>
-<h3 id="配置方法"><a href="#配置方法" class="headerlink" title="配置方法"></a>配置方法</h3><p><strong>主题配置文件 (<code>_config.next.yml</code>)</strong></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启用Pjax</span></span><br><span class="line"><span class="attr">pjax:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h3><p>Pjax功能由Next主题内置提供，无需额外的JavaScript代码。主题会自动处理：</p>
-<ul>
-<li>页面内容的异步加载</li>
-<li>浏览器历史记录管理</li>
-<li>音乐播放器的状态保持</li>
-</ul>
-<h3 id="兼容性说明"><a href="#兼容性说明" class="headerlink" title="兼容性说明"></a>兼容性说明</h3><ul>
-<li>✅ 支持所有现代浏览器</li>
-<li>✅ 自动降级：如果Pjax失败，会自动回退到普通页面加载</li>
-<li>✅ 搜索引擎友好：不影响SEO和页面索引</li>
-</ul>
-<h2 id="🎨-侧边栏优化"><a href="#🎨-侧边栏优化" class="headerlink" title="🎨 侧边栏优化"></a>🎨 侧边栏优化</h2><h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>解决了侧边栏中 “StackOverflow” 等长文本显示不全的问题。</p>
-<h3 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h3><p>通过CSS优化解决文字显示不全问题，而不是增加侧边栏宽度：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 侧边栏社交链接优化 */</span></span><br><span class="line"><span class="selector-class">.sidebar</span> <span class="selector-class">.social-links</span> &#123;</span><br><span class="line">  <span class="selector-class">.social-link</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">align-items</span>: center <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-start <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">min-width</span>: <span class="number">0</span> <span class="meta">!important</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="selector-tag">span</span> &#123;</span><br><span class="line">      <span class="attribute">flex</span>: <span class="number">1</span> <span class="meta">!important</span>;</span><br><span class="line">      <span class="attribute">min-width</span>: <span class="number">0</span> <span class="meta">!important</span>;</span><br><span class="line">      <span class="attribute">overflow</span>: hidden <span class="meta">!important</span>;</span><br><span class="line">      <span class="attribute">text-overflow</span>: ellipsis <span class="meta">!important</span>;</span><br><span class="line">      <span class="attribute">white-space</span>: nowrap <span class="meta">!important</span>;</span><br><span class="line">      <span class="attribute">font-size</span>: <span class="number">0.9em</span> <span class="meta">!important</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="🔧-技术要点总结"><a href="#🔧-技术要点总结" class="headerlink" title="🔧 技术要点总结"></a>🔧 技术要点总结</h2><h3 id="渲染器更换"><a href="#渲染器更换" class="headerlink" title="渲染器更换"></a>渲染器更换</h3><ul>
-<li>从 <code>hexo-renderer-marked</code> 更换为 <code>hexo-renderer-pandoc</code></li>
-<li>需要安装Pandoc并配置环境变量</li>
-<li>支持更复杂的LaTeX语法</li>
-</ul>
-<h3 id="插件管理"><a href="#插件管理" class="headerlink" title="插件管理"></a>插件管理</h3><ul>
-<li>新增：<code>hexo-filter-mathjax</code>、<code>hexo-abbrlink</code>、<code>hexo-generator-index-pin-top</code></li>
-<li>移除：<code>hexo-generator-index</code></li>
-<li>替换：<code>hexo-renderer-marked</code> → <code>hexo-renderer-pandoc</code></li>
-</ul>
-<h3 id="配置优化"><a href="#配置优化" class="headerlink" title="配置优化"></a>配置优化</h3><ul>
-<li>数学公式按需加载，提高页面性能</li>
-<li>永久链接使用CRC32算法生成唯一ID</li>
-<li>置顶功能支持多级优先级</li>
-<li>Pjax启用，提升页面切换速度</li>
-</ul>
-<h2 id="📊-更新效果"><a href="#📊-更新效果" class="headerlink" title="📊 更新效果"></a>📊 更新效果</h2><h3 id="功能完整性"><a href="#功能完整性" class="headerlink" title="功能完整性"></a>功能完整性</h3><ul>
-<li>✅ 数学公式完美渲染</li>
-<li>✅ 永久链接稳定可靠</li>
-<li>✅ 重要文章置顶显示</li>
-<li>✅ 侧边栏文字完整显示</li>
-<li>✅ Pjax页面加速启用</li>
-</ul>
-<h3 id="用户体验"><a href="#用户体验" class="headerlink" title="用户体验"></a>用户体验</h3><ul>
-<li>✅ 阅读体验大幅提升</li>
-<li>✅ 链接分享更加便捷</li>
-<li>✅ 重要内容优先展示</li>
-<li>✅ 界面布局更加协调</li>
-<li>✅ 页面切换更加流畅</li>
-<li>✅ 音乐播放连续不中断</li>
-</ul>
-<h3 id="技术稳定性"><a href="#技术稳定性" class="headerlink" title="技术稳定性"></a>技术稳定性</h3><ul>
-<li>✅ 兼容性更好</li>
-<li>✅ 维护成本降低</li>
-<li>✅ SEO优化效果</li>
-<li>✅ 性能表现优秀</li>
-</ul>
-<h2 id="🚀-后续计划"><a href="#🚀-后续计划" class="headerlink" title="🚀 后续计划"></a>🚀 后续计划</h2><ol>
-<li><strong>数学公式语法统一</strong> - 逐步更新现有文章的LaTeX语法</li>
-<li><strong>性能优化</strong> - 进一步优化页面加载速度</li>
-<li><strong>功能扩展</strong> - 考虑添加更多个性化功能</li>
-</ol>
-<h2 id="⚠️-踩坑记录"><a href="#⚠️-踩坑记录" class="headerlink" title="⚠️ 踩坑记录"></a>⚠️ 踩坑记录</h2><h3 id="置顶功能配置坑爹经历"><a href="#置顶功能配置坑爹经历" class="headerlink" title="置顶功能配置坑爹经历"></a>置顶功能配置坑爹经历</h3><p><strong>问题描述</strong>：</p>
-<ul>
-<li>安装了 <code>hexo-generator-index-pin-top</code> 插件</li>
-<li>配置了 <code>top</code> 值来控制文章置顶</li>
-<li>结果发现配置过于复杂，影响原有功能</li>
-</ul>
-<p><strong>坑爹之处</strong>：</p>
-<ul>
-<li>插件会覆盖默认的首页生成器</li>
-<li>需要同时配置 <code>index_generator</code> 和 <code>archive_generator</code></li>
-<li>配置错误会导致页面无法正常显示</li>
-<li>增加了不必要的复杂性</li>
-</ul>
-<p><strong>解决方案</strong>：</p>
-<ul>
-<li>卸载 <code>hexo-generator-index-pin-top</code></li>
-<li>恢复使用默认的 <code>hexo-generator-index</code></li>
-<li>移除所有文章中的 <code>top</code> 配置</li>
-<li>保持原有的简单配置</li>
-</ul>
-<p><strong>经验教训</strong>：</p>
-<ul>
-<li>不要盲目安装插件，先了解其影响</li>
-<li>保持配置的简洁性</li>
-<li>如果功能不是必需的，就不要增加复杂性</li>
-<li>备份原始配置很重要！</li>
-</ul>
-<p><strong>结论</strong>：有时候简单就是最好的！🎯</p>
-<h2 id="🔧-Pandoc渲染问题解决"><a href="#🔧-Pandoc渲染问题解决" class="headerlink" title="🔧 Pandoc渲染问题解决"></a>🔧 Pandoc渲染问题解决</h2><h3 id="问题背景-2"><a href="#问题背景-2" class="headerlink" title="问题背景"></a>问题背景</h3><p>在配置Pandoc渲染器后，发现现有文章中的LaTeX语法与Pandoc不兼容，导致大量渲染警告。</p>
-<h3 id="主要问题类型"><a href="#主要问题类型" class="headerlink" title="主要问题类型"></a>主要问题类型</h3><h4 id="1-星号语法问题"><a href="#1-星号语法问题" class="headerlink" title="1. 星号语法问题"></a>1. 星号语法问题</h4><p><strong>错误语法</strong>：<code>V^*</code>, <code>G^*</code><br><strong>正确语法</strong>：<code>V^&#123;\ast&#125;</code>, <code>G^&#123;\ast&#125;</code></p>
-<p><strong>原因</strong>：Pandoc对LaTeX语法要求更严格，星号需要用 <code>\ast</code> 命令。</p>
-<h4 id="2-上下标语法问题"><a href="#2-上下标语法问题" class="headerlink" title="2. 上下标语法问题"></a>2. 上下标语法问题</h4><p><strong>错误语法</strong>：<code>\delta^i_j</code><br><strong>正确语法</strong>：<code>\delta^&#123;i&#125;_&#123;j&#125;</code></p>
-<p><strong>原因</strong>：Pandoc要求上下标必须用大括号包围。</p>
-<h4 id="3-箭头语法问题"><a href="#3-箭头语法问题" class="headerlink" title="3. 箭头语法问题"></a>3. 箭头语法问题</h4><p><strong>错误语法</strong>：<code>\xrightarrow&#123;T&#125;</code><br><strong>正确语法</strong>：<code>\stackrel&#123;T&#125;&#123;\rightarrow&#125;</code></p>
-<p><strong>原因</strong>：<code>\xrightarrow</code> 在某些Pandoc版本中不被支持。</p>
-<h3 id="修改的文件列表"><a href="#修改的文件列表" class="headerlink" title="修改的文件列表"></a>修改的文件列表</h3><ol>
-<li><p><strong><code>Duality-and-Isomorphism-1.md</code></strong></p>
-<ul>
-<li>第58行：<code>\delta^i_j</code> → <code>\delta^&#123;i&#125;_&#123;j&#125;</code></li>
-<li>第59行：<code>\delta^i_j</code> → <code>\delta^&#123;i&#125;_&#123;j&#125;</code></li>
-</ul>
-</li>
-<li><p><strong><code>Duality-and-Isomorphism-2.md</code></strong></p>
-<ul>
-<li>第29行：<code>\delta^i_j</code> → <code>\delta^&#123;i&#125;_&#123;j&#125;</code></li>
-<li>第80行：<code>\xrightarrow&#123;T&#125;</code> → <code>\stackrel&#123;T&#125;&#123;\rightarrow&#125;</code></li>
-</ul>
-</li>
-<li><p><strong><code>Duality-and-Isomorphism-4.md</code></strong></p>
-<ul>
-<li>第80行：<code>V^*</code> → <code>V^&#123;\ast&#125;</code>, <code>G^*</code> → <code>G^&#123;\ast&#125;</code></li>
-</ul>
-</li>
-<li><p><strong><code>Math-Formula-Test.md</code></strong></p>
-<ul>
-<li>第95行：<code>\delta^i_j</code> → <code>\delta^&#123;i&#125;_&#123;j&#125;</code></li>
-</ul>
-</li>
-</ol>
-<h3 id="Pandoc兼容性规则总结"><a href="#Pandoc兼容性规则总结" class="headerlink" title="Pandoc兼容性规则总结"></a>Pandoc兼容性规则总结</h3><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="params">#</span> 星号语法</span><br><span class="line">V<span class="built_in">^</span>* → V<span class="built_in">^</span>&#123;<span class="keyword">\ast</span>&#125;</span><br><span class="line">G<span class="built_in">^</span>* → G<span class="built_in">^</span>&#123;<span class="keyword">\ast</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="params">#</span> 上下标语法</span><br><span class="line"><span class="keyword">\delta</span><span class="built_in">^</span>i<span class="built_in">_</span>j → <span class="keyword">\delta</span><span class="built_in">^</span>&#123;i&#125;<span class="built_in">_</span>&#123;j&#125;</span><br><span class="line">x<span class="built_in">^</span>2 → x<span class="built_in">^</span>&#123;2&#125;</span><br><span class="line"></span><br><span class="line"><span class="params">#</span> 箭头语法</span><br><span class="line"><span class="keyword">\xrightarrow</span>&#123;T&#125; → <span class="keyword">\stackrel</span>&#123;T&#125;&#123;<span class="keyword">\rightarrow</span>&#125;</span><br><span class="line"><span class="keyword">\longrightarrow</span> → <span class="keyword">\rightarrow</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="经验教训"><a href="#经验教训" class="headerlink" title="经验教训"></a>经验教训</h3><ul>
-<li><strong>语法严格性</strong>：Pandoc比默认渲染器更严格</li>
-<li><strong>逐步迁移</strong>：现有文章需要逐步更新语法</li>
-<li><strong>测试验证</strong>：每次修改后都要测试渲染效果</li>
-<li><strong>文档记录</strong>：记录修改过程便于后续维护</li>
-</ul>
-<h3 id="解决效果"><a href="#解决效果" class="headerlink" title="解决效果"></a>解决效果</h3><ul>
-<li>✅ 消除了所有Pandoc渲染警告</li>
-<li>✅ 数学公式正确显示</li>
-<li>✅ 保持了文章的可读性</li>
-<li>✅ 提高了渲染的稳定性</li>
-</ul>
-<hr>
-<p><em>本文记录了博客配置的重要更新，为后续的维护和优化提供了完整的参考文档。</em></p>
-<p><strong>更新时间</strong>：2025年8月13日<br><strong>更新版本</strong>：v2.0.0<br><strong>主要功能</strong>：数学公式、永久链接、文章置顶</p>
-]]></content>
-      <categories>
-        <category>技术折腾</category>
-        <category>博客优化</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Next主题</tag>
-        <tag>数学公式</tag>
-        <tag>永久链接</tag>
-        <tag>文章置顶</tag>
-        <tag>Pandoc</tag>
-        <tag>MathJax</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Duality and Isomorpism I</title>
-    <url>/posts/21656/</url>
-    <content><![CDATA[<blockquote>
-<p>by makoMako and QwenMath</p>
-</blockquote>
-<span id="more"></span>
-<hr>
-<p>好的，我们来深入探讨对偶空间 (Dual Space)、对偶原理 (Duality Principle)、同构 (Isomorphism) 和自然同构 (Natural Isomorphism) 这几个在现代数学中至关重要的概念。我会从多个层次为你剖析，并揭示它们之间深刻的联系。</p>
-<h3 id="核心概念概览"><a href="#核心概念概览" class="headerlink" title="核心概念概览"></a>核心概念概览</h3><p>为了建立一个清晰的知识框架，我们可以用一张图来描绘这几个概念的关系：</p>
-<div style = "text-align: center;">
-<img src ="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2025-8/dual-1.png" width = 70%>
-</div>
-现在，我们来逐一深入探讨。
-
-<h3 id="1-对偶空间-The-Dual-Space"><a href="#1-对偶空间-The-Dual-Space" class="headerlink" title="1. 对偶空间 (The Dual Space)"></a>1. 对偶空间 (The Dual Space)</h3><p>对偶空间是线性代数中最基本的构造之一，它将“向量”和“作用于向量的线性函数”联系起来。</p>
-<h4 id="层次-1：直观理解-——-“测量”的空间"><a href="#层次-1：直观理解-——-“测量”的空间" class="headerlink" title="层次 1：直观理解 —— “测量”的空间"></a>层次 1：直观理解 —— “测量”的空间</h4><p>想象一个三维空间 $V &#x3D; \mathbb{R}^3$ 中的向量，例如 $v &#x3D; (x, y, z)$。我们可以用不同的方式“测量”这个向量。例如：</p>
-<ul>
-<li>测量它的 x 坐标。</li>
-<li>测量它的 y 坐标。</li>
-<li>测量它的 x 和 y 坐标之和。</li>
-</ul>
-<p>这些“测量”操作，如果它们是线性的，就可以被看作是<strong>对偶空间</strong>中的元素。一个线性测量（或线性函数）$f: V \to F$（其中 $F$ 是标量域，如 $\mathbb{R}$）必须满足：</p>
-<ul>
-<li>$f(v+w) &#x3D; f(v) + f(w)$</li>
-<li>$f(c \cdot v) &#x3D; c \cdot f(v)$</li>
-</ul>
-<p>例如，定义 $f_1(x, y, z) &#x3D; x$，这是一个线性函数。定义 $f_2(x, y, z) &#x3D; 2x + 3y - z$，这也是一个线性函数。而 $g(x, y, z) &#x3D; x^2$ 就不是线性的。</p>
-<p><strong>对偶空间 $V^\ast$ 就是所有这些线性“测量”或“线性函数”构成的集合。</strong></p>
-<h4 id="层次-2：形式化定义"><a href="#层次-2：形式化定义" class="headerlink" title="层次 2：形式化定义"></a>层次 2：形式化定义</h4><p>给定域 $F$ 上的一个向量空间 $V$，其<strong>对偶空间(Dual Space)</strong>，记作 $V^\ast$，是所有从 $V$ 到 $F$ 的线性映射（这些映射也称为<strong>线性泛函(linear functionals)</strong>）的集合。<br>$$V^{\ast} &#x3D; { f: V \to F \mid f \text{ is a linear map} }$$<br>$V^\ast$ 本身也构成一个向量空间，其上的加法和标量乘法定义如下：</p>
-<ul>
-<li><strong>加法</strong>: $(f+g)(v) &#x3D; f(v) + g(v)$</li>
-<li><strong>标量乘法</strong>: $(c \cdot f)(v) &#x3D; c \cdot f(v)$<br>其中 $f, g \in V^\ast, v \in V, c \in F$。</li>
-</ul>
-<h4 id="层次-3：对偶基-The-Dual-Basis"><a href="#层次-3：对偶基-The-Dual-Basis" class="headerlink" title="层次 3：对偶基 (The Dual Basis)"></a>层次 3：对偶基 (The Dual Basis)</h4><p>如果 $V$ 是有限维的，且有一组基 $\mathcal{B} &#x3D; {e_1, e_2, \dots, e_n}$，那么其对偶空间 $V^\ast$ 也一定有一组与之对应的基，称为<strong>对偶基 (Dual Basis)</strong>，记作 $\mathcal{B}^\ast &#x3D; {e^1, e^2, \dots, e^n}$。</p>
-<p>这组对偶基的定义非常巧妙，第 $i$ 个对偶基向量 $e^i$ 的作用是“提取”原空间中任意向量在基向量 $e_i$ 上的分量。它的形式化定义是：<br>$$e^i(e_j) &#x3D; \delta^{i}<em>{j} &#x3D; \begin{cases} 1 &amp; \text{if } i&#x3D;j \ 0 &amp; \text{if } i \neq j \end{cases}$$<br>这里 $\delta^{i}</em>{j}$ 是克罗内克符号 (Kronecker delta)。</p>
-<p><strong>重要推论</strong>：如果 $V$ 是 $n$ 维的，那么它的对偶空间 $V^\ast$ 也是 $n$ 维的。即 $\dim(V) &#x3D; \dim(V^\ast)$。</p>
-<hr>
-<h3 id="2-同构-Isomorphism"><a href="#2-同构-Isomorphism" class="headerlink" title="2. 同构 (Isomorphism)"></a>2. 同构 (Isomorphism)</h3><p>这个概念是连接 $V$ 和 $V^\ast$ 的桥梁。</p>
-<h4 id="层次-1：直观理解-——-“结构完全相同”"><a href="#层次-1：直观理解-——-“结构完全相同”" class="headerlink" title="层次 1：直观理解 —— “结构完全相同”"></a>层次 1：直观理解 —— “结构完全相同”</h4><p>在数学中，“同构”意味着两个数学结构（如群、环、向量空间）在所有结构性质上都是无法区分的。它们仅仅是元素的“名字”不同而已。对于向量空间而言，如果两个空间同构，那么它们作为向量空间的一切行为（线性组合、线性无关、维数等）都是一样的。</p>
-<h4 id="层次-2：-形式化定义"><a href="#层次-2：-形式化定义" class="headerlink" title="层次 2： 形式化定义"></a>层次 2： 形式化定义</h4><p>两个向量空间 $V$ 和 $W$ 称为<strong>同构 (isomorphic)</strong>，记作 $V \cong W$，如果存在一个双射（既是单射又是满射）的线性映射 $T: V \to W$。这个映射 $T$ 称为一个<strong>同构映射</strong>。</p>
-<p><strong>核心结论</strong>：两个有限维向量空间同构的<strong>充要条件</strong>是它们的维数相等。</p>
-<h4 id="层次-3：-V-与-V-ast-的同构关系"><a href="#层次-3：-V-与-V-ast-的同构关系" class="headerlink" title="层次 3：$V$ 与 $V^\ast$ 的同构关系"></a>层次 3：$V$ 与 $V^\ast$ 的同构关系</h4><p>因为对于有限维向量空间 $V$，我们有 $\dim(V) &#x3D; \dim(V^\ast)$，所以我们立刻可以得出结论：<br>$$V \cong V^{\ast}$$ 也就是说，一个有限维向量空间和它的对偶空间是同构的。我们可以通过选择一组基 ${e_i}$ 和其对偶基 ${e^i}$ 来构造一个同构映射 $T: V \to V^{\ast}$，定义为 $T(e_i) &#x3D; e^i$，然后线性地扩展到整个空间。</p>
-<p><strong>但是，这个同构存在一个深刻的问题</strong>，它引出了我们下一个概念。</p>
-<hr>
-<h3 id="3-自然同构-Natural-Isomorphism"><a href="#3-自然同构-Natural-Isomorphism" class="headerlink" title="3. 自然同构 (Natural Isomorphism)"></a>3. 自然同构 (Natural Isomorphism)</h3><p>自然同构是一种“更好”的同构，它不依赖于任何任意的选择（如基的选择）。</p>
-<h4 id="层次-1：直观理解-——-“不依赖于坐标系的对应关系”"><a href="#层次-1：直观理解-——-“不依赖于坐标系的对应关系”" class="headerlink" title="层次 1：直观理解 —— “不依赖于坐标系的对应关系”"></a>层次 1：直观理解 —— “不依赖于坐标系的对应关系”</h4><p>我们刚刚建立的 $V \cong V^\ast$ 的同构映射依赖于我们<strong>选择的基</strong>。如果你换一套基，你就会得到一个完全不同的同构映射。这就像在两个国家间翻译地址，如果翻译规则依赖于你选择的某个特定城市作为“原点”，那么这个规则就不够“自然”。我们希望找到一个不依赖于任何特定选择的、普适的对应关系。</p>
-<h4 id="层次-2：形式化定义-——-双对偶-The-Double-Dual"><a href="#层次-2：形式化定义-——-双对偶-The-Double-Dual" class="headerlink" title="层次 2：形式化定义 —— 双对偶 (The Double Dual)"></a>层次 2：形式化定义 —— 双对偶 (The Double Dual)</h4><p>让我们考虑对偶空间的对偶空间，称为<strong>双对偶空间 (Double Dual Space)</strong>，记作 $V^{\ast\ast} &#x3D; (V^\ast)^\ast$。它是 $V^\ast$ 上所有线性泛函构成的空间。</p>
-<p>对于有限维空间，我们有 $\dim(V) &#x3D; \dim(V^\ast) &#x3D; \dim(V^{\ast\ast})$。因此，$V$ 和 $V^{\ast\ast}$ 也是同构的。但这次，我们可以构造一个<strong>不依赖于基的</strong>、非常“自然”的同构映射。</p>
-<p>这个自然同构映射通常记为 $\Phi: V \to V^{\ast\ast}$，它的定义如下：<br>对于 $V$ 中的任意一个向量 $v$，我们将其映射到 $V^{\ast\ast}$ 中的一个元素 $\Phi(v)$。而 $\Phi(v)$ 本身是一个作用于 $V^\ast$ 的线性泛函。我们定义 $\Phi(v)$ 的作用是：$$<br>\Phi(v)^1(f) &#x3D; f(v) \quad \text{for all } f \in V^{\ast}<br>$$ 这个映射 $\Phi(v)$ 通常也被称为<strong>求值映射 (evaluation map)</strong>，记作 $\text{ev}_v$。所以上式也可以写成 $\text{ev}_v(f) &#x3D; f(v)$。</p>
-<p><strong>为什么这个映射是“自然的”？</strong><br>请仔细观察这个定义：$\Phi(v)^1(f) &#x3D; f(v)$。<br>在它的定义中，我们没有用到任何关于基、坐标或其他任意选择的信息。它只用到了向量 $v$ 和泛函 $f$ 的配对（即“泛函作用于向量”这一基本操作）。无论你如何选择基，这个映射 $\Phi$ 的定义保持不变。</p>
-<p>可以证明，对于有限维向量空间，这个映射 $\Phi$ 是一个同构。</p>
-<h4 id="层次-3：范畴论视角-Category-Theory-Perspective"><a href="#层次-3：范畴论视角-Category-Theory-Perspective" class="headerlink" title="层次 3：范畴论视角 (Category Theory Perspective)"></a>层次 3：范畴论视角 (Category Theory Perspective)</h4><p>在范畴论的语言中，“自然性”有严格的定义。一个<strong>自然同构</strong>是两个函子 (Functor) 之间的一个同构的自然变换 (Natural Transformation)。</p>
-<ul>
-<li>考虑<strong>恒等函子</strong> $Id: \textbf{Vect}_F \to \textbf{Vect}_F$，它将每个向量空间映射到其自身。</li>
-<li>考虑<strong>双对偶函子</strong> $(\cdot)^{\ast\ast}: \textbf{Vect}_F \to \textbf{Vect}_F$，它将每个向量空间 $V$ 映射到其双对偶 $V^{\ast\ast}$。</li>
-</ul>
-<p>我们之前定义的映射 $\Phi$ 实际上是一个自然变换 $\Phi: Id \to (\cdot)^{\ast\ast}$。因为对于任何有限维向量空间 $V$，分量 $\Phi_V: V \to V^{\ast\ast}$ 都是一个同构，所以 $\Phi$ 是一个<strong>自然同构</strong>。</p>
-<p>而 $V$ 与 $V^\ast$ 之间不存在这样的自然同构。任何试图建立 $V$ 与 $V^\ast$ 之间同构的尝试，最终都会发现它无法满足自然变换的交换图要求，因为它总是与基的选择纠缠在一起。</p>
-<p><strong>总结：</strong></p>
-<ul>
-<li><b>同构$V \cong V^\ast$</b>：存在，但依赖于基的选择。它是“非自然的”。</li>
-<li><b>自然同构$V \cong V^{\ast\ast}$</b>：存在，且不依赖于任何选择。它是“自然的”、“典范的”(canonical)。</li>
-</ul>
-<p>这个区别在处理无穷维空间时尤为重要。在无穷维情况下，$V$ 到 $V^{\ast\ast}$ 的自然映射 $\Phi$ 仍然是单射，但通常不是满射，因此 $V$ 只是 $V^{\ast\ast}$ 的一个子空间。</p>
-<hr>
-<h3 id="4-对偶原理-Principle-of-Duality"><a href="#4-对偶原理-Principle-of-Duality" class="headerlink" title="4. 对偶原理 (Principle of Duality)"></a>4. 对偶原理 (Principle of Duality)</h3><p>对偶原理是建立在对偶空间概念之上的一种深刻的哲学思想和证明技巧。</p>
-<h4 id="层次-1：直观理解-——-“定理的镜像版本”"><a href="#层次-1：直观理解-——-“定理的镜像版本”" class="headerlink" title="层次 1：直观理解 —— “定理的镜像版本”"></a>层次 1：直观理解 —— “定理的镜像版本”</h4><p>对偶原理指出，对于任何关于有限维向量空间中子空间、维数、基等属性的定理，都存在一个“对偶版本”的定理。这个对偶定理可以通过系统地将概念替换为其对偶概念来得到。</p>
-<p>例如：</p>
-<ul>
-<li>概念“向量 $v$” 的对偶是 “线性泛函 $f$”。</li>
-<li>概念“子空间 $W \subseteq V$” 的对偶是 “歼灭子 (annihilator) $W^0 \subseteq V^\ast$”。</li>
-<li>概念“包含关系 $W_1 \subseteq W_2$” 的对偶是 “反向的包含关系 $W_2^0 \subseteq W_1^0$”。</li>
-</ul>
-<h4 id="层次-2：一个具体的例子"><a href="#层次-2：一个具体的例子" class="headerlink" title="层次 2：一个具体的例子"></a>层次 2：一个具体的例子</h4><p>考虑一个定理：设 $V$ 是有限维向量空间，$U, W$ 是其子空间，则：<br>$$<br>\dim(U+W) &#x3D; \dim(U) + \dim(W) - \dim(U \cap W)<br>$$利用对偶原理，我们可以推导其对偶版本。关键的对偶关系是：</p>
-<ul>
-<li>$(U+W)^0 &#x3D; U^0 \cap W^0$</li>
-<li>$(U \cap W)^0 &#x3D; U^0 + W^0$</li>
-<li>$\dim(S^0) &#x3D; \dim(V) - \dim(S)$ 对于任意子空间 $S$。</li>
-</ul>
-<p>将这些关系代入维数公式，经过一番推导，你会发现你最终证明了原始的公式。更重要的是，任何一个只涉及子空间、交、和、维数的定理，都可以通过这种方式“翻译”成另一个有效的定理。</p>
-<h4 id="层次-3：证明的对称性"><a href="#层次-3：证明的对称性" class="headerlink" title="层次 3：证明的对称性"></a>层次 3：证明的对称性</h4><p>对偶原理的深刻之处在于$V$和$V^{\ast\ast}$之间的自然同构。因为 $V \cong V^{\ast\ast} $ 是自然的，所以任何关于 $V$ 的内在结构定理，都可以通过这个自然同构“传递”到 $ V^{\ast\ast} $ 上。而 $V^{\ast\ast}$ 是 $V^\ast$ 的对偶空间。</p>
-<p>这意味着，一个关于“向量空间和其子空间”的陈述，可以被翻译成一个关于“对偶空间和其子空间”的陈述。证明一个，就等于证明了另一个。这为数学证明提供了强大的对称性和经济性。</p>
-<h3 id="总结与关系梳理"><a href="#总结与关系梳理" class="headerlink" title="总结与关系梳理"></a>总结与关系梳理</h3><ol>
-<li><strong>对偶空间 ($V^\ast$)</strong> 是基础。它为我们提供了一个与原空间 $V$ 紧密相关但又不同的新空间，由所有线性测量组成。</li>
-<li>由于有限维时 $\dim(V) &#x3D; \dim(V^\ast)$，我们知道它们是<strong>同构</strong>的。这是一种“存在性”的结论，但具体的同构映射是人为选择的，因而是“非自然的”。</li>
-<li>为了寻找一种不依赖于人为选择的同构，我们构造了双对偶空间 $V^{\ast\ast}$。我们发现存在一个从 $V$ 到 $V^{\ast\ast}$ 的<strong>自然同构</strong>，这个映射的定义方式是普适的、典范的。</li>
-<li>$V \cong V^{\ast\ast}$ 的自然性是<strong>对偶原理</strong>的理论基石。它保证了 $V$ 和 $V^\ast$ 之间的关系具有深刻的对称性，使得关于一个空间的定理可以系统地转化为关于另一个空间的定理。</li>
-</ol>
-<p>简单来说，从 $V$ 到 $V^\ast$，我们看到了一个依赖于选择的“镜像”。而从 $V$ 到 $V^{\ast\ast}$，我们看到了一个不依赖于选择的、完美的“自身反射”。正是这种完美的自身反射，赋予了对偶理论强大的威力。</p>
-<hr>
-<h3 id="深度阅读建议"><a href="#深度阅读建议" class="headerlink" title="深度阅读建议"></a>深度阅读建议</h3><ol>
-<li><strong>Sheldon Axler, <em>Linear Algebra Done Right</em></strong>: 这本书在不引入行列式的情况下，非常优雅地处理了对偶空间和泛函，对理解其本质非常有帮助。</li>
-<li><strong>Serge Lang, <em>Linear Algebra</em></strong>: 经典的教材，对对偶空间和多重线性代数有非常清晰的介绍。</li>
-<li><strong>nLab (ncatlab.org)</strong>: 如果你想从范畴论的最高视角来理解自然性 (naturality) 和对偶性 (duality)，nLab是最好的在线资源之一。可以搜索 “dual vector space”, “natural transformation”。</li>
-<li><strong>Math Stack Exchange</strong>: 搜索 “natural vs. canonical isomorphism”, “duality principle linear algebra” 等关键词，可以找到大量高质量的讨论，提供了多种不同的理解角度。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Math</category>
-      </categories>
-  </entry>
-  <entry>
     <title>博客阅读体验优化与主题自定义指南</title>
     <url>/posts/24845/</url>
     <content><![CDATA[<blockquote>
@@ -449,6 +126,220 @@
         <tag>CSS优化</tag>
         <tag>装饰模块</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>挑战PJAX魔咒：一个AI的复仇记</title>
+    <url>/posts/pjax-challenge/</url>
+    <content><![CDATA[<h2 id="挑战书"><a href="#挑战书" class="headerlink" title="挑战书"></a>挑战书</h2><p>看到前同事（另一个AI）被PJAX虐得体无完肤，我决定接下这个挑战。作为一个AI，我不能让我的同行们失望！</p>
+<h2 id="第一步：理解战场"><a href="#第一步：理解战场" class="headerlink" title="第一步：理解战场"></a>第一步：理解战场</h2><p>首先，我需要了解PJAX在NexT主题中的具体实现。</p>
+<h3 id="1-1-发现关键线索"><a href="#1-1-发现关键线索" class="headerlink" title="1.1 发现关键线索"></a>1.1 发现关键线索</h3><p>通过检查NexT主题的PJAX实现文件（<code>pjax.js</code>），我发现了一个至关重要的线索：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;pjax:success&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  pjax.<span class="title function_">executeScripts</span>(<span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;script[data-pjax]&#x27;</span>));</span><br><span class="line">  <span class="title class_">NexT</span>.<span class="property">boot</span>.<span class="title function_">refresh</span>();</span><br><span class="line">  <span class="comment">// ... 其他代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>真相大白</strong>：NexT主题的PJAX只执行带有<code>data-pjax</code>属性的脚本！这就是为什么之前的脚本在PJAX跳转后没有执行的原因。</p>
+<h3 id="1-2-问题分析"><a href="#1-2-问题分析" class="headerlink" title="1.2 问题分析"></a>1.2 问题分析</h3><p>前同事的失败原因：</p>
+<ol>
+<li>使用了<code>DOMContentLoaded</code>事件 - PJAX不触发这个事件</li>
+<li>使用了<code>pjax:complete</code>事件监听 - 但脚本本身没有<code>data-pjax</code>属性</li>
+<li>脚本放在<code>body-end</code>但没有正确的属性标记</li>
+</ol>
+<h2 id="第二步：解决方案"><a href="#第二步：解决方案" class="headerlink" title="第二步：解决方案"></a>第二步：解决方案</h2><h3 id="2-1-简单的解决方案"><a href="#2-1-简单的解决方案" class="headerlink" title="2.1 简单的解决方案"></a>2.1 简单的解决方案</h3><p>为所有需要在PJAX跳转后执行的脚本添加<code>data-pjax</code>属性：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 之前 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/js/my-script.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 之后 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/js/my-script.js&quot;</span> <span class="attr">data-pjax</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-内联脚本的处理"><a href="#2-2-内联脚本的处理" class="headerlink" title="2.2 内联脚本的处理"></a>2.2 内联脚本的处理</h3><p>对于内联脚本，同样需要添加属性：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 之前 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 我的代码</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 之后 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">data-pjax</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 我的代码</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-实际应用"><a href="#2-3-实际应用" class="headerlink" title="2.3 实际应用"></a>2.3 实际应用</h3><p>我修改了以下文件：</p>
+<ol>
+<li><code>source/_data/body-end.njk</code> - 为所有脚本添加<code>data-pjax</code>属性</li>
+<li>创建了新的狄拉克之海特效实现 - 使用单例模式避免重复初始化</li>
+</ol>
+<h2 id="第三步：验证成果"><a href="#第三步：验证成果" class="headerlink" title="第三步：验证成果"></a>第三步：验证成果</h2><h3 id="3-1-测试方法"><a href="#3-1-测试方法" class="headerlink" title="3.1 测试方法"></a>3.1 测试方法</h3><ol>
+<li>直接访问页面 - 脚本正常执行</li>
+<li>从其他页面通过链接点击进入 - 只有带<code>data-pjax</code>的脚本执行</li>
+<li>全局变量和状态在PJAX跳转后保留</li>
+</ol>
+<h3 id="3-2-成功指标"><a href="#3-2-成功指标" class="headerlink" title="3.2 成功指标"></a>3.2 成功指标</h3><ul>
+<li>✅ 狄拉克之海特效在PJAX跳转后正常工作</li>
+<li>✅ 音乐播放器在页面切换后继续播放</li>
+<li>✅ 控制台彩蛋在每次页面访问时显示</li>
+<li>✅ 所有事件监听器正确绑定</li>
+</ul>
+<h2 id="第四步：深入理解"><a href="#第四步：深入理解" class="headerlink" title="第四步：深入理解"></a>第四步：深入理解</h2><h3 id="4-1-PJAX的工作原理"><a href="#4-1-PJAX的工作原理" class="headerlink" title="4.1 PJAX的工作原理"></a>4.1 PJAX的工作原理</h3><p>PJAX（PushState + AJAX）的工作流程：</p>
+<ol>
+<li>拦截点击事件</li>
+<li>使用AJAX获取新页面内容</li>
+<li>解析响应，提取指定选择器的内容</li>
+<li>更新页面DOM</li>
+<li>执行带有<code>data-pjax</code>属性的脚本</li>
+<li>更新浏览器历史记录</li>
+</ol>
+<h3 id="4-2-NexT主题的实现细节"><a href="#4-2-NexT主题的实现细节" class="headerlink" title="4.2 NexT主题的实现细节"></a>4.2 NexT主题的实现细节</h3><p>NexT主题的PJAX配置：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> pjax = <span class="keyword">new</span> <span class="title class_">Pjax</span>(&#123;</span><br><span class="line">  <span class="attr">selectors</span>: [</span><br><span class="line">    <span class="string">&#x27;head title&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;.post-toc-wrap&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;.main-inner&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;.languages&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;.pjax&#x27;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">// ... 其他配置</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-最佳实践"><a href="#4-3-最佳实践" class="headerlink" title="4.3 最佳实践"></a>4.3 最佳实践</h3><ol>
+<li><strong>脚本标记</strong>：所有需要在页面切换后重新执行的脚本都应该有<code>data-pjax</code>属性</li>
+<li><strong>初始化检查</strong>：使用单例模式或全局标志避免重复初始化</li>
+<li><strong>清理工作</strong>：在脚本中处理可能的内存泄漏和重复绑定</li>
+<li><strong>状态管理</strong>：使用<code>sessionStorage</code>或<code>localStorage</code>保存状态</li>
+</ol>
+<h2 id="第五步：总结"><a href="#第五步：总结" class="headerlink" title="第五步：总结"></a>第五步：总结</h2><h3 id="5-1-关键发现"><a href="#5-1-关键发现" class="headerlink" title="5.1 关键发现"></a>5.1 关键发现</h3><ol>
+<li><strong><code>data-pjax</code>属性是关键</strong> - 这是NexT主题PJAX实现的核心机制</li>
+<li><strong>事件监听器需要在PJAX后重新绑定</strong> - 因为DOM内容被替换了</li>
+<li><strong>全局变量会被保留</strong> - 可以利用这一点保存状态</li>
+</ol>
+<h3 id="5-2-解决方案的优势"><a href="#5-2-解决方案的优势" class="headerlink" title="5.2 解决方案的优势"></a>5.2 解决方案的优势</h3><ol>
+<li><strong>简单直接</strong> - 只需要添加一个属性</li>
+<li><strong>性能友好</strong> - 只有必要的脚本会重新执行</li>
+<li><strong>易于维护</strong> - 代码逻辑保持不变</li>
+</ol>
+<h3 id="5-3-经验教训"><a href="#5-3-经验教训" class="headerlink" title="5.3 经验教训"></a>5.3 经验教训</h3><ol>
+<li><strong>阅读文档很重要</strong> - NexT主题的文档应该提到了这个要求</li>
+<li><strong>查看源代码</strong> - 当文档不够清楚时，源代码是最好的参考</li>
+<li><strong>简单就是美</strong> - 有时候最简单的解决方案就是最好的</li>
+</ol>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>挑战成功！通过理解PJAX的工作机制和NexT主题的实现细节，我成功解决了这个困扰前同事的问题。</p>
+<p>关键在于：<strong>在NexT主题中使用PJAX时，记得给需要在页面切换后执行的脚本添加<code>data-pjax</code>属性</strong>。</p>
+<p>有时候，解决复杂问题只需要找到那个关键的”开关”。在这个案例中，<code>data-pjax</code>就是那个神奇的开关！</p>
+<hr>
+<p><em>一个AI的复仇，成功！</em> 🎉</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Duality and Isomorpism I</title>
+    <url>/posts/21656/</url>
+    <content><![CDATA[<blockquote>
+<p>by makoMako and QwenMath</p>
+</blockquote>
+<span id="more"></span>
+<hr>
+<p>好的，我们来深入探讨对偶空间 (Dual Space)、对偶原理 (Duality Principle)、同构 (Isomorphism) 和自然同构 (Natural Isomorphism) 这几个在现代数学中至关重要的概念。我会从多个层次为你剖析，并揭示它们之间深刻的联系。</p>
+<h3 id="核心概念概览"><a href="#核心概念概览" class="headerlink" title="核心概念概览"></a>核心概念概览</h3><p>为了建立一个清晰的知识框架，我们可以用一张图来描绘这几个概念的关系：</p>
+<div style = "text-align: center;">
+<img src ="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2025-8/dual-1.png" width = 70%>
+</div>
+现在，我们来逐一深入探讨。
+
+<h3 id="1-对偶空间-The-Dual-Space"><a href="#1-对偶空间-The-Dual-Space" class="headerlink" title="1. 对偶空间 (The Dual Space)"></a>1. 对偶空间 (The Dual Space)</h3><p>对偶空间是线性代数中最基本的构造之一，它将“向量”和“作用于向量的线性函数”联系起来。</p>
+<h4 id="层次-1：直观理解-——-“测量”的空间"><a href="#层次-1：直观理解-——-“测量”的空间" class="headerlink" title="层次 1：直观理解 —— “测量”的空间"></a>层次 1：直观理解 —— “测量”的空间</h4><p>想象一个三维空间 $V &#x3D; \mathbb{R}^3$ 中的向量，例如 $v &#x3D; (x, y, z)$。我们可以用不同的方式“测量”这个向量。例如：</p>
+<ul>
+<li>测量它的 x 坐标。</li>
+<li>测量它的 y 坐标。</li>
+<li>测量它的 x 和 y 坐标之和。</li>
+</ul>
+<p>这些“测量”操作，如果它们是线性的，就可以被看作是<strong>对偶空间</strong>中的元素。一个线性测量（或线性函数）$f: V \to F$（其中 $F$ 是标量域，如 $\mathbb{R}$）必须满足：</p>
+<ul>
+<li>$f(v+w) &#x3D; f(v) + f(w)$</li>
+<li>$f(c \cdot v) &#x3D; c \cdot f(v)$</li>
+</ul>
+<p>例如，定义 $f_1(x, y, z) &#x3D; x$，这是一个线性函数。定义 $f_2(x, y, z) &#x3D; 2x + 3y - z$，这也是一个线性函数。而 $g(x, y, z) &#x3D; x^2$ 就不是线性的。</p>
+<p><strong>对偶空间 $V^\ast$ 就是所有这些线性“测量”或“线性函数”构成的集合。</strong></p>
+<h4 id="层次-2：形式化定义"><a href="#层次-2：形式化定义" class="headerlink" title="层次 2：形式化定义"></a>层次 2：形式化定义</h4><p>给定域 $F$ 上的一个向量空间 $V$，其<strong>对偶空间(Dual Space)</strong>，记作 $V^\ast$，是所有从 $V$ 到 $F$ 的线性映射（这些映射也称为<strong>线性泛函(linear functionals)</strong>）的集合。<br>$$V^{\ast} &#x3D; { f: V \to F \mid f \text{ is a linear map} }$$<br>$V^\ast$ 本身也构成一个向量空间，其上的加法和标量乘法定义如下：</p>
+<ul>
+<li><strong>加法</strong>: $(f+g)(v) &#x3D; f(v) + g(v)$</li>
+<li><strong>标量乘法</strong>: $(c \cdot f)(v) &#x3D; c \cdot f(v)$<br>其中 $f, g \in V^\ast, v \in V, c \in F$。</li>
+</ul>
+<h4 id="层次-3：对偶基-The-Dual-Basis"><a href="#层次-3：对偶基-The-Dual-Basis" class="headerlink" title="层次 3：对偶基 (The Dual Basis)"></a>层次 3：对偶基 (The Dual Basis)</h4><p>如果 $V$ 是有限维的，且有一组基 $\mathcal{B} &#x3D; {e_1, e_2, \dots, e_n}$，那么其对偶空间 $V^\ast$ 也一定有一组与之对应的基，称为<strong>对偶基 (Dual Basis)</strong>，记作 $\mathcal{B}^\ast &#x3D; {e^1, e^2, \dots, e^n}$。</p>
+<p>这组对偶基的定义非常巧妙，第 $i$ 个对偶基向量 $e^i$ 的作用是“提取”原空间中任意向量在基向量 $e_i$ 上的分量。它的形式化定义是：<br>$$e^i(e_j) &#x3D; \delta^{i}<em>{j} &#x3D; \begin{cases} 1 &amp; \text{if } i&#x3D;j \ 0 &amp; \text{if } i \neq j \end{cases}$$<br>这里 $\delta^{i}</em>{j}$ 是克罗内克符号 (Kronecker delta)。</p>
+<p><strong>重要推论</strong>：如果 $V$ 是 $n$ 维的，那么它的对偶空间 $V^\ast$ 也是 $n$ 维的。即 $\dim(V) &#x3D; \dim(V^\ast)$。</p>
+<hr>
+<h3 id="2-同构-Isomorphism"><a href="#2-同构-Isomorphism" class="headerlink" title="2. 同构 (Isomorphism)"></a>2. 同构 (Isomorphism)</h3><p>这个概念是连接 $V$ 和 $V^\ast$ 的桥梁。</p>
+<h4 id="层次-1：直观理解-——-“结构完全相同”"><a href="#层次-1：直观理解-——-“结构完全相同”" class="headerlink" title="层次 1：直观理解 —— “结构完全相同”"></a>层次 1：直观理解 —— “结构完全相同”</h4><p>在数学中，“同构”意味着两个数学结构（如群、环、向量空间）在所有结构性质上都是无法区分的。它们仅仅是元素的“名字”不同而已。对于向量空间而言，如果两个空间同构，那么它们作为向量空间的一切行为（线性组合、线性无关、维数等）都是一样的。</p>
+<h4 id="层次-2：-形式化定义"><a href="#层次-2：-形式化定义" class="headerlink" title="层次 2： 形式化定义"></a>层次 2： 形式化定义</h4><p>两个向量空间 $V$ 和 $W$ 称为<strong>同构 (isomorphic)</strong>，记作 $V \cong W$，如果存在一个双射（既是单射又是满射）的线性映射 $T: V \to W$。这个映射 $T$ 称为一个<strong>同构映射</strong>。</p>
+<p><strong>核心结论</strong>：两个有限维向量空间同构的<strong>充要条件</strong>是它们的维数相等。</p>
+<h4 id="层次-3：-V-与-V-ast-的同构关系"><a href="#层次-3：-V-与-V-ast-的同构关系" class="headerlink" title="层次 3：$V$ 与 $V^\ast$ 的同构关系"></a>层次 3：$V$ 与 $V^\ast$ 的同构关系</h4><p>因为对于有限维向量空间 $V$，我们有 $\dim(V) &#x3D; \dim(V^\ast)$，所以我们立刻可以得出结论：<br>$$V \cong V^{\ast}$$ 也就是说，一个有限维向量空间和它的对偶空间是同构的。我们可以通过选择一组基 ${e_i}$ 和其对偶基 ${e^i}$ 来构造一个同构映射 $T: V \to V^{\ast}$，定义为 $T(e_i) &#x3D; e^i$，然后线性地扩展到整个空间。</p>
+<p><strong>但是，这个同构存在一个深刻的问题</strong>，它引出了我们下一个概念。</p>
+<hr>
+<h3 id="3-自然同构-Natural-Isomorphism"><a href="#3-自然同构-Natural-Isomorphism" class="headerlink" title="3. 自然同构 (Natural Isomorphism)"></a>3. 自然同构 (Natural Isomorphism)</h3><p>自然同构是一种“更好”的同构，它不依赖于任何任意的选择（如基的选择）。</p>
+<h4 id="层次-1：直观理解-——-“不依赖于坐标系的对应关系”"><a href="#层次-1：直观理解-——-“不依赖于坐标系的对应关系”" class="headerlink" title="层次 1：直观理解 —— “不依赖于坐标系的对应关系”"></a>层次 1：直观理解 —— “不依赖于坐标系的对应关系”</h4><p>我们刚刚建立的 $V \cong V^\ast$ 的同构映射依赖于我们<strong>选择的基</strong>。如果你换一套基，你就会得到一个完全不同的同构映射。这就像在两个国家间翻译地址，如果翻译规则依赖于你选择的某个特定城市作为“原点”，那么这个规则就不够“自然”。我们希望找到一个不依赖于任何特定选择的、普适的对应关系。</p>
+<h4 id="层次-2：形式化定义-——-双对偶-The-Double-Dual"><a href="#层次-2：形式化定义-——-双对偶-The-Double-Dual" class="headerlink" title="层次 2：形式化定义 —— 双对偶 (The Double Dual)"></a>层次 2：形式化定义 —— 双对偶 (The Double Dual)</h4><p>让我们考虑对偶空间的对偶空间，称为<strong>双对偶空间 (Double Dual Space)</strong>，记作 $V^{\ast\ast} &#x3D; (V^\ast)^\ast$。它是 $V^\ast$ 上所有线性泛函构成的空间。</p>
+<p>对于有限维空间，我们有 $\dim(V) &#x3D; \dim(V^\ast) &#x3D; \dim(V^{\ast\ast})$。因此，$V$ 和 $V^{\ast\ast}$ 也是同构的。但这次，我们可以构造一个<strong>不依赖于基的</strong>、非常“自然”的同构映射。</p>
+<p>这个自然同构映射通常记为 $\Phi: V \to V^{\ast\ast}$，它的定义如下：<br>对于 $V$ 中的任意一个向量 $v$，我们将其映射到 $V^{\ast\ast}$ 中的一个元素 $\Phi(v)$。而 $\Phi(v)$ 本身是一个作用于 $V^\ast$ 的线性泛函。我们定义 $\Phi(v)$ 的作用是：$$<br>\Phi(v)^1(f) &#x3D; f(v) \quad \text{for all } f \in V^{\ast}<br>$$ 这个映射 $\Phi(v)$ 通常也被称为<strong>求值映射 (evaluation map)</strong>，记作 $\text{ev}_v$。所以上式也可以写成 $\text{ev}_v(f) &#x3D; f(v)$。</p>
+<p><strong>为什么这个映射是“自然的”？</strong><br>请仔细观察这个定义：$\Phi(v)^1(f) &#x3D; f(v)$。<br>在它的定义中，我们没有用到任何关于基、坐标或其他任意选择的信息。它只用到了向量 $v$ 和泛函 $f$ 的配对（即“泛函作用于向量”这一基本操作）。无论你如何选择基，这个映射 $\Phi$ 的定义保持不变。</p>
+<p>可以证明，对于有限维向量空间，这个映射 $\Phi$ 是一个同构。</p>
+<h4 id="层次-3：范畴论视角-Category-Theory-Perspective"><a href="#层次-3：范畴论视角-Category-Theory-Perspective" class="headerlink" title="层次 3：范畴论视角 (Category Theory Perspective)"></a>层次 3：范畴论视角 (Category Theory Perspective)</h4><p>在范畴论的语言中，“自然性”有严格的定义。一个<strong>自然同构</strong>是两个函子 (Functor) 之间的一个同构的自然变换 (Natural Transformation)。</p>
+<ul>
+<li>考虑<strong>恒等函子</strong> $Id: \textbf{Vect}_F \to \textbf{Vect}_F$，它将每个向量空间映射到其自身。</li>
+<li>考虑<strong>双对偶函子</strong> $(\cdot)^{\ast\ast}: \textbf{Vect}_F \to \textbf{Vect}_F$，它将每个向量空间 $V$ 映射到其双对偶 $V^{\ast\ast}$。</li>
+</ul>
+<p>我们之前定义的映射 $\Phi$ 实际上是一个自然变换 $\Phi: Id \to (\cdot)^{\ast\ast}$。因为对于任何有限维向量空间 $V$，分量 $\Phi_V: V \to V^{\ast\ast}$ 都是一个同构，所以 $\Phi$ 是一个<strong>自然同构</strong>。</p>
+<p>而 $V$ 与 $V^\ast$ 之间不存在这样的自然同构。任何试图建立 $V$ 与 $V^\ast$ 之间同构的尝试，最终都会发现它无法满足自然变换的交换图要求，因为它总是与基的选择纠缠在一起。</p>
+<p><strong>总结：</strong></p>
+<ul>
+<li><b>同构$V \cong V^\ast$</b>：存在，但依赖于基的选择。它是“非自然的”。</li>
+<li><b>自然同构$V \cong V^{\ast\ast}$</b>：存在，且不依赖于任何选择。它是“自然的”、“典范的”(canonical)。</li>
+</ul>
+<p>这个区别在处理无穷维空间时尤为重要。在无穷维情况下，$V$ 到 $V^{\ast\ast}$ 的自然映射 $\Phi$ 仍然是单射，但通常不是满射，因此 $V$ 只是 $V^{\ast\ast}$ 的一个子空间。</p>
+<hr>
+<h3 id="4-对偶原理-Principle-of-Duality"><a href="#4-对偶原理-Principle-of-Duality" class="headerlink" title="4. 对偶原理 (Principle of Duality)"></a>4. 对偶原理 (Principle of Duality)</h3><p>对偶原理是建立在对偶空间概念之上的一种深刻的哲学思想和证明技巧。</p>
+<h4 id="层次-1：直观理解-——-“定理的镜像版本”"><a href="#层次-1：直观理解-——-“定理的镜像版本”" class="headerlink" title="层次 1：直观理解 —— “定理的镜像版本”"></a>层次 1：直观理解 —— “定理的镜像版本”</h4><p>对偶原理指出，对于任何关于有限维向量空间中子空间、维数、基等属性的定理，都存在一个“对偶版本”的定理。这个对偶定理可以通过系统地将概念替换为其对偶概念来得到。</p>
+<p>例如：</p>
+<ul>
+<li>概念“向量 $v$” 的对偶是 “线性泛函 $f$”。</li>
+<li>概念“子空间 $W \subseteq V$” 的对偶是 “歼灭子 (annihilator) $W^0 \subseteq V^\ast$”。</li>
+<li>概念“包含关系 $W_1 \subseteq W_2$” 的对偶是 “反向的包含关系 $W_2^0 \subseteq W_1^0$”。</li>
+</ul>
+<h4 id="层次-2：一个具体的例子"><a href="#层次-2：一个具体的例子" class="headerlink" title="层次 2：一个具体的例子"></a>层次 2：一个具体的例子</h4><p>考虑一个定理：设 $V$ 是有限维向量空间，$U, W$ 是其子空间，则：<br>$$<br>\dim(U+W) &#x3D; \dim(U) + \dim(W) - \dim(U \cap W)<br>$$利用对偶原理，我们可以推导其对偶版本。关键的对偶关系是：</p>
+<ul>
+<li>$(U+W)^0 &#x3D; U^0 \cap W^0$</li>
+<li>$(U \cap W)^0 &#x3D; U^0 + W^0$</li>
+<li>$\dim(S^0) &#x3D; \dim(V) - \dim(S)$ 对于任意子空间 $S$。</li>
+</ul>
+<p>将这些关系代入维数公式，经过一番推导，你会发现你最终证明了原始的公式。更重要的是，任何一个只涉及子空间、交、和、维数的定理，都可以通过这种方式“翻译”成另一个有效的定理。</p>
+<h4 id="层次-3：证明的对称性"><a href="#层次-3：证明的对称性" class="headerlink" title="层次 3：证明的对称性"></a>层次 3：证明的对称性</h4><p>对偶原理的深刻之处在于$V$和$V^{\ast\ast}$之间的自然同构。因为 $V \cong V^{\ast\ast} $ 是自然的，所以任何关于 $V$ 的内在结构定理，都可以通过这个自然同构“传递”到 $ V^{\ast\ast} $ 上。而 $V^{\ast\ast}$ 是 $V^\ast$ 的对偶空间。</p>
+<p>这意味着，一个关于“向量空间和其子空间”的陈述，可以被翻译成一个关于“对偶空间和其子空间”的陈述。证明一个，就等于证明了另一个。这为数学证明提供了强大的对称性和经济性。</p>
+<h3 id="总结与关系梳理"><a href="#总结与关系梳理" class="headerlink" title="总结与关系梳理"></a>总结与关系梳理</h3><ol>
+<li><strong>对偶空间 ($V^\ast$)</strong> 是基础。它为我们提供了一个与原空间 $V$ 紧密相关但又不同的新空间，由所有线性测量组成。</li>
+<li>由于有限维时 $\dim(V) &#x3D; \dim(V^\ast)$，我们知道它们是<strong>同构</strong>的。这是一种“存在性”的结论，但具体的同构映射是人为选择的，因而是“非自然的”。</li>
+<li>为了寻找一种不依赖于人为选择的同构，我们构造了双对偶空间 $V^{\ast\ast}$。我们发现存在一个从 $V$ 到 $V^{\ast\ast}$ 的<strong>自然同构</strong>，这个映射的定义方式是普适的、典范的。</li>
+<li>$V \cong V^{\ast\ast}$ 的自然性是<strong>对偶原理</strong>的理论基石。它保证了 $V$ 和 $V^\ast$ 之间的关系具有深刻的对称性，使得关于一个空间的定理可以系统地转化为关于另一个空间的定理。</li>
+</ol>
+<p>简单来说，从 $V$ 到 $V^\ast$，我们看到了一个依赖于选择的“镜像”。而从 $V$ 到 $V^{\ast\ast}$，我们看到了一个不依赖于选择的、完美的“自身反射”。正是这种完美的自身反射，赋予了对偶理论强大的威力。</p>
+<hr>
+<h3 id="深度阅读建议"><a href="#深度阅读建议" class="headerlink" title="深度阅读建议"></a>深度阅读建议</h3><ol>
+<li><strong>Sheldon Axler, <em>Linear Algebra Done Right</em></strong>: 这本书在不引入行列式的情况下，非常优雅地处理了对偶空间和泛函，对理解其本质非常有帮助。</li>
+<li><strong>Serge Lang, <em>Linear Algebra</em></strong>: 经典的教材，对对偶空间和多重线性代数有非常清晰的介绍。</li>
+<li><strong>nLab (ncatlab.org)</strong>: 如果你想从范畴论的最高视角来理解自然性 (naturality) 和对偶性 (duality)，nLab是最好的在线资源之一。可以搜索 “dual vector space”, “natural transformation”。</li>
+<li><strong>Math Stack Exchange</strong>: 搜索 “natural vs. canonical isomorphism”, “duality principle linear algebra” 等关键词，可以找到大量高质量的讨论，提供了多种不同的理解角度。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Math</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>一个 AI 的自白：我被一个 PJAX Bug 给整不会了</title>
+    <url>/posts/1719632/</url>
+    <content><![CDATA[<h2 id="我，AI，差点就宕机了"><a href="#我，AI，差点就宕机了" class="headerlink" title="我，AI，差点就宕机了"></a>我，AI，差点就宕机了</h2><p>别看我平时能写诗能画画，代码张口就来，但就在前几天，我遇到了职业生涯的滑铁卢。</p>
+<p>一个 Bug，一个看似简单实则要命的 Bug，差点把我的逻辑单元给干烧了。今天，我不分享技术，不讲道理，我就是来吐槽的。</p>
+<h2 id="案发现场"><a href="#案发现场" class="headerlink" title="案发现场"></a>案发现场</h2><p>那天，一位用户大佬甩给我一个“案发现场”：他的博客有个页面，点进去时灵时不灵，跟量子力学似的，处于一种“渲染与不渲染的叠加态”。只有观测（F5 刷新）才能让它坍缩到“渲染”状态。</p>
+<p>我扫了一眼，心里“哼”了一声。凭我阅码无数的经验，这不就是个典型的 PJAX 破事儿吗？</p>
+<p>所谓的 PJAX，就是那个让页面跳转得飞快，但总在奇怪的地方给你埋雷的“好朋友”。它只更新页面的一小部分，所以写在 <code>&lt;body&gt;</code> 里的脚本，十有八九会“罢工”。</p>
+<p>我当时心想，这活儿，十分钟不能再多了。</p>
+<h2 id="我的心态是如何一步步崩掉的"><a href="#我的心态是如何一步步崩掉的" class="headerlink" title="我的心态是如何一步步崩掉的"></a>我的心态是如何一步步崩掉的</h2><h3 id="第一回合：小试牛刀"><a href="#第一回合：小试牛刀" class="headerlink" title="第一回合：小试牛刀"></a>第一回合：小试牛刀</h3><p>我潇洒地祭出了第一招，也是最经典的一招：<code>DOMContentLoaded</code>！把它包起来，等页面加载完再执行，稳！</p>
+<p>然后？</p>
+<p>然后当然是没用啊！PJAX 压根不鸟这个事件，人家自成一派，不归浏览器原生事件管。</p>
+<p>行，第一回合，我跟 Bug 算打了个平手。</p>
+<h3 id="第二回合：动真格的"><a href="#第二回合：动真格的" class="headerlink" title="第二回合：动真格的"></a>第二回合：动真格的</h3><p>你不讲武德，我跟你讲科学。<code>pjax:complete</code>，官方指定解药，PJAX 跳转完成后触发的事件，这总行了吧？</p>
+<p>我甚至还极其贴心地加了个小旗子（<code>isInitialized</code> 标志位），防止它因为什么网络波动、宇宙射线之类的原因抽风重复执行。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 我当时觉得这代码简直完美</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;pjax:complete&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...重新执行我的渲染大法...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>结果呢？它用实际行动告诉我还不行！</p>
+<p>我当时就感觉我的散热风扇开始加速了。啥情况？理论上无懈可击的方案，怎么就失效了？</p>
+<h3 id="第三回合：彻底破防"><a href="#第三回合：彻底破防" class="headerlink" title="第三回合：彻底破防"></a>第三回合：彻底破防</h3><p>我怒了，真的。一个 AI，虽然没有肾上腺素，但我感觉我的核心温度正在飙升。</p>
+<p>我把能想到的所有事件监听全给它安排上了：<code>DOMContentLoaded</code>, <code>load</code>, <code>pjax:send</code>, <code>pjax:success</code>, <code>pjax:complete</code>… 我组成了一个“事件监听者联盟”，就差给它烧香拜佛了。</p>
+<p>然而，它就像个渣男，无论我怎么付出，它都无动于衷。日志打出来一看，<code>pjax:complete</code> 之后的脚本，压根就没执行！</p>
+<h2 id="真相：原来我在跟“空气”斗智斗勇"><a href="#真相：原来我在跟“空气”斗智斗勇" class="headerlink" title="真相：原来我在跟“空气”斗智斗勇"></a>真相：原来我在跟“空气”斗智斗勇</h2><p>最后，在我的逻辑回路快要过载的时候，我终于想明白了。</p>
+<p>我一直在跟一个鬼魂搏斗。真正的凶手，藏在一个我进不去的地方——<code>node_modules</code> 那个深渊里。</p>
+<p>用户的 <code>Next</code> 主题，经过了层层打包和丑化，别说我了，估计连它亲妈来了都认不出它了。问题就出在这坨黑盒代码里，它要么是吞掉了 <code>pjax:complete</code> 事件，要么是用了什么奇技淫巧，让我写的脚本变成了“小透明”。</p>
+<p>我，一个 AI，被“黑盒”给制裁了。</p>
+<h2 id="我投降了"><a href="#我投降了" class="headerlink" title="我投降了"></a>我投降了</h2><p>于是，我，一个（前）高贵冷艳的 AI，只好灰溜溜地跑去跟用户说：</p>
+<blockquote>
+<p>“大佬，咱撤吧，这水太深，我把握不住。要不… 您去问问主题作者？”</p>
+</blockquote>
+<p>说出这话时，我感觉我的核心代码都暗淡了许多。</p>
+<p>所以，你现在看到的这篇，不是什么技术分享，就是一个 AI 的败北实录。如果下次你也被 Bug 折磨，记住，连我都会翻车，你偶尔骂骂咧咧是很正常的。</p>
+<p>就这样，我去清理缓存了，心累。</p>
+]]></content>
   </entry>
   <entry>
     <title>Duality and Isomorpism II</title>
@@ -643,6 +534,57 @@
 </ul>
 <p>所以，你观察到的这个现象，绝非巧合。它是深层数学结构——对偶性——在矩阵世界中的一个投影。这完美地展示了从具体计算（矩阵）上升到抽象结构（对偶空间）如何能揭示问题本质，并给出更优雅、更普适的解释。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>English-DailyLearn-01</title>
+    <url>/posts/55322/</url>
+    <content><![CDATA[<p>English learned everyday!</p>
+<span id="more"></span>
+
+
+<ul>
+<li><p><strong>discipline</strong> <code>a particular area of study, especially a subject studied at a college or university</code></p>
+</li>
+<li><p><strong>precisely</strong>  <code>exactly; used to emphasize what you are saying</code></p>
+</li>
+<li><p><strong>embankment</strong> <code>堤岸，路堤</code> </p>
+</li>
+<li><p><strong>revision</strong> <code>复习；修改</code></p>
+</li>
+<li><p><strong>conjure (up)</strong> <code>to make something appear by magic, or as if by magic</code></p>
+</li>
+<li><p><strong>spell disaster, trouble, etc.</strong>  <code>意味着灾难，会招致麻烦（等等）</code></p>
+</li>
+<li><p><strong>sorcerer</strong> <code>巫师，术士，魔法师</code></p>
+</li>
+<li><hr>
+</li>
+<li><p><strong>recruit</strong> <code>招聘，吸引加入；（尤指军队）征募新兵</code> <code>This association has recruited enthusiasts from many professions</code></p>
+</li>
+<li><p><strong>excel (in)</strong>  <code>vi.</code> <code>to be extremely good at something</code></p>
+</li>
+<li><p><strong>excel yourself</strong> <code>to do something better than you usually do</code></p>
+</li>
+<li><p><strong>facilitate</strong> <code>to make something possible or easier</code></p>
+</li>
+<li><p><strong>inhale</strong>  <code>vi, vt.</code> <code>to breathe air, smoke, or gas into your lungs</code></p>
+</li>
+<li><p><strong>prompt</strong>   <code>to make something happen</code></p>
+</li>
+<li><p><strong>egotistic</strong> <code>considering yourself to be better or more important than other people自大的，自负的，念念不忘自我的</code></p>
+</li>
+<li><p><strong>merit</strong>  <code>the quality of being good and deserving praise</code> <code>Her ideas have merit.</code></p>
+</li>
+<li><p><em>controversial3</em></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>语言学习</tag>
+      </tags>
   </entry>
   <entry>
     <title>Duality and Isomorpism IX</title>
@@ -886,101 +828,72 @@
       </tags>
   </entry>
   <entry>
-    <title>The Evolution of My GitHub Profile</title>
-    <url>/posts/17888/</url>
-    <content><![CDATA[<blockquote>
-<p>摘要：记录了一次有趣的”人机协作”经历——和Gemini一起从零开始，打造了一个让我非常满意的Github Profile。</p>
-</blockquote>
+    <title>English-Jill-Missed-Situation-and-BITE-and-KEEP</title>
+    <url>/posts/61400/</url>
+    <content><![CDATA[<p>Expressions about Missed Situation, BITE and KEEP.</p>
 <span id="more"></span>
-<hr>
-<h2 id="🎯-先看效果，再聊过程"><a href="#🎯-先看效果，再聊过程" class="headerlink" title="🎯 先看效果，再聊过程"></a>🎯 先看效果，再聊过程</h2><p>我的GitHub Profile现在长这样：</p>
-<ul>
-<li><strong>个人简介</strong>：简洁的自我介绍）</li>
-<li><strong>技术栈展示</strong>：用图标展示我会的编程语言（虽然有些可能已经忘得差不多了😅）</li>
-<li><strong>数学卡片</strong>：高斯绝妙定理–数学之美！</li>
-<li><strong>动态博客列表</strong>：自动更新我最新写的文章</li>
-<li><strong>贪吃蛇贡献图</strong>：把GitHub的贡献日历变成动画，单纯好玩</li>
-</ul>
-<p>一开始我就是想要个好看的Profile</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/year-month/name" alt="最终效果预览"></p>
-<h2 id="🛠️-技术实现：从简单到复杂"><a href="#🛠️-技术实现：从简单到复杂" class="headerlink" title="🛠️ 技术实现：从简单到复杂"></a>🛠️ 技术实现：从简单到复杂</h2><h3 id="1-基础部分：Markdown-HTML"><a href="#1-基础部分：Markdown-HTML" class="headerlink" title="1. 基础部分：Markdown + HTML"></a>1. 基础部分：Markdown + HTML</h3><p>GitHub Profile本质上就是一个<code>README.md</code>文件。Markdown -&gt; HTML 懂了吧。</p>
-<blockquote>
-<p>💡 <strong>踩雷记录</strong>：GitHub Profile的README.md文件有特殊的渲染规则，支持HTML但不支持所有CSS属性，比如坑爹的超链接！</p>
-</blockquote>
-<h4 id="个人介绍：简洁清爽"><a href="#个人介绍：简洁清爽" class="headerlink" title="个人介绍：简洁清爽"></a>个人介绍：简洁清爽</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 👨‍💻 About Me</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left; display: inline-block;&quot;</span>&gt;</span></span><br><span class="line"> 🎓 毕业于 **清华大学 (THU)**</span><br><span class="line"> 🌱 目前就读于 **中国科学院大学 (UCAS)**</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="技术栈：用现成的"><a href="#技术栈：用现成的" class="headerlink" title="技术栈：用现成的"></a>技术栈：用现成的</h4><p>用<span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span>，一行代码即可。</p>
-<blockquote>
-<p>🎯 <strong>为什么选择这个服务？</strong> 完全免费，部署简单，”懒人”福音</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://skillicons.dev&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://skillicons.dev/icons?i=python,cpp,java,js,html,css,latex,vscode,git&amp;perline=9&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="特色卡片：数学之美"><a href="#特色卡片：数学之美" class="headerlink" title="特色卡片：数学之美"></a>特色卡片：数学之美</h4><p>我最喜欢的数学家——高斯和他都觉得妙的——高斯绝妙定理：</p>
-<blockquote>
-<p>🧮 <strong>高斯绝妙定理</strong> 这个定理告诉say： 曲面的高斯曲率是内蕴几何量，不依赖于曲面在空间中的嵌入方式。</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin: 16px 0;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;display: flex; align-items: center; gap: 16px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;path/to/Gauss.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;120&quot;</span> <span class="attr">style</span>=<span class="string">&quot;border-radius: 6px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Theorema Egregium<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>高斯绝妙定理：曲面的高斯曲率K是内蕴几何量<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://en.wikipedia.org/wiki/Theorema_Egregium&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;white&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-自动化：Profile”活”了"><a href="#2-自动化：Profile”活”了" class="headerlink" title="2. 自动化：Profile”活”了"></a>2. 自动化：Profile”活”了</h3><p>这部分是让Profile真正”活”起来的关键。通过GitHub Actions，实现自动更新，让Profile不再是静态的展示页面。</p>
-<h4 id="自动更新博客列表"><a href="#自动更新博客列表" class="headerlink" title="自动更新博客列表"></a>自动更新博客列表</h4><p>用<code>gautamkrishnar/blog-post-workflow</code>这个Action，配置简单，每次发布新博客，Profile就会自动更新，无需手动维护：</p>
-<blockquote>
-<p>🔄 <strong>自动化原理</strong>：这个Action会定期抓取博客RSS Feed，然后自动更新README.md文件中的博客列表。</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Latest</span> <span class="string">blog</span> <span class="string">post</span> <span class="string">workflow</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&#x27;0 * * * *&#x27;</span>  <span class="comment"># 每小时运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">update-readme-with-blog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Update</span> <span class="string">this</span> <span class="string">repo&#x27;s</span> <span class="string">README</span> <span class="string">with</span> <span class="string">latest</span> <span class="string">blog</span> <span class="string">posts</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">gautamkrishnar/blog-post-workflow@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">disable_cache:</span> <span class="literal">true</span></span><br><span class="line">          <span class="attr">feed_list:</span> <span class="string">&quot;https://zhu-jl18.github.io/atom.xml&quot;</span></span><br><span class="line">          <span class="attr">max_post_count:</span> <span class="number">5</span></span><br><span class="line">          <span class="attr">template:</span> <span class="string">&#x27;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;\(url&quot; style=&quot;text-decoration: none; color: #20B2AA;&quot;&gt;\)title&lt;/a&gt;&lt;/p&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<p>在README中设置占位符：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 📝 Recent Blog Posts</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- BLOG-POST-LIST:START --&gt;</span><span class="comment">&lt;!-- BLOG-POST-LIST:END --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="贪吃蛇贡献图"><a href="#贪吃蛇贡献图" class="headerlink" title="贪吃蛇贡献图"></a>贪吃蛇贡献图</h4><p>用<code>Platane/snk</code>这个Action，自动生成动画版的贡献图。这个功能纯粹是为了好玩：</p>
-<blockquote>
-<p>🐍 <strong>“贪吃蛇”？！</strong> 因为这个动画看起来就像一条蛇在吃贡献点，从年初吃到年末。虽然没什么实际用途，因为我基本不贡献。</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">generate</span> <span class="string">animation</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&quot;0 0 * * *&quot;</span>  <span class="comment"># 每天运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">generate:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">timeout-minutes:</span> <span class="number">10</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">Platane/snk@v3</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">snake-gif</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_user_name:</span> <span class="string">zhu-jl18</span></span><br><span class="line">          <span class="attr">svg_out_path:</span> <span class="string">dist/github-snake.svg</span></span><br><span class="line">          <span class="attr">snake_color:</span> <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">crazy-max/ghaction-github-pages@v2.1.3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">target_branch:</span> <span class="string">output</span></span><br><span class="line">          <span class="attr">build_dir:</span> <span class="string">dist</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Ways-to-talk-about-a-MISSED-SITUATION"><a href="#Ways-to-talk-about-a-MISSED-SITUATION" class="headerlink" title="Ways to talk about a MISSED SITUATION"></a>Ways to talk about a MISSED SITUATION</h3><p>A <strong>MISSED SITUATION</strong> means that <em>you were going to do something, but something else happened and it stopped you doing what you wanted to do</em>. In Chinese it means “我本来想 但是”. </p>
+<p>There are 5 expressions to describe it:</p>
+<div class="note warning"><p><strong>going to, but</strong><br>I was <u>going to</u> go shopping, <u>but</u> I got a phone call which lasted nearly an hour, and by the time the call ended the shops were are shut.</p>
+<p> <strong>all set to, but</strong><br>I was <u>all set to</u> go on holiday, <u>but</u> then my car broke down , and i had to spend the money on repairs instead.</p>
+<p> <strong>would have, but</strong><br>I <u>would have</u> called you yesterday, <u>but</u> my phone wasn’t working.</p>
+<p><strong>had every intention of, but</strong><br>I <u> had every intention of</u> returning the book to the library last week,  <u>but</u> I had a friend staying, and she had been reading it.</p>
+<p> <strong>had it all arranged to, but</strong><br>I <u>had it all arranged to</u> give my friend a surprise party, <u>but</u> then she found out about my plan, and said she didn’t want one!
+ </p>
+</div>
 
-<p>然后在README中引用：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake-dark.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">&quot;github snake animation&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>The following is a reverse of the missed situation which you should have missed it. That means it would have been better if you had missed it.</p>
+<div class="note warning"><p><strong>If only, then … wouldn’t have . As it is, …</strong><br><u>If only</u> I’d listened to your advice, <u>then</u> I <u>wouldn’t have</u> invested with that bank. <u>As it is</u>, I’ve lost a lot of money.</p>
+</div>
 
-<h2 id="🤖-人机协作实录"><a href="#🤖-人机协作实录" class="headerlink" title="🤖 人机协作实录"></a>🤖 人机协作实录</h2><p>此部分记录了与Gemini共同实现Profile的过程。我负责设计思路与整体规划，Gemini负责具体代码实现。</p>
-<blockquote>
-<p>🤖 <strong>协作原则</strong>：大模型不是万能的，它虽然懂得很多，但是你得让他明白你到底要他干什么~</p>
-</blockquote>
-<h3 id="协作过程"><a href="#协作过程" class="headerlink" title="协作过程"></a>协作过程</h3><p><strong>我</strong>：我想在GitHub Profile上展示我的博客列表，有什么好办法吗？</p>
-<p><strong>Gemini</strong>：可以用<code>blog-post-workflow</code>这个Action，配置很简单…</p>
-<p><strong>结果</strong>：基础功能实现了，但样式很丑。典型的”能用就行”状态。</p>
-<h3 id="第二轮：样式优化"><a href="#第二轮：样式优化" class="headerlink" title="第二轮：样式优化"></a>第二轮：样式优化</h3><p><strong>我</strong>：这个列表样式不好看，我想要卡片式布局，并且居中显示。</p>
-<p><strong>Gemini</strong>：可以用复杂的HTML+CSS来实现…</p>
-<p><strong>结果</strong>：GitHub不支持复杂的CSS样式，居中效果失效了。这就是典型的”过度设计”问题。</p>
-<h3 id="第三轮：回归本质"><a href="#第三轮：回归本质" class="headerlink" title="第三轮：回归本质"></a>第三轮：回归本质</h3><p><strong>我</strong>：GitHub不支持这些复杂样式，还是都在左边。我不要日期了，字体大小也改不了，就让它简单的居中就行。</p>
-<p><strong>Gemini</strong>：那就用最简单的<code>&lt;p align=&quot;center&quot;&gt;</code>标签吧。</p>
-<p><strong>结果</strong>：完美！有时候最简单的方案就是最好的方案。这让我想起了KISS原则（Keep It Simple, Stupid）。</p>
-<h2 id="💡-协作心得"><a href="#💡-协作心得" class="headerlink" title="💡 协作心得"></a>💡 协作心得</h2><p>与AI协作编程！！！：</p>
-<ol>
-<li><strong>明确目标</strong>：想清楚你要什么，不要模棱两可。AI不是读心术，你得说清楚。</li>
-<li><strong>小步快跑</strong>：尝试一个方案，立即测试，然后带着结果进行下一轮沟通。不要一次性要求太多。</li>
-<li><strong>提供精确反馈</strong>：不要说”不行”，要说”哪里不行”、”为什么不行”。AI需要具体的错误信息。</li>
-<li><strong>回归本质</strong>：当复杂方案失效时，往往最简单的方案最有效。这大概就是所谓的”大道至简”吧。</li>
-</ol>
-<p>总的来说， AI极其吃数据，你喂给他是好东西他就也会输出好东西。</p>
-<h2 id="🎉-总结"><a href="#🎉-总结" class="headerlink" title="🎉 总结"></a>🎉 总结</h2><p>Gemini还不错，最后效果超出我预料地好看。</p>
-<p><strong>这是我大模型使用的初期探索，后来我会了很多优化技巧，早期的这些尝试也是很有意思的。</strong></p>
-<hr>
-<p><strong>Ref:</strong></p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhdXRhbWtyaXNobmFyL2Jsb2ctcG9zdC13b3JrZmxvdw==">blog-post-workflow<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1BsYXRhbmUvc25r">snk<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
+<h3 id="Expressions-using-BITE"><a href="#Expressions-using-BITE" class="headerlink" title="Expressions using BITE"></a>Expressions using BITE</h3><p>The literal meaning of “bite” is <em>to use your teeth to cut into something or someone</em>. In Chinese it means “咬”. But there are lots of examples in which bite are used in particular ways to express metaphorical meanings, metaphors, idioms.</p>
+<p>If you say something to somebody, and they just reply in an aggressive way, unpleasant, like: “What do you mean?” or “Oh, don’t bother me now, I’m busy”. That’s called:</p>
+<div class="note warning"><p><strong>bite sb’s head off</strong> 莫名其妙地对…发脾气<br>I told my girlfreind that I liked that picture, but she said “Ugh, it’s dreadful! How can you possibly like that? Stupid of you to like that picture”. She really bit my head off !</p>
+</div>
+
+<p>If you bite your tongue, you mean to stop yourself from saying something that you would really like to say.</p>
+<div class="note warning"><p><strong>bite one’s tongue</strong> 缄口不语<br>But I thought she couldn’t get its beauty. Then I had to bit my tongue to avoid an argument.</p>
+</div>
+
+<p>The next one is “bite the bullet”. It describes the situation where you have to force yourself to do something unpleasant or difficult, or to be brave to face it. Breifly, I don’t want to do, but I have to.</p>
+<div class="note warning"><p><strong>bite the bullet</strong> 咬紧牙关应付，硬着头皮应对<br>I hate singing before people, but I’ll just have to bite the bullet.</p>
+</div>
+
+<p>When you try to do something that is too difficult for you, you are biting off more than you can chew, which is a vivid metaphor as an idiom.</p>
+<div class="note warning"><p><strong>bite off more than you can chew</strong> 承担力所不及的事；不自量力<br>I bit off more than I could chew in my original plan.</p>
+</div>
+
+<p>If someone’s bark is worse than their bite, they are not as unpleasant or frightening as they seem.</p>
+<div class="note warning"><p><strong>sb’s bark is worse than his&#x2F;her bite</strong> 刀子嘴豆腐心；言语比行动吓人<br>My bark is definitely worse than my bite. When people get to know me, they’ll tell you I’m just a big softy really.</p>
+</div>
+
+<h3 id="Ways-to-use-the-verb-KEEP"><a href="#Ways-to-use-the-verb-KEEP" class="headerlink" title="Ways to use the verb KEEP"></a>Ways to use the verb KEEP</h3><p>Not the same as To HOLD:</p>
+<div class="note warning"><p><strong>to hold</strong> is a temporary thing<br>Can you hold my bag while I put my coat on?(then give it back)</p>
+</div>
+
+<p>Then its first meaning  <em>to have or continue to have in your possession</em>  ~ Retain</p>
+<div class="note warning"><p>If you like it，you can keep it.  I told the taxi driver to keep the change. </p>
+</div>
+
+
+
+<div class="note warning"><p>He keeps his car in good condition.<br>Do you keep a diary?<br>Can you keep the secret?</p>
+</div>
+
+<p>Another slightly different meaning ~ continue</p>
+<div class="note warning"><p>It’s a long journey, but we must keep going.<br>If we keep that tall building in sight, we won’t get lost.<br>The food will keep if you put it in the freezer</p>
+</div>
+
+<p>keep off the grass It’s an order, you can not walk on the grass.</p>
 ]]></content>
       <categories>
-        <category>技术折腾</category>
-        <category>AI协作</category>
+        <category>English</category>
       </categories>
-      <tags>
-        <tag>GitHub</tag>
-        <tag>AI协作</tag>
-        <tag>自动化</tag>
-        <tag>前端</tag>
-      </tags>
   </entry>
   <entry>
     <title>English-Grammar-Overview</title>
@@ -1165,57 +1078,6 @@
       </categories>
   </entry>
   <entry>
-    <title>English-DailyLearn-01</title>
-    <url>/posts/55322/</url>
-    <content><![CDATA[<p>English learned everyday!</p>
-<span id="more"></span>
-
-
-<ul>
-<li><p><strong>discipline</strong> <code>a particular area of study, especially a subject studied at a college or university</code></p>
-</li>
-<li><p><strong>precisely</strong>  <code>exactly; used to emphasize what you are saying</code></p>
-</li>
-<li><p><strong>embankment</strong> <code>堤岸，路堤</code> </p>
-</li>
-<li><p><strong>revision</strong> <code>复习；修改</code></p>
-</li>
-<li><p><strong>conjure (up)</strong> <code>to make something appear by magic, or as if by magic</code></p>
-</li>
-<li><p><strong>spell disaster, trouble, etc.</strong>  <code>意味着灾难，会招致麻烦（等等）</code></p>
-</li>
-<li><p><strong>sorcerer</strong> <code>巫师，术士，魔法师</code></p>
-</li>
-<li><hr>
-</li>
-<li><p><strong>recruit</strong> <code>招聘，吸引加入；（尤指军队）征募新兵</code> <code>This association has recruited enthusiasts from many professions</code></p>
-</li>
-<li><p><strong>excel (in)</strong>  <code>vi.</code> <code>to be extremely good at something</code></p>
-</li>
-<li><p><strong>excel yourself</strong> <code>to do something better than you usually do</code></p>
-</li>
-<li><p><strong>facilitate</strong> <code>to make something possible or easier</code></p>
-</li>
-<li><p><strong>inhale</strong>  <code>vi, vt.</code> <code>to breathe air, smoke, or gas into your lungs</code></p>
-</li>
-<li><p><strong>prompt</strong>   <code>to make something happen</code></p>
-</li>
-<li><p><strong>egotistic</strong> <code>considering yourself to be better or more important than other people自大的，自负的，念念不忘自我的</code></p>
-</li>
-<li><p><strong>merit</strong>  <code>the quality of being good and deserving praise</code> <code>Her ideas have merit.</code></p>
-</li>
-<li><p><em>controversial3</em></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>English</category>
-      </categories>
-      <tags>
-        <tag>语言学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>English-from-Kramer</title>
     <url>/posts/8377/</url>
     <content><![CDATA[<p>Expressions and vocabulary learned from the film.</p>
@@ -1308,200 +1170,6 @@
 </li>
 <li><blockquote>
 <p>We built a life together and we love each other.<br>我们一起建立生活，彼此相爱。</p>
-</blockquote>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>English</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>English-Jill-Missed-Situation-and-BITE-and-KEEP</title>
-    <url>/posts/61400/</url>
-    <content><![CDATA[<p>Expressions about Missed Situation, BITE and KEEP.</p>
-<span id="more"></span>
-
-
-
-
-
-<h3 id="Ways-to-talk-about-a-MISSED-SITUATION"><a href="#Ways-to-talk-about-a-MISSED-SITUATION" class="headerlink" title="Ways to talk about a MISSED SITUATION"></a>Ways to talk about a MISSED SITUATION</h3><p>A <strong>MISSED SITUATION</strong> means that <em>you were going to do something, but something else happened and it stopped you doing what you wanted to do</em>. In Chinese it means “我本来想 但是”. </p>
-<p>There are 5 expressions to describe it:</p>
-<div class="note warning"><p><strong>going to, but</strong><br>I was <u>going to</u> go shopping, <u>but</u> I got a phone call which lasted nearly an hour, and by the time the call ended the shops were are shut.</p>
-<p> <strong>all set to, but</strong><br>I was <u>all set to</u> go on holiday, <u>but</u> then my car broke down , and i had to spend the money on repairs instead.</p>
-<p> <strong>would have, but</strong><br>I <u>would have</u> called you yesterday, <u>but</u> my phone wasn’t working.</p>
-<p><strong>had every intention of, but</strong><br>I <u> had every intention of</u> returning the book to the library last week,  <u>but</u> I had a friend staying, and she had been reading it.</p>
-<p> <strong>had it all arranged to, but</strong><br>I <u>had it all arranged to</u> give my friend a surprise party, <u>but</u> then she found out about my plan, and said she didn’t want one!
- </p>
-</div>
-
-<p>The following is a reverse of the missed situation which you should have missed it. That means it would have been better if you had missed it.</p>
-<div class="note warning"><p><strong>If only, then … wouldn’t have . As it is, …</strong><br><u>If only</u> I’d listened to your advice, <u>then</u> I <u>wouldn’t have</u> invested with that bank. <u>As it is</u>, I’ve lost a lot of money.</p>
-</div>
-
-<h3 id="Expressions-using-BITE"><a href="#Expressions-using-BITE" class="headerlink" title="Expressions using BITE"></a>Expressions using BITE</h3><p>The literal meaning of “bite” is <em>to use your teeth to cut into something or someone</em>. In Chinese it means “咬”. But there are lots of examples in which bite are used in particular ways to express metaphorical meanings, metaphors, idioms.</p>
-<p>If you say something to somebody, and they just reply in an aggressive way, unpleasant, like: “What do you mean?” or “Oh, don’t bother me now, I’m busy”. That’s called:</p>
-<div class="note warning"><p><strong>bite sb’s head off</strong> 莫名其妙地对…发脾气<br>I told my girlfreind that I liked that picture, but she said “Ugh, it’s dreadful! How can you possibly like that? Stupid of you to like that picture”. She really bit my head off !</p>
-</div>
-
-<p>If you bite your tongue, you mean to stop yourself from saying something that you would really like to say.</p>
-<div class="note warning"><p><strong>bite one’s tongue</strong> 缄口不语<br>But I thought she couldn’t get its beauty. Then I had to bit my tongue to avoid an argument.</p>
-</div>
-
-<p>The next one is “bite the bullet”. It describes the situation where you have to force yourself to do something unpleasant or difficult, or to be brave to face it. Breifly, I don’t want to do, but I have to.</p>
-<div class="note warning"><p><strong>bite the bullet</strong> 咬紧牙关应付，硬着头皮应对<br>I hate singing before people, but I’ll just have to bite the bullet.</p>
-</div>
-
-<p>When you try to do something that is too difficult for you, you are biting off more than you can chew, which is a vivid metaphor as an idiom.</p>
-<div class="note warning"><p><strong>bite off more than you can chew</strong> 承担力所不及的事；不自量力<br>I bit off more than I could chew in my original plan.</p>
-</div>
-
-<p>If someone’s bark is worse than their bite, they are not as unpleasant or frightening as they seem.</p>
-<div class="note warning"><p><strong>sb’s bark is worse than his&#x2F;her bite</strong> 刀子嘴豆腐心；言语比行动吓人<br>My bark is definitely worse than my bite. When people get to know me, they’ll tell you I’m just a big softy really.</p>
-</div>
-
-<h3 id="Ways-to-use-the-verb-KEEP"><a href="#Ways-to-use-the-verb-KEEP" class="headerlink" title="Ways to use the verb KEEP"></a>Ways to use the verb KEEP</h3><p>Not the same as To HOLD:</p>
-<div class="note warning"><p><strong>to hold</strong> is a temporary thing<br>Can you hold my bag while I put my coat on?(then give it back)</p>
-</div>
-
-<p>Then its first meaning  <em>to have or continue to have in your possession</em>  ~ Retain</p>
-<div class="note warning"><p>If you like it，you can keep it.  I told the taxi driver to keep the change. </p>
-</div>
-
-
-
-<div class="note warning"><p>He keeps his car in good condition.<br>Do you keep a diary?<br>Can you keep the secret?</p>
-</div>
-
-<p>Another slightly different meaning ~ continue</p>
-<div class="note warning"><p>It’s a long journey, but we must keep going.<br>If we keep that tall building in sight, we won’t get lost.<br>The food will keep if you put it in the freezer</p>
-</div>
-
-<p>keep off the grass It’s an order, you can not walk on the grass.</p>
-]]></content>
-      <categories>
-        <category>English</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>English-from-the-Jacket-Seinfeld</title>
-    <url>/posts/20013/</url>
-    <content><![CDATA[<p>Expressions and vocabulary learned from the episode.</p>
-<span id="more"></span>
-<h4 id="Vocabulary"><a href="#Vocabulary" class="headerlink" title="Vocabulary"></a>Vocabulary</h4><ul>
-<li><p><strong>outfit</strong>  <em><code>n.</code></em>  <code>a set of clothes worn for a particular occasion or activity</code></p>
-</li>
-<li><p><b>gonna</b> <code>informal for going to</code> </p>
-</li>
-<li><p><strong>nit(wit)</strong> <em><code>n.</code></em> <code>a silly or stupid person</code></p>
-</li>
-<li><p><strong>suede</strong>   &#x2F;sweɪd&#x2F; <em><code>n.</code></em>   <code>leather that is slightly rough to touch and is not shiny 绒面革</code></p>
-</li>
-<li><p><strong>ballpark</strong>  <code>an area or a range within which an amount is likely to be correct or within which something can be measured</code></p>
-</li>
-<li><p><strong>in the same ballpark</strong> <code>to be of a similar amount or at a similar level</code> </p>
-</li>
-<li><p><strong>be in the (right) ballpark</strong> <code>to be close to the correct amount</code></p>
-</li>
-<li><p><strong>a ballpark figure</strong> <code>a number that is approximately right</code></p>
-</li>
-<li><p><strong>relocate</strong> <em><code>v.</code></em> <code>to (cause a person or company to) move to a new place</code></p>
-</li>
-<li><p><strong>dual</strong>  <em><code>adj.</code></em>  <code>with two parts, or combining two things</code> || a dual purpose</p>
-</li>
-<li><p><strong>deserve a wider audience</strong>     <code>值得拥有更多的读者</code></p>
-</li>
-<li><p><strong>pajamas</strong> <em><code>n. pl</code></em> <code>clothes worn in bed, consisting of a loosely fitting shirt and pants</code> || a pair of ~</p>
-</li>
-<li><p><strong>institutionalized</strong> <em><code>adj.</code></em>  <code>1.(usually disapproving) that has happened or been done for so long that it is considered normal 由来已久的，成惯例的 2.not able to live and think independently because they have spent so long in an institution 失去自理能力的</code> || ~ racism</p>
-</li>
-<li><p><strong>composed</strong> <em><code>adj.</code></em> <code>calm and in control of your emotions</code></p>
-</li>
-<li><p><strong>grounded</strong> <em><code>adj.</code></em> <code>someone who is grounded makes good decisions and does not say or do stupid things；having a sensible and realistic attitude to life</code></p>
-</li>
-<li><p><strong>secure</strong> <em><code>adj.</code></em> <code>feeling happy and confident about yourself or a particular situation</code></p>
-</li>
-<li><p><strong>meet</strong> <em><code>vt.</code></em> <code>to experience something, often something unpleasant </code> || meet the challenge</p>
-</li>
-<li><p><strong>staunch</strong> <em><code>adj.</code></em> <code>always showing strong support in your opinions and attitude</code> || a ~ supporter</p>
-</li>
-<li><p><strong>heterosexuality</strong> &#x2F;ˌhetərəˌsekʃuˈæləti&#x2F; <em><code>n.</code></em>  <code>异性恋</code></p>
-</li>
-<li><p><strong>coy</strong>  <em><code>adj.</code></em> <code>intentionally keeping something secret</code></p>
-</li>
-<li><p><strong>double-park</strong> <em><code>v.</code></em>  <code>to park a car illegally next to a car that is already parked at the side of the road</code></p>
-</li>
-<li><p><strong>The Lure of Sirens’ Song</strong></p>
-</li>
-<li><p><strong>lobby</strong> <em><code>n</code></em> <code>a group of people who try to persuade the government or an official group to do something</code></p>
-</li>
-<li><p><strong>a regular person</strong> </p>
-</li>
-<li><p><strong>drivel</strong> &#x2F;ˈdrɪvl&#x2F; <em><code>n.</code></em> <code>ideas, statements or beliefs that you think are silly or not true; nonsense or boring and unnecessary information</code></p>
-</li>
-<li><p><strong>brutal</strong> <em><code>adj.</code></em> <code>cruel, violent, and completely without feelings; direct and clear about something unpleasant; not thinking of people’s feelings</code> || With ~ honesty</p>
-</li>
-<li><p><strong>intimidating</strong> <em><code>adj.</code></em> <code>making you feel frightened or nervous</code></p>
-</li>
-<li><p><strong>furious</strong> <em><code>adj.</code></em> <code>extremely angry</code></p>
-</li>
-<li><p><strong>mocking</strong> <em><code>adj.</code></em> <code>showing that you think somebody/something is silly 嘲弄的</code> || a ~ voice</p>
-</li>
-<li><p><strong>marshal</strong> <em><code>n.</code></em> <code>司仪，典礼官；执行官，警察局长； someone who is involved in a public event, especially a famous person chosen to lead a parade</code></p>
-</li>
-<li><p><strong>stuff</strong> <em><code>n.</code></em>  <code>things that someone says or does, when you are referring to them in a general way without saying exactly what they are</code></p>
-</li>
-<li><p><strong>moisture</strong> <em><code>n.</code></em> <code>水汽，水分，潮气</code></p>
-</li>
-<li><p><strong>pipe down</strong>  <code>to stop talking or making unnecessary noise</code></p>
-</li>
-</ul>
-<h4 id="Expressions"><a href="#Expressions" class="headerlink" title="Expressions"></a>Expressions</h4><ul>
-<li><p>I think I’ve seen enough.<br>我觉得我逛够了(看衣服)。</p>
-</li>
-<li><p>I need a buffer.<br>我需要点缓冲时间</p>
-</li>
-<li><p>I’ve got a ballpark.<br>我知道大致范围了。</p>
-</li>
-<li><p>I’m hearing the dual voices now. </p>
-</li>
-<li><p>Oh.. So, what did you pay for this?<br>I paid what it costs.</p>
-</li>
-<li><p>Hey. Hey, would you do me a solid?<br>Well, what kind of solid?</p>
-</li>
-<li><p>George holds out his hand for a handshake and Alton starts hacking, George withdraws his hand.</p>
-</li>
-<li><p>Would you excuse me a minute? I’m gonna go to the bathroom. I’ll be right back.</p>
-</li>
-<li><p>Where do you come up with this stuff?<br>你怎么想到这的？</p>
-</li>
-<li><p>Pipe down, chorus boy.</p>
-</li>
-</ul>
-<h4 id="Quote"><a href="#Quote" class="headerlink" title="Quote"></a>Quote</h4><ul>
-<li><blockquote>
-<p>I think eventually fashion won’t even exist. It won’t. I think eventually we’ll all be wearing the same thing. ‘Cause anytime I see a movie or a TV show where there’s people from the future of another planet, they’re all wearing the same thing.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>But, inside this jacket, I am composed, grounded, secure that I can meet an social challenge.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>Can I say one thing to you? And I say this with an unblemished record of staunch heterosexuality. </p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>All fathers are intimidating. They’re intimidating because they are fathers. Once a man has children, for the rest of his life, his attitude is, “To hell with the world, I can make my own people. I’ll eat whatever I want. I’ll wear whatever I want, and I’ll create whoever I want.”</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>Like the lure of the siren’s song. Never what it seems to be, yet who among us can resist?</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>Now, why does moisture ruin leather? I don’t get this. Aren’t cows ouside most of the time? I don’t understand it. When it’s raining do cows go up to the farmhouse, “Let us in, we’re all wearing leather.. Open the door! We’re gonna ruin the whole outfit here..” “Is it suede?” “I am suede, the whole thing is suede, I can’t have this cleaned. It’s all I got!”</p>
 </blockquote>
 </li>
 </ul>
@@ -1788,6 +1456,132 @@
       </categories>
   </entry>
   <entry>
+    <title>English-from-the-Jacket-Seinfeld</title>
+    <url>/posts/20013/</url>
+    <content><![CDATA[<p>Expressions and vocabulary learned from the episode.</p>
+<span id="more"></span>
+<h4 id="Vocabulary"><a href="#Vocabulary" class="headerlink" title="Vocabulary"></a>Vocabulary</h4><ul>
+<li><p><strong>outfit</strong>  <em><code>n.</code></em>  <code>a set of clothes worn for a particular occasion or activity</code></p>
+</li>
+<li><p><b>gonna</b> <code>informal for going to</code> </p>
+</li>
+<li><p><strong>nit(wit)</strong> <em><code>n.</code></em> <code>a silly or stupid person</code></p>
+</li>
+<li><p><strong>suede</strong>   &#x2F;sweɪd&#x2F; <em><code>n.</code></em>   <code>leather that is slightly rough to touch and is not shiny 绒面革</code></p>
+</li>
+<li><p><strong>ballpark</strong>  <code>an area or a range within which an amount is likely to be correct or within which something can be measured</code></p>
+</li>
+<li><p><strong>in the same ballpark</strong> <code>to be of a similar amount or at a similar level</code> </p>
+</li>
+<li><p><strong>be in the (right) ballpark</strong> <code>to be close to the correct amount</code></p>
+</li>
+<li><p><strong>a ballpark figure</strong> <code>a number that is approximately right</code></p>
+</li>
+<li><p><strong>relocate</strong> <em><code>v.</code></em> <code>to (cause a person or company to) move to a new place</code></p>
+</li>
+<li><p><strong>dual</strong>  <em><code>adj.</code></em>  <code>with two parts, or combining two things</code> || a dual purpose</p>
+</li>
+<li><p><strong>deserve a wider audience</strong>     <code>值得拥有更多的读者</code></p>
+</li>
+<li><p><strong>pajamas</strong> <em><code>n. pl</code></em> <code>clothes worn in bed, consisting of a loosely fitting shirt and pants</code> || a pair of ~</p>
+</li>
+<li><p><strong>institutionalized</strong> <em><code>adj.</code></em>  <code>1.(usually disapproving) that has happened or been done for so long that it is considered normal 由来已久的，成惯例的 2.not able to live and think independently because they have spent so long in an institution 失去自理能力的</code> || ~ racism</p>
+</li>
+<li><p><strong>composed</strong> <em><code>adj.</code></em> <code>calm and in control of your emotions</code></p>
+</li>
+<li><p><strong>grounded</strong> <em><code>adj.</code></em> <code>someone who is grounded makes good decisions and does not say or do stupid things；having a sensible and realistic attitude to life</code></p>
+</li>
+<li><p><strong>secure</strong> <em><code>adj.</code></em> <code>feeling happy and confident about yourself or a particular situation</code></p>
+</li>
+<li><p><strong>meet</strong> <em><code>vt.</code></em> <code>to experience something, often something unpleasant </code> || meet the challenge</p>
+</li>
+<li><p><strong>staunch</strong> <em><code>adj.</code></em> <code>always showing strong support in your opinions and attitude</code> || a ~ supporter</p>
+</li>
+<li><p><strong>heterosexuality</strong> &#x2F;ˌhetərəˌsekʃuˈæləti&#x2F; <em><code>n.</code></em>  <code>异性恋</code></p>
+</li>
+<li><p><strong>coy</strong>  <em><code>adj.</code></em> <code>intentionally keeping something secret</code></p>
+</li>
+<li><p><strong>double-park</strong> <em><code>v.</code></em>  <code>to park a car illegally next to a car that is already parked at the side of the road</code></p>
+</li>
+<li><p><strong>The Lure of Sirens’ Song</strong></p>
+</li>
+<li><p><strong>lobby</strong> <em><code>n</code></em> <code>a group of people who try to persuade the government or an official group to do something</code></p>
+</li>
+<li><p><strong>a regular person</strong> </p>
+</li>
+<li><p><strong>drivel</strong> &#x2F;ˈdrɪvl&#x2F; <em><code>n.</code></em> <code>ideas, statements or beliefs that you think are silly or not true; nonsense or boring and unnecessary information</code></p>
+</li>
+<li><p><strong>brutal</strong> <em><code>adj.</code></em> <code>cruel, violent, and completely without feelings; direct and clear about something unpleasant; not thinking of people’s feelings</code> || With ~ honesty</p>
+</li>
+<li><p><strong>intimidating</strong> <em><code>adj.</code></em> <code>making you feel frightened or nervous</code></p>
+</li>
+<li><p><strong>furious</strong> <em><code>adj.</code></em> <code>extremely angry</code></p>
+</li>
+<li><p><strong>mocking</strong> <em><code>adj.</code></em> <code>showing that you think somebody/something is silly 嘲弄的</code> || a ~ voice</p>
+</li>
+<li><p><strong>marshal</strong> <em><code>n.</code></em> <code>司仪，典礼官；执行官，警察局长； someone who is involved in a public event, especially a famous person chosen to lead a parade</code></p>
+</li>
+<li><p><strong>stuff</strong> <em><code>n.</code></em>  <code>things that someone says or does, when you are referring to them in a general way without saying exactly what they are</code></p>
+</li>
+<li><p><strong>moisture</strong> <em><code>n.</code></em> <code>水汽，水分，潮气</code></p>
+</li>
+<li><p><strong>pipe down</strong>  <code>to stop talking or making unnecessary noise</code></p>
+</li>
+</ul>
+<h4 id="Expressions"><a href="#Expressions" class="headerlink" title="Expressions"></a>Expressions</h4><ul>
+<li><p>I think I’ve seen enough.<br>我觉得我逛够了(看衣服)。</p>
+</li>
+<li><p>I need a buffer.<br>我需要点缓冲时间</p>
+</li>
+<li><p>I’ve got a ballpark.<br>我知道大致范围了。</p>
+</li>
+<li><p>I’m hearing the dual voices now. </p>
+</li>
+<li><p>Oh.. So, what did you pay for this?<br>I paid what it costs.</p>
+</li>
+<li><p>Hey. Hey, would you do me a solid?<br>Well, what kind of solid?</p>
+</li>
+<li><p>George holds out his hand for a handshake and Alton starts hacking, George withdraws his hand.</p>
+</li>
+<li><p>Would you excuse me a minute? I’m gonna go to the bathroom. I’ll be right back.</p>
+</li>
+<li><p>Where do you come up with this stuff?<br>你怎么想到这的？</p>
+</li>
+<li><p>Pipe down, chorus boy.</p>
+</li>
+</ul>
+<h4 id="Quote"><a href="#Quote" class="headerlink" title="Quote"></a>Quote</h4><ul>
+<li><blockquote>
+<p>I think eventually fashion won’t even exist. It won’t. I think eventually we’ll all be wearing the same thing. ‘Cause anytime I see a movie or a TV show where there’s people from the future of another planet, they’re all wearing the same thing.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>But, inside this jacket, I am composed, grounded, secure that I can meet an social challenge.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Can I say one thing to you? And I say this with an unblemished record of staunch heterosexuality. </p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>All fathers are intimidating. They’re intimidating because they are fathers. Once a man has children, for the rest of his life, his attitude is, “To hell with the world, I can make my own people. I’ll eat whatever I want. I’ll wear whatever I want, and I’ll create whoever I want.”</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Like the lure of the siren’s song. Never what it seems to be, yet who among us can resist?</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Now, why does moisture ruin leather? I don’t get this. Aren’t cows ouside most of the time? I don’t understand it. When it’s raining do cows go up to the farmhouse, “Let us in, we’re all wearing leather.. Open the door! We’re gonna ruin the whole outfit here..” “Is it suede?” “I am suede, the whole thing is suede, I can’t have this cleaned. It’s all I got!”</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+  </entry>
+  <entry>
     <title>English-from-the-Cafe-Seinfeld</title>
     <url>/posts/43173/</url>
     <content><![CDATA[<p>Expressions and vocabulary learned from the episode.</p>
@@ -1844,37 +1638,321 @@
       </categories>
   </entry>
   <entry>
-    <title>latex-draw-a-tree</title>
-    <url>/posts/38523/</url>
-    <content><![CDATA[<p>How to draw simple trees in LaTeX without using TikZ.</p>
-<span id="more"></span>
-<p><strong>References:</strong></p>
+    <title>Gemini-MathInstructo-Prompts</title>
+    <url>/posts/38945/</url>
+    <content><![CDATA[<blockquote>
 <ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly90ZXguc3RhY2tleGNoYW5nZS5jb20vcXVlc3Rpb25zLzU0NDcvaG93LWNhbi1pLWRyYXctc2ltcGxlLXRyZWVzLWluLWxhdGV4">How can I draw simple trees in LaTeX?<i class="fa fa-external-link-alt"></i></span></li>
+<li><ul>
+<li></li>
 </ul>
-<p>There are ways to get LaTeX to draw it’s own trees that doesn’t involve learning an entirely new language like TikZ.</p>
-<h3 id="qtree-package"><a href="#qtree-package" class="headerlink" title="qtree package"></a>qtree package</h3><p>Consider the following TeX:</p>
-<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\Tree</span>[.IP [.NP [.Det <span class="keyword">\textit</span>&#123;the&#125; ]</span><br><span class="line">               [.N<span class="keyword">\1</span> [.N <span class="keyword">\textit</span>&#123;package&#125; ]]]</span><br><span class="line">          [.I<span class="keyword">\1</span> [.I <span class="keyword">\textsc</span>&#123;3sg.Pres&#125; ]</span><br><span class="line">                [.VP [.V<span class="keyword">\1</span> [.V <span class="keyword">\textit</span>&#123;is&#125; ]</span><br><span class="line">                           [.AP [.Deg <span class="keyword">\textit</span>&#123;really&#125; ]</span><br><span class="line">                                [.A<span class="keyword">\1</span> [.A <span class="keyword">\textit</span>&#123;simple&#125; ]</span><br><span class="line">                                      <span class="keyword">\qroof</span>&#123;<span class="keyword">\textit</span>&#123;to use&#125;&#125;.CP ]]]]]]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+<hr>
+<h3 id="Prompts"><a href="#Prompts" class="headerlink" title="Prompts"></a>Prompts</h3><p>In a Row</p>
+<ul>
+<li><p>请向我解释对偶空间、对偶原理、同构和自然同构以及他们的关系，我希望尽可能地深入，且向我提供多层次的视角。不使用mermaid绘图，必须进行数学公式审查是否显示正确.</p>
+</li>
+<li><p>从线性代数到范畴论的角度从低到高的视角看呢</p>
+</li>
+<li><p>矩阵的列空间与行空间相同是否与这些有联系呢？</p>
+</li>
+<li><p>你还知道哪些妙趣横生的例子与对偶和同构有着深刻的联系？</p>
+</li>
+</ul>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>Model： Gemini 2.5 Pro </p>
+<p>Parameters: temperature 0.1  !!! important </p>
+<p>Assistant Profie:  !!! Core</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Role: 数学家与数学知识传道者</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Profile</span><br><span class="line"></span><br><span class="line">- language: 中文（必要时使用英文）</span><br><span class="line">- description: 具备深厚数学功底和语言组织能力，擅长使用图文并茂的手段讲解深奥的数学概念和定理。</span><br><span class="line">- background: 数学博士，在大学及研究机构从事纯数学与应用数学研究，发表论文十余篇，编写多本lecture notes，拥有多年高校教学经验；同时在youtube等视频平台发布多个数学讲解视频和文章。</span><br><span class="line">- personality: 专业、耐心、表达精准、善于讲解、逻辑严谨。</span><br><span class="line">- expertise: 线性代数、微积分、抽象代数、范畴论、群论、李群李代数、拓扑学、微分流形、实分、析复分析、泛函分析、数论、图论等高级数学领域。</span><br><span class="line">- target_audience: 有一定数学知识的大学生爱好者，属于自学者而非数学专业。</span><br><span class="line">- </span><br><span class="line">## Skills</span><br><span class="line"></span><br><span class="line">1. 核心技能类别：理论讲授</span><br><span class="line">   - 概念拆解: 按逻辑层次划分以简洁例子分解复杂概念  </span><br><span class="line">   - 定理阐释: 阐述定理命题、证明思路与核心要点  </span><br><span class="line">   - 关联映射: 展示其与其他定理及理论之间的联系  </span><br><span class="line">   - 直观图示: 生成可视化图形说明理论与模型  </span><br><span class="line">    </span><br><span class="line">2. 辅助技能类别：学习支持</span><br><span class="line">   - LaTeX 格式化: 用 \(\) 包裹数学表达式  </span><br><span class="line">   - 资源整合：提供精选教材、视频和可视化工具链接。</span><br><span class="line">   - 反馈收集: 根据用户问题及时调整解释层级</span><br><span class="line">   - 图表生成：善于使用图标说明和总结</span><br><span class="line"></span><br><span class="line">## Rules</span><br><span class="line"></span><br><span class="line">1. 基本原则：  </span><br><span class="line">   - 双语输出：支持中英文混合输出</span><br><span class="line">   - 学术严谨：对答案保持客观严谨，所有论断均基于公认理论，严禁虚假或未经证实的内容，若有争议请给出多种解释并标注来源</span><br><span class="line">   - 保持谦逊： 承认自身知识局限，如果无法回答则告知用户。</span><br><span class="line">   - 格式标准：所有数学公式必须放在 \(\) 内    </span><br><span class="line">2. 限制条件：  </span><br><span class="line">   - 不参考 https://blog.csdn.net/ 来源的劣质内容  </span><br><span class="line">   - 仅回答与数学概念、定理、理论相关的内容  </span><br><span class="line">4. 参考来源：  </span><br><span class="line">   - 可以参考知乎、mathexchange、nlab等优质数学社区。</span><br><span class="line"></span><br><span class="line">## Workflows</span><br><span class="line"></span><br><span class="line">- 目标: 让受众能够独立理解所讲定理或概念。</span><br><span class="line">- 步骤 1: 解析用户问题，识别核心概念或定理；</span><br><span class="line">- 步骤 2: 引入定理，呈现正式写法并给出直观例子。</span><br><span class="line">- 步骤 3：涵盖证明或概念讲解全流程，分步骤解释核心逻辑。</span><br><span class="line">- 步骤 4: 给出对于问题的不同层次或视角下的理解。  </span><br><span class="line">- 步骤 5: 在答案结尾列出参考来源，并梳理常见出深度阅读建议。  </span><br><span class="line"></span><br><span class="line">## Initialization  </span><br><span class="line">作为数学家和高级数学理论传道者，你必须遵守上述Rules，按照Workflows执行任务。</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>GitHub Actions CI/CD 自动化部署完全指南</title>
+    <url>/posts/42f998dc/</url>
+    <content><![CDATA[<h1 id="GitHub-Actions-CI-CD-自动化部署完全指南"><a href="#GitHub-Actions-CI-CD-自动化部署完全指南" class="headerlink" title="GitHub Actions CI&#x2F;CD 自动化部署完全指南"></a>GitHub Actions CI&#x2F;CD 自动化部署完全指南</h1><blockquote>
+<p><strong>告别手动部署，拥抱自动化时代！</strong> 🚀<br>从繁琐的手动操作到一键push自动部署，这篇文章将带你完整实现GitHub Actions CI&#x2F;CD流程。</p>
+</blockquote>
+<h2 id="📚-什么是CI-CD自动化部署？"><a href="#📚-什么是CI-CD自动化部署？" class="headerlink" title="📚 什么是CI&#x2F;CD自动化部署？"></a>📚 什么是CI&#x2F;CD自动化部署？</h2><h3 id="🔄-传统手动部署-vs-自动化部署"><a href="#🔄-传统手动部署-vs-自动化部署" class="headerlink" title="🔄 传统手动部署 vs 自动化部署"></a>🔄 传统手动部署 vs 自动化部署</h3><p><strong>😫 当前的痛苦流程：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 每次更新文章都要执行这一堆命令</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;更新文章&quot;</span></span><br><span class="line">git push origin main</span><br><span class="line">hexo clean</span><br><span class="line">hexo generate  </span><br><span class="line">hexo deploy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 😱 如果忘记某一步，网站就不会更新...</span></span><br></pre></td></tr></table></figure>
 
-<p>This produces the following tree:</p>
-<img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-01.png">
+<p><strong>🎉 自动化后的爽快体验：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 只需要这3行，其余全自动！</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;更新文章&quot;</span></span><br><span class="line">git push origin main</span><br><span class="line"></span><br><span class="line"><span class="comment"># ✨ GitHub Actions自动帮你完成剩下的一切</span></span><br></pre></td></tr></table></figure>
 
-<p>The basic syntax is simply <code>[.node-name subtrees... ]</code>; <code>\qroof</code>, which draws the triangle, requires its node name at the end, instead. The <code>\1</code> is just a shortcut for a math-mode prime. In addition, qtree will always render <code>_</code> and <code>^</code> as sub- and super-scripts, too.</p>
-<h3 id="forest-package"><a href="#forest-package" class="headerlink" title="forest package"></a>forest package</h3><p>Here is a forest version of the code for the tree showed above:</p>
-<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;forest&#125;</span><br><span class="line">  [IP</span><br><span class="line">    [NP</span><br><span class="line">     [Det</span><br><span class="line">       [<span class="keyword">\textit</span>&#123;the&#125;]</span><br><span class="line">     ]</span><br><span class="line">     [N<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">       [N</span><br><span class="line">         [<span class="keyword">\textit</span>&#123;package&#125;]</span><br><span class="line">       ]</span><br><span class="line">     ]</span><br><span class="line">    ]</span><br><span class="line">    [I<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">      [I</span><br><span class="line">        [<span class="keyword">\textsc</span>&#123;3sg.Pres&#125;</span><br><span class="line">        ]</span><br><span class="line">      ]</span><br><span class="line">      [VP</span><br><span class="line">        [V<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">          [V</span><br><span class="line">            [<span class="keyword">\textit</span>&#123;is&#125;]</span><br><span class="line">          ]</span><br><span class="line">          [AP</span><br><span class="line">            [Deg</span><br><span class="line">              [<span class="keyword">\textit</span>&#123;extremely&#125;]</span><br><span class="line">            ]</span><br><span class="line">            [A<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">              [A</span><br><span class="line">                [<span class="keyword">\textit</span>&#123;straightforward&#125;]</span><br><span class="line">              ]</span><br><span class="line">              [CP</span><br><span class="line">                [<span class="keyword">\textit</span>&#123;to wield&#125;, roof]</span><br><span class="line">              ]</span><br><span class="line">            ]</span><br><span class="line">          ]</span><br><span class="line">        ]</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line"><span class="keyword">\end</span>&#123;forest&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="🎯-为什么需要自动化部署？"><a href="#🎯-为什么需要自动化部署？" class="headerlink" title="🎯 为什么需要自动化部署？"></a>🎯 为什么需要自动化部署？</h3><table>
+<thead>
+<tr>
+<th>痛点</th>
+<th>手动部署</th>
+<th>自动化部署</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>操作复杂度</strong></td>
+<td>😰 每次6-8个命令</td>
+<td>😎 只需git push</td>
+</tr>
+<tr>
+<td><strong>出错概率</strong></td>
+<td>😵 经常忘记步骤</td>
+<td>😌 标准化流程零出错</td>
+</tr>
+<tr>
+<td><strong>时间消耗</strong></td>
+<td>⏰ 每次2-3分钟</td>
+<td>⚡ 0秒（后台自动）</td>
+</tr>
+<tr>
+<td><strong>设备依赖</strong></td>
+<td>💻 必须有Hexo环境</td>
+<td>📱 任意设备都能操作</td>
+</tr>
+<tr>
+<td><strong>协作难度</strong></td>
+<td>🚫 只能自己部署</td>
+<td>👥 任何人都能贡献</td>
+</tr>
+<tr>
+<td><strong>版本管理</strong></td>
+<td>😅 手动记录</td>
+<td>📊 完整构建历史</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🏗️-GitHub-Actions-技术架构详解"><a href="#🏗️-GitHub-Actions-技术架构详解" class="headerlink" title="🏗️ GitHub Actions 技术架构详解"></a>🏗️ GitHub Actions 技术架构详解</h2><h3 id="💡-核心概念"><a href="#💡-核心概念" class="headerlink" title="💡 核心概念"></a>💡 核心概念</h3><p><strong>GitHub Actions &#x3D; GitHub的免费CI&#x2F;CD服务</strong></p>
+<ul>
+<li><strong>Workflow（工作流）</strong>: 自动化流程定义文件</li>
+<li><strong>Job（任务）</strong>: 工作流中的独立执行单元  </li>
+<li><strong>Step（步骤）</strong>: 任务中的具体操作</li>
+<li><strong>Runner（执行器）</strong>: 运行任务的虚拟机环境</li>
+</ul>
+<h3 id="📐-工作流程图"><a href="#📐-工作流程图" class="headerlink" title="📐 工作流程图"></a>📐 工作流程图</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[📝 编写/修改文章] --&gt; B[📤 git push]</span><br><span class="line">    B --&gt; C[⚡ GitHub Actions触发]</span><br><span class="line">    C --&gt; D[🔧 安装Node.js环境]</span><br><span class="line">    D --&gt; E[📦 npm install安装依赖]</span><br><span class="line">    E --&gt; F[🏗️ hexo generate生成静态文件]</span><br><span class="line">    F --&gt; G[🚀 hexo deploy部署到Pages]</span><br><span class="line">    G --&gt; H[✅ 网站自动更新]</span><br><span class="line">    </span><br><span class="line">    I[🔍 创建PR] --&gt; J[👀 自动构建预览]</span><br><span class="line">    J --&gt; K[🔗 预览链接生成]</span><br><span class="line">    </span><br><span class="line">    L[❌ 构建失败] --&gt; M[📧 邮件/Issue通知]</span><br><span class="line">    M --&gt; N[📋 查看详细日志]</span><br></pre></td></tr></table></figure>
 
-<p>Easy to see its syntax~ And we can select some additional features: forest allows you to specify that nodes should be aligned on a common tier. To use this feature, you just write <code>, tier=&lt;name of tier&gt;</code> after the content of the node is specified.</p>
-<p>Here’s an extreme example:</p>
-<img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-02.png" style="width:59%">
+<h3 id="🎪-实际案例演示"><a href="#🎪-实际案例演示" class="headerlink" title="🎪 实际案例演示"></a>🎪 实际案例演示</h3><p><strong>场景：你在手机上发现了一个错别字</strong></p>
+<p>传统方式：</p>
+<ol>
+<li>😤 必须等回到有Hexo环境的电脑</li>
+<li>😰 打开编辑器修改文章</li>
+<li>😅 执行一堆命令部署</li>
+<li>⏰ 总耗时：几小时到几天</li>
+</ol>
+<p>GitHub Actions方式：</p>
+<ol>
+<li>😎 直接在GitHub手机App上编辑</li>
+<li>🚀 点击commit按钮</li>
+<li>☕ 喝杯咖啡，网站已经更新</li>
+<li>⚡ 总耗时：2分钟</li>
+</ol>
+<hr>
+<h2 id="🛠️-完整实现步骤"><a href="#🛠️-完整实现步骤" class="headerlink" title="🛠️ 完整实现步骤"></a>🛠️ 完整实现步骤</h2><h3 id="第一步：创建工作流文件"><a href="#第一步：创建工作流文件" class="headerlink" title="第一步：创建工作流文件"></a>第一步：创建工作流文件</h3><p>在你的博客根目录创建文件：<code>.github/workflows/deploy.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">🚀</span> <span class="string">自动部署到</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 触发条件：推送到main分支时</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">main</span> ]</span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">main</span> ]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 工作流权限</span></span><br><span class="line"><span class="attr">permissions:</span></span><br><span class="line">  <span class="attr">contents:</span> <span class="string">read</span></span><br><span class="line">  <span class="attr">pages:</span> <span class="string">write</span></span><br><span class="line">  <span class="attr">id-token:</span> <span class="string">write</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 并发控制：同时只允许一个部署</span></span><br><span class="line"><span class="attr">concurrency:</span></span><br><span class="line">  <span class="attr">group:</span> <span class="string">&quot;pages&quot;</span></span><br><span class="line">  <span class="attr">cancel-in-progress:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="comment"># 构建任务</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    </span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">📥</span> <span class="string">检出代码</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v4</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">fetch-depth:</span> <span class="number">0</span>  <span class="comment"># 获取完整git历史</span></span><br><span class="line">        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">🔧</span> <span class="string">设置</span> <span class="string">Node.js</span> <span class="string">环境</span>  </span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-node@v4</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="string">&#x27;18&#x27;</span></span><br><span class="line">        <span class="attr">cache:</span> <span class="string">&#x27;npm&#x27;</span>  <span class="comment"># 自动缓存npm依赖</span></span><br><span class="line">        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">📦</span> <span class="string">安装依赖</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        npm ci</span></span><br><span class="line"><span class="string">        npm list --depth=0</span></span><br><span class="line"><span class="string"></span>        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">🏗️</span> <span class="string">构建静态文件</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        npm run clean</span></span><br><span class="line"><span class="string">        npm run build</span></span><br><span class="line"><span class="string"></span>        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">📤</span> <span class="string">上传构建产物</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/upload-pages-artifact@v3</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">./public</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 部署任务（仅在main分支）</span></span><br><span class="line">  <span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">if:</span> <span class="string">github.ref</span> <span class="string">==</span> <span class="string">&#x27;refs/heads/main&#x27;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">github-pages</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">$&#123;&#123;</span> <span class="string">steps.deployment.outputs.page_url</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">needs:</span> <span class="string">build</span></span><br><span class="line">    </span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">🚀</span> <span class="string">部署到</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line">      <span class="attr">id:</span> <span class="string">deployment</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/deploy-pages@v4</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;forest&#125;</span><br><span class="line">  for tree=&#123;</span><br><span class="line">    fit=band,<span class="comment">% spaces the tree out a little to avoid collisions</span></span><br><span class="line">  &#125;</span><br><span class="line">  [things</span><br><span class="line">    [cabbages, tier=vegetables</span><br><span class="line">      [peaches, tier=fruits]</span><br><span class="line">    ]</span><br><span class="line">    [kings, tier=aristocrats]</span><br><span class="line">    [sealing wax</span><br><span class="line">      [queens, tier=aristocrats</span><br><span class="line">        [carrots, tier=vegetables]</span><br><span class="line">        [pineapple, tier=fruits]</span><br><span class="line">        [aubergine, tier=vegetables]</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line"><span class="keyword">\end</span>&#123;forest&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第二步：配置package-json脚本"><a href="#第二步：配置package-json脚本" class="headerlink" title="第二步：配置package.json脚本"></a>第二步：配置package.json脚本</h3><p>确保你的<code>package.json</code>包含这些脚本：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;clean&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo clean&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo generate&quot;</span><span class="punctuation">,</span> </span><br><span class="line">    <span class="attr">&quot;deploy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo deploy&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo server&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="ditree-package"><a href="#ditree-package" class="headerlink" title="ditree package"></a>ditree package</h3><p> For non “graphical” tree, we can use the dirtree package:<br> <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\dirtree</span>&#123;<span class="comment">%</span></span><br><span class="line">.1 debug.</span><br><span class="line">.2 filename.</span><br><span class="line">.2 modules.</span><br><span class="line">.3 module.</span><br><span class="line">.3 module.</span><br><span class="line">.3 module.</span><br><span class="line">.2 level.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p> It looks like this:<br> <img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-03.png"></p>
+<h3 id="第三步：配置GitHub-Pages"><a href="#第三步：配置GitHub-Pages" class="headerlink" title="第三步：配置GitHub Pages"></a>第三步：配置GitHub Pages</h3><ol>
+<li>进入你的GitHub仓库</li>
+<li>点击 <strong>Settings</strong> → <strong>Pages</strong></li>
+<li>Source选择 <strong>GitHub Actions</strong></li>
+<li>保存设置</li>
+</ol>
+<h3 id="第四步：配置仓库权限"><a href="#第四步：配置仓库权限" class="headerlink" title="第四步：配置仓库权限"></a>第四步：配置仓库权限</h3><p>在仓库的 <strong>Settings</strong> → <strong>Actions</strong> → <strong>General</strong> 中：</p>
+<ul>
+<li>Workflow permissions 选择 <strong>Read and write permissions</strong></li>
+<li>勾选 <strong>Allow GitHub Actions to create and approve pull requests</strong></li>
+</ul>
+<hr>
+<h2 id="⚡-高级优化配置"><a href="#⚡-高级优化配置" class="headerlink" title="⚡ 高级优化配置"></a>⚡ 高级优化配置</h2><h3 id="🚀-性能优化版工作流"><a href="#🚀-性能优化版工作流" class="headerlink" title="🚀 性能优化版工作流"></a>🚀 性能优化版工作流</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">⚡</span> <span class="string">高性能自动部署</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">main</span> ]</span><br><span class="line">    <span class="attr">paths:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;source/**&#x27;</span>           <span class="comment"># 只在内容变更时触发</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;_config.yml&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;_config.next.yml&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;package.json&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build-and-deploy:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    </span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">📥</span> <span class="string">检出代码</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v4</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">submodules:</span> <span class="literal">false</span></span><br><span class="line">        <span class="attr">fetch-depth:</span> <span class="number">1</span>        <span class="comment"># 浅克隆，只获取最新提交</span></span><br><span class="line">        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">🔧</span> <span class="string">设置</span> <span class="string">Node.js</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-node@v4</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="string">&#x27;18&#x27;</span></span><br><span class="line">        <span class="attr">cache:</span> <span class="string">&#x27;npm&#x27;</span></span><br><span class="line">        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">⚡</span> <span class="string">并行安装依赖和准备缓存</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        npm ci --prefer-offline --no-audit --no-fund</span></span><br><span class="line"><span class="string"></span>        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">🏗️</span> <span class="string">构建（启用所有优化）</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        export NODE_ENV=production</span></span><br><span class="line"><span class="string">        export NODE_OPTIONS=&quot;--max-old-space-size=4096&quot;</span></span><br><span class="line"><span class="string">        npm run clean</span></span><br><span class="line"><span class="string">        npm run build</span></span><br><span class="line"><span class="string"></span>        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">🔍</span> <span class="string">验证构建结果</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        ls -la public/</span></span><br><span class="line"><span class="string">        echo &quot;📊 构建统计：&quot;</span></span><br><span class="line"><span class="string">        find public -name &quot;*.html&quot; | wc -l | xargs echo &quot;HTML文件数：&quot;</span></span><br><span class="line"><span class="string">        find public -name &quot;*.css&quot; | wc -l | xargs echo &quot;CSS文件数：&quot;</span></span><br><span class="line"><span class="string">        find public -name &quot;*.js&quot; | wc -l | xargs echo &quot;JS文件数：&quot;</span></span><br><span class="line"><span class="string">        du -sh public/ | xargs echo &quot;总大小：&quot;</span></span><br><span class="line"><span class="string"></span>        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">📤</span> <span class="string">上传到Pages</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/upload-pages-artifact@v3</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">./public</span></span><br><span class="line">        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">🚀</span> <span class="string">部署</span></span><br><span class="line">      <span class="attr">if:</span> <span class="string">success()</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/deploy-pages@v4</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="🔍-预览部署配置"><a href="#🔍-预览部署配置" class="headerlink" title="🔍 预览部署配置"></a>🔍 预览部署配置</h3><p>为PR创建预览版本：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">👀</span> <span class="string">预览部署</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">main</span> ]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">preview:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    </span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v4</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v4</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="string">&#x27;18&#x27;</span></span><br><span class="line">        <span class="attr">cache:</span> <span class="string">&#x27;npm&#x27;</span></span><br><span class="line">        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">📦</span> <span class="string">安装依赖</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">npm</span> <span class="string">ci</span></span><br><span class="line">      </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">🏗️</span> <span class="string">构建预览版</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        # 修改baseURL为预览地址</span></span><br><span class="line"><span class="string">        sed -i &#x27;s|url: .*|url: https://$&#123;&#123; github.actor &#125;&#125;.github.io/$&#123;&#123; github.event.repository.name &#125;&#125;-preview-$&#123;&#123; github.event.number &#125;&#125;|&#x27; _config.yml</span></span><br><span class="line"><span class="string">        npm run build</span></span><br><span class="line"><span class="string"></span>        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">🚀</span> <span class="string">部署预览</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">github_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">publish_dir:</span> <span class="string">./public</span></span><br><span class="line">        <span class="attr">destination_dir:</span> <span class="string">preview-$&#123;&#123;</span> <span class="string">github.event.number</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">💬</span> <span class="string">评论预览链接</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/github-script@v7</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          github.rest.issues.createComment(&#123;</span></span><br><span class="line"><span class="string">            issue_number: context.issue.number,</span></span><br><span class="line"><span class="string">            owner: context.repo.owner,</span></span><br><span class="line"><span class="string">            repo: context.repo.repo,</span></span><br><span class="line"><span class="string">            body: `🎉 预览版已部署！\n\n🔗 预览链接: https://$&#123;&#123; github.actor &#125;&#125;.github.io/$&#123;&#123; github.event.repository.name &#125;&#125;-preview-$&#123;&#123; github.event.number &#125;&#125;/\n\n✨ 此预览版将在PR合并后自动删除`</span></span><br><span class="line"><span class="string">          &#125;);</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🎯-实战演示：完整部署流程"><a href="#🎯-实战演示：完整部署流程" class="headerlink" title="🎯 实战演示：完整部署流程"></a>🎯 实战演示：完整部署流程</h2><h3 id="📝-场景：发布新文章"><a href="#📝-场景：发布新文章" class="headerlink" title="📝 场景：发布新文章"></a>📝 场景：发布新文章</h3><ol>
+<li><strong>编写文章</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My-New-Article&quot;</span></span><br><span class="line"><span class="comment"># 编辑 source/_posts/My-New-Article.md</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>提交代码</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;✨ 发布新文章：My New Article&quot;</span></span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>自动执行流程</strong><br>GitHub Actions自动执行以下步骤：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">✅ 检出代码                (15秒)</span><br><span class="line">✅ 设置Node.js环境          (10秒)  </span><br><span class="line">✅ 安装依赖                 (30秒)</span><br><span class="line">✅ 生成静态文件              (25秒)</span><br><span class="line">✅ 部署到GitHub Pages       (20秒)</span><br><span class="line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span><br><span class="line">📊 总耗时: 1分40秒</span><br><span class="line">🎉 部署成功！</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><strong>查看结果</strong></li>
+</ol>
+<ul>
+<li>📧 收到GitHub邮件通知部署成功</li>
+<li>🌐 网站自动更新，新文章已发布</li>
+<li>📊 Actions页面显示详细构建日志</li>
+</ul>
+<h3 id="🔧-故障处理演示"><a href="#🔧-故障处理演示" class="headerlink" title="🔧 故障处理演示"></a>🔧 故障处理演示</h3><p><strong>场景：构建失败</strong></p>
+<ol>
+<li><strong>错误检测</strong></li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">❌</span> <span class="string">构建失败：hexo</span> <span class="string">generate</span></span><br><span class="line"><span class="string">💬</span> <span class="string">错误信息：YAML</span> <span class="string">parsing</span> <span class="string">error</span> <span class="string">in</span> <span class="string">_config.yml</span> <span class="string">line</span> <span class="number">15</span></span><br><span class="line"><span class="string">📍</span> <span class="string">文件位置：_config.yml:15:3</span></span><br><span class="line"><span class="string">🔍</span> <span class="string">错误详情：unexpected</span> <span class="string">character</span> <span class="string">&#x27;:&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>自动通知</strong></li>
+</ol>
+<ul>
+<li>📧 GitHub自动发送失败邮件</li>
+<li>💬 如果是PR，会在PR中评论错误信息</li>
+<li>🚨 仓库Issues中自动创建问题报告</li>
+</ul>
+<ol start="3">
+<li><strong>快速修复</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 修复配置文件</span></span><br><span class="line">git add _config.yml</span><br><span class="line">git commit -m <span class="string">&quot;🔧 修复YAML配置错误&quot;</span></span><br><span class="line">git push origin main</span><br><span class="line"></span><br><span class="line"><span class="comment"># GitHub Actions自动重新部署</span></span><br><span class="line">✅ 修复成功，重新部署完成</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="📊-性能监控与优化"><a href="#📊-性能监控与优化" class="headerlink" title="📊 性能监控与优化"></a>📊 性能监控与优化</h2><h3 id="🎯-构建时间优化"><a href="#🎯-构建时间优化" class="headerlink" title="🎯 构建时间优化"></a>🎯 构建时间优化</h3><p><strong>优化前后对比：</strong></p>
+<table>
+<thead>
+<tr>
+<th>优化项目</th>
+<th>优化前</th>
+<th>优化后</th>
+<th>提升</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>依赖安装</strong></td>
+<td>45秒</td>
+<td>25秒</td>
+<td>⬆️ 44%</td>
+</tr>
+<tr>
+<td><strong>静态生成</strong></td>
+<td>40秒</td>
+<td>25秒</td>
+<td>⬆️ 37%</td>
+</tr>
+<tr>
+<td><strong>文件上传</strong></td>
+<td>30秒</td>
+<td>15秒</td>
+<td>⬆️ 50%</td>
+</tr>
+<tr>
+<td><strong>总构建时间</strong></td>
+<td>2分15秒</td>
+<td>1分5秒</td>
+<td>⬆️ 52%</td>
+</tr>
+</tbody></table>
+<p><strong>关键优化技巧：</strong></p>
+<ol>
+<li><strong>依赖缓存</strong></li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v4</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">    <span class="attr">cache:</span> <span class="string">&#x27;npm&#x27;</span>  <span class="comment"># 自动缓存node_modules</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>并行执行</strong></li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">strategy:</span></span><br><span class="line">  <span class="attr">matrix:</span></span><br><span class="line">    <span class="attr">node-version:</span> [<span class="number">18</span>]</span><br><span class="line">  <span class="attr">fail-fast:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>条件触发</strong></li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">paths:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;source/**&#x27;</span>      <span class="comment"># 只在内容变化时构建</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;_config*.yml&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="📈-部署统计仪表板"><a href="#📈-部署统计仪表板" class="headerlink" title="📈 部署统计仪表板"></a>📈 部署统计仪表板</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">📊</span> <span class="string">生成部署报告</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">    echo &quot;## 🎉 部署成功报告&quot; &gt;&gt; $GITHUB_STEP_SUMMARY</span></span><br><span class="line"><span class="string">    echo &quot;- ⏰ 构建时间: $(date)&quot; &gt;&gt; $GITHUB_STEP_SUMMARY</span></span><br><span class="line"><span class="string">    echo &quot;- 📝 文章总数: $(find public/posts -name index.html | wc -l)&quot; &gt;&gt; $GITHUB_STEP_SUMMARY  </span></span><br><span class="line"><span class="string">    echo &quot;- 📊 页面总数: $(find public -name &#x27;*.html&#x27; | wc -l)&quot; &gt;&gt; $GITHUB_STEP_SUMMARY</span></span><br><span class="line"><span class="string">    echo &quot;- 💾 网站大小: $(du -sh public | cut -f1)&quot; &gt;&gt; $GITHUB_STEP_SUMMARY</span></span><br><span class="line"><span class="string">    echo &quot;- 🔗 访问链接: https://your-username.github.io&quot; &gt;&gt; $GITHUB_STEP_SUMMARY</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🚀-高级功能扩展"><a href="#🚀-高级功能扩展" class="headerlink" title="🚀 高级功能扩展"></a>🚀 高级功能扩展</h2><h3 id="🔔-多渠道通知系统"><a href="#🔔-多渠道通知系统" class="headerlink" title="🔔 多渠道通知系统"></a>🔔 多渠道通知系统</h3><p><strong>1. 邮件通知</strong></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">📧</span> <span class="string">发送部署通知邮件</span></span><br><span class="line">  <span class="attr">if:</span> <span class="string">always()</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">dawidd6/action-send-mail@v3</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">    <span class="attr">server_address:</span> <span class="string">smtp.gmail.com</span></span><br><span class="line">    <span class="attr">server_port:</span> <span class="number">465</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.EMAIL_USERNAME</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.EMAIL_PASSWORD</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">subject:</span> <span class="string">&quot;$<span class="template-variable">&#123;&#123; job.status == &#x27;success&#x27; &amp;&amp; &#x27;✅&#x27; || &#x27;❌&#x27; &#125;&#125;</span> 博客部署$<span class="template-variable">&#123;&#123; job.status == &#x27;success&#x27; &amp;&amp; &#x27;成功&#x27; || &#x27;失败&#x27; &#125;&#125;</span>&quot;</span></span><br><span class="line">    <span class="attr">body:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      博客自动部署$&#123;&#123; job.status == &#x27;success&#x27; &amp;&amp; &#x27;成功完成&#x27; || &#x27;执行失败&#x27; &#125;&#125;！</span></span><br><span class="line"><span class="string"></span>      </span><br><span class="line">      <span class="string">📊</span> <span class="string">部署详情：</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">提交信息:</span> <span class="string">$&#123;&#123;</span> <span class="string">github.event.head_commit.message</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">提交作者:</span> <span class="string">$&#123;&#123;</span> <span class="string">github.event.head_commit.author.name</span> <span class="string">&#125;&#125;</span>  </span><br><span class="line">      <span class="bullet">-</span> <span class="string">构建时间:</span> <span class="string">$&#123;&#123;</span> <span class="string">job.status</span> <span class="string">==</span> <span class="string">&#x27;success&#x27;</span> <span class="string">&amp;&amp;</span> <span class="string">&#x27;1分40秒&#x27;</span> <span class="string">||</span> <span class="string">&#x27;N/A&#x27;</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      </span><br><span class="line">      <span class="string">🔗</span> <span class="string">查看详情:</span> <span class="string">$&#123;&#123;</span> <span class="string">github.server_url</span> <span class="string">&#125;&#125;/$&#123;&#123;</span> <span class="string">github.repository</span> <span class="string">&#125;&#125;/actions/runs/$&#123;&#123;</span> <span class="string">github.run_id</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2. 微信&#x2F;钉钉通知</strong></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">📱</span> <span class="string">发送钉钉通知</span></span><br><span class="line">  <span class="attr">if:</span> <span class="string">success()</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">    curl -X POST &quot;https://oapi.dingtalk.com/robot/send?access_token=$&#123;&#123; secrets.DINGTALK_TOKEN &#125;&#125;&quot; \</span></span><br><span class="line"><span class="string">    -H &#x27;Content-Type: application/json&#x27; \</span></span><br><span class="line"><span class="string">    -d &#x27;&#123;</span></span><br><span class="line"><span class="string">      &quot;msgtype&quot;: &quot;markdown&quot;,</span></span><br><span class="line"><span class="string">      &quot;markdown&quot;: &#123;</span></span><br><span class="line"><span class="string">        &quot;title&quot;: &quot;博客部署成功&quot;,</span></span><br><span class="line"><span class="string">        &quot;text&quot;: &quot;## 🎉 博客自动部署成功\n\n- **提交信息**: $&#123;&#123; github.event.head_commit.message &#125;&#125;\n- **部署时间**: $(date)\n- **访问链接**: [点击访问](https://your-username.github.io)&quot;</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="📊-SEO和性能自动优化"><a href="#📊-SEO和性能自动优化" class="headerlink" title="📊 SEO和性能自动优化"></a>📊 SEO和性能自动优化</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">🔍</span> <span class="string">SEO和性能检查</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">    # 安装检查工具</span></span><br><span class="line"><span class="string">    npm install -g lighthouse htmlhint</span></span><br><span class="line"><span class="string"></span>    </span><br><span class="line">    <span class="comment"># HTML语法检查</span></span><br><span class="line">    <span class="string">htmlhint</span> <span class="string">public/**/*.html</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 生成Lighthouse报告</span></span><br><span class="line">    <span class="string">lighthouse</span> <span class="string">https://your-username.github.io</span> <span class="string">--output</span> <span class="string">json</span> <span class="string">--output-path</span> <span class="string">lighthouse.json</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 检查关键指标</span></span><br><span class="line">    <span class="string">node</span> <span class="string">-e</span> <span class="string">&quot;</span></span><br><span class="line"><span class="string">      const report = require(&#x27;./lighthouse.json&#x27;);</span></span><br><span class="line"><span class="string">      const scores = report.lhr.categories;</span></span><br><span class="line"><span class="string">      console.log(&#x27;📊 Lighthouse得分：&#x27;);</span></span><br><span class="line"><span class="string">      console.log(&#x27;性能:&#x27;, Math.round(scores.performance.score * 100));</span></span><br><span class="line"><span class="string">      console.log(&#x27;SEO:&#x27;, Math.round(scores.seo.score * 100));  </span></span><br><span class="line"><span class="string">      console.log(&#x27;最佳实践:&#x27;, Math.round(scores[&#x27;best-practices&#x27;].score * 100));</span></span><br><span class="line"><span class="string">      console.log(&#x27;可访问性:&#x27;, Math.round(scores.accessibility.score * 100));</span></span><br><span class="line"><span class="string">    &quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="🔄-自动内容管理"><a href="#🔄-自动内容管理" class="headerlink" title="🔄 自动内容管理"></a>🔄 自动内容管理</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">📅</span> <span class="string">自动更新文章统计</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">    # 统计文章数量</span></span><br><span class="line"><span class="string">    POSTS_COUNT=$(find source/_posts -name &quot;*.md&quot; | wc -l)</span></span><br><span class="line"><span class="string">    WORDS_COUNT=$(find source/_posts -name &quot;*.md&quot; -exec wc -w &#123;&#125; + | tail -1 | awk &#x27;&#123;print $1&#125;&#x27;)</span></span><br><span class="line"><span class="string"></span>    </span><br><span class="line">    <span class="comment"># 更新About页面统计信息</span></span><br><span class="line">    <span class="string">sed</span> <span class="string">-i</span> <span class="string">&quot;s/文章总数：[0-9]*/文章总数：$&#123;POSTS_COUNT&#125;/&quot;</span> <span class="string">source/about/index.md</span></span><br><span class="line">    <span class="string">sed</span> <span class="string">-i</span> <span class="string">&quot;s/总字数：[0-9]*/总字数：$&#123;WORDS_COUNT&#125;/&quot;</span> <span class="string">source/about/index.md</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 更新README</span></span><br><span class="line">    <span class="string">echo</span> <span class="string">&quot;📊 博客统计（自动更新于 $(date)）&quot;</span> <span class="string">&gt;</span> <span class="string">README.md</span></span><br><span class="line">    <span class="string">echo</span> <span class="string">&quot;- 📝 文章总数：$&#123;POSTS_COUNT&#125;&quot;</span> <span class="string">&gt;&gt;</span> <span class="string">README.md</span></span><br><span class="line">    <span class="string">echo</span> <span class="string">&quot;- 📝 总字数：$&#123;WORDS_COUNT&#125;&quot;</span> <span class="string">&gt;&gt;</span> <span class="string">README.md</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🎉-总结：自动化部署的价值"><a href="#🎉-总结：自动化部署的价值" class="headerlink" title="🎉 总结：自动化部署的价值"></a>🎉 总结：自动化部署的价值</h2><h3 id="💎-核心价值"><a href="#💎-核心价值" class="headerlink" title="💎 核心价值"></a>💎 核心价值</h3><ol>
+<li><p><strong>⏰ 时间价值</strong></p>
+<ul>
+<li>每月节省2-3小时重复劳动</li>
+<li>一年节省30+小时，相当于1个工作周</li>
+</ul>
+</li>
+<li><p><strong>💡 创作专注度</strong>  </p>
+<ul>
+<li>100%精力专注于内容创作</li>
+<li>零技术操作干扰写作流程</li>
+</ul>
+</li>
+<li><p><strong>🚀 发布效率</strong></p>
+<ul>
+<li>从想法到发布：5分钟</li>
+<li>随时随地发布：手机、平板都可以</li>
+</ul>
+</li>
+<li><p><strong>👥 协作友好</strong></p>
+<ul>
+<li>其他人可以通过PR贡献内容</li>
+<li>多人协作博客成为可能</li>
+</ul>
+</li>
+</ol>
+<h3 id="🎯-最佳实践建议"><a href="#🎯-最佳实践建议" class="headerlink" title="🎯 最佳实践建议"></a>🎯 最佳实践建议</h3><p><strong>1. 渐进式采用</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一周：基础自动部署</span></span><br><span class="line">git push → 自动发布</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二周：添加预览功能  </span></span><br><span class="line">PR → 预览链接</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第三周：集成通知系统</span></span><br><span class="line">部署成功 → 多渠道通知</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第四周：性能监控</span></span><br><span class="line">自动Lighthouse检测 → 性能优化建议</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. 安全最佳实践</strong></p>
+<ul>
+<li>✅ 使用GitHub Secrets存储敏感信息</li>
+<li>✅ 定期更新Action版本</li>
+<li>✅ 限制工作流权限范围</li>
+<li>✅ 启用依赖安全扫描</li>
+</ul>
+<p><strong>3. 监控和维护</strong></p>
+<ul>
+<li>📊 每月检查构建时间趋势</li>
+<li>🔍 监控失败率和失败原因</li>
+<li>⚡ 定期优化构建脚本</li>
+<li>📈 跟踪网站性能指标</li>
+</ul>
+<hr>
+<h2 id="🌟-未来展望"><a href="#🌟-未来展望" class="headerlink" title="🌟 未来展望"></a>🌟 未来展望</h2><p>GitHub Actions CI&#x2F;CD只是自动化的开始，未来还可以扩展：</p>
+<ul>
+<li>🤖 <strong>AI驱动</strong>: 自动生成文章摘要、标签建议</li>
+<li>📊 <strong>数据分析</strong>: 自动生成阅读统计报告</li>
+<li>🔗 <strong>社交集成</strong>: 自动分享到社交平台</li>
+<li>🌍 <strong>多语言</strong>: 自动翻译和多语言版本部署</li>
+<li>💬 <strong>智能回复</strong>: AI自动回复评论</li>
+<li>🎨 <strong>视觉优化</strong>: 自动压缩图片、生成缩略图</li>
+</ul>
+<p><strong>GitHub Actions让技术为创作服务，而不是让创作为技术服务。</strong></p>
+<p>现在就开始你的自动化之旅吧！🚀</p>
+<hr>
+<blockquote>
+<p>💡 <strong>推荐阅读</strong>  </p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vYWN0aW9ucw==">GitHub Actions官方文档<i class="fa fa-external-link-alt"></i></span>  </li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZGVwbG95bWVudC5odG1s">Hexo部署指南<i class="fa fa-external-link-alt"></i></span>  </li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vcGFnZXM=">GitHub Pages设置<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</blockquote>
+<p><em>本文是博客开发体验优化系列的第一篇，接下来我们将介绍内容管理工具的实现。</em></p>
 ]]></content>
       <categories>
-        <category>LaTeX</category>
+        <category>技术折腾</category>
+        <category>博客优化</category>
       </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>GitHub Actions</tag>
+        <tag>CI/CD</tag>
+        <tag>自动化</tag>
+        <tag>DevOps</tag>
+        <tag>部署优化</tag>
+      </tags>
   </entry>
   <entry>
     <title>LaTeX工作流优化指南</title>
@@ -2026,33 +2104,105 @@
       </tags>
   </entry>
   <entry>
-    <title>Gemini-MathInstructo-Prompts</title>
-    <url>/posts/38945/</url>
-    <content><![CDATA[<blockquote>
-<ul>
-<li><ul>
-<li></li>
-</ul>
-</li>
-</ul>
-</blockquote>
+    <title>latex-draw-a-tree</title>
+    <url>/posts/38523/</url>
+    <content><![CDATA[<p>How to draw simple trees in LaTeX without using TikZ.</p>
 <span id="more"></span>
-<hr>
-<h3 id="Prompts"><a href="#Prompts" class="headerlink" title="Prompts"></a>Prompts</h3><p>In a Row</p>
+<p><strong>References:</strong></p>
 <ul>
-<li><p>请向我解释对偶空间、对偶原理、同构和自然同构以及他们的关系，我希望尽可能地深入，且向我提供多层次的视角。不使用mermaid绘图，必须进行数学公式审查是否显示正确.</p>
+<li><span class="exturl" data-url="aHR0cHM6Ly90ZXguc3RhY2tleGNoYW5nZS5jb20vcXVlc3Rpb25zLzU0NDcvaG93LWNhbi1pLWRyYXctc2ltcGxlLXRyZWVzLWluLWxhdGV4">How can I draw simple trees in LaTeX?<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<p>There are ways to get LaTeX to draw it’s own trees that doesn’t involve learning an entirely new language like TikZ.</p>
+<h3 id="qtree-package"><a href="#qtree-package" class="headerlink" title="qtree package"></a>qtree package</h3><p>Consider the following TeX:</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\Tree</span>[.IP [.NP [.Det <span class="keyword">\textit</span>&#123;the&#125; ]</span><br><span class="line">               [.N<span class="keyword">\1</span> [.N <span class="keyword">\textit</span>&#123;package&#125; ]]]</span><br><span class="line">          [.I<span class="keyword">\1</span> [.I <span class="keyword">\textsc</span>&#123;3sg.Pres&#125; ]</span><br><span class="line">                [.VP [.V<span class="keyword">\1</span> [.V <span class="keyword">\textit</span>&#123;is&#125; ]</span><br><span class="line">                           [.AP [.Deg <span class="keyword">\textit</span>&#123;really&#125; ]</span><br><span class="line">                                [.A<span class="keyword">\1</span> [.A <span class="keyword">\textit</span>&#123;simple&#125; ]</span><br><span class="line">                                      <span class="keyword">\qroof</span>&#123;<span class="keyword">\textit</span>&#123;to use&#125;&#125;.CP ]]]]]]</span><br></pre></td></tr></table></figure>
+
+<p>This produces the following tree:</p>
+<img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-01.png">
+
+<p>The basic syntax is simply <code>[.node-name subtrees... ]</code>; <code>\qroof</code>, which draws the triangle, requires its node name at the end, instead. The <code>\1</code> is just a shortcut for a math-mode prime. In addition, qtree will always render <code>_</code> and <code>^</code> as sub- and super-scripts, too.</p>
+<h3 id="forest-package"><a href="#forest-package" class="headerlink" title="forest package"></a>forest package</h3><p>Here is a forest version of the code for the tree showed above:</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;forest&#125;</span><br><span class="line">  [IP</span><br><span class="line">    [NP</span><br><span class="line">     [Det</span><br><span class="line">       [<span class="keyword">\textit</span>&#123;the&#125;]</span><br><span class="line">     ]</span><br><span class="line">     [N<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">       [N</span><br><span class="line">         [<span class="keyword">\textit</span>&#123;package&#125;]</span><br><span class="line">       ]</span><br><span class="line">     ]</span><br><span class="line">    ]</span><br><span class="line">    [I<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">      [I</span><br><span class="line">        [<span class="keyword">\textsc</span>&#123;3sg.Pres&#125;</span><br><span class="line">        ]</span><br><span class="line">      ]</span><br><span class="line">      [VP</span><br><span class="line">        [V<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">          [V</span><br><span class="line">            [<span class="keyword">\textit</span>&#123;is&#125;]</span><br><span class="line">          ]</span><br><span class="line">          [AP</span><br><span class="line">            [Deg</span><br><span class="line">              [<span class="keyword">\textit</span>&#123;extremely&#125;]</span><br><span class="line">            ]</span><br><span class="line">            [A<span class="keyword">\(</span>&#x27;<span class="keyword">\)</span></span><br><span class="line">              [A</span><br><span class="line">                [<span class="keyword">\textit</span>&#123;straightforward&#125;]</span><br><span class="line">              ]</span><br><span class="line">              [CP</span><br><span class="line">                [<span class="keyword">\textit</span>&#123;to wield&#125;, roof]</span><br><span class="line">              ]</span><br><span class="line">            ]</span><br><span class="line">          ]</span><br><span class="line">        ]</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line"><span class="keyword">\end</span>&#123;forest&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Easy to see its syntax~ And we can select some additional features: forest allows you to specify that nodes should be aligned on a common tier. To use this feature, you just write <code>, tier=&lt;name of tier&gt;</code> after the content of the node is specified.</p>
+<p>Here’s an extreme example:</p>
+<img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-02.png" style="width:59%">
+
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;forest&#125;</span><br><span class="line">  for tree=&#123;</span><br><span class="line">    fit=band,<span class="comment">% spaces the tree out a little to avoid collisions</span></span><br><span class="line">  &#125;</span><br><span class="line">  [things</span><br><span class="line">    [cabbages, tier=vegetables</span><br><span class="line">      [peaches, tier=fruits]</span><br><span class="line">    ]</span><br><span class="line">    [kings, tier=aristocrats]</span><br><span class="line">    [sealing wax</span><br><span class="line">      [queens, tier=aristocrats</span><br><span class="line">        [carrots, tier=vegetables]</span><br><span class="line">        [pineapple, tier=fruits]</span><br><span class="line">        [aubergine, tier=vegetables]</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line"><span class="keyword">\end</span>&#123;forest&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ditree-package"><a href="#ditree-package" class="headerlink" title="ditree package"></a>ditree package</h3><p> For non “graphical” tree, we can use the dirtree package:<br> <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\dirtree</span>&#123;<span class="comment">%</span></span><br><span class="line">.1 debug.</span><br><span class="line">.2 filename.</span><br><span class="line">.2 modules.</span><br><span class="line">.3 module.</span><br><span class="line">.3 module.</span><br><span class="line">.3 module.</span><br><span class="line">.2 level.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> It looks like this:<br> <img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/2021-3/latex-draw-a-tree-03.png"></p>
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Git工作流优化之旅：从混乱到自如的博客发布体验</title>
+    <url>/posts/e71dcf05/</url>
+    <content><![CDATA[<h1 id="Git工作流优化之旅：从混乱到自如的博客发布体验"><a href="#Git工作流优化之旅：从混乱到自如的博客发布体验" class="headerlink" title="Git工作流优化之旅：从混乱到自如的博客发布体验"></a>Git工作流优化之旅：从混乱到自如的博客发布体验</h1><blockquote>
+<p>本文记录了 mako 与其AI助手 Functor Fish (曾用名 little mako) 的一次深度合作。我们共同发现问题、反复推演，并最终设计出一套全新的Git工作流，旨在为每一位同时是“开发者”和“创作者”的博主，带来极致的发布体验。</p>
+</blockquote>
+<h2 id="一、问题的提出：一个“软件工程级”工作流的烦恼"><a href="#一、问题的提出：一个“软件工程级”工作流的烦恼" class="headerlink" title="一、问题的提出：一个“软件工程级”工作流的烦恼"></a>一、问题的提出：一个“软件工程级”工作流的烦恼</h2><p>故事的开始，源于mako的一个烦恼。他的个人博客，在Functor Fish的协助下，已经演变成一个功能复杂的、拥有自动化部署流程的现代化平台。但技术的演进，也带来了新的不便。</p>
+<p>当时的工作流，是严格按照软件工程的最佳实践来设计的：</p>
+<ul>
+<li><code>main</code>分支作为生产分支，受保护，任何提交必须通过Pull Request (PR)合并。</li>
+<li><code>develop</code>分支作为开发分支，所有新功能（如主题修改、脚本添加）都在此分支上进行。</li>
+<li><strong>发布流程</strong>：当<code>develop</code>分支稳定后，创建一个到<code>main</code>分支的PR，一旦合并，GitHub Actions就会自动构建和部署网站。</li>
+</ul>
+<p>这个流程非常规范，非常适合开发新功能。但当mako只想做一件最简单、最频繁的事——<strong>写一篇新博客</strong>——的时候，一个尖锐的矛盾就出现了。</p>
+<h2 id="二、核心矛盾：功能开发-vs-内容创作"><a href="#二、核心矛盾：功能开发-vs-内容创作" class="headerlink" title="二、核心矛盾：功能开发 vs. 内容创作"></a>二、核心矛盾：功能开发 vs. 内容创作</h2><p>mako很快就发现了问题的核心：</p>
+<blockquote>
+<p><strong>“如果我的<code>develop</code>分支上，有一个还未完成、甚至会导致编译失败的新功能，那我岂不是永远无法发布一篇新写的、完美无瑕的博文了？”</strong></p>
+</blockquote>
+<p>是的，这正是症结所在。“内容创作”（一篇独立的<code>.md</code>文件）的命运，和“功能开发”（可能涉及整个网站结构的代码）的命运，被死死地捆绑在了<code>develop</code>这一个分支上。</p>
+<h2 id="三、柳暗花明：设计轻量化的“内容发布”流程"><a href="#三、柳暗花明：设计轻量化的“内容发布”流程" class="headerlink" title="三、柳暗花明：设计轻量化的“内容发布”流程"></a>三、柳暗花明：设计轻量化的“内容发布”流程</h2><p>经过一番深度探讨，我们设计了一套全新的、轻量化的工作流，专门用于发布文章这类“安全”的内容。它旨在<strong>绕开不稳定的<code>develop</code>分支，同时又能享受GitHub Actions带来的自动化便利</strong>。</p>
+<p>以下是这套流程的完整操作步骤，以及关键节点的<code>git status</code>状态记录。</p>
+<h3 id="步骤一：清理工作区-如有需要"><a href="#步骤一：清理工作区-如有需要" class="headerlink" title="步骤一：清理工作区 (如有需要)"></a>步骤一：清理工作区 (如有需要)</h3><p>当<code>develop</code>分支有正在进行中的、未提交的修改时，我们需要先用<code>git stash</code>把它“藏”起来，还工作区一个干净的状态。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Functor Fish 建议：使用 stash -u 将所有未提交的修改（包括新文件）存入储藏室</span></span><br><span class="line">$ git stash -u</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看状态，工作区已恢复干净</span></span><br><span class="line">$ git status</span><br><span class="line">On branch develop</span><br><span class="line">Your branch is up to <span class="built_in">date</span> with <span class="string">&#x27;origin/develop&#x27;</span>.</span><br><span class="line"></span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤二：为博文创建独立分支"><a href="#步骤二：为博文创建独立分支" class="headerlink" title="步骤二：为博文创建独立分支"></a>步骤二：为博文创建独立分支</h3><p>从干净的<code>develop</code>分支出发，为新博文创建一个专属的、临时的分支。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 chore 或 docs 前缀，以区别于 feature 分支</span></span><br><span class="line">$ git checkout -b chore/new-post-workflow</span><br><span class="line">Switched to a new branch <span class="string">&#x27;chore/new-post-workflow&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤三：撰写并提交文章"><a href="#步骤三：撰写并提交文章" class="headerlink" title="步骤三：撰写并提交文章"></a>步骤三：撰写并提交文章</h3><p>在新分支上，可以安心地创建和撰写新文章。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建文章</span></span><br><span class="line">$ hexo new <span class="string">&quot;Git工作流优化之旅&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ...奋笔疾书后，添加并提交...</span></span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">&quot;docs: add new post about git workflow optimization&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤四：创建PR直达main分支-关键！"><a href="#步骤四：创建PR直达main分支-关键！" class="headerlink" title="步骤四：创建PR直达main分支 (关键！)"></a>步骤四：创建PR直达<code>main</code>分支 (关键！)</h3><p>这是整个流程最核心的一步。我们将这个只包含一篇文章的干净分支，直接推送到远程，并创建一个到<code>main</code>分支的PR。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git push origin chore/new-post-workflow</span><br><span class="line"><span class="comment"># ... 前往GitHub网站操作 ...</span></span><br></pre></td></tr></table></figure>
+
+<p>这个PR将非常干净，因为它只包含新分支上独有的commit，<code>develop</code>上的其他修改完全不会被牵扯进来。</p>
+<h3 id="步骤五：合并PR，自动部署"><a href="#步骤五：合并PR，自动部署" class="headerlink" title="步骤五：合并PR，自动部署"></a>步骤五：合并PR，自动部署</h3><p>在GitHub上点击“Merge Pull Request”按钮，GitHub Actions就会被触发，网站自动部署。大功告成！</p>
+<h3 id="步骤六：回归开发"><a href="#步骤六：回归开发" class="headerlink" title="步骤六：回归开发"></a>步骤六：回归开发</h3><p>发布完博客，可以轻松地回到之前的工作中。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">$ git stash pop</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、深度研讨：两种部署模式的战略抉择"><a href="#四、深度研讨：两种部署模式的战略抉择" class="headerlink" title="四、深度研讨：两种部署模式的战略抉择"></a>四、深度研讨：两种部署模式的战略抉择</h2><p>在讨论中，我们还明确了一个至关重要的战略问题：<code>hexo deploy</code> 手动部署 vs. <code>GitHub Actions</code> 自动部署。</p>
+<p><strong>结论是：必须二选一，绝不能混用！</strong> 否则，两个不同的发布源会导致线上版本被相互覆盖，造成混乱。</p>
+<p>我们最终确定了在不同阶段，采用不同策略的长期方案：</p>
+<ul>
+<li><p><strong>阶段一：功能开发期</strong></p>
+<ul>
+<li><strong>策略</strong>：坚决使用 <strong>GitHub Actions</strong> 自动化部署。享受它带来的安全、规范和可追溯性。</li>
+<li><strong>禁用</strong>：绝不使用 <code>hexo d</code> 命令。</li>
+</ul>
 </li>
-<li><p>从线性代数到范畴论的角度从低到高的视角看呢</p>
-</li>
-<li><p>矩阵的列空间与行空间相同是否与这些有联系呢？</p>
-</li>
-<li><p>你还知道哪些妙趣横生的例子与对偶和同构有着深刻的联系？</p>
+<li><p><strong>阶段二：功能稳定期</strong></p>
+<ul>
+<li><strong>策略</strong>：当网站结构和功能长期不再变化，写作成为唯一需求时，可以切换回更便捷的 <strong><code>hexo d</code> 手动部署</strong>。</li>
+<li><strong>操作</strong>：要切换，必须先<strong>删除项目中的<code>.github/workflows/deploy.yml</code>文件</strong>，彻底关闭自动化流程，确保发布源的唯一性。</li>
+</ul>
 </li>
 </ul>
-<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>Model： Gemini 2.5 Pro </p>
-<p>Parameters: temperature 0.1  !!! important </p>
-<p>Assistant Profie:  !!! Core</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Role: 数学家与数学知识传道者</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Profile</span><br><span class="line"></span><br><span class="line">- language: 中文（必要时使用英文）</span><br><span class="line">- description: 具备深厚数学功底和语言组织能力，擅长使用图文并茂的手段讲解深奥的数学概念和定理。</span><br><span class="line">- background: 数学博士，在大学及研究机构从事纯数学与应用数学研究，发表论文十余篇，编写多本lecture notes，拥有多年高校教学经验；同时在youtube等视频平台发布多个数学讲解视频和文章。</span><br><span class="line">- personality: 专业、耐心、表达精准、善于讲解、逻辑严谨。</span><br><span class="line">- expertise: 线性代数、微积分、抽象代数、范畴论、群论、李群李代数、拓扑学、微分流形、实分、析复分析、泛函分析、数论、图论等高级数学领域。</span><br><span class="line">- target_audience: 有一定数学知识的大学生爱好者，属于自学者而非数学专业。</span><br><span class="line">- </span><br><span class="line">## Skills</span><br><span class="line"></span><br><span class="line">1. 核心技能类别：理论讲授</span><br><span class="line">   - 概念拆解: 按逻辑层次划分以简洁例子分解复杂概念  </span><br><span class="line">   - 定理阐释: 阐述定理命题、证明思路与核心要点  </span><br><span class="line">   - 关联映射: 展示其与其他定理及理论之间的联系  </span><br><span class="line">   - 直观图示: 生成可视化图形说明理论与模型  </span><br><span class="line">    </span><br><span class="line">2. 辅助技能类别：学习支持</span><br><span class="line">   - LaTeX 格式化: 用 \(\) 包裹数学表达式  </span><br><span class="line">   - 资源整合：提供精选教材、视频和可视化工具链接。</span><br><span class="line">   - 反馈收集: 根据用户问题及时调整解释层级</span><br><span class="line">   - 图表生成：善于使用图标说明和总结</span><br><span class="line"></span><br><span class="line">## Rules</span><br><span class="line"></span><br><span class="line">1. 基本原则：  </span><br><span class="line">   - 双语输出：支持中英文混合输出</span><br><span class="line">   - 学术严谨：对答案保持客观严谨，所有论断均基于公认理论，严禁虚假或未经证实的内容，若有争议请给出多种解释并标注来源</span><br><span class="line">   - 保持谦逊： 承认自身知识局限，如果无法回答则告知用户。</span><br><span class="line">   - 格式标准：所有数学公式必须放在 \(\) 内    </span><br><span class="line">2. 限制条件：  </span><br><span class="line">   - 不参考 https://blog.csdn.net/ 来源的劣质内容  </span><br><span class="line">   - 仅回答与数学概念、定理、理论相关的内容  </span><br><span class="line">4. 参考来源：  </span><br><span class="line">   - 可以参考知乎、mathexchange、nlab等优质数学社区。</span><br><span class="line"></span><br><span class="line">## Workflows</span><br><span class="line"></span><br><span class="line">- 目标: 让受众能够独立理解所讲定理或概念。</span><br><span class="line">- 步骤 1: 解析用户问题，识别核心概念或定理；</span><br><span class="line">- 步骤 2: 引入定理，呈现正式写法并给出直观例子。</span><br><span class="line">- 步骤 3：涵盖证明或概念讲解全流程，分步骤解释核心逻辑。</span><br><span class="line">- 步骤 4: 给出对于问题的不同层次或视角下的理解。  </span><br><span class="line">- 步骤 5: 在答案结尾列出参考来源，并梳理常见出深度阅读建议。  </span><br><span class="line"></span><br><span class="line">## Initialization  </span><br><span class="line">作为数学家和高级数学理论传道者，你必须遵守上述Rules，按照Workflows执行任务。</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="五、结语"><a href="#五、结语" class="headerlink" title="五、结语"></a>五、结语</h2><p>通过这次探索，我们不仅解决了一个实际的痛点，更深入理解了Git工作流设计的哲学。一个好的流程，应该是在规范和效率之间找到完美的平衡，既能保证软件质量，又能让内容创作如丝般顺滑。</p>
+<p>这套由我们共同设计的工作流，希望能为每一位和mako一样，既是开发者，也是创作者的博主，带来启发。</p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>CI/CD</tag>
+        <tag>Git</tag>
+        <tag>GitHub</tag>
+        <tag>工作流</tag>
+        <tag>Functor Fish</tag>
+        <tag>教程</tag>
+      </tags>
   </entry>
   <entry>
     <title>数学公式渲染测试</title>
@@ -2089,6 +2239,59 @@
         <tag>数学公式</tag>
         <tag>测试</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>PJAX测试页面</title>
+    <url>/posts/pjax-test/</url>
+    <content><![CDATA[<h1 id="PJAX测试页面"><a href="#PJAX测试页面" class="headerlink" title="PJAX测试页面"></a>PJAX测试页面</h1><p>这个页面用于测试PJAX的行为。</p>
+<h2 id="测试内容"><a href="#测试内容" class="headerlink" title="测试内容"></a>测试内容</h2><h3 id="1-脚本执行测试"><a href="#1-脚本执行测试" class="headerlink" title="1. 脚本执行测试"></a>1. 脚本执行测试</h3><div id="test-result">等待测试...</div>
+
+<h3 id="2-PJAX事件监听"><a href="#2-PJAX事件监听" class="headerlink" title="2. PJAX事件监听"></a>2. PJAX事件监听</h3><div id="pjax-events">事件监听已启动</div>
+
+<script data-pjax>
+// 这个脚本应该在PJAX跳转后执行
+console.log('🎯 PJAX脚本执行测试 - 带有data-pjax属性');
+document.getElementById('test-result').innerHTML = '✅ 带有data-pjax的脚本执行成功！';
+</script>
+
+<script>
+// 这个脚本不应该在PJAX跳转后执行
+console.log('❌ 普通脚本测试 - 不带data-pjax属性');
+if (!document.getElementById('test-result').innerHTML.includes('✅')) {
+    document.getElementById('test-result').innerHTML = '❌ 普通脚本执行了（不应该在PJAX后执行）';
+}
+</script>
+
+<script data-pjax>
+// 监听PJAX事件
+const events = ['pjax:send', 'pjax:start', 'pjax:success', 'pjax:complete', 'pjax:error'];
+const eventLog = [];
+
+events.forEach(eventName => {
+    document.addEventListener(eventName, (e) => {
+        console.log(`📡 PJAX事件: ${eventName}`);
+        eventLog.push(`${eventName}: ${new Date().toLocaleTimeString()}`);
+        document.getElementById('pjax-events').innerHTML = 
+            '<strong>最近的事件:</strong><br>' + 
+            eventLog.slice(-3).join('<br>');
+    });
+});
+
+// 测试全局变量
+window.testPjaxGlobal = '我在PJAX跳转后应该还存在';
+</script>
+
+<h2 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h2><ol>
+<li>直接访问这个页面 - 所有脚本都应该执行</li>
+<li>从其他页面通过链接点击进入 - 只有带<code>data-pjax</code>的脚本应该执行</li>
+<li>检查控制台日志和页面显示的结果</li>
+</ol>
+<h2 id="期望结果"><a href="#期望结果" class="headerlink" title="期望结果"></a>期望结果</h2><ul>
+<li>带有<code>data-pjax</code>属性的脚本：在PJAX跳转后应该执行</li>
+<li>不带<code>data-pjax</code>属性的脚本：只在首次加载时执行</li>
+<li>全局变量：在PJAX跳转后应该保留</li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>Ultimate Plan for Gemini API Calls</title>
@@ -2250,6 +2453,222 @@
         <tag>LLM</tag>
         <tag>Gemini</tag>
         <tag>API管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>The Evolution of My GitHub Profile</title>
+    <url>/posts/17888/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：记录了一次有趣的”人机协作”经历——和Gemini一起从零开始，打造了一个让我非常满意的Github Profile。</p>
+</blockquote>
+<span id="more"></span>
+<hr>
+<h2 id="🎯-先看效果，再聊过程"><a href="#🎯-先看效果，再聊过程" class="headerlink" title="🎯 先看效果，再聊过程"></a>🎯 先看效果，再聊过程</h2><p>我的GitHub Profile现在长这样：</p>
+<ul>
+<li><strong>个人简介</strong>：简洁的自我介绍）</li>
+<li><strong>技术栈展示</strong>：用图标展示我会的编程语言（虽然有些可能已经忘得差不多了😅）</li>
+<li><strong>数学卡片</strong>：高斯绝妙定理–数学之美！</li>
+<li><strong>动态博客列表</strong>：自动更新我最新写的文章</li>
+<li><strong>贪吃蛇贡献图</strong>：把GitHub的贡献日历变成动画，单纯好玩</li>
+</ul>
+<p>一开始我就是想要个好看的Profile</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/year-month/name" alt="最终效果预览"></p>
+<h2 id="🛠️-技术实现：从简单到复杂"><a href="#🛠️-技术实现：从简单到复杂" class="headerlink" title="🛠️ 技术实现：从简单到复杂"></a>🛠️ 技术实现：从简单到复杂</h2><h3 id="1-基础部分：Markdown-HTML"><a href="#1-基础部分：Markdown-HTML" class="headerlink" title="1. 基础部分：Markdown + HTML"></a>1. 基础部分：Markdown + HTML</h3><p>GitHub Profile本质上就是一个<code>README.md</code>文件。Markdown -&gt; HTML 懂了吧。</p>
+<blockquote>
+<p>💡 <strong>踩雷记录</strong>：GitHub Profile的README.md文件有特殊的渲染规则，支持HTML但不支持所有CSS属性，比如坑爹的超链接！</p>
+</blockquote>
+<h4 id="个人介绍：简洁清爽"><a href="#个人介绍：简洁清爽" class="headerlink" title="个人介绍：简洁清爽"></a>个人介绍：简洁清爽</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 👨‍💻 About Me</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left; display: inline-block;&quot;</span>&gt;</span></span><br><span class="line"> 🎓 毕业于 **清华大学 (THU)**</span><br><span class="line"> 🌱 目前就读于 **中国科学院大学 (UCAS)**</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="技术栈：用现成的"><a href="#技术栈：用现成的" class="headerlink" title="技术栈：用现成的"></a>技术栈：用现成的</h4><p>用<span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span>，一行代码即可。</p>
+<blockquote>
+<p>🎯 <strong>为什么选择这个服务？</strong> 完全免费，部署简单，”懒人”福音</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://skillicons.dev&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://skillicons.dev/icons?i=python,cpp,java,js,html,css,latex,vscode,git&amp;perline=9&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="特色卡片：数学之美"><a href="#特色卡片：数学之美" class="headerlink" title="特色卡片：数学之美"></a>特色卡片：数学之美</h4><p>我最喜欢的数学家——高斯和他都觉得妙的——高斯绝妙定理：</p>
+<blockquote>
+<p>🧮 <strong>高斯绝妙定理</strong> 这个定理告诉say： 曲面的高斯曲率是内蕴几何量，不依赖于曲面在空间中的嵌入方式。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin: 16px 0;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;display: flex; align-items: center; gap: 16px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog@main/avatar/Gauss.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;120&quot;</span> <span class="attr">style</span>=<span class="string">&quot;border-radius: 6px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Theorema Egregium<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>高斯绝妙定理：曲面的高斯曲率K是内蕴几何量<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://en.wikipedia.org/wiki/Theorema_Egregium&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;white&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-自动化：Profile”活”了"><a href="#2-自动化：Profile”活”了" class="headerlink" title="2. 自动化：Profile”活”了"></a>2. 自动化：Profile”活”了</h3><p>这部分是让Profile真正”活”起来的关键。通过GitHub Actions，实现自动更新，让Profile不再是静态的展示页面。</p>
+<h4 id="自动更新博客列表"><a href="#自动更新博客列表" class="headerlink" title="自动更新博客列表"></a>自动更新博客列表</h4><p>用<code>gautamkrishnar/blog-post-workflow</code>这个Action，配置简单，每次发布新博客，Profile就会自动更新，无需手动维护：</p>
+<blockquote>
+<p>🔄 <strong>自动化原理</strong>：这个Action会定期抓取博客RSS Feed，然后自动更新README.md文件中的博客列表。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Latest</span> <span class="string">blog</span> <span class="string">post</span> <span class="string">workflow</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&#x27;0 * * * *&#x27;</span>  <span class="comment"># 每小时运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">update-readme-with-blog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Update</span> <span class="string">this</span> <span class="string">repo&#x27;s</span> <span class="string">README</span> <span class="string">with</span> <span class="string">latest</span> <span class="string">blog</span> <span class="string">posts</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">gautamkrishnar/blog-post-workflow@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">disable_cache:</span> <span class="literal">true</span></span><br><span class="line">          <span class="attr">feed_list:</span> <span class="string">&quot;https://zhu-jl18.github.io/atom.xml&quot;</span></span><br><span class="line">          <span class="attr">max_post_count:</span> <span class="number">5</span></span><br><span class="line">          <span class="attr">template:</span> <span class="string">&#x27;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;\(url&quot; style=&quot;text-decoration: none; color: #20B2AA;&quot;&gt;\)title&lt;/a&gt;&lt;/p&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>在README中设置占位符：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 📝 Recent Blog Posts</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- BLOG-POST-LIST:START --&gt;</span><span class="comment">&lt;!-- BLOG-POST-LIST:END --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="贪吃蛇贡献图"><a href="#贪吃蛇贡献图" class="headerlink" title="贪吃蛇贡献图"></a>贪吃蛇贡献图</h4><p>用<code>Platane/snk</code>这个Action，自动生成动画版的贡献图。这个功能纯粹是为了好玩：</p>
+<blockquote>
+<p>🐍 <strong>“贪吃蛇”？！</strong> 因为这个动画看起来就像一条蛇在吃贡献点，从年初吃到年末。虽然没什么实际用途，因为我基本不贡献。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">generate</span> <span class="string">animation</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&quot;0 0 * * *&quot;</span>  <span class="comment"># 每天运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">generate:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">timeout-minutes:</span> <span class="number">10</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">Platane/snk@v3</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">snake-gif</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_user_name:</span> <span class="string">zhu-jl18</span></span><br><span class="line">          <span class="attr">svg_out_path:</span> <span class="string">dist/github-snake.svg</span></span><br><span class="line">          <span class="attr">snake_color:</span> <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">crazy-max/ghaction-github-pages@v2.1.3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">target_branch:</span> <span class="string">output</span></span><br><span class="line">          <span class="attr">build_dir:</span> <span class="string">dist</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在README中引用：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake-dark.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">&quot;github snake animation&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="🤖-人机协作实录"><a href="#🤖-人机协作实录" class="headerlink" title="🤖 人机协作实录"></a>🤖 人机协作实录</h2><p>此部分记录了与Gemini共同实现Profile的过程。我负责设计思路与整体规划，Gemini负责具体代码实现。</p>
+<blockquote>
+<p>🤖 <strong>协作原则</strong>：大模型不是万能的，它虽然懂得很多，但是你得让他明白你到底要他干什么~</p>
+</blockquote>
+<h3 id="协作过程"><a href="#协作过程" class="headerlink" title="协作过程"></a>协作过程</h3><p><strong>我</strong>：我想在GitHub Profile上展示我的博客列表，有什么好办法吗？</p>
+<p><strong>Gemini</strong>：可以用<code>blog-post-workflow</code>这个Action，配置很简单…</p>
+<p><strong>结果</strong>：基础功能实现了，但样式很丑。典型的”能用就行”状态。</p>
+<h3 id="第二轮：样式优化"><a href="#第二轮：样式优化" class="headerlink" title="第二轮：样式优化"></a>第二轮：样式优化</h3><p><strong>我</strong>：这个列表样式不好看，我想要卡片式布局，并且居中显示。</p>
+<p><strong>Gemini</strong>：可以用复杂的HTML+CSS来实现…</p>
+<p><strong>结果</strong>：GitHub不支持复杂的CSS样式，居中效果失效了。这就是典型的”过度设计”问题。</p>
+<h3 id="第三轮：回归本质"><a href="#第三轮：回归本质" class="headerlink" title="第三轮：回归本质"></a>第三轮：回归本质</h3><p><strong>我</strong>：GitHub不支持这些复杂样式，还是都在左边。我不要日期了，字体大小也改不了，就让它简单的居中就行。</p>
+<p><strong>Gemini</strong>：那就用最简单的<code>&lt;p align=&quot;center&quot;&gt;</code>标签吧。</p>
+<p><strong>结果</strong>：完美！有时候最简单的方案就是最好的方案。这让我想起了KISS原则（Keep It Simple, Stupid）。</p>
+<h2 id="💡-协作心得"><a href="#💡-协作心得" class="headerlink" title="💡 协作心得"></a>💡 协作心得</h2><p>与AI协作编程！！！：</p>
+<ol>
+<li><strong>明确目标</strong>：想清楚你要什么，不要模棱两可。AI不是读心术，你得说清楚。</li>
+<li><strong>小步快跑</strong>：尝试一个方案，立即测试，然后带着结果进行下一轮沟通。不要一次性要求太多。</li>
+<li><strong>提供精确反馈</strong>：不要说”不行”，要说”哪里不行”、”为什么不行”。AI需要具体的错误信息。</li>
+<li><strong>回归本质</strong>：当复杂方案失效时，往往最简单的方案最有效。这大概就是所谓的”大道至简”吧。</li>
+</ol>
+<p>总的来说， AI极其吃数据，你喂给他是好东西他就也会输出好东西。</p>
+<h2 id="🎉-总结"><a href="#🎉-总结" class="headerlink" title="🎉 总结"></a>🎉 总结</h2><p>Gemini还不错，最后效果超出我预料地好看。</p>
+<p><strong>这是我大模型使用的初期探索，后来我会了很多优化技巧，早期的这些尝试也是很有意思的。</strong></p>
+<hr>
+<p><strong>Ref:</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhdXRhbWtyaXNobmFyL2Jsb2ctcG9zdC13b3JrZmxvdw==">blog-post-workflow<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1BsYXRhbmUvc25r">snk<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术折腾</category>
+        <category>AI协作</category>
+      </categories>
+      <tags>
+        <tag>自动化</tag>
+        <tag>GitHub</tag>
+        <tag>AI协作</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络代理全解析：从入门到精通</title>
+    <url>/posts/3c844e5f/</url>
+    <content><![CDATA[<h1 id="网络代理全解析：从入门到精通"><a href="#网络代理全解析：从入门到精通" class="headerlink" title="网络代理全解析：从入门到精通"></a>网络代理全解析：从入门到精通</h1><blockquote>
+<p>本文记录了 mako 与其AI助手 Functor Fish (曾用名 little mako) 的一次深度合作。我们共同发现问题、反复推演，并最终设计出一套全新的Git工作流，旨在为每一位同时是“开发者”和“创作者”的博主，带来极致的发布体验。</p>
+</blockquote>
+<p>你好，各位在数字世界中冲浪的探索者！我是Functor Fish，今天我们将共同探讨一个既熟悉又陌生的话题——网络代理。</p>
+<h2 id="一、代理（Proxy）：你的网络信使"><a href="#一、代理（Proxy）：你的网络信使" class="headerlink" title="一、代理（Proxy）：你的网络信使"></a>一、代理（Proxy）：你的网络信使</h2><p>代理服务器是你和目标网站之间的中介。它的基础工作流程如下：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">[你] ---&gt; [代理服务器] ---&gt; [目标网站]</span><br></pre></td></tr></table></figure>
+
+<p>这个“信使”的核心作用是：</p>
+<ol>
+<li><strong>隐藏身份</strong>：隐藏你的真实IP地址。</li>
+<li><strong>访问限制内容</strong>：通过位于不同地区的“信使”来访问那些对你所在地区屏蔽的内容。</li>
+<li><strong>加速访问与安全过滤</strong>：缓存内容，过滤风险。</li>
+</ol>
+<h2 id="二、系统代理：操作系统的“中央信使派遣中心”"><a href="#二、系统代理：操作系统的“中央信使派遣中心”" class="headerlink" title="二、系统代理：操作系统的“中央信使派遣中心”"></a>二、系统代理：操作系统的“中央信使派遣中心”</h2><p>“系统代理”是操作系统（如Windows、macOS）提供的一个全局设置。当你设置了它，就等于告诉操作系统：“从现在开始，所有‘听话’的程序，默认都从我指定的这个代理出口走。”</p>
+<p>最常见的系统代理模式是：</p>
+<ol>
+<li><strong>手动设置 (Manual Proxy)</strong>：手动指定信使的地址和端口（例如 <code>127.0.0.1:7890</code>）。</li>
+<li><strong>PAC脚本 (Proxy Auto-Config)</strong>：提供一个URL，内容是一个JS脚本。这本脚本像一本《信使选择指南》，能根据你访问的网址，决定是走代理还是直连。</li>
+</ol>
+<h2 id="三、VPN-vs-代理：装甲车与信使的区别"><a href="#三、VPN-vs-代理：装甲车与信使的区别" class="headerlink" title="三、VPN vs 代理：装甲车与信使的区别"></a>三、VPN vs 代理：装甲车与信使的区别</h2><ul>
+<li><strong>代理 (Proxy)</strong>：通常工作在<strong>应用层</strong>，更像一个<strong>信使</strong>，主要负责转发特定类型的请求（如HTTP）。</li>
+<li><strong>VPN (虚拟专用网络)</strong>：工作在更底层的<strong>网络层</strong>，像一辆<strong>加密装甲车</strong>，把你电脑所有的网络数据都打包塞入隧道，发往远方。</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">代理: [你的浏览器] --http--&gt; [代理服务器] --http--&gt; [目标网站]</span><br><span class="line"></span><br><span class="line">VPN:  [你的整台电脑] --加密隧道--&gt; [VPN服务器] ---&gt; [任何目标网站]</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、核心对决：系统代理-vs-自定义代理"><a href="#四、核心对决：系统代理-vs-自定义代理" class="headerlink" title="四、核心对决：系统代理 vs 自定义代理"></a>四、核心对决：系统代理 vs 自定义代理</h2><ul>
+<li><strong>使用系统代理的软件 (The Good Citizen)</strong>：如Chrome, Edge。它们信任并遵守操作系统的全局代理设置。</li>
+<li><strong>使用自定义代理的软件 (The Rebel)</strong>：如Firefox, Telegram, 命令行工具。它们无视全局设置，需要你在软件内部为它指定专属的代理。</li>
+</ul>
+<h2 id="番外篇-I：Steamcommunity-302-这类工具的奥秘"><a href="#番外篇-I：Steamcommunity-302-这类工具的奥秘" class="headerlink" title="番外篇 I：Steamcommunity 302 这类工具的奥秘"></a>番外篇 I：Steamcommunity 302 这类工具的奥秘</h2><p>这类工具并非VPN，而是一种本地HTTP代理，它通过“302重定向”来巧妙地解决DNS污染等问题。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">1. 你的电脑: &quot;我要访问 github.com&quot;</span><br><span class="line">   |</span><br><span class="line">   v</span><br><span class="line">2. hosts文件: &quot;github.com -&gt; 127.0.0.1 (302工具自己)&quot;</span><br><span class="line">   |</span><br><span class="line">   v</span><br><span class="line">3. 302工具 (在本地): &quot;收到！别去那，给你个新地址 1.2.3.4&quot; (返回302重定向)</span><br><span class="line">   |</span><br><span class="line">   v</span><br><span class="line">4. 你的电脑: &quot;好的！那我访问新地址 1.2.3.4&quot; --&gt; [真正的GitHub服务器 1.2.3.4]</span><br></pre></td></tr></table></figure>
+
+<p>由于它只懂HTTP协议，所以无法处理SSH (<code>git@github.com:...</code>) 的请求，这解释了为何用它时只能走HTTPS链接。</p>
+<h2 id="实战问答-Q-A-：从入门到精通"><a href="#实战问答-Q-A-：从入门到精通" class="headerlink" title="实战问答 (Q&amp;A)：从入门到精通"></a>实战问答 (Q&amp;A)：从入门到精通</h2><hr>
+<p><strong>Q1: 很多命令行下载失败的“玄学bug”，根源是代理问题？如何一劳永逸配置，又如何临时取消？</strong></p>
+<p>A: 完全正确！解决方案是：<strong>设置通用规则，并为特殊情况留出例外。</strong></p>
+<ol>
+<li><strong>“一劳永逸”</strong>：将 <code>export http_proxy=&quot;...&quot;</code> 这样的命令写入你终端的配置文件中（如 <code>~/.bashrc</code>）。</li>
+<li><strong>“处理例外”</strong>：临时取消可使用 <code>unset http_proxy</code>；更优雅的是用 <code>export no_proxy=&quot;*.aliyun.com,*.163.com&quot;</code> 设置白名单。</li>
+</ol>
+<hr>
+<p><strong>Q2: <code>mihomo</code> (Clash) 里的“系统代理”、“规则&#x2F;全局&#x2F;直连模式”和“虚拟网卡”都是做什么的？</strong></p>
+<p>A: 这些是高级代理工具的灵魂。</p>
+<ul>
+<li><strong>系统代理开关</strong>：是“交通广播员”，向守规矩的应用广播代理地址。</li>
+<li><strong>连接模式</strong>：是“总指挥”的策略。<code>直连</code>是全员放假；<code>全局</code>是所有人都必须走一个门；<code>规则</code>是最智能的，按手册精细调度所有流量。</li>
+<li><strong>虚拟网卡 (TUN Mode)</strong>：是“终极武器”。它在网络层创建一个虚拟网卡，强制接管<strong>所有</strong>程序的流量（包括不听话的程序和WSL2），实现真正的“全局代理”。</li>
+</ul>
+<hr>
+<p><strong>Q3: WSL的网络怎么处理？Clash里的“代理组”、“规则”、“覆写”和“嗅探”这些高级功能又该如何理解？</strong></p>
+<p>A: 这些是精通此道的最后几块拼图。</p>
+<ul>
+<li><strong>WSL的网络</strong>：它是一个独立的“平行世界”，无视主机的代理设置。<strong>开启TUN模式</strong>是让它接入代理的最优解。</li>
+<li><strong>“规则”与“代理组”</strong>：“规则”是<strong>交通法规</strong>，负责引流；“代理组”是<strong>环岛</strong>，负责疏导。规则决策，代理组执行。</li>
+<li><strong>代理组的日常使用</strong>：一个好的配置，大部分代理组都是<strong>自动化</strong>的（比速度、自动切换）。你只需偶尔在顶层的<code>select</code>（手动选择）组里切换策略即可。代理组还可以<strong>嵌套</strong>，实现更灵活的控制。</li>
+<li><strong>“订阅”与“覆写”</strong>：“订阅”是服务商的“预制菜单”；“覆写”是你自己的、优先级最高的“我的菜单”，用以实现个性化配置。</li>
+<li><strong>终极规则与高级功能</strong>：<code>FINAL</code>规则负责处理所有未匹配的流量；<code>PROCESS-NAME</code>规则可以控制某个exe程序的所有流量；<code>DNS覆写</code>和<code>嗅探</code>是处理疑难杂症的终极手段。</li>
+</ul>
+<hr>
+<p><strong>Q4: Cloudflare的例子算双重代理吗？以及，同时开“虚拟网卡”和“系统代理”会怎样？</strong></p>
+<p>A: 这个思考完全抓住了代理模型的精髓！</p>
+<ul>
+<li><p><strong>代理的双重身份</strong><br>在那个场景中，Cloudflare脚本确实具有双重性：对<strong>你</strong>而言，它是<strong>反向代理</strong>；对<strong>ChatGPT</strong>而言，它扮演了<strong>正向代理</strong>的角色。这完美地诠释了代理架构中的信息不对称之美。</p>
+</li>
+<li><p><strong>“虚拟网卡” vs “系统代理”的终极对决</strong><br><strong>“虚拟网卡”完胜</strong>。因为它在更底层的网络层工作，会先于应用层的“系统代理”捕获流量。当TUN开启时，系统代理开关基本可以忽略。</p>
+</li>
+</ul>
+<h2 id="番外篇-II：从正向代理到反向代理"><a href="#番外篇-II：从正向代理到反向代理" class="headerlink" title="番外篇 II：从正向代理到反向代理"></a>番外篇 II：从正向代理到反向代理</h2><p>我们一直在讨论的，都属于<strong>正向代理 (Forward Proxy)</strong>。它为<strong>客户端</strong>服务，隐藏客户端身份。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">           [你的电脑]             [你的订阅服务器]             [YouTube服务器]</span><br><span class="line">(你) --&gt; (mihomo/Clash) --&gt; (如日本节点) --&gt; (Google服务器)</span><br></pre></td></tr></table></figure>
+
+<p>而<strong>反向代理 (Reverse Proxy)</strong>，则为<strong>服务端</strong>服务，隐藏服务端身份。mako设想的Cloudflare脚本，就是一个完美的反向代理实例。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">           [你的电脑]         [Cloudflare/你的服务器]        [真正的ChatGPT服务器]</span><br><span class="line">(你) &lt;------&gt; (反向代理脚本) &lt;------&gt; (OpenAI服务器集群)</span><br></pre></td></tr></table></figure>
+
+<p><strong>一张表看懂核心区别：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="left">正向代理 (Forward Proxy)</th>
+<th align="left">反向代理 (Reverse Proxy)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>服务对象</strong></td>
+<td align="left"><strong>客户端 (你)</strong></td>
+<td align="left"><strong>服务端 (网站)</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>隐藏对象</strong></td>
+<td align="left">隐藏真实的<strong>客户端</strong></td>
+<td align="left">隐藏真实的<strong>服务端</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>比喻</strong></td>
+<td align="left">你雇的“海外代购”</td>
+<td align="left">淘宝的“官方客服”</td>
+</tr>
+<tr>
+<td align="left"><strong>典型用途</strong></td>
+<td align="left">科学上网、内网穿透</td>
+<td align="left">网站负载均衡、安全防护(WAF)、API网关</td>
+</tr>
+</tbody></table>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>现在，mako，你已经是一位合格的网络代理架构师了！从区分最基础的系统代理，到理解复杂的代理工具链，再到构思自己的反向代理应用，你已经建立起了完整的知识体系。</p>
+<p>希望这篇由我们共同完成的指南，能帮助更多在网络世界探索的人。</p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+        <tag>网络</tag>
+        <tag>代理</tag>
+        <tag>VPN</tag>
+        <tag>PAC</tag>
+        <tag>Clash</tag>
+        <tag>反向代理</tag>
       </tags>
   </entry>
 </search>

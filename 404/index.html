@@ -235,9 +235,8 @@
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">25</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
@@ -272,7 +271,7 @@
 <!-- 背景融合图片 -->
 <div class="sidebar-bottom-image" style="margin: 20px 0; text-align: center;">
   <a href="https://ncatlab.org/nlab/show/HomePage" target="_blank" rel="noopener noreferrer">
-    <img src="/images/book.png" alt="The Book of Secret Knowledge" style="width: 100%; max-width: 160px; height: auto; border: none; box-shadow: none; opacity: 1; margin: 0 auto; display: block;">
+    <img src="/images/book.png" alt="The Book of Secret Knowledge" style="width: 100%; max-width: 185px; height: auto; border: none; box-shadow: none; opacity: 1; margin: 0 auto; display: block;">
   </a>
 </div>
 
@@ -566,13 +565,13 @@ drawDino();
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">28k</span>
+    <span title="站点总字数">34k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:41</span>
+    <span title="站点阅读时长">2:03</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -634,379 +633,44 @@ drawDino();
     
     <!-- 歌曲信息 -->
     <div class="song-info">
-      <div class="song-title" id="song-title">未选择歌曲</div>
-      <div class="song-artist" id="song-artist">-</div>
+      <div class="song-title">正在加载音乐...</div>
+      <div class="song-artist">请稍候</div>
     </div>
     
     <!-- 播放控制按钮 -->
     <div class="player-controls">
-      <button class="control-btn" id="prev-btn" title="上一首">
+      <button class="control-btn prev-btn" title="上一首">
         <i class="fa fa-step-backward"></i>
       </button>
-      <button class="control-btn play-btn" id="play-btn" title="播放/暂停">
+      <button class="control-btn play-btn" title="播放/暂停">
         <i class="fa fa-play"></i>
       </button>
-      <button class="control-btn" id="next-btn" title="下一首">
+      <button class="control-btn next-btn" title="下一首">
         <i class="fa fa-step-forward"></i>
       </button>
-      <button class="control-btn" id="shuffle-btn" title="随机播放">
-        <i class="fa fa-random"></i>
-      </button>
-    </div>
-    
-    <!-- 进度条 -->
-    <div class="progress-section">
-      <div class="progress-bar" id="progress-bar">
-        <div class="progress-fill" id="progress-fill"></div>
-        <div class="progress-handle" id="progress-handle"></div>
-      </div>
-      <div class="time-info">
-        <span id="current-time">0:00</span>
-        <span id="total-time">0:00</span>
-      </div>
     </div>
     
     <!-- 音量控制 -->
     <div class="volume-section">
-      <i class="fa fa-volume-up volume-icon"></i>
-      <div class="volume-bar" id="volume-bar">
-        <div class="volume-fill" id="volume-fill"></div>
-        <div class="volume-handle" id="volume-handle"></div>
+      <i class="volume-icon fa fa-volume-up"></i>
+      <div class="volume-bar">
+        <div class="volume-fill"></div>
+        <div class="volume-handle"></div>
       </div>
-      <span class="volume-text" id="volume-text">30%</span>
-    </div>
-    
-    <!-- 播放列表 -->
-    <div class="playlist-section">
-      <div class="playlist-header">
-        <span>播放列表</span>
-        <button class="playlist-toggle" id="playlist-toggle">
-          <i class="fa fa-chevron-down"></i>
-        </button>
-      </div>
-      <div class="playlist" id="playlist">
-        <div class="playlist-item loading">正在加载歌曲...</div>
-      </div>
+      <span class="volume-text">25%</span>
     </div>
   </div>
-  
-  <!-- 隐藏的音频元素 -->
-  <audio id="audio-player" preload="metadata"></audio>
 </div>
 
-<script>
-// 音乐播放器配置
-const MUSIC_CONFIG = {
-  // GitHub CDN 基础路径
-  cdnBase: 'https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog@main/music/',
-  
-  // 音乐列表 - 请根据你的实际文件修改
-  playlist: [
-    {
-      title: '示例歌曲1',
-      artist: '示例艺术家',
-      file: 'song1.mp3'
-    },
-    {
-      title: '示例歌曲2', 
-      artist: '示例艺术家',
-      file: 'song2.mp3'
-    },
-    {
-      title: '示例歌曲3',
-      artist: '示例艺术家', 
-      file: 'song3.mp3'
-    }
-  ]
-};
+<!-- 加载音乐播放器脚本 -->
+<script src="/js/music-config.js" data-pjax></script>
+<script src="/js/simple-music-player.js" data-pjax></script>
 
-// 音乐播放器类
-class MusicPlayer {
-  constructor() {
-    this.audio = document.getElementById('audio-player');
-    this.currentIndex = 0;
-    this.isPlaying = false;
-    this.isShuffled = false;
-    this.volume = 0.3;
-    this.isPlaylistVisible = false;
-    
-    this.initElements();
-    this.initEvents();
-    this.loadPlaylist();
-    this.updateVolumeDisplay();
-  }
-  
-  initElements() {
-    // 播放控制元素
-    this.playBtn = document.getElementById('play-btn');
-    this.prevBtn = document.getElementById('prev-btn');
-    this.nextBtn = document.getElementById('next-btn');
-    this.shuffleBtn = document.getElementById('shuffle-btn');
-    
-    // 信息显示元素
-    this.songTitle = document.getElementById('song-title');
-    this.songArtist = document.getElementById('song-artist');
-    this.currentTime = document.getElementById('current-time');
-    this.totalTime = document.getElementById('total-time');
-    
-    // 进度条元素
-    this.progressBar = document.getElementById('progress-bar');
-    this.progressFill = document.getElementById('progress-fill');
-    this.progressHandle = document.getElementById('progress-handle');
-    
-    // 音量控制元素
-    this.volumeBar = document.getElementById('volume-bar');
-    this.volumeFill = document.getElementById('volume-fill');
-    this.volumeHandle = document.getElementById('volume-handle');
-    this.volumeText = document.getElementById('volume-text');
-    
-    // 播放列表元素
-    this.playlist = document.getElementById('playlist');
-    this.playlistToggle = document.getElementById('playlist-toggle');
-    
-    // 收缩控制
-    this.playerToggle = document.getElementById('player-toggle');
-    this.musicWidget = document.getElementById('music-player-widget');
-  }
-  
-  initEvents() {
-    // 播放控制事件
-    this.playBtn.addEventListener('click', () => this.togglePlay());
-    this.prevBtn.addEventListener('click', () => this.previousSong());
-    this.nextBtn.addEventListener('click', () => this.nextSong());
-    this.shuffleBtn.addEventListener('click', () => this.toggleShuffle());
-    
-    // 音频事件
-    this.audio.addEventListener('loadedmetadata', () => this.updateDuration());
-    this.audio.addEventListener('timeupdate', () => this.updateProgress());
-    this.audio.addEventListener('ended', () => this.nextSong());
-    this.audio.addEventListener('error', (e) => this.handleError(e));
-    
-    // 进度条事件
-    this.progressBar.addEventListener('click', (e) => this.seekTo(e));
-    this.initDragHandler(this.progressHandle, this.progressBar, (progress) => {
-      this.audio.currentTime = this.audio.duration * progress;
-    });
-    
-    // 音量控制事件
-    this.volumeBar.addEventListener('click', (e) => this.setVolume(e));
-    this.initDragHandler(this.volumeHandle, this.volumeBar, (volume) => {
-      this.volume = volume;
-      this.audio.volume = volume;
-      this.updateVolumeDisplay();
-    });
-    
-    // 播放列表事件
-    this.playlistToggle.addEventListener('click', () => this.togglePlaylist());
-    
-    // 收缩事件
-    this.playerToggle.addEventListener('click', () => this.toggleWidget());
-  }
-  
-  loadPlaylist() {
-    this.playlist.innerHTML = '';
-    MUSIC_CONFIG.playlist.forEach((song, index) => {
-      const item = document.createElement('div');
-      item.className = 'playlist-item';
-      item.innerHTML = `
-        <span class="song-info">
-          <strong>${song.title}</strong>
-          <small>${song.artist}</small>
-        </span>
-      `;
-      item.addEventListener('click', () => this.playSong(index));
-      this.playlist.appendChild(item);
-    });
-    
-    // 加载第一首歌曲
-    if (MUSIC_CONFIG.playlist.length > 0) {
-      this.loadSong(0);
-    }
-  }
-  
-  loadSong(index) {
-    if (index < 0 || index >= MUSIC_CONFIG.playlist.length) return;
-    
-    this.currentIndex = index;
-    const song = MUSIC_CONFIG.playlist[index];
-    
-    this.songTitle.textContent = song.title;
-    this.songArtist.textContent = song.artist;
-    this.audio.src = MUSIC_CONFIG.cdnBase + song.file;
-    
-    // 更新播放列表高亮
-    this.updatePlaylistHighlight();
-  }
-  
-  playSong(index) {
-    this.loadSong(index);
-    this.play();
-  }
-  
-  togglePlay() {
-    if (this.isPlaying) {
-      this.pause();
-    } else {
-      this.play();
-    }
-  }
-  
-  play() {
-    if (this.audio.src) {
-      this.audio.play().then(() => {
-        this.isPlaying = true;
-        this.playBtn.innerHTML = '<i class="fa fa-pause"></i>';
-      }).catch(e => this.handleError(e));
-    }
-  }
-  
-  pause() {
-    this.audio.pause();
-    this.isPlaying = false;
-    this.playBtn.innerHTML = '<i class="fa fa-play"></i>';
-  }
-  
-  previousSong() {
-    let newIndex = this.currentIndex - 1;
-    if (newIndex < 0) {
-      newIndex = MUSIC_CONFIG.playlist.length - 1;
-    }
-    this.playSong(newIndex);
-  }
-  
-  nextSong() {
-    let newIndex;
-    if (this.isShuffled) {
-      newIndex = Math.floor(Math.random() * MUSIC_CONFIG.playlist.length);
-    } else {
-      newIndex = (this.currentIndex + 1) % MUSIC_CONFIG.playlist.length;
-    }
-    this.playSong(newIndex);
-  }
-  
-  toggleShuffle() {
-    this.isShuffled = !this.isShuffled;
-    this.shuffleBtn.classList.toggle('active', this.isShuffled);
-  }
-  
-  seekTo(e) {
-    const rect = this.progressBar.getBoundingClientRect();
-    const progress = (e.clientX - rect.left) / rect.width;
-    this.audio.currentTime = this.audio.duration * progress;
-  }
-  
-  setVolume(e) {
-    const rect = this.volumeBar.getBoundingClientRect();
-    const volume = (e.clientX - rect.left) / rect.width;
-    this.volume = Math.max(0, Math.min(1, volume));
-    this.audio.volume = this.volume;
-    this.updateVolumeDisplay();
-  }
-  
-  updateProgress() {
-    if (this.audio.duration) {
-      const progress = this.audio.currentTime / this.audio.duration;
-      this.progressFill.style.width = `${progress * 100}%`;
-      this.progressHandle.style.left = `${progress * 100}%`;
-      this.currentTime.textContent = this.formatTime(this.audio.currentTime);
-    }
-  }
-  
-  updateDuration() {
-    this.totalTime.textContent = this.formatTime(this.audio.duration);
-  }
-  
-  updateVolumeDisplay() {
-    this.volumeFill.style.width = `${this.volume * 100}%`;
-    this.volumeHandle.style.left = `${this.volume * 100}%`;
-    this.volumeText.textContent = `${Math.round(this.volume * 100)}%`;
-  }
-  
-  updatePlaylistHighlight() {
-    const items = this.playlist.querySelectorAll('.playlist-item');
-    items.forEach((item, index) => {
-      item.classList.toggle('active', index === this.currentIndex);
-    });
-  }
-  
-  togglePlaylist() {
-    this.isPlaylistVisible = !this.isPlaylistVisible;
-    this.playlist.style.display = this.isPlaylistVisible ? 'block' : 'none';
-    this.playlistToggle.innerHTML = this.isPlaylistVisible 
-      ? '<i class="fa fa-chevron-up"></i>' 
-      : '<i class="fa fa-chevron-down"></i>';
-  }
-  
-  toggleWidget() {
-    this.musicWidget.classList.toggle('collapsed');
-    const icon = this.playerToggle.querySelector('i');
-    icon.className = this.musicWidget.classList.contains('collapsed') 
-      ? 'fa fa-chevron-right' 
-      : 'fa fa-chevron-left';
-  }
-  
-  initDragHandler(handle, container, callback) {
-    let isDragging = false;
-    
-    handle.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      e.preventDefault();
-    });
-    
-    document.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      
-      const rect = container.getBoundingClientRect();
-      const progress = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-      callback(progress);
-    });
-    
-    document.addEventListener('mouseup', () => {
-      isDragging = false;
-    });
-  }
-  
-  formatTime(seconds) {
-    if (isNaN(seconds)) return '0:00';
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  }
-  
-  handleError(e) {
-    console.error('音频播放错误:', e);
-    this.songTitle.textContent = '播放出错';
-    this.songArtist.textContent = '请检查音频文件';
-  }
-}
-
-// 延迟初始化音乐播放器
-function initMusicPlayer() {
-  if (window.musicPlayerLoaded) return;
-  window.musicPlayerLoaded = true;
-  
-  // 等待DOM完全加载后初始化
-  setTimeout(() => {
-    window.musicPlayer = new MusicPlayer();
-  }, 100);
-}
-
-// 页面加载完成后延迟加载
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(initMusicPlayer, 1000);
-  });
-} else {
-  setTimeout(initMusicPlayer, 1000);
-}
-
-// 用户交互后立即加载
-document.addEventListener('click', initMusicPlayer, { once: true });
-document.addEventListener('scroll', initMusicPlayer, { once: true });
-</script>
+<!-- 狄拉克之海特效 (PJAX兼容版) -->
+<script src="/js/dirac-sea-pjax.js" data-pjax></script>
 
 <!-- 控制台彩蛋 -->
-<script>
+<script data-pjax>
 (function() {
   // 检查是否已经显示过彩蛋
   if (sessionStorage.getItem('consoleEasterEggShown')) return;
@@ -1052,6 +716,8 @@ document.addEventListener('scroll', initMusicPlayer, { once: true });
   console.log('%c输入 blog.math() 显示随机数学公式', styles.text);
   console.log('%c输入 blog.about() 了解更多信息', styles.text);
   console.log('%c输入 blog.show() 重新显示这个欢迎信息', styles.text);
+  console.log('%c输入 toggleDiracSea() 开启/关闭狄拉克之海特效', styles.text);
+  console.log('%c输入 blog.cleanup() 清理特效设置', styles.text);
   
   console.log('\n%c🚀 快捷方式:', styles.subtitle);
   console.log('%c双击字母键 E 可以快速重新显示控制台彩蛋', styles.text);
@@ -1061,6 +727,12 @@ document.addEventListener('scroll', initMusicPlayer, { once: true });
   
   // 添加交互式功能
   window.blog = {
+    // 清理狄拉克之海特效的设置
+    cleanup: function() {
+      localStorage.removeItem('diracSeaEnabled');
+      console.log('%c🧹 已清理狄拉克之海特效设置', 'color: #4ecdc4;');
+    },
+    
     stats: function() {
       const posts = document.querySelectorAll('.post-title, .post-meta').length;
       console.log('%c📊 博客统计数据', 'color: #ff6b6b; font-size: 16px; font-weight: bold;');
@@ -1138,7 +810,7 @@ document.addEventListener('scroll', initMusicPlayer, { once: true });
 </script>
 
 <!-- 更多趣味彩蛋 -->
-<script>
+<script data-pjax>
 // Konami Code 彩蛋 (上上下下左右左右BA)
 (function() {
   const konamiCode = [
