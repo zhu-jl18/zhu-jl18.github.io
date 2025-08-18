@@ -34,19 +34,28 @@ window.MusicConfig = {
     {
       id: '1',
       title: 'a lovely girl helps u get joy',
-      artist: 'Unknown',
+      artist: 'mummy',
       album: 'My Music Collection',
       duration: 0, // 将在加载时自动获取
       url: 'https://cdn4blog.vercel.app/music/a%20lovely%20girl%20helps%20u%20get%20joy.m4a'
     },
     {
       id: '2',
+      title: '朱竹清极致淫语',
+      artist: '朱竹清',
+      album: 'My Music Collection',
+      duration: 0, // 将在加载时自动获取
+      url: 'https://cdn4blog.vercel.app/music/朱竹清极致淫语.mp3'
+    },
+    {
+      id: '3',
       title: 'acoustic breeze',
       artist: 'Background Music',
       album: 'CDN Music Collection',
       duration: 240000,
       url: 'https://cdn4blog.vercel.app/music/acoustic%20breeze.mp3'
     }
+
   ],
   
   // GitHub CDN音乐（备用）

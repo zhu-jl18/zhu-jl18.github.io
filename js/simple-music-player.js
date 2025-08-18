@@ -36,13 +36,6 @@ if (typeof SimpleMusicPlayer === 'undefined') {
     this.volumeText = document.querySelector('.volume-text');
     this.volumeIcon = document.querySelector('.volume-icon');
     
-    // 进度条元素
-    this.progressBar = document.querySelector('.progress-bar');
-    this.progressFill = document.querySelector('.progress-fill');
-    this.progressHandle = document.querySelector('.progress-handle');
-    this.timeCurrent = document.querySelector('.time-current');
-    this.timeTotal = document.querySelector('.time-total');
-    
     // 初始化
     this.init();
   }
@@ -62,16 +55,6 @@ if (typeof SimpleMusicPlayer === 'undefined') {
       
       // 更新显示
       this.updateDisplay();
-      
-      // 如果有正在播放的音频，确保进度条更新
-      if (this.audio && !this.audio.paused) {
-        this.updateProgress();
-      }
-      
-      // 如果有正在播放的音频，确保进度条更新
-      if (this.audio && !this.audio.paused) {
-        this.updateProgress();
-      }
       
       console.log(`✅ 音乐播放器就绪，共 ${this.playlist.length} 首歌曲`);
       
@@ -102,12 +85,6 @@ if (typeof SimpleMusicPlayer === 'undefined') {
     // 静音切换（点击音量图标）
     if (this.volumeIcon) {
       this.volumeIcon.addEventListener('click', () => this.toggleMute());
-    }
-    
-    // 进度条控制
-    if (this.progressBar) {
-      this.progressBar.addEventListener('click', (e) => this.setProgressFromClick(e));
-      this.progressBar.addEventListener('mousedown', (e) => this.startProgressDrag(e));
     }
   }
   
@@ -300,22 +277,6 @@ if (typeof SimpleMusicPlayer === 'undefined') {
         console.error('音频错误:', e);
         this.next();
       });
-      
-      // 时间更新
-      this.audio.addEventListener('timeupdate', () => {
-        this.updateProgress();
-      });
-      
-      // 元数据加载完成
-      this.audio.addEventListener('loadedmetadata', () => {
-        if (this.timeTotal) {
-          this.timeTotal.textContent = this.formatTime(this.audio.duration);
-        }
-        // 确保进度条在元数据加载后更新
-        if (this.isPlaying) {
-          this.updateProgress();
-        }
-      });
     }
     
     return this.audio;
@@ -442,61 +403,6 @@ if (typeof SimpleMusicPlayer === 'undefined') {
       // 使用默认音量25%
       this.setVolume(0.25);
     }
-  }
-  
-  // 进度条控制方法
-  setProgressFromClick(e) {
-    if (!this.progressBar || !this.audio) return;
-    const rect = this.progressBar.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const percentage = x / rect.width;
-    this.audio.currentTime = percentage * this.audio.duration;
-  }
-  
-  startProgressDrag(e) {
-    e.preventDefault();
-    
-    const onMouseMove = (e) => {
-      if (!this.progressBar || !this.audio) return;
-      const rect = this.progressBar.getBoundingClientRect();
-      const x = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
-      const percentage = x / rect.width;
-      this.audio.currentTime = percentage * this.audio.duration;
-    };
-    
-    const onMouseUp = () => {
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
-    };
-    
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
-  }
-  
-  updateProgress() {
-    if (!this.audio || !this.progressBar || !this.progressFill || !this.progressHandle) return;
-    
-    // 确保duration是有效数字
-    if (isNaN(this.audio.duration) || !isFinite(this.audio.duration)) {
-      // 如果元数据还没加载完成，不更新进度条
-      return;
-    }
-    
-    const percentage = (this.audio.currentTime / this.audio.duration) * 100;
-    this.progressFill.style.width = `${percentage}%`;
-    this.progressHandle.style.left = `${percentage}%`;
-    
-    if (this.timeCurrent) {
-      this.timeCurrent.textContent = this.formatTime(this.audio.currentTime);
-    }
-  }
-  
-  formatTime(seconds) {
-    if (isNaN(seconds)) return '0:00';
-    
-    const minutes = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${minutes}:${secs.toString().padStart(2, '0')}`;
   }
 }
 

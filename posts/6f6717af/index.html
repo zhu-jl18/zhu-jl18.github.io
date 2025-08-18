@@ -30,8 +30,8 @@
 <meta property="og:site_name" content="Dirac Sea">
 <meta property="og:description" content="📖 前言作为一名数学博士和程序员，我深知时间的重要性。手动部署博客不仅繁琐，还容易出错。今天，我将分享一个完整的 Hexo 博客自动化部署方案，让你专注于创作，而不是被部署流程困扰。 🏗️ 架构设计双仓库策略我们将采用双仓库架构：  源码仓库：存放 Hexo 源码、主题、配置文件 部署仓库：存放生成的静态文件，通过 GitHub Pages 提供服务  这种架构的优势：  安全性：源码和部署分">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-08-17T08:45:00.000Z">
-<meta property="article:modified_time" content="2025-08-17T16:50:47.226Z">
+<meta property="article:published_time" content="2025-08-17T16:45:00.000Z">
+<meta property="article:modified_time" content="2025-08-18T19:23:37.819Z">
 <meta property="article:author" content="makoMako">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="GitHub Actions">
@@ -74,7 +74,6 @@
 
 
 
-  <script src="/js/third-party/addtoany.js" defer></script>
 
   
   <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -128,43 +127,6 @@
   
   .main-inner {
     contain: layout;
-  }
-  
-  /* 可访问性增强：焦点指示器 */
-  :focus {
-    outline: 3px solid #667eea !important;
-    outline-offset: 2px !important;
-  }
-  
-  /* 可访问性：跳过链接样式 */
-  .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: #667eea;
-    color: white;
-    padding: 8px;
-    text-decoration: none;
-    z-index: 100;
-  }
-  
-  .skip-link:focus {
-    top: 0;
-  }
-  
-  /* 高对比度模式支持 */
-  @media (prefers-contrast: high) {
-    body {
-      background-color: #000 !important;
-      color: #fff !important;
-    }
-    .post-body, .content {
-      color: #fff !important;
-    }
-    .post-block {
-      background-color: #222 !important;
-      border: 1px solid #444 !important;
-    }
   }
 </style>
   <noscript>
@@ -337,7 +299,7 @@
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/posts/e71dcf05/" rel="bookmark">
-        <time class="popular-posts-time">2025-08-16</time>
+        <time class="popular-posts-time">2025-08-18</time>
         <br>
       Git工作流优化之旅：从混乱到自如的博客发布体验
       </a>
@@ -392,14 +354,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-08-17 16:45:00" itemprop="dateCreated datePublished" datetime="2025-08-17T16:45:00+08:00">2025-08-17</time>
+      <time title="创建时间：2025-08-17 16:45:00" itemprop="dateCreated datePublished" datetime="2025-08-17T16:45:00+00:00">2025-08-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-18 00:50:47" itemprop="dateModified" datetime="2025-08-18T00:50:47+08:00">2025-08-18</time>
+      <time title="修改时间：2025-08-18 19:23:37" itemprop="dateModified" datetime="2025-08-18T19:23:37+00:00">2025-08-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -634,23 +596,16 @@
           </div>
 
         
-  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
-    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
-      <a class="a2a_button_facebook"></a>
-      <a class="a2a_button_twitter"></a>
-      <a class="a2a_button_wechat"></a>
-      <a class="a2a_button_weibo"></a>
-  </div>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/3c844e5f/" rel="prev" title="网络代理全解析：从入门到精通">
-                  <i class="fa fa-angle-left"></i> 网络代理全解析：从入门到精通
+                <a href="/posts/42f998dc/" rel="prev" title="GitHub Actions CI&#x2F;CD 自动化部署完全指南">
+                  <i class="fa fa-angle-left"></i> GitHub Actions CI/CD 自动化部署完全指南
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/b23c6ab4/" rel="next" title="啊！主人！对不起！我不敢！我再也不敢了！">
-                  啊！主人！对不起！我不敢！我再也不敢了！ <i class="fa fa-angle-right"></i>
+                <a href="/posts/e71dcf05/" rel="next" title="Git工作流优化之旅：从混乱到自如的博客发布体验">
+                  Git工作流优化之旅：从混乱到自如的博客发布体验 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -682,13 +637,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">39k</span>
+    <span title="站点总字数">35k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:23</span>
+    <span title="站点阅读时长">2:08</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -775,28 +730,12 @@
       </div>
       <span class="volume-text">25%</span>
     </div>
-    
-    <!-- 进度条 -->
-    <div class="progress-section">
-      <div class="progress-bar">
-        <div class="progress-fill"></div>
-        <div class="progress-handle"></div>
-      </div>
-      <div class="time-display">
-        <span class="time-current">0:00</span>
-        <span> / </span>
-        <span class="time-total">0:00</span>
-      </div>
-    </div>
   </div>
 </div>
 
 <!-- 加载音乐播放器脚本 -->
 <script src="/js/music-config.js" data-pjax></script>
 <script src="/js/simple-music-player.js" data-pjax></script>
-
-<!-- 音乐模式切换器（开发调试用） -->
-<script src="/js/music-mode-switcher.js" data-pjax></script>
 
 <!-- 狄拉克之海特效 (PJAX兼容版) -->
 <script src="/js/dirac-sea-pjax.js" data-pjax></script>

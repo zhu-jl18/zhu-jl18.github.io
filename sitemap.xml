@@ -2,7 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhu-jl18.github.io/posts/b23c6ab4/</loc>
+    <loc>https://zhu-jl18.github.io/manifest.json</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/milestones/index.html</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/schedule/index.html</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/21524/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/3c844e5f/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/about/index.html</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/archives/index.html</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/categories/index.html</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/38945/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/42f998dc/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/e71dcf05/</loc>
     
     <lastmod>2025-08-18</lastmod>
     
@@ -13,205 +103,7 @@
   <url>
     <loc>https://zhu-jl18.github.io/posts/6f6717af/</loc>
     
-    <lastmod>2025-08-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/categories/index.html</loc>
-    
-    <lastmod>2025-08-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/3c844e5f/</loc>
-    
-    <lastmod>2025-08-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/17888/</loc>
-    
-    <lastmod>2025-08-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/pjax-test/</loc>
-    
-    <lastmod>2025-08-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/e71dcf05/</loc>
-    
-    <lastmod>2025-08-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/1719632/</loc>
-    
-    <lastmod>2025-08-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/pjax-challenge/</loc>
-    
-    <lastmod>2025-08-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/42f998dc/</loc>
-    
-    <lastmod>2025-08-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/manifest.json</loc>
-    
-    <lastmod>2025-08-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/milestones/index.html</loc>
-    
-    <lastmod>2025-08-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/archives/index.html</loc>
-    
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/schedule/index.html</loc>
-    
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/404/index.html</loc>
-    
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/73657a7b/</loc>
-    
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/21524/</loc>
-    
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/21656/</loc>
-    
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/22740/</loc>
-    
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/24845/</loc>
-    
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/21655/</loc>
-    
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/about/index.html</loc>
-    
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/38945/</loc>
-    
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/4763/</loc>
-    
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -220,7 +112,16 @@
   <url>
     <loc>https://zhu-jl18.github.io/posts/38523/</loc>
     
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/73657a7b/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -229,61 +130,88 @@
   <url>
     <loc>https://zhu-jl18.github.io/posts/23471/</loc>
     
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://zhu-jl18.github.io/posts/20013/</loc>
+    <loc>https://zhu-jl18.github.io/posts/pjax-test/</loc>
     
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/4061/</loc>
-    
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://zhu-jl18.github.io/posts/43173/</loc>
+    <loc>https://zhu-jl18.github.io/posts/4763/</loc>
     
-    <lastmod>2025-08-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/posts/8377/</loc>
-    
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://zhu-jl18.github.io/posts/61400/</loc>
+    <loc>https://zhu-jl18.github.io/posts/17888/</loc>
     
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://zhu-jl18.github.io/posts/30613/</loc>
+    <loc>https://zhu-jl18.github.io/posts/21656/</loc>
     
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/22740/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/21655/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/24845/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/1719632/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/pjax-challenge/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -292,7 +220,70 @@
   <url>
     <loc>https://zhu-jl18.github.io/posts/55322/</loc>
     
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/30613/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/61400/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/8377/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/4061/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/43173/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/posts/20013/</loc>
+    
+    <lastmod>2025-08-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/404/index.html</loc>
+    
+    <lastmod>2025-08-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -350,28 +341,7 @@
   </url>
   
   <url>
-    <loc>https://zhu-jl18.github.io/tags/math/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhu-jl18.github.io/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/tags/duality/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/tags/isomorphism/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -386,13 +356,6 @@
   
   <url>
     <loc>https://zhu-jl18.github.io/tags/CI-CD/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -414,20 +377,6 @@
   
   <url>
     <loc>https://zhu-jl18.github.io/tags/%E9%83%A8%E7%BD%B2%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/tags/LaTeX/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/tags/AI/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -469,6 +418,13 @@
   </url>
   
   <url>
+    <loc>https://zhu-jl18.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhu-jl18.github.io/tags/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -477,6 +433,20 @@
   
   <url>
     <loc>https://zhu-jl18.github.io/tags/%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/tags/LaTeX/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/tags/AI/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -498,6 +468,41 @@
   
   <url>
     <loc>https://zhu-jl18.github.io/tags/API%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/tags/AI%E5%8D%8F%E4%BD%9C/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/tags/math/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/tags/duality/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/tags/isomorphism/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -545,38 +550,10 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://zhu-jl18.github.io/tags/AI%E5%8D%8F%E4%BD%9C/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
     <loc>https://zhu-jl18.github.io/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/categories/Math/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -590,14 +567,7 @@
   </url>
   
   <url>
-    <loc>https://zhu-jl18.github.io/categories/AI/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/categories/%E6%8A%80%E6%9C%AF%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://zhu-jl18.github.io/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -611,7 +581,28 @@
   </url>
   
   <url>
+    <loc>https://zhu-jl18.github.io/categories/%E6%8A%80%E6%9C%AF%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/categories/AI/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhu-jl18.github.io/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/AI%E5%8D%8F%E4%BD%9C/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/categories/Math/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
