@@ -68,6 +68,7 @@
 
 
 
+  <script src="/js/third-party/addtoany.js" defer></script>
 
   
   <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -121,6 +122,43 @@
   
   .main-inner {
     contain: layout;
+  }
+  
+  /* 可访问性增强：焦点指示器 */
+  :focus {
+    outline: 3px solid #667eea !important;
+    outline-offset: 2px !important;
+  }
+  
+  /* 可访问性：跳过链接样式 */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #667eea;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+  }
+  
+  .skip-link:focus {
+    top: 0;
+  }
+  
+  /* 高对比度模式支持 */
+  @media (prefers-contrast: high) {
+    body {
+      background-color: #000 !important;
+      color: #fff !important;
+    }
+    .post-body, .content {
+      color: #fff !important;
+    }
+    .post-block {
+      background-color: #222 !important;
+      border: 1px solid #444 !important;
+    }
   }
 </style>
   <noscript>
@@ -231,7 +269,7 @@
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -292,7 +330,7 @@
   <div class="post-block">
     <div class="post-content">
       <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 24 篇日志。 继续努力。</span>
+        <span class="collection-header">嗯..! 目前共计 26 篇日志。 继续努力。</span>
       </div>
 
       
@@ -486,13 +524,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">34k</span>
+    <span title="站点总字数">39k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:03</span>
+    <span title="站点阅读时长">2:23</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -514,8 +552,7 @@
     </span>
 </div>
   <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
-  </div><!-- 页脚自定义内容 -->
-
+  </div>
 
     </div>
   </footer>
@@ -580,12 +617,28 @@
       </div>
       <span class="volume-text">25%</span>
     </div>
+    
+    <!-- 进度条 -->
+    <div class="progress-section">
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+        <div class="progress-handle"></div>
+      </div>
+      <div class="time-display">
+        <span class="time-current">0:00</span>
+        <span> / </span>
+        <span class="time-total">0:00</span>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- 加载音乐播放器脚本 -->
 <script src="/js/music-config.js" data-pjax></script>
 <script src="/js/simple-music-player.js" data-pjax></script>
+
+<!-- 音乐模式切换器（开发调试用） -->
+<script src="/js/music-mode-switcher.js" data-pjax></script>
 
 <!-- 狄拉克之海特效 (PJAX兼容版) -->
 <script src="/js/dirac-sea-pjax.js" data-pjax></script>

@@ -1767,7 +1767,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #30ffcd;
+    background: #dbff94;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3923,16 +3923,16 @@ img {
 }
 .progress-bar {
   position: relative;
-  height: 4px;
+  height: 3px;
   background: #e2e8f0;
-  border-radius: 2px;
+  border-radius: 1.5px;
   cursor: pointer;
   margin-bottom: 0.5rem;
 }
 .progress-bar .progress-fill {
   height: 100%;
   background: #2c3e50;
-  border-radius: 2px;
+  border-radius: 1.5px;
   transition: width 0.1s ease;
   width: 0%;
 }
@@ -3940,20 +3940,20 @@ img {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background: #2c3e50;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   left: 0%;
   transition: left 0.1s ease;
 }
 .progress-bar .progress-handle:hover {
   transform: translate(-50%, -50%) scale(1.2);
 }
-.time-info {
+.time-display {
   display: flex;
   justify-content: space-between;
   font-size: 0.7rem;

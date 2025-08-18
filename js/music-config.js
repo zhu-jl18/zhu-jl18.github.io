@@ -29,6 +29,26 @@ window.MusicConfig = {
     ]
   },
   
+  // Vercel 音乐列表
+  vercelPlaylist: [
+    {
+      id: '1',
+      title: 'a lovely girl helps u get joy',
+      artist: 'Unknown',
+      album: 'My Music Collection',
+      duration: 0, // 将在加载时自动获取
+      url: 'https://cdn4blog.vercel.app/music/a%20lovely%20girl%20helps%20u%20get%20joy.m4a'
+    },
+    {
+      id: '2',
+      title: 'acoustic breeze',
+      artist: 'Background Music',
+      album: 'CDN Music Collection',
+      duration: 240000,
+      url: 'https://cdn4blog.vercel.app/music/acoustic%20breeze.mp3'
+    }
+  ],
+  
   // GitHub CDN音乐（备用）
   fallbackPlaylist: [
     {
