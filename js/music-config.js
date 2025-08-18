@@ -72,7 +72,7 @@ window.MusicConfig = {
   
   // 播放器设置
   settings: {
-    defaultVolume: 0.5,
+    defaultVolume: 0.25,
     autoPlay: false,
     loop: true,
     shuffle: false,
