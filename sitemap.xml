@@ -392,6 +392,13 @@
   </url>
   
   <url>
+    <loc>https://zhu-jl18.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhu-jl18.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -407,6 +414,20 @@
   
   <url>
     <loc>https://zhu-jl18.github.io/tags/%E9%83%A8%E7%BD%B2%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/tags/LaTeX/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/tags/AI/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -448,13 +469,6 @@
   </url>
   
   <url>
-    <loc>https://zhu-jl18.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhu-jl18.github.io/tags/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -463,20 +477,6 @@
   
   <url>
     <loc>https://zhu-jl18.github.io/tags/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/tags/LaTeX/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/tags/AI/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -498,20 +498,6 @@
   
   <url>
     <loc>https://zhu-jl18.github.io/tags/API%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/tags/AI%E5%8D%8F%E4%BD%9C/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -559,7 +545,28 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://zhu-jl18.github.io/tags/AI%E5%8D%8F%E4%BD%9C/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
+  
+  <url>
+    <loc>https://zhu-jl18.github.io/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://zhu-jl18.github.io/categories/Math/</loc>
@@ -569,7 +576,7 @@
   </url>
   
   <url>
-    <loc>https://zhu-jl18.github.io/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/</loc>
+    <loc>https://zhu-jl18.github.io/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -583,7 +590,7 @@
   </url>
   
   <url>
-    <loc>https://zhu-jl18.github.io/categories/%E6%8A%80%E6%9C%AF%E6%8A%98%E8%85%BE/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</loc>
+    <loc>https://zhu-jl18.github.io/categories/AI/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -598,13 +605,6 @@
   
   <url>
     <loc>https://zhu-jl18.github.io/categories/LaTeX/</loc>
-    <lastmod>2025-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhu-jl18.github.io/categories/AI/</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

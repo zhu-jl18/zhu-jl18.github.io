@@ -63,6 +63,16 @@ if (typeof SimpleMusicPlayer === 'undefined') {
       // 更新显示
       this.updateDisplay();
       
+      // 如果有正在播放的音频，确保进度条更新
+      if (this.audio && !this.audio.paused) {
+        this.updateProgress();
+      }
+      
+      // 如果有正在播放的音频，确保进度条更新
+      if (this.audio && !this.audio.paused) {
+        this.updateProgress();
+      }
+      
       console.log(`✅ 音乐播放器就绪，共 ${this.playlist.length} 首歌曲`);
       
     } catch (error) {
@@ -301,6 +311,10 @@ if (typeof SimpleMusicPlayer === 'undefined') {
         if (this.timeTotal) {
           this.timeTotal.textContent = this.formatTime(this.audio.duration);
         }
+        // 确保进度条在元数据加载后更新
+        if (this.isPlaying) {
+          this.updateProgress();
+        }
       });
     }
     
@@ -461,6 +475,12 @@ if (typeof SimpleMusicPlayer === 'undefined') {
   
   updateProgress() {
     if (!this.audio || !this.progressBar || !this.progressFill || !this.progressHandle) return;
+    
+    // 确保duration是有效数字
+    if (isNaN(this.audio.duration) || !isFinite(this.audio.duration)) {
+      // 如果元数据还没加载完成，不更新进度条
+      return;
+    }
     
     const percentage = (this.audio.currentTime / this.audio.duration) * 100;
     this.progressFill.style.width = `${percentage}%`;
