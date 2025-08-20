@@ -1307,6 +1307,35 @@ pre code {
 .use-motion .menu-item {
   visibility: hidden;
 }
+.book-mark-link {
+  border-bottom: 0;
+  position: fixed;
+  top: -10px;
+  transition: top 0.3s;
+  left: 30px;
+}
+@media (max-width: 991px) {
+  .book-mark-link {
+    left: 20px;
+  }
+}
+@media (max-width: 991px) {
+  .book-mark-link {
+    display: none;
+  }
+}
+.book-mark-link::before {
+  color: #222;
+  font-size: 32px;
+  line-height: 1;
+  content: '\f02e';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+.book-mark-link:hover,
+.book-mark-link-fixed {
+  top: -2px;
+}
 .github-corner :hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
 }
@@ -1384,7 +1413,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #fff;
+    background: #33c241;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1794,9 +1823,6 @@ pre code {
   animation: icon-animate 1.33s ease-in-out infinite;
 }
 .busuanzi-count #busuanzi_container_site_uv {
-  display: none;
-}
-.busuanzi-count #busuanzi_container_site_pv {
   display: none;
 }
 @keyframes icon-animate {
@@ -2694,6 +2720,9 @@ ul.breadcrumb li:last-child {
     color: #eee;
   }
 }
+.utterances {
+  max-width: unset;
+}
 .search-active {
   overflow: hidden;
   margin-right: var(--dialog-scrollgutter, 0);
@@ -3059,13 +3088,19 @@ header.header {
   }
 }
 /* source/_data/styles.styl */
+.site-author-name {
+  font-size: 1.2em;
+  margin: 0.9em 0 0 0.5em;
+  color: #ff4757;
+}
 .post-nav-item a:hover {
   color: #c4b5fd /* 淡紫水晶 */ /* 冰川紫 */;
 }
 .posts-expand .post-title {
   margin: 0 0 1.7em 0;
   text-decoration: underline; /* 激活下划线功能 */
-  text-decoration-style: wavy; /* 最关键的来了！设置为波浪线 */
+  text-decoration-style: wavy;
+  text-decoration-color: rgba(46,15,83,0.82); /* 最关键的来了！设置为波浪线 */
   text-decoration-thickness: 2.5px; /* 下划线的粗细 (更细显得更精致） */
   text-underline-offset: 0.5em; /* 下划线与文本之间的距离，避免“压”到字上 */
   font-weight: 500; /* 稍微加粗文字，让其更易区分和引导视觉 */
