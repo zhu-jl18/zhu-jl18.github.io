@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/lambda-icon-size_64.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/lambda-icon-size_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/lambda-icon-size_16.png">
+  <link rel="mask-icon" href="/images/lambda-icon-size_64.png" color="#222">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="google-site-verification" content="WRoB9bFhSYf-bLPn6jS4ALalzR7nKkWw1sp5MqHoB0U">
+  <meta name="msvalidate.01" content="DE0701EF278A6E845833F86B71C383D5">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family='Source+Han+Sans+SC':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Noto+Sans+SC':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='PingFang+SC':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Hiragino+Sans+GB':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Microsoft+YaHei':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='WenQuanYi+Micro+Hei':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=sans-serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Fira+Code':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Source+Code+Pro':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Consolas:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Courier+New':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=monospace:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhu-jl18.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.23.2","exturl":true,"sidebar":{"position":"right","width_expanded":350,"width_dual_column":280,"display":"always","padding":18,"offset":13},"hljswrap":true,"codeblock":{"theme":{"light":"base16/ros-pine","dark":"base16/ros-pine"},"prism":{"light":"prism-coy.min","dark":"prism-tomorrow"},"copy_button":{"enable":false,"style":"flat"},"fold":{"enable":false,"height":200},"language":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"buttons","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
+
+
+
+<link rel="canonical" href="https://zhu-jl18.github.io/posts/7c8f9d2a/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhu-jl18.github.io/posts/7c8f9d2a/","path":"posts/7c8f9d2a/","title":"LMArenaBridge 项目代码解析：通过浏览器自动化打造 API 桥接"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>LMArenaBridge 项目代码解析：通过浏览器自动化打造 API 桥接 | Dirac Sea</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGG5BFG7WZ"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-MGG5BFG7WZ","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@11.7.0/dist/mermaid.min.js","integrity":"sha256-4+IKDqhZ/sXjc8Wtl2/MsxI4e0s1KpEVdbEP7V/Lz8U="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","single_dollars":true,"cjk_width":0.9,"normal_width":0.6,"append_css":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://zhu-jl18.github.io/posts/7c8f9d2a/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+<!-- 字体预加载优化 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- 字体加载优化 -->
+<style>
+  /* 字体显示优化 */
+  @font-face {
+    font-family: 'Source Han Sans SC';
+    src: url('https://fonts.gstatic.com/s/sourcehansanssc/v17/HI_EiYMe1oYg9kJ6TlKjZyE.woff2') format('woff2');
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('https://fonts.gstatic.com/s/jetbrainsmono/v13/LZsErw.woff2') format('woff2');
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Fira Code';
+    src: url('https://fonts.gstatic.com/s/firacode/v22/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_D1sJVD7MOzlojwUKaJO.woff2') format('woff2');
+    font-display: swap;
+  }
+</style>
+
+<!-- 关键CSS内联优化 -->
+<style>
+  /* 关键样式提前加载，减少FOUC */
+  body {
+    font-display: swap;
+  }
+  
+  /* 减少布局抖动 */
+  .sidebar {
+    contain: layout style;
+  }
+  
+  .main-inner {
+    contain: layout;
+  }
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Dirac Sea" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dirac Sea</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">🦖::😼::🧐</p>
+      <img class="custom-logo-image" src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog@main/logo/evolution.png" alt="Dirac Sea">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-timeline"><a href="/" rel="section"><i class="fa fa-bookmark fa-fw"></i>Timeline</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-milestones"><a href="/milestones/" rel="section"><i class="fa fa-trophy fa-fw"></i>Milestones</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF%E4%B8%8E%E6%8C%91%E6%88%98"><span class="nav-number">1.</span> <span class="nav-text">项目背景与挑战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88"><span class="nav-number">2.</span> <span class="nav-text">系统架构概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">核心代码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Flask-%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9AAPI-%E5%85%BC%E5%AE%B9%E5%B1%82"><span class="nav-number">3.1.</span> <span class="nav-text">1. Flask 服务器：API 兼容层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Tampermonkey-%E8%84%9A%E6%9C%AC%EF%BC%9A%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E5%BC%95%E6%93%8E"><span class="nav-number">3.2.</span> <span class="nav-text">2. Tampermonkey 脚本：浏览器自动化引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%93%8D%E5%BA%94%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86"><span class="nav-number">3.3.</span> <span class="nav-text">3. 响应流式处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E9%9A%BE%E7%82%B9%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">4.</span> <span class="nav-text">技术难点与解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BC%9A%E8%AF%9D%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5"><span class="nav-number">4.1.</span> <span class="nav-text">1. 会话状态同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%9E%E6%97%B6%E6%80%A7%E4%BF%9D%E8%AF%81"><span class="nav-number">4.2.</span> <span class="nav-text">2. 实时性保证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%94%99%E8%AF%AF%E6%81%A2%E5%A4%8D"><span class="nav-number">4.3.</span> <span class="nav-text">3. 错误恢复</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%88%9B%E6%96%B0%E4%B9%8B%E5%A4%84"><span class="nav-number">5.</span> <span class="nav-text">项目的创新之处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%89%8D%E6%99%AF"><span class="nav-number">6.</span> <span class="nav-text">应用前景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="mako"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">mako</p>
+  <div class="site-description" itemprop="description">love math and dinosaurs</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3podS1qbDE4" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhu-jl18"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS95b3VybmFtZQ==" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname"><i class="fab fa-stack-overflow fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL3lvdXJuYW1l" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname"><i class="fa fa-instagram fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3lvdXJuYW1l" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3lvdXJuYW1l" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;yourname"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9yZWRkaXQuY29tL3VzZXIveW91cm5hbWU=" title="Reddit → https:&#x2F;&#x2F;reddit.com&#x2F;user&#x2F;yourname"><i class="fab fa-reddit fa-fw"></i></span>
+      </span>
+  </div>
+<!-- 自定义侧边栏模块 - 在Next主题默认侧边栏基础上添加 -->
+
+<!-- 背景融合图片 -->
+<div class="sidebar-bottom-image" style="margin: 20px 0; text-align: center;">
+  <a href="https://ncatlab.org/nlab/show/HomePage" target="_blank" rel="noopener noreferrer">
+    <img src="/images/book.png" alt="The Book of Secret Knowledge" style="width: 100%; max-width: 160px; height: auto; border: none; box-shadow: none; opacity: 1; margin: 0 auto; display: block;">
+  </a>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/posts/7c8f9d2a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="mako">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dirac Sea">
+      <meta itemprop="description" content="love math and dinosaurs">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="LMArenaBridge 项目代码解析：通过浏览器自动化打造 API 桥接 | Dirac Sea">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LMArenaBridge 项目代码解析：通过浏览器自动化打造 API 桥接
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-09-04 04:17:03" itemprop="dateCreated datePublished" datetime="2025-09-04T04:17:03+00:00">2025-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-09-03 21:49:58" itemprop="dateModified" datetime="2025-09-03T21:49:58+00:00">2025-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术记录与分享</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%88%86%E4%BA%AB/AI-LLM/" itemprop="url" rel="index"><span itemprop="name">AI & LLM</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>介绍一个创新的项目：通过浏览器自动化技术，为没有公开 API 的 LMArena.ai 平台创建 OpenAI 兼容的 API 接口。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="项目背景与挑战"><a href="#项目背景与挑战" class="headerlink" title="项目背景与挑战"></a>项目背景与挑战</h2><p>LMArena.ai 是一个 AI 模型竞技平台，让用户可以体验和比较各种顶级 AI 模型的表现。然而，它只提供了 Web 界面，没有公开的 API 接口。这意味着开发者无法通过编程方式访问这些模型。</p>
+<p>LMArenaBridge 项目巧妙地解决了这个问题：它创建了一个”翻译层”，将标准的 OpenAI API 请求转换为浏览器自动化操作，让任何 OpenAI 兼容的客户端都能无缝使用 LMArena.ai 的模型。</p>
+<h2 id="系统架构概览"><a href="#系统架构概览" class="headerlink" title="系统架构概览"></a>系统架构概览</h2><p>项目采用三层架构设计：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    subgraph &quot;客户端层&quot;</span><br><span class="line">        Client[OpenAI API 客户端]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph &quot;桥接层&quot;</span><br><span class="line">        Flask[Flask 服务器&lt;br/&gt;local_openai_history_server.py]</span><br><span class="line">        Queue[作业队列系统]</span><br><span class="line">        ModelMap[模型注册表]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph &quot;自动化层&quot;</span><br><span class="line">        Tampermonkey[Tampermonkey 脚本&lt;br/&gt;LMArenaAutomator.js]</span><br><span class="line">        Browser[浏览器环境]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph &quot;目标平台&quot;</span><br><span class="line">        LMArena[LMArena.ai Web 界面]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    Client --&gt;|HTTP 请求| Flask</span><br><span class="line">    Flask --&gt; Queue</span><br><span class="line">    Flask --&gt; ModelMap</span><br><span class="line">    Flask --&gt;|作业分发| Tampermonkey</span><br><span class="line">    Tampermonkey --&gt;|DOM 操作| Browser</span><br><span class="line">    Browser --&gt;|HTTP 请求| LMArena</span><br><span class="line">    LMArena --&gt;|响应流| Browser</span><br><span class="line">    Browser --&gt;|数据拦截| Tampermonkey</span><br><span class="line">    Tampermonkey --&gt;|流式传输| Flask</span><br><span class="line">    Flask --&gt;|格式化响应| Client</span><br></pre></td></tr></table></figure>
+
+<h2 id="核心代码解析"><a href="#核心代码解析" class="headerlink" title="核心代码解析"></a>核心代码解析</h2><h3 id="1-Flask-服务器：API-兼容层"><a href="#1-Flask-服务器：API-兼容层" class="headerlink" title="1. Flask 服务器：API 兼容层"></a>1. Flask 服务器：API 兼容层</h3><p><code>local_openai_history_server.py</code> 是整个系统的枢纽，实现了 OpenAI API 的端点兼容。</p>
+<h4 id="OpenAI-格式转换"><a href="#OpenAI-格式转换" class="headerlink" title="OpenAI 格式转换"></a>OpenAI 格式转换</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">convert_openai_to_lmarena</span>(<span class="params">openai_request</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;将 OpenAI 格式转换为 LMArena 内部格式&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 生成必要的 UUID</span></span><br><span class="line">    session_id = <span class="string">f&#x27;c<span class="subst">&#123;uuid.uuid4()&#125;</span>&#x27;</span></span><br><span class="line">    user_id = <span class="string">f&#x27;u<span class="subst">&#123;uuid.uuid4()&#125;</span>&#x27;</span></span><br><span class="line">    evaluation_id = <span class="string">f&#x27;e<span class="subst">&#123;uuid.uuid4()&#125;</span>&#x27;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 模型名称到 UUID 的映射</span></span><br><span class="line">    target_model_id = MODEL_NAME_TO_ID_MAP.get(</span><br><span class="line">        openai_request.get(<span class="string">&#x27;model&#x27;</span>), </span><br><span class="line">        DEFAULT_MODEL_ID</span><br><span class="line">    )</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 消息格式转换</span></span><br><span class="line">    messages = []</span><br><span class="line">    <span class="keyword">for</span> msg <span class="keyword">in</span> openai_request[<span class="string">&#x27;messages&#x27;</span>]:</span><br><span class="line">        messages.append(&#123;</span><br><span class="line">            <span class="string">&#x27;id&#x27;</span>: <span class="built_in">str</span>(uuid.uuid4()),</span><br><span class="line">            <span class="string">&#x27;evaluationSessionId&#x27;</span>: session_id,</span><br><span class="line">            <span class="string">&#x27;modelId&#x27;</span>: target_model_id <span class="keyword">if</span> msg[<span class="string">&#x27;role&#x27;</span>] == <span class="string">&#x27;assistant&#x27;</span> <span class="keyword">else</span> <span class="literal">None</span>,</span><br><span class="line">            <span class="string">&#x27;role&#x27;</span>: msg[<span class="string">&#x27;role&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;content&#x27;</span>: msg[<span class="string">&#x27;content&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;parentMessageIds&#x27;</span>: [...]  <span class="comment"># 维护消息关系</span></span><br><span class="line">        &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">&#x27;id&#x27;</span>: session_id,</span><br><span class="line">        <span class="string">&#x27;userId&#x27;</span>: user_id,</span><br><span class="line">        <span class="string">&#x27;messages&#x27;</span>: messages,</span><br><span class="line">        <span class="string">&#x27;targetModelId&#x27;</span>: target_model_id</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>关键点：</p>
+<ul>
+<li>UUID 生成确保每个会话的唯一性</li>
+<li>模型映射通过 <code>models.json</code> 文件维护</li>
+<li>消息关系通过 <code>parentMessageIds</code> 构建</li>
+</ul>
+<h4 id="作业队列管理"><a href="#作业队列管理" class="headerlink" title="作业队列管理"></a>作业队列管理</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局队列定义</span></span><br><span class="line">INJECTION_JOBS = Queue()    <span class="comment"># 历史注入作业</span></span><br><span class="line">PROMPT_JOBS = Queue()      <span class="comment"># 提示提交作业</span></span><br><span class="line">TOOL_RESULT_JOBS = Queue() <span class="comment"># 工具结果作业</span></span><br><span class="line">MODEL_FETCH_JOBS = Queue() <span class="comment"># 模型获取作业</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 状态管理</span></span><br><span class="line">RESULTS = &#123;&#125;  <span class="comment"># 存储任务结果</span></span><br><span class="line">INJECTION_EVENTS = &#123;&#125;  <span class="comment"># 注入完成事件同步</span></span><br></pre></td></tr></table></figure>
+
+<p>队列系统实现了异步处理，确保浏览器自动化与 API 请求解耦。</p>
+<h3 id="2-Tampermonkey-脚本：浏览器自动化引擎"><a href="#2-Tampermonkey-脚本：浏览器自动化引擎" class="headerlink" title="2. Tampermonkey 脚本：浏览器自动化引擎"></a>2. Tampermonkey 脚本：浏览器自动化引擎</h3><p><code>LMArenaAutomator.js</code> 是技术含量最高的部分，实现了深度的浏览器自动化。</p>
+<h4 id="Next-js-数据流劫持"><a href="#Next-js-数据流劫持" class="headerlink" title="Next.js 数据流劫持"></a>Next.js 数据流劫持</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">performInjection</span>(<span class="params">history_data</span>) &#123;</span><br><span class="line">    <span class="comment">// 1. 更新会话 ID</span></span><br><span class="line">    <span class="keyword">const</span> urlPath = <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span>;</span><br><span class="line">    <span class="keyword">const</span> match = urlPath.<span class="title function_">match</span>(<span class="regexp">/\/c\/([a-f0-9\-]+)/</span>);</span><br><span class="line">    <span class="keyword">if</span> (match) &#123;</span><br><span class="line">        history_data.<span class="property">id</span> = match[<span class="number">1</span>]; <span class="comment">// 使用当前页面的会话 ID</span></span><br><span class="line">        history_data.<span class="property">messages</span>.<span class="title function_">forEach</span>(<span class="function"><span class="params">msg</span> =&gt;</span> &#123;</span><br><span class="line">            msg.<span class="property">evaluationSessionId</span> = match[<span class="number">1</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2. 劫持 __next_f 数组</span></span><br><span class="line">    <span class="keyword">if</span> (self.<span class="property">__next_f</span>) &#123;</span><br><span class="line">        <span class="comment">// 处理已存在的数组</span></span><br><span class="line">        <span class="title function_">hookPush</span>(self.<span class="property">__next_f</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 遍历已有数据</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; self.<span class="property">__next_f</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            <span class="title function_">processChunk</span>(self.<span class="property">__next_f</span>[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 3. 监听未来数据</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="variable language_">window</span>, <span class="string">&#x27;__next_f&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">set</span>: <span class="keyword">function</span>(<span class="params">value</span>) &#123;</span><br><span class="line">            <span class="title function_">hookPush</span>(value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">modifyPayload</span>(<span class="params">payload</span>) &#123;</span><br><span class="line">    <span class="comment">// 精确定位 initialState</span></span><br><span class="line">    <span class="keyword">const</span> startIndex = payload.<span class="title function_">lastIndexOf</span>(startMarker, endIndex);</span><br><span class="line">    <span class="keyword">const</span> endIndex = payload.<span class="title function_">indexOf</span>(endMarker);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (startIndex !== -<span class="number">1</span> &amp;&amp; endIndex !== -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> beforePart = payload.<span class="title function_">substring</span>(<span class="number">0</span>, startIndex);</span><br><span class="line">        <span class="keyword">const</span> afterPart = payload.<span class="title function_">substring</span>(endIndex);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 注入伪造的历史数据</span></span><br><span class="line">        <span class="keyword">const</span> newPayload = beforePart + </span><br><span class="line">            <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(history_data) + </span><br><span class="line">            afterPart;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> newPayload;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> payload;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>技术亮点：</p>
+<ul>
+<li>精准的字符串定位算法，避免误替换</li>
+<li>同时处理现有和未来的数据流</li>
+<li>保持原有数据结构完整性</li>
+</ul>
+<h4 id="React-组件操作"><a href="#React-组件操作" class="headerlink" title="React 组件操作"></a>React 组件操作</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">typeAndSubmitPrompt</span>(<span class="params">prompt</span>) &#123;</span><br><span class="line">    <span class="comment">// 1. 找到带有 React props 的 textarea</span></span><br><span class="line">    <span class="keyword">const</span> textarea = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;textarea[name=&quot;text&quot;]&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> reactPropsKey = <span class="title class_">Object</span>.<span class="title function_">keys</span>(textarea).<span class="title function_">find</span>(<span class="function"><span class="params">key</span> =&gt;</span> </span><br><span class="line">        key.<span class="title function_">startsWith</span>(<span class="string">&#x27;__reactProps$&#x27;</span>)</span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (reactPropsKey) &#123;</span><br><span class="line">        <span class="keyword">const</span> props = textarea[reactPropsKey];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 2. 直接调用 React 的 onChange 处理器</span></span><br><span class="line">        <span class="keyword">const</span> mockEvent = &#123;</span><br><span class="line">            <span class="attr">target</span>: &#123; <span class="attr">value</span>: prompt &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        props.<span class="title function_">onChange</span>(mockEvent);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 3. 等待 React 状态更新</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> submitButton = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button[type=&quot;submit&quot;]&#x27;</span>);</span><br><span class="line">            <span class="keyword">if</span> (!submitButton.<span class="property">disabled</span>) &#123;</span><br><span class="line">                submitButton.<span class="title function_">click</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="number">150</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>精髓之处：</p>
+<ul>
+<li>不通过 DOM API，而是直接操作 React 内部</li>
+<li>模拟真实的用户交互事件</li>
+<li>精确的时序控制</li>
+</ul>
+<p>####Fetch 请求拦截</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">hookFetch</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> originalFetch = <span class="variable language_">window</span>.<span class="property">fetch</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">fetch</span> = <span class="keyword">async</span> <span class="keyword">function</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> url = args[<span class="number">0</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 拦截 LMArena 的 API 请求</span></span><br><span class="line">        <span class="keyword">if</span> (url.<span class="title function_">includes</span>(<span class="string">&#x27;/api/stream/post-to-evaluation/&#x27;</span>)) &#123;</span><br><span class="line">            <span class="keyword">const</span> options = args[<span class="number">1</span>] || &#123;&#125;;</span><br><span class="line">            <span class="keyword">const</span> bodyObject = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(options.<span class="property">body</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 1. 替换模型 ID</span></span><br><span class="line">            <span class="keyword">const</span> targetModelId = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="variable constant_">MODEL_ID_STORAGE_KEY</span>);</span><br><span class="line">            <span class="keyword">if</span> (targetModelId) &#123;</span><br><span class="line">                bodyObject.<span class="property">modelAId</span> = targetModelId;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 2. 更新最后一条消息的模型 ID</span></span><br><span class="line">                <span class="keyword">const</span> messages = bodyObject.<span class="property">messages</span>;</span><br><span class="line">                <span class="keyword">if</span> (messages.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">const</span> lastMessage = messages[messages.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">if</span> (lastMessage.<span class="property">role</span> === <span class="string">&#x27;assistant&#x27;</span>) &#123;</span><br><span class="line">                        lastMessage.<span class="property">modelId</span> = targetModelId;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 3. 敏感词绕过逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (config.<span class="property">bypass_enabled</span> &amp;&amp; messages.<span class="property">length</span> &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="keyword">const</span> originalUserMsg = messages[messages.<span class="property">length</span> - <span class="number">2</span>];</span><br><span class="line">                <span class="keyword">const</span> assistantPlaceholder = messages[messages.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> (originalUserMsg.<span class="property">role</span> === <span class="string">&#x27;user&#x27;</span> &amp;&amp; </span><br><span class="line">                    assistantPlaceholder.<span class="property">role</span> === <span class="string">&#x27;assistant&#x27;</span>) &#123;</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">// 插入空消息</span></span><br><span class="line">                    <span class="keyword">const</span> emptyUserMessage = &#123;</span><br><span class="line">                        <span class="attr">content</span>: <span class="string">&#x27; &#x27;</span>,</span><br><span class="line">                        <span class="attr">id</span>: crypto.<span class="title function_">randomUUID</span>(),</span><br><span class="line">                        <span class="attr">role</span>: <span class="string">&#x27;user&#x27;</span>,</span><br><span class="line">                        <span class="attr">parentMessageIds</span>: [originalUserMsg.<span class="property">id</span>]</span><br><span class="line">                    &#125;;</span><br><span class="line">                    </span><br><span class="line">                    assistantPlaceholder.<span class="property">parentMessageIds</span> = [emptyUserMessage.<span class="property">id</span>];</span><br><span class="line">                    messages.<span class="title function_">splice</span>(-<span class="number">1</span>, <span class="number">0</span>, emptyUserMessage);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            options.<span class="property">body</span> = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(bodyObject);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 执行请求并克隆响应用于流处理</span></span><br><span class="line">        <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">originalFetch</span>(...args);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (url.<span class="title function_">includes</span>(<span class="string">&#x27;/api/stream/post-to-evaluation/&#x27;</span>)) &#123;</span><br><span class="line">            <span class="keyword">const</span> clonedResponse = response.<span class="title function_">clone</span>();</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 异步处理流</span></span><br><span class="line">            <span class="title function_">processStream</span>(clonedResponse);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 返回原始响应</span></span><br><span class="line">            <span class="keyword">return</span> response;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>关键功能：</p>
+<ul>
+<li>动态修改请求参数</li>
+<li>响应克隆实现双流处理</li>
+<li>敏感词绕过技术</li>
+</ul>
+<h3 id="3-响应流式处理"><a href="#3-响应流式处理" class="headerlink" title="3. 响应流式处理"></a>3. 响应流式处理</h3><p>从 LMArena 的原始流式响应提取文本内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_openai_response_generator</span>(<span class="params">task_id</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成 OpenAI 格式的流式响应&quot;&quot;&quot;</span></span><br><span class="line">    text_pattern = re.<span class="built_in">compile</span>(<span class="string">r&#x27;a0:&quot;((?:\\.|[^&quot;\\])*)&quot;&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment"># 从队列获取原始块</span></span><br><span class="line">            raw_chunk = RESULTS[task_id][<span class="string">&#x27;stream_queue&#x27;</span>].get(timeout=<span class="number">1</span>)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 提取文本内容</span></span><br><span class="line">            matches = text_pattern.findall(raw_chunk)</span><br><span class="line">            <span class="keyword">for</span> <span class="keyword">match</span> <span class="keyword">in</span> matches:</span><br><span class="line">                <span class="comment"># JSON 解码处理转义字符</span></span><br><span class="line">                text_content = json.loads(<span class="string">f&#x27;&quot;<span class="subst">&#123;<span class="keyword">match</span>&#125;</span>&quot;&#x27;</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> text_content.strip():</span><br><span class="line">                    <span class="keyword">yield</span> format_openai_chunk(</span><br><span class="line">                        text_content, </span><br><span class="line">                        model_name, </span><br><span class="line">                        request_id</span><br><span class="line">                    )</span><br><span class="line">                    </span><br><span class="line">        <span class="keyword">except</span> Empty:</span><br><span class="line">            <span class="comment"># 检查任务状态</span></span><br><span class="line">            <span class="keyword">if</span> RESULTS[task_id].get(<span class="string">&#x27;status&#x27;</span>) == <span class="string">&#x27;completed&#x27;</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="技术难点与解决方案"><a href="#技术难点与解决方案" class="headerlink" title="技术难点与解决方案"></a>技术难点与解决方案</h2><h3 id="1-会话状态同步"><a href="#1-会话状态同步" class="headerlink" title="1. 会话状态同步"></a>1. 会话状态同步</h3><p><strong>问题</strong>: 如何让 LMArena 相信对话历史是真实的？</p>
+<p><strong>解决方案</strong>:</p>
+<ul>
+<li>精确复制 LMArena 的数据结构</li>
+<li>维护正确的消息关系链</li>
+<li>使用真实的会话 ID</li>
+</ul>
+<h3 id="2-实时性保证"><a href="#2-实时性保证" class="headerlink" title="2. 实时性保证"></a>2. 实时性保证</h3><p><strong>问题</strong>: 如何实现低延迟的流式响应？</p>
+<p><strong>解决方案</strong>:</p>
+<ul>
+<li>双队列机制：作业队列 + 流队列</li>
+<li>事件驱动的异步处理</li>
+<li>最小化数据处理开销</li>
+</ul>
+<h3 id="3-错误恢复"><a href="#3-错误恢复" class="headerlink" title="3. 错误恢复"></a>3. 错误恢复</h3><p><strong>问题</strong>: 浏览器环境不稳定，如何保证系统可靠性？</p>
+<p><strong>解决方案</strong>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 轮询错误恢复</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">pollForJob</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">`<span class="subst">$&#123;SERVER_URL&#125;</span>/get_injection_job`</span>);</span><br><span class="line">            <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (data.<span class="property">status</span> === <span class="string">&#x27;success&#x27;</span>) &#123;</span><br><span class="line">                <span class="comment">// 处理作业</span></span><br><span class="line">                <span class="title function_">processJob</span>(data.<span class="property">job</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Error polling for job:&#x27;</span>, error);</span><br><span class="line">            <span class="comment">// 指数退避</span></span><br><span class="line">            <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> </span><br><span class="line">                <span class="built_in">setTimeout</span>(resolve, <span class="title class_">Math</span>.<span class="title function_">min</span>(<span class="number">10000</span>, attempts * <span class="number">1000</span>))</span><br><span class="line">            );</span><br><span class="line">            attempts++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, <span class="number">3000</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="项目的创新之处"><a href="#项目的创新之处" class="headerlink" title="项目的创新之处"></a>项目的创新之处</h2><ol>
+<li><strong>架构创新</strong>: 将浏览器作为 API 网关，绕过了传统的 API 限制</li>
+<li><strong>技术创新</strong>: 深度整合 Next.js、React 和 Fetch 机制</li>
+<li><strong>模式创新</strong>: 提供了一种通用的 Web 服务 API 化方案</li>
+</ol>
+<h2 id="应用前景"><a href="#应用前景" class="headerlink" title="应用前景"></a>应用前景</h2><p>这种架构模式可以应用到许多其他场景：</p>
+<ul>
+<li>为 SaaS 产品创建 API 接口</li>
+<li>自动化没有 API 的遗留系统</li>
+<li>创建多个服务间的统一 API 层</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>LMArenaBridge 展示了前端技术的惊人潜力。通过巧妙地利用浏览器自动化技术，它成功地在 Web 应用和标准 API 之间架起了一座桥梁。这不仅是一个技术创举，更是一种思维方式的突破：当我们面对限制时，创新往往来自于对系统更深层次的理解和利用。</p>
+<p>项目的代码质量和架构设计都值得学习，特别是它在异步协调、状态管理和错误处理方面的实现。对于想要深入理解浏览器自动化和系统架构的开发者来说，这是一个绝佳的学习案例。</p>
+<hr>
+<p><em>本文相关代码来源于开源项目 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0xpYW51ZXMvTE1BcmVuYUJyaWRnZQ==">LMArenaBridge<i class="fa fa-external-link-alt"></i></span>，感谢作者的贡献。</em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><!-- 文章底部自定义内容 -->
+
+
+
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/channel_name">
+            <span class="icon">
+              <i class="fab fa-youtube"></i>
+            </span>
+
+            <span class="label">YouTube</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://space.bilibili.com/403214142">
+            <span class="icon">
+              <i class="fa-brands fa-bilibili"></i>
+            </span>
+
+            <span class="label">Bilibili</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag"># 浏览器自动化</a>
+              <a href="/tags/API-%E6%A1%A5%E6%8E%A5/" rel="tag"># API 桥接</a>
+              <a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" rel="tag"># 逆向工程</a>
+              <a href="/tags/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/" rel="tag"># 系统架构</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/0/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">mako</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">41k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:29</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3podS1qbDE4" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"lovingfish/utterances","issue_term":"url","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

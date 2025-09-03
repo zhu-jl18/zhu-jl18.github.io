@@ -26,13 +26,13 @@
 
 
 
-<link rel="canonical" href="https://zhu-jl18.github.io/posts/af12132/">
+<link rel="canonical" href="https://zhu-jl18.github.io/posts/57376ce0/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhu-jl18.github.io/posts/af12132/","path":"posts/af12132/","title":"Records for my Proxy and 2api"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhu-jl18.github.io/posts/57376ce0/","path":"posts/57376ce0/","title":"Records for my Proxy and 2api Server"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Records for my Proxy and 2api | Dirac Sea</title>
+<title>Records for my Proxy and 2api Server | Dirac Sea</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGG5BFG7WZ"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-MGG5BFG7WZ","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -77,7 +77,7 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://zhu-jl18.github.io/posts/af12132/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://zhu-jl18.github.io/posts/57376ce0/"}</script>
   <script src="/js/third-party/quicklink.js" defer></script>
 <!-- 字体预加载优化 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -213,7 +213,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-1-API-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">Part 1: API 反向代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%8F%8D%E4%BB%A3"><span class="nav-number">1.1.</span> <span class="nav-text">为什么需要反代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E4%BB%A3%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">反代原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E4%BB%A3%E5%B9%B3%E5%8F%B0"><span class="nav-number">1.3.</span> <span class="nav-text">反代平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E5%8F%8D%E4%BB%A3%E7%AD%96%E7%95%A5%E5%92%8C%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.4.</span> <span class="nav-text">不同反代策略和平台的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E6%88%91%E5%B7%B2%E7%BB%8F%E9%83%A8%E7%BD%B2%E7%9A%84%E5%8F%8D%E4%BB%A3%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.5.</span> <span class="nav-text">目前我已经部署的反代服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-2-2API"><span class="nav-number">2.</span> <span class="nav-text">Part 2: 2API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-2API%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">什么是 2API？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2API-%E5%8E%9F%E7%90%86%EF%BC%9A%E6%A8%A1%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A1%8C%E4%B8%BA"><span class="nav-number">2.2.</span> <span class="nav-text">2API 原理：模拟浏览器行为</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%93%E5%89%8D%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E7%9A%842API"><span class="nav-number">2.3.</span> <span class="nav-text">当前正在使用的2API</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -262,6 +262,23 @@
 
     
         <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/4763/" rel="bookmark">
+        <time class="popular-posts-time">2025-08-12</time>
+        <br>
+      Ultimate Plan for Gemini API Calls
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
         </div>
   </aside>
 
@@ -279,7 +296,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/posts/af12132/">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/posts/57376ce0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -292,12 +309,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Records for my Proxy and 2api | Dirac Sea">
+      <meta itemprop="name" content="Records for my Proxy and 2api Server | Dirac Sea">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Records for my Proxy and 2api
+          Records for my Proxy and 2api Server
         </h1>
 
         <div class="post-meta-container">
@@ -315,7 +332,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-09-03 08:34:06" itemprop="dateModified" datetime="2025-09-03T08:34:06+00:00">2025-09-03</time>
+      <time title="修改时间：2025-09-03 21:49:58" itemprop="dateModified" datetime="2025-09-03T21:49:58+00:00">2025-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -345,14 +362,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>26</span>
+      <span>2.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>9 分钟</span>
     </span>
 </div>
 
@@ -363,12 +380,108 @@
     
     
     <div class="post-body" itemprop="articleBody"><blockquote>
-<p> OpenAI-Compatible-API-Proxy-for-Z</p>
+<p> 记录大模型api反代原理，部署位置以及2api原理和部署</p>
 </blockquote>
 <span id="more"></span>
 <hr>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>OpenAI-Compatible-API-Proxy-for-Z   </p>
-<img src = "https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/avatar/avatar.jpg" style= "width: auto ">
+<h2 id="Part-1-API-反向代理"><a href="#Part-1-API-反向代理" class="headerlink" title="Part 1: API 反向代理"></a>Part 1: API 反向代理</h2><h3 id="为什么需要反代"><a href="#为什么需要反代" class="headerlink" title="为什么需要反代"></a><strong>为什么需要反代</strong></h3><p>  搭建API反向代理，本质上是为了解决网络问题，但其也有更深层次的价值：<strong>安全、可控和标准化</strong>。AI总计的核心理由如下：</p>
+<ol>
+<li><strong>解决网络可访问性</strong>: 这是最直接的动机，绕开location限制。</li>
+<li><strong>保护API密钥</strong>: 这是最重要的安全价值。直接调用API，API Key会暴露在前端代码中，极易被盗用。通过反代，API Key安全地存储在后端服务器，前端应用只与你的反代服务通信，由反代服务在后台添加密钥并转发请求，避免了密钥泄露的风险。详情可参考哈基米打野~</li>
+<li><strong>统一接口与解决跨域 (CORS) 问题</strong>: 进阶版的反代服务器可以作为所有API请求的统一入口，将不同服务商的API格式统一后再返回给前端。同时，它也从根本上解决了浏览器因安全策略限制网页直接请求不同域名API的跨域问题。</li>
+<li><strong>成本控制与监控</strong>: 作为一个中心化的请求枢纽，反代服务器可以轻松实现请求缓存、速率限制和日志记录等功能，帮助我们节省成本、防止恶意调用，并清晰地监控API使用情况。详情参考NEW API等。</li>
+</ol>
+<h3 id="反代原理"><a href="#反代原理" class="headerlink" title="反代原理"></a><strong>反代原理</strong></h3><p>   以 <code>gemini-netlify-proxy</code> 项目为例，其核心是一个部署在Netlify平台上的无服务器函数（Serverless Function）。它的工作流程完美诠释了反向代理的精髓，可以分解为以下四个步骤：</p>
+<ol>
+<li><strong>安全准备</strong>：函数首先从Netlify平台安全的环境变量中读取<code>GEMINI_API_KEY</code>，确保了密钥不暴露在任何公开代码中。同时，它定义了CORS（跨域资源共享）头部，允许来自任何域名的网页访问此接口。</li>
+<li><strong>动态构建目标</strong>：函数会解析访问它的URL，从中动态提取出用户希望调用的具体模型名称（如<code>gemini-pro-vision</code>）。然后，它将Google官方API的地址、模型名和后台存储的API密钥拼接成一个最终要请求的目标URL。</li>
+<li><strong>请求转发</strong>：这是反代的心脏。函数接收来自我们自己应用（如博客）的请求数据（Prompt等），然后使用服务器端的<code>fetch</code>命令，将这些数据原封不动地转发到上一步构建好的Google官方API地址。</li>
+<li><strong>响应返回</strong>：当函数收到来自Google服务器的响应后，它会立刻将这个响应的主体、状态码等关键信息，几乎原样地返回给我们自己的应用。</li>
+</ol>
+<p>   <strong>一言蔽之</strong>：这个部署在云端的函数就像一个聪明的“中间人”，它接收我们的请求，安全地盖上“密钥”这个印章，然后替我们跑腿到官方API那里办事，最后再把办好的结果原封不动地带回来。</p>
+<p>另外两个我在用的类似项目：</p>
+<ul>
+<li><p><strong><code>palm-netlify-proxy</code></strong>: 这可以看作是<code>gemini-netlify-proxy</code>的“姊妹篇”。它采用了完全相同的技术原理（Netlify无服务器函数），只是将请求的目标API换成了Google的PaLM模型。这验证了该模式的可复用性。</p>
+</li>
+<li><p><strong><code>proxy-interface</code></strong>: 这是一个更强大、更通用的“反代聚合器”。它基于Node.js和Koa框架，通过路由映射，将访问不同路径（如<code>/openai</code>, <code>/gemini_proxy</code>）的请求，智能地转发到各自对应的官方API服务器。它展示了一种用单个服务统一管理所有大模型API反代的中心化思路。</p>
+</li>
+</ul>
+<h3 id="反代平台"><a href="#反代平台" class="headerlink" title="反代平台"></a><strong>反代平台</strong></h3><p>要么自建<strong>VPS (Virtual Private Server)</strong> 租用一台云端的虚拟专用服务器来部署服务，目前我还没有涉及。要么当然是白嫖<strong>有免费使用额度的平台</strong> ：</p>
+<ul>
+<li><strong>大善人</strong>: <ul>
+<li>Deno</li>
+<li>Netlify </li>
+<li>Render </li>
+<li>Cloudflare</li>
+</ul>
+</li>
+<li><strong>其他选择</strong>:<ul>
+<li><strong>大型云服务商</strong>: Google Cloud (Cloud Run, Cloud Functions), AWS (Lambda)。特点是免费额度慷慨，生态强大，但配置流程相对复杂。</li>
+<li><strong>新兴PaaS平台</strong>: DigitalOcean App Platform。提供与Render类似的、以Git为核心的顺滑部署体验。</li>
+<li><strong>值得关注的选项</strong>: Heroku (PaaS模式的鼻祖，免费计划有变动), Dokku (可以在自己的VPS上搭建，实现类似Heroku的便捷部署体验)。</li>
+</ul>
+</li>
+</ul>
+<h3 id="不同反代策略和平台的优缺点"><a href="#不同反代策略和平台的优缺点" class="headerlink" title="不同反代策略和平台的优缺点"></a><strong>不同反代策略和平台的优缺点</strong></h3><p>   不同平台的核心区别在于部署体验和抽象层次。</p>
+<ul>
+<li><strong>PaaS平台 (Render, Netlify, DigitalOcean, Heroku)</strong>: 提供“保姆式服务”。你提供代码，平台负责从构建到部署的全流程，简单快捷。这是你熟悉的“连接GitHub一键部署”模式。</li>
+<li><strong>IaaS&#x2F;FaaS平台 (AWS Lambda, Google Cloud Run)</strong>: 提供“自助式服务”。它们运行的是标准化的“零件”（函数或容器），你需要自己定义规则（如通过CI&#x2F;CD脚本）来将代码打包成这些零件。这换来了更高的灵活性和更慷慨的免费额度。</li>
+<li><strong>自建方案 (VPS, Dokku)</strong>: 拥有从硬件到软件的完全控制权，自由度最高，但维护成本也最高。</li>
+</ul>
+<h3 id="目前我已经部署的反代服务"><a href="#目前我已经部署的反代服务" class="headerlink" title="目前我已经部署的反代服务"></a><strong>目前我已经部署的反代服务</strong></h3><p>我的反代服务主要针对 Gemini API，因为这是我主要使用的大模型服务。对于 GPT 和 Claude，我通常使用其他人提供的公益 API。</p>
+<p>具体部署的反代服务包括：基础版反代和反截断版本</p>
+<p>此外是针对谷歌截断问题的加强版</p>
+<p>来自L站佬友们，有很多版本~~核心是两点：</p>
+<ul>
+<li>判断响应是否被截断</li>
+<li>自动重试拼接完整响应<br>由于 Google 已经修复了截断问题，已经处于 deprecated 状态。</li>
+</ul>
+<p>目前我很少看到open ai和grok的反代服务。。。。</p>
+<h2 id="Part-2-2API"><a href="#Part-2-2API" class="headerlink" title="Part 2: 2API"></a>Part 2: 2API</h2><h3 id="什么是-2API？"><a href="#什么是-2API？" class="headerlink" title="什么是 2API？"></a>什么是 2API？</h3><p>在这个语境中，”2API”特指一种通过<strong>逆向工程 (Reverse Engineering)</strong>，为本身没有提供公开API的Web服务（例如一个在线聊天网站），强行创造出一个可供程序化调用的API接口的技术。</p>
+<p><strong>更准确的定义应该是</strong>：2API 是一种将 Web 应用程序的前端交互逻辑转化为标准化 API 接口的技术方案。它通过分析目标网站的：</p>
+<ol>
+<li><strong>网络请求流程</strong>：抓包分析前端与后端的通信协议、请求格式和参数</li>
+<li><strong>认证机制</strong>：破解或复现登录状态维持、token 生成等身份验证方式</li>
+<li><strong>数据交换格式</strong>：理解并复现请求体的数据结构和响应解析方式</li>
+<li><strong>业务逻辑链路</strong>：模拟用户的完整操作流程，包括会话建立、请求发送、响应接收等</li>
+</ol>
+<p>通过以上分析，2API 能够构建一个”翻译层”，将标准的 API 调用（如 OpenAI 格式）转换成目标网站能够识别的内部请求，从而实现程序化访问。</p>
+<p>这个技术本质上是在”利用目标服务的前端作为免费的 UI，而自己掌控后端的逻辑控制”，实现了对封闭 Web 服务的 API 化改造。</p>
+<p>这项技术的出现，其动机主要源于以下几点：</p>
+<ol>
+<li><strong>玩上最新模型</strong>：通过逆向分析LMSYS竞技场这类平台，可以调用到那些尚未公开发布API的、最前沿的模型。</li>
+<li><strong>获取满血体验</strong>：Web前端为保证用户体验，其后端接口通常功能完整，未经阉割。2API旨在调用到这个“满血版”的接口。</li>
+<li><strong>当然是去白嫖</strong>：若目标Web服务本身免费，通过2API调用理论上也可以绕过官方的按量计费API。</li>
+</ol>
+<h3 id="2API-原理：模拟浏览器行为"><a href="#2API-原理：模拟浏览器行为" class="headerlink" title="2API 原理：模拟浏览器行为"></a>2API 原理：模拟浏览器行为</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xvdmluZ2Zpc2gvT3BlbkFJLUNvbXBhdGlibGUtQVBJLVByb3h5LWZvci1a">https://github.com/lovingfish/OpenAI-Compatible-API-Proxy-for-Z<i class="fa fa-external-link-alt"></i></span></p>
+<p>这个项目的核心原理是创建了一个<strong>中间代理服务</strong>，实现了从 OpenAI API 格式到目标 Web 服务内部格式的高效转换。</p>
+<p><strong>技术架构</strong>：</p>
+<ol>
+<li><p><strong>标准化接口层</strong>：代理服务提供完全兼容 OpenAI 的 <code>/v1/chat/completions</code> 等标准接口，让任何 OpenAI 客户端都能直接使用，无需修改代码。</p>
+</li>
+<li><p><strong>请求转换引擎</strong>：接收到标准格式的请求后，代理会将其转换为目标网站（如 Z 平台）能够识别的内部格式。这包括：</p>
+<ul>
+<li>消息格式转换（OpenAI messages → Z 平台的消息结构）</li>
+<li>模型名称映射（如 gpt-4 → Z 平台内部模型 ID）</li>
+<li>参数适配（temperature、max_tokens 等参数的本地化）</li>
+</ul>
+</li>
+<li><p><strong>会话管理机制</strong>：代理会模拟浏览器的行为，处理登录态维持、cookie 管理、token 刷新等认证相关事务，确保请求能够被目标服务正确处理。</p>
+</li>
+<li><p><strong>响应流式转换</strong>：将目标服务的响应流（可能是 SSE 或其他格式）实时转换为 OpenAI 标准的流式格式，保持与官方 API 完全一致的体验。</p>
+</li>
+</ol>
+<p>这种设计实现了”一次接入，随处使用”的效果，用户可以像使用官方 API 一样使用这些逆向工程得到的接口。</p>
+<h3 id="当前正在使用的2API"><a href="#当前正在使用的2API" class="headerlink" title="当前正在使用的2API"></a>当前正在使用的2API</h3><p>在目前我接触和使用了两种2API：竞技场2API和智谱AI 2API。这两种都是通过逆向工程实现的非官方API接口。</p>
+<p>竞技场2API主要针对LMSYS竞技场平台，这个平台汇集了各种前沿的大模型进行对战评估。当然拿来玩酒馆和用最新模型了。gpt-5-high非常地不错。我觉得这是一项非常伟大的发明啊~~这个佬友太厉害了。</p>
+<p>一个小玩意，用来在cherry里和ai进行简短的涩涩…比较轻量级</p>
+<ul>
+<li>稳定性较好，很少中断</li>
+<li>破甲十分容易，很淫荡</li>
+<li>输出比较快，虽然冷启动</li>
+</ul>
+<p>此外，听说grok也能够通过2api进行无限制的使用，留作探索吧。</p>
+<img src = "https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/avatar/avatar.jpg" style= "width: 20% ">
 
 
     </div>
@@ -425,8 +538,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/e71dcf05/" rel="next" title="Git工作流优化之旅：从混乱到自如的博客发布体验">
-                  Git工作流优化之旅：从混乱到自如的博客发布体验 <i class="fa fa-angle-right"></i>
+                <a href="/posts/8a6ab0d0/" rel="next" title="Gemini 2.5 Flash图像模型技术深度解析：一致性与指令理解的内在机制">
+                  Gemini 2.5 Flash图像模型技术深度解析：一致性与指令理解的内在机制 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -459,13 +572,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">36k</span>
+    <span title="站点总字数">41k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:11</span>
+    <span title="站点阅读时长">2:29</span>
   </span>
 </div>
 <div class="busuanzi-count">
