@@ -1413,7 +1413,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #ffe37d;
+    background: #04990d;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3484,35 +3484,74 @@ mjx-c {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transform: translateY(-2px);
 }
-.category-header {
+.categories-overview .category-header {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
   gap: 0.75rem;
 }
-.category-icon {
+.categories-overview .category-icon {
   font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1;
 }
-.category-title {
+.categories-overview .category-title {
   font-size: 1.1rem;
   font-weight: 500;
   color: #2c3e50;
-  margin: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   flex: 1;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
 }
-.category-count {
+.categories-overview .category-title::before {
+  display: none !important;
+  content: none !important;
+}
+.post-body .categories-overview .category-title::before {
+  display: none !important;
+  content: none !important;
+}
+.post-body .categories-overview .category-title {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  line-height: 1.6;
+  margin: 0 0 1.25rem 0;
+  font-size: 0.9rem;
+}
+.post-body .categories-overview .category-title .category-count {
   background: #f3f4f6;
   color: #6b7280;
   padding: 0.25rem 0.5rem;
   border-radius: 12px;
   font-size: 0.75rem;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  line-height: 1;
 }
-.category-desc {
+.post-body .categories-overview .category-title .category-desc {
   color: #6b7280;
   line-height: 1.6;
-  margin: 0 0 1.25rem 0;
-  font-size: 0.9rem;
+}
+.post-body .categories-overview .category-title .category-link {
+  display: inline-flex;
+  align-items: center;
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: color 0.3s ease;
+}
+.post-body .categories-overview .category-title .category-link:hover {
+  color: #1a202c;
 }
 .category-link {
   color: #2c3e50;
