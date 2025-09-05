@@ -16,6 +16,17 @@
   }
   function saveCfg(cfg){ localStorage.setItem(CFG_KEY, JSON.stringify(cfg)); }
 
+  // Optional: override embedding endpoint (non-OpenAI path)
+  function getEmbeddingEndpoint(base){
+    const cfg = loadCfg();
+    // If user set a full endpoint in embed field like 'FULL_ENDPOINT::MODEL', split
+    if (cfg.embedModel && cfg.embedModel.includes('::')){
+      const [endpoint, model] = cfg.embedModel.split('::');
+      return { url: endpoint, model };
+    }
+    return { url: new URL('/v1/embeddings', base).toString(), model: cfg.embedModel };
+  }
+
   function ensureUI(){
     if (document.querySelector('#chat-floating-btn')) return;
     const btn = document.createElement('div');
@@ -91,17 +102,6 @@
     STATE.index = data.items;
     STATE.dim = data.dim;
     return STATE.index;
-  }
-
-  // Optional: override embedding endpoint (non-OpenAI path)
-  function getEmbeddingEndpoint(base){
-    const cfg = loadCfg();
-    // If user set a full endpoint in embed field like 'FULL_ENDPOINT::MODEL', split
-    if (cfg.embedModel && cfg.embedModel.includes('::')){
-      const [endpoint, model] = cfg.embedModel.split('::');
-      return { url: endpoint, model };
-    }
-    return { url: new URL('/v1/embeddings', base).toString(), model: cfg.embedModel };
   }
 
   async function embed(text){

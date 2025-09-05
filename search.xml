@@ -279,60 +279,6 @@
       </tags>
   </entry>
   <entry>
-    <title>English-DailyLearn-01</title>
-    <url>/posts/55322/</url>
-    <content><![CDATA[<blockquote>
-<p>English learned everyday!</p>
-</blockquote>
-<span id="more"></span>
-<hr>
-<ul>
-<li><p><strong>discipline</strong> <code>a particular area of study, especially a subject studied at a college or university</code></p>
-</li>
-<li><p><strong>precisely</strong>  <code>exactly; used to emphasize what you are saying</code></p>
-</li>
-<li><p><strong>embankment</strong> <code>堤岸，路堤</code> </p>
-</li>
-<li><p><strong>revision</strong> <code>复习；修改</code></p>
-</li>
-<li><p><strong>conjure (up)</strong> <code>to make something appear by magic, or as if by magic</code></p>
-</li>
-<li><p><strong>spell disaster, trouble, etc.</strong>  <code>意味着灾难，会招致麻烦（等等）</code></p>
-</li>
-<li><p><strong>sorcerer</strong> <code>巫师，术士，魔法师</code></p>
-</li>
-<li><hr>
-</li>
-<li><p><strong>recruit</strong> <code>招聘，吸引加入；（尤指军队）征募新兵</code> <code>This association has recruited enthusiasts from many professions</code></p>
-</li>
-<li><p><strong>excel (in)</strong>  <code>vi.</code> <code>to be extremely good at something</code></p>
-</li>
-<li><p><strong>excel yourself</strong> <code>to do something better than you usually do</code></p>
-</li>
-<li><p><strong>facilitate</strong> <code>to make something possible or easier</code></p>
-</li>
-<li><p><strong>inhale</strong>  <code>vi, vt.</code> <code>to breathe air, smoke, or gas into your lungs</code></p>
-</li>
-<li><p><strong>prompt</strong>   <code>to make something happen</code></p>
-</li>
-<li><p><strong>egotistic</strong> <code>considering yourself to be better or more important than other people自大的，自负的，念念不忘自我的</code></p>
-</li>
-<li><p><strong>merit</strong>  <code>the quality of being good and deserving praise</code> <code>Her ideas have merit.</code></p>
-</li>
-<li><p><em>controversial3</em></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>语言学习</category>
-      </categories>
-      <tags>
-        <tag>ai</tag>
-        <tag>语言学习</tag>
-        <tag>english</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>English-Grammar-Overview</title>
     <url>/posts/30613/</url>
     <content><![CDATA[<blockquote>
@@ -518,6 +464,60 @@
         <tag>语言学习</tag>
         <tag>english</tag>
         <tag>grammar</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>English-DailyLearn-01</title>
+    <url>/posts/55322/</url>
+    <content><![CDATA[<blockquote>
+<p>English learned everyday!</p>
+</blockquote>
+<span id="more"></span>
+<hr>
+<ul>
+<li><p><strong>discipline</strong> <code>a particular area of study, especially a subject studied at a college or university</code></p>
+</li>
+<li><p><strong>precisely</strong>  <code>exactly; used to emphasize what you are saying</code></p>
+</li>
+<li><p><strong>embankment</strong> <code>堤岸，路堤</code> </p>
+</li>
+<li><p><strong>revision</strong> <code>复习；修改</code></p>
+</li>
+<li><p><strong>conjure (up)</strong> <code>to make something appear by magic, or as if by magic</code></p>
+</li>
+<li><p><strong>spell disaster, trouble, etc.</strong>  <code>意味着灾难，会招致麻烦（等等）</code></p>
+</li>
+<li><p><strong>sorcerer</strong> <code>巫师，术士，魔法师</code></p>
+</li>
+<li><hr>
+</li>
+<li><p><strong>recruit</strong> <code>招聘，吸引加入；（尤指军队）征募新兵</code> <code>This association has recruited enthusiasts from many professions</code></p>
+</li>
+<li><p><strong>excel (in)</strong>  <code>vi.</code> <code>to be extremely good at something</code></p>
+</li>
+<li><p><strong>excel yourself</strong> <code>to do something better than you usually do</code></p>
+</li>
+<li><p><strong>facilitate</strong> <code>to make something possible or easier</code></p>
+</li>
+<li><p><strong>inhale</strong>  <code>vi, vt.</code> <code>to breathe air, smoke, or gas into your lungs</code></p>
+</li>
+<li><p><strong>prompt</strong>   <code>to make something happen</code></p>
+</li>
+<li><p><strong>egotistic</strong> <code>considering yourself to be better or more important than other people自大的，自负的，念念不忘自我的</code></p>
+</li>
+<li><p><strong>merit</strong>  <code>the quality of being good and deserving praise</code> <code>Her ideas have merit.</code></p>
+</li>
+<li><p><em>controversial3</em></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>语言学习</category>
+      </categories>
+      <tags>
+        <tag>ai</tag>
+        <tag>语言学习</tag>
+        <tag>english</tag>
       </tags>
   </entry>
   <entry>
@@ -1177,6 +1177,138 @@
       </tags>
   </entry>
   <entry>
+    <title>Gemini 2.5 Flash图像模型技术深度解析：一致性与指令理解的内在机制</title>
+    <url>/posts/8a6ab0d0/</url>
+    <content><![CDATA[<blockquote>
+<p>本文为个人学习记录，旨在深度解析Google Gemini 2.5 Flash Image模型在图像编辑任务中，其卓越的“一致性”与“指令理解能力”背后的核心技术原理，并基于公开的学术研究探讨其技术边界与未来趋势。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Google的Gemini 2.5 Flash Image模型（内部代号“nano banana”）在图像编辑领域展现了前所未有的能力，特别是在维持编辑对象的一致性以及对复杂自然语言指令的精确理解上。本文旨在探究这两大突破性能力的技术实现路径。</p>
+<hr>
+<h2 id="一、高一致性（High-Consistency）的技术探究"><a href="#一、高一致性（High-Consistency）的技术探究" class="headerlink" title="一、高一致性（High Consistency）的技术探究"></a>一、高一致性（High Consistency）的技术探究</h2><p>模型在多次、多场景编辑中保持角色或对象身份不发生改变的能力，是其超越以往模型的关键。其核心技术思想可归结为 <strong>“解耦身份与状态”（Disentangling Identity from State）</strong>。</p>
+<h3 id="1-1-核心思想：解耦表征"><a href="#1-1-核心思想：解耦表征" class="headerlink" title="1.1 核心思想：解耦表征"></a>1.1 核心思想：解耦表征</h3><p>传统的图像编辑模型在处理对象时，其内部表征往往将对象的本质特征（身份）与暂时性特征（状态，如姿态、光照、表情）纠缠在一起。因此，对状态的修改极易污染身份表征，导致身份漂移。</p>
+<p>Gemini 2.5 Flash Image通过在模型设计和训练目标上的优化，实现了对这两部分特征的有效分离。</p>
+<h3 id="1-2-技术实现路径"><a href="#1-2-技术实现路径" class="headerlink" title="1.2 技术实现路径"></a>1.2 技术实现路径</h3><h4 id="1-2-1-“身份向量”的提取与锁定-Identity-Vector-Extraction-Locking"><a href="#1-2-1-“身份向量”的提取与锁定-Identity-Vector-Extraction-Locking" class="headerlink" title="1.2.1 “身份向量”的提取与锁定 (Identity Vector Extraction &amp; Locking)"></a>1.2.1 “身份向量”的提取与锁定 (Identity Vector Extraction &amp; Locking)</h4><ul>
+<li><strong>原理</strong>：模型包含一个经过特殊训练的编码器，其功能是从输入图像中为指定对象提取一个高维、浓缩的特征向量——即“身份向量”（Identity Vector）。此向量被设计为对姿态、光照、视角等状态变化具有不变性，仅捕捉对象最本质、最核心的身份定义特征（如人脸的几何结构、独特的纹理等）。</li>
+<li><strong>实现细节</strong>：这可能通过对比学习（Contrastive Learning）等自监督方法实现。模型在训练中被要求判断：在不同状态下的同一个对象（正样本）的身份向量应该尽可能接近，而不同对象（负样本）的身份向量应该尽可能远离。</li>
+</ul>
+<h4 id="1-2-2-基于交叉注意力的特征注入-Cross-Attention-based-Feature-Injection"><a href="#1-2-2-基于交叉注意力的特征注入-Cross-Attention-based-Feature-Injection" class="headerlink" title="1.2.2 基于交叉注意力的特征注入 (Cross-Attention based Feature Injection)"></a>1.2.2 基于交叉注意力的特征注入 (Cross-Attention based Feature Injection)</h4><ul>
+<li><strong>原理</strong>：在执行编辑或将对象置于新场景的生成过程中，已锁定的“身份向量”并不直接参与像素计算。相反，它作为一种强约束条件，通过交叉注意力机制引导整个生成过程。</li>
+<li><strong>实现细节</strong>：在Diffusion等生成模型的每一步去噪过程中，“身份向量”作为<code>Query</code>，新场景或待编辑区域的特征图作为<code>Key</code>和<code>Value</code>。通过这种方式，“身份向量”持续“查询”生成过程，确保生成的像素在符合新场景上下文（光照、风格）的同时，其身份特征始终与“身份向量”保持一致。这个过程可以被视为一种受控的、以身份为条件的图像生成。</li>
+</ul>
+<hr>
+<h2 id="二、强指令理解能力（Strong-Instruction-Following）的技术探究"><a href="#二、强指令理解能力（Strong-Instruction-Following）的技术探究" class="headerlink" title="二、强指令理解能力（Strong Instruction Following）的技术探究"></a>二、强指令理解能力（Strong Instruction Following）的技术探究</h2><p>模型能够精确解析并执行复杂的、带有逻辑关系的自然语言指令，其背后是 <strong>“原生多模态与组合推理”（Native Multimodality and Compositional Reasoning）</strong> 的协同作用。</p>
+<h3 id="2-1-核心思想：统一语义空间"><a href="#2-1-核心思想：统一语义空间" class="headerlink" title="2.1 核心思想：统一语义空间"></a>2.1 核心思想：统一语义空间</h3><p>与采用“胶水”架构（一个LLM + 一个图像模型）的方案不同，Gemini 2.5 Flash Image是一个原生的多模态模型。这意味着文本和图像信息在模型的早期阶段就被映射到一个共享的、统一的语义空间中进行处理。</p>
+<h3 id="2-2-技术实现路径"><a href="#2-2-技术实现路径" class="headerlink" title="2.2 技术实现路径"></a>2.2 技术实现路径</h3><h4 id="2-2-1-共享语义空间中的概念对齐"><a href="#2-2-1-共享语义空间中的概念对齐" class="headerlink" title="2.2.1 共享语义空间中的概念对齐"></a>2.2.1 共享语义空间中的概念对齐</h4><ul>
+<li><strong>原理</strong>：在这个统一的语义空间里，文本token（如“猫”）和图像中猫的视觉特征patch拥有高度相似或关联的向量表示。因此，模型在处理指令时，并非在进行“文本到图像的翻译”，而是在这个共享空间内直接进行跨模态的概念定位、关联与操作。</li>
+<li><strong>优势</strong>：这种原生设计使得模型能够理解更抽象、更细粒度的指令，例如“让气氛更紧张一点”，模型可以在共享空间中找到“紧张气氛”所对应的视觉元素（如更低的对比度、特定的色调），并将其应用于图像。</li>
+</ul>
+<h4 id="2-2-2-基于LLM核心的组合推理能力-Compositional-Reasoning"><a href="#2-2-2-基于LLM核心的组合推理能力-Compositional-Reasoning" class="headerlink" title="2.2.2 基于LLM核心的组合推理能力 (Compositional Reasoning)"></a>2.2.2 基于LLM核心的组合推理能力 (Compositional Reasoning)</h4><ul>
+<li><p><strong>原理</strong>：该能力直接受益于Gemini模型强大的语言推理核心。模型能够将一句复杂的自然语言指令，在内部解析为一个具有逻辑层级和执行顺序的“操作树”（Operation Tree）。</p>
+</li>
+<li><p><strong>组合推理流程示意图</strong></p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[接收复杂指令: &quot;保持人物不变, 将背景替换为森林, 并添加雾气效果&quot;] --&gt; B&#123;语义解析与分割&#125;;</span><br><span class="line">    B --&gt; C[&quot;人物&quot;区域识别];</span><br><span class="line">    B --&gt; D[&quot;背景&quot;区域识别];</span><br><span class="line">    C --&gt; E[约束条件: 保持不变];</span><br><span class="line">    D --&gt; F[操作A: 替换为森林];</span><br><span class="line">    F --&gt; G[操作B: 添加雾气效果];</span><br><span class="line">    E &amp; G --&gt; H[整合生成最终图像];</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>优势</strong>：这种分解和按逻辑执行的能力，是其能够处理包含否定（“除了…”）、条件（“如果…就…”）、并列（“并且…”）等复杂逻辑指令的关键。</li>
+</ul>
+<h3 id="2-3-训练数据推测：能力的基石"><a href="#2-3-训练数据推测：能力的基石" class="headerlink" title="2.3 训练数据推测：能力的基石"></a>2.3 训练数据推测：能力的基石</h3><p>模型的卓越能力，离不开其背后高质量、大规模的训练数据。基于对InstructPix2Pix、MagicBrush等相关学术研究的分析，可以推断Gemini 2.5 Flash Image的训练集具有以下特征：</p>
+<ul>
+<li><strong>核心数据结构</strong>：训练数据由海量的 <strong>（输入图像, 编辑指令, 输出图像）</strong> “三元组”构成。</li>
+<li><strong>数据演进趋势</strong>：<ul>
+<li><strong>高质量与人工调校</strong>：不同于早期完全由AI合成的数据集，其训练数据可能包含了大量经由人工标注、筛选和反馈的样本（类似MagicBrush, HumanEdit），以确保编辑结果更符合人类意图和审美。</li>
+<li><strong>大规模与高分辨率</strong>：为了保证模型的精细度和泛化能力，数据集的规模可能达到数百万级别，并采用高分辨率图像（类似HQ-Edit, UltraEdit）。</li>
+<li><strong>复杂性与推理</strong>：数据集中可能包含专门用于训练复杂、抽象和动态指令的子集（类似ReasonPix2Pix, InstructMove），以强化模型的推理能力。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="三、主流图像模型对比"><a href="#三、主流图像模型对比" class="headerlink" title="三、主流图像模型对比"></a>三、主流图像模型对比</h2><p>为了更清晰地定位Gemini 2.5 Flash Image的特点，我们将其与几个主流模型进行对比：</p>
+<table>
+<thead>
+<tr>
+<th align="left">特性维度</th>
+<th align="left">Gemini 2.5 Flash (Nano Banana)</th>
+<th align="left">Midjourney</th>
+<th align="left">DALL-E 3</th>
+<th align="left">Stable Diffusion</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>核心优势</strong></td>
+<td align="left"><strong>精准图像编辑与高一致性</strong></td>
+<td align="left">艺术性风格与社区驱动</td>
+<td align="left">语义理解与ChatGPT原生集成</td>
+<td align="left">开源生态与高度可定制性</td>
+</tr>
+<tr>
+<td align="left"><strong>主要应用</strong></td>
+<td align="left">图像后期处理、精细化修改</td>
+<td align="left">概念艺术、插画、风格化创作</td>
+<td align="left">创意内容生成、快速原型</td>
+<td align="left">学术研究、本地部署、特定风格模型训练</td>
+</tr>
+<tr>
+<td align="left"><strong>一致性控制</strong></td>
+<td align="left"><strong>非常强</strong>，为模型核心能力</td>
+<td align="left">较弱，依赖<code>--cref</code>等参数</td>
+<td align="left">较强，有一定内置能力</td>
+<td align="left">依赖ControlNet等扩展技术</td>
+</tr>
+<tr>
+<td align="left"><strong>编辑能力</strong></td>
+<td align="left"><strong>极强</strong>，为模型核心能力</td>
+<td align="left">有限，主要为局部重绘(Vary)</td>
+<td align="left">较强，集成于ChatGPT中</td>
+<td align="left">强大，需结合Inpainting等多种技术</td>
+</tr>
+</tbody></table>
+<p><strong>小结</strong>：如果说Midjourney是“艺术家”，DALL-E 3是“创意家”，Stable Diffusion是“工程师”，那么Gemini 2.5 Flash Image则更像是“后期制作大师”，其核心价值在于对已有图像的精细化控制和再创作。</p>
+<hr>
+<h2 id="四、局限性分析与未来展望"><a href="#四、局限性分析与未来展望" class="headerlink" title="四、局限性分析与未来展望"></a>四、局限性分析与未来展望</h2><p>基于对当前生成式AI技术公认挑战的分析，我们可以探讨该模型的潜在局限性与未来发展：</p>
+<h3 id="4-1-潜在局限性"><a href="#4-1-潜在局限性" class="headerlink" title="4.1 潜在局限性"></a>4.1 潜在局限性</h3><ul>
+<li><strong>抽象概念的挑战</strong>：对于“让画面更有希望”这类高度主观和抽象的指令，模型的理解与执行可能仍存在偏差。</li>
+<li><strong>逻辑与物理真实性</strong>：在处理需要复杂物理交互（如液体流动、物体破碎）或严格逻辑关系的编辑时，可能产生不合常理的结果。</li>
+<li><strong>偏见放大</strong>：与所有大模型一样，它仍有学习并放大训练数据中社会偏见的风险。</li>
+<li><strong>可解释性</strong>：其“黑箱”本质使得我们难以完全理解其决策过程，从而难以诊断和修复潜在的缺陷。</li>
+</ul>
+<h3 id="4-2-未来展望"><a href="#4-2-未来展望" class="headerlink" title="4.2 未来展望"></a>4.2 未来展望</h3><ul>
+<li><strong>向视频延伸</strong>：将高一致性的编辑能力从静态图像扩展到动态视频，实现对视频内容的逐帧、连贯编辑。</li>
+<li><strong>迈向3D</strong>：通过多角度的2D编辑，反向生成或修改3D模型，实现更高效的3D内容创作。</li>
+<li><strong>多模态交互融合</strong>：结合语言、草图、手势等多种输入方式，实现更自然、更直觉的人机协同编辑。</li>
+</ul>
+<hr>
+<h2 id="五、”Nano-Banana”生成实例"><a href="#五、”Nano-Banana”生成实例" class="headerlink" title="五、”Nano Banana”生成实例"></a>五、”Nano Banana”生成实例</h2><p>以下是我使用Gemini 2.5 Flash Image进行的一些编辑与生成实例。</p>
+<p><em>（请在此处添加你的图片）</em></p>
+<p><code>![在此处添加图片描述](在此处输入图片链接)</code></p>
+<p><code>![在此处添加图片描述](在此处输入图片链接)</code></p>
+<p><code>![在此处添加图片描述](在此处输入图片链接)</code></p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Gemini 2.5 Flash Image的技术优越性并非源于单一的算法革新，而是系统性设计的成果。它通过解耦表征实现了高一致性，通过原生多模态和组合推理实现了强大的指令理解能力。理解其技术路径与当前局限性，将有助于我们更好地利用这一工具，并洞察AI图像编辑领域的未来趋势。</p>
+<hr>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><em>InstructPix2Pix: Learning to Follow Image Editing Instructions</em> (arXiv:2211.09800)</li>
+<li><em>MagicBrush: A Manually Annotated Dataset for Instruction-Guided Real Image Editing</em> (NeurIPS 2023)</li>
+<li><em>Adding Conditional Control to Text-to-Image Diffusion Models</em> (arXiv:2302.05543) - (关于ControlNet的参考)</li>
+<li>学术界关于生成式AI局限性与偏见的相关综述论文。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术记录与分享</category>
+        <category>AI &amp; LLM</category>
+      </categories>
+      <tags>
+        <tag>Gemini</tag>
+        <tag>nano banana</tag>
+        <tag>多模态</tag>
+        <tag>图像编辑</tag>
+        <tag>技术拆解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo 博客自动化部署：GitHub Actions 完全指南</title>
     <url>/posts/6f6717af/</url>
     <content><![CDATA[<blockquote>
@@ -1316,138 +1448,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Gemini 2.5 Flash图像模型技术深度解析：一致性与指令理解的内在机制</title>
-    <url>/posts/8a6ab0d0/</url>
-    <content><![CDATA[<blockquote>
-<p>本文为个人学习记录，旨在深度解析Google Gemini 2.5 Flash Image模型在图像编辑任务中，其卓越的“一致性”与“指令理解能力”背后的核心技术原理，并基于公开的学术研究探讨其技术边界与未来趋势。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Google的Gemini 2.5 Flash Image模型（内部代号“nano banana”）在图像编辑领域展现了前所未有的能力，特别是在维持编辑对象的一致性以及对复杂自然语言指令的精确理解上。本文旨在探究这两大突破性能力的技术实现路径。</p>
-<hr>
-<h2 id="一、高一致性（High-Consistency）的技术探究"><a href="#一、高一致性（High-Consistency）的技术探究" class="headerlink" title="一、高一致性（High Consistency）的技术探究"></a>一、高一致性（High Consistency）的技术探究</h2><p>模型在多次、多场景编辑中保持角色或对象身份不发生改变的能力，是其超越以往模型的关键。其核心技术思想可归结为 <strong>“解耦身份与状态”（Disentangling Identity from State）</strong>。</p>
-<h3 id="1-1-核心思想：解耦表征"><a href="#1-1-核心思想：解耦表征" class="headerlink" title="1.1 核心思想：解耦表征"></a>1.1 核心思想：解耦表征</h3><p>传统的图像编辑模型在处理对象时，其内部表征往往将对象的本质特征（身份）与暂时性特征（状态，如姿态、光照、表情）纠缠在一起。因此，对状态的修改极易污染身份表征，导致身份漂移。</p>
-<p>Gemini 2.5 Flash Image通过在模型设计和训练目标上的优化，实现了对这两部分特征的有效分离。</p>
-<h3 id="1-2-技术实现路径"><a href="#1-2-技术实现路径" class="headerlink" title="1.2 技术实现路径"></a>1.2 技术实现路径</h3><h4 id="1-2-1-“身份向量”的提取与锁定-Identity-Vector-Extraction-Locking"><a href="#1-2-1-“身份向量”的提取与锁定-Identity-Vector-Extraction-Locking" class="headerlink" title="1.2.1 “身份向量”的提取与锁定 (Identity Vector Extraction &amp; Locking)"></a>1.2.1 “身份向量”的提取与锁定 (Identity Vector Extraction &amp; Locking)</h4><ul>
-<li><strong>原理</strong>：模型包含一个经过特殊训练的编码器，其功能是从输入图像中为指定对象提取一个高维、浓缩的特征向量——即“身份向量”（Identity Vector）。此向量被设计为对姿态、光照、视角等状态变化具有不变性，仅捕捉对象最本质、最核心的身份定义特征（如人脸的几何结构、独特的纹理等）。</li>
-<li><strong>实现细节</strong>：这可能通过对比学习（Contrastive Learning）等自监督方法实现。模型在训练中被要求判断：在不同状态下的同一个对象（正样本）的身份向量应该尽可能接近，而不同对象（负样本）的身份向量应该尽可能远离。</li>
-</ul>
-<h4 id="1-2-2-基于交叉注意力的特征注入-Cross-Attention-based-Feature-Injection"><a href="#1-2-2-基于交叉注意力的特征注入-Cross-Attention-based-Feature-Injection" class="headerlink" title="1.2.2 基于交叉注意力的特征注入 (Cross-Attention based Feature Injection)"></a>1.2.2 基于交叉注意力的特征注入 (Cross-Attention based Feature Injection)</h4><ul>
-<li><strong>原理</strong>：在执行编辑或将对象置于新场景的生成过程中，已锁定的“身份向量”并不直接参与像素计算。相反，它作为一种强约束条件，通过交叉注意力机制引导整个生成过程。</li>
-<li><strong>实现细节</strong>：在Diffusion等生成模型的每一步去噪过程中，“身份向量”作为<code>Query</code>，新场景或待编辑区域的特征图作为<code>Key</code>和<code>Value</code>。通过这种方式，“身份向量”持续“查询”生成过程，确保生成的像素在符合新场景上下文（光照、风格）的同时，其身份特征始终与“身份向量”保持一致。这个过程可以被视为一种受控的、以身份为条件的图像生成。</li>
-</ul>
-<hr>
-<h2 id="二、强指令理解能力（Strong-Instruction-Following）的技术探究"><a href="#二、强指令理解能力（Strong-Instruction-Following）的技术探究" class="headerlink" title="二、强指令理解能力（Strong Instruction Following）的技术探究"></a>二、强指令理解能力（Strong Instruction Following）的技术探究</h2><p>模型能够精确解析并执行复杂的、带有逻辑关系的自然语言指令，其背后是 <strong>“原生多模态与组合推理”（Native Multimodality and Compositional Reasoning）</strong> 的协同作用。</p>
-<h3 id="2-1-核心思想：统一语义空间"><a href="#2-1-核心思想：统一语义空间" class="headerlink" title="2.1 核心思想：统一语义空间"></a>2.1 核心思想：统一语义空间</h3><p>与采用“胶水”架构（一个LLM + 一个图像模型）的方案不同，Gemini 2.5 Flash Image是一个原生的多模态模型。这意味着文本和图像信息在模型的早期阶段就被映射到一个共享的、统一的语义空间中进行处理。</p>
-<h3 id="2-2-技术实现路径"><a href="#2-2-技术实现路径" class="headerlink" title="2.2 技术实现路径"></a>2.2 技术实现路径</h3><h4 id="2-2-1-共享语义空间中的概念对齐"><a href="#2-2-1-共享语义空间中的概念对齐" class="headerlink" title="2.2.1 共享语义空间中的概念对齐"></a>2.2.1 共享语义空间中的概念对齐</h4><ul>
-<li><strong>原理</strong>：在这个统一的语义空间里，文本token（如“猫”）和图像中猫的视觉特征patch拥有高度相似或关联的向量表示。因此，模型在处理指令时，并非在进行“文本到图像的翻译”，而是在这个共享空间内直接进行跨模态的概念定位、关联与操作。</li>
-<li><strong>优势</strong>：这种原生设计使得模型能够理解更抽象、更细粒度的指令，例如“让气氛更紧张一点”，模型可以在共享空间中找到“紧张气氛”所对应的视觉元素（如更低的对比度、特定的色调），并将其应用于图像。</li>
-</ul>
-<h4 id="2-2-2-基于LLM核心的组合推理能力-Compositional-Reasoning"><a href="#2-2-2-基于LLM核心的组合推理能力-Compositional-Reasoning" class="headerlink" title="2.2.2 基于LLM核心的组合推理能力 (Compositional Reasoning)"></a>2.2.2 基于LLM核心的组合推理能力 (Compositional Reasoning)</h4><ul>
-<li><p><strong>原理</strong>：该能力直接受益于Gemini模型强大的语言推理核心。模型能够将一句复杂的自然语言指令，在内部解析为一个具有逻辑层级和执行顺序的“操作树”（Operation Tree）。</p>
-</li>
-<li><p><strong>组合推理流程示意图</strong></p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[接收复杂指令: &quot;保持人物不变, 将背景替换为森林, 并添加雾气效果&quot;] --&gt; B&#123;语义解析与分割&#125;;</span><br><span class="line">    B --&gt; C[&quot;人物&quot;区域识别];</span><br><span class="line">    B --&gt; D[&quot;背景&quot;区域识别];</span><br><span class="line">    C --&gt; E[约束条件: 保持不变];</span><br><span class="line">    D --&gt; F[操作A: 替换为森林];</span><br><span class="line">    F --&gt; G[操作B: 添加雾气效果];</span><br><span class="line">    E &amp; G --&gt; H[整合生成最终图像];</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>优势</strong>：这种分解和按逻辑执行的能力，是其能够处理包含否定（“除了…”）、条件（“如果…就…”）、并列（“并且…”）等复杂逻辑指令的关键。</li>
-</ul>
-<h3 id="2-3-训练数据推测：能力的基石"><a href="#2-3-训练数据推测：能力的基石" class="headerlink" title="2.3 训练数据推测：能力的基石"></a>2.3 训练数据推测：能力的基石</h3><p>模型的卓越能力，离不开其背后高质量、大规模的训练数据。基于对InstructPix2Pix、MagicBrush等相关学术研究的分析，可以推断Gemini 2.5 Flash Image的训练集具有以下特征：</p>
-<ul>
-<li><strong>核心数据结构</strong>：训练数据由海量的 <strong>（输入图像, 编辑指令, 输出图像）</strong> “三元组”构成。</li>
-<li><strong>数据演进趋势</strong>：<ul>
-<li><strong>高质量与人工调校</strong>：不同于早期完全由AI合成的数据集，其训练数据可能包含了大量经由人工标注、筛选和反馈的样本（类似MagicBrush, HumanEdit），以确保编辑结果更符合人类意图和审美。</li>
-<li><strong>大规模与高分辨率</strong>：为了保证模型的精细度和泛化能力，数据集的规模可能达到数百万级别，并采用高分辨率图像（类似HQ-Edit, UltraEdit）。</li>
-<li><strong>复杂性与推理</strong>：数据集中可能包含专门用于训练复杂、抽象和动态指令的子集（类似ReasonPix2Pix, InstructMove），以强化模型的推理能力。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="三、主流图像模型对比"><a href="#三、主流图像模型对比" class="headerlink" title="三、主流图像模型对比"></a>三、主流图像模型对比</h2><p>为了更清晰地定位Gemini 2.5 Flash Image的特点，我们将其与几个主流模型进行对比：</p>
-<table>
-<thead>
-<tr>
-<th align="left">特性维度</th>
-<th align="left">Gemini 2.5 Flash (Nano Banana)</th>
-<th align="left">Midjourney</th>
-<th align="left">DALL-E 3</th>
-<th align="left">Stable Diffusion</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>核心优势</strong></td>
-<td align="left"><strong>精准图像编辑与高一致性</strong></td>
-<td align="left">艺术性风格与社区驱动</td>
-<td align="left">语义理解与ChatGPT原生集成</td>
-<td align="left">开源生态与高度可定制性</td>
-</tr>
-<tr>
-<td align="left"><strong>主要应用</strong></td>
-<td align="left">图像后期处理、精细化修改</td>
-<td align="left">概念艺术、插画、风格化创作</td>
-<td align="left">创意内容生成、快速原型</td>
-<td align="left">学术研究、本地部署、特定风格模型训练</td>
-</tr>
-<tr>
-<td align="left"><strong>一致性控制</strong></td>
-<td align="left"><strong>非常强</strong>，为模型核心能力</td>
-<td align="left">较弱，依赖<code>--cref</code>等参数</td>
-<td align="left">较强，有一定内置能力</td>
-<td align="left">依赖ControlNet等扩展技术</td>
-</tr>
-<tr>
-<td align="left"><strong>编辑能力</strong></td>
-<td align="left"><strong>极强</strong>，为模型核心能力</td>
-<td align="left">有限，主要为局部重绘(Vary)</td>
-<td align="left">较强，集成于ChatGPT中</td>
-<td align="left">强大，需结合Inpainting等多种技术</td>
-</tr>
-</tbody></table>
-<p><strong>小结</strong>：如果说Midjourney是“艺术家”，DALL-E 3是“创意家”，Stable Diffusion是“工程师”，那么Gemini 2.5 Flash Image则更像是“后期制作大师”，其核心价值在于对已有图像的精细化控制和再创作。</p>
-<hr>
-<h2 id="四、局限性分析与未来展望"><a href="#四、局限性分析与未来展望" class="headerlink" title="四、局限性分析与未来展望"></a>四、局限性分析与未来展望</h2><p>基于对当前生成式AI技术公认挑战的分析，我们可以探讨该模型的潜在局限性与未来发展：</p>
-<h3 id="4-1-潜在局限性"><a href="#4-1-潜在局限性" class="headerlink" title="4.1 潜在局限性"></a>4.1 潜在局限性</h3><ul>
-<li><strong>抽象概念的挑战</strong>：对于“让画面更有希望”这类高度主观和抽象的指令，模型的理解与执行可能仍存在偏差。</li>
-<li><strong>逻辑与物理真实性</strong>：在处理需要复杂物理交互（如液体流动、物体破碎）或严格逻辑关系的编辑时，可能产生不合常理的结果。</li>
-<li><strong>偏见放大</strong>：与所有大模型一样，它仍有学习并放大训练数据中社会偏见的风险。</li>
-<li><strong>可解释性</strong>：其“黑箱”本质使得我们难以完全理解其决策过程，从而难以诊断和修复潜在的缺陷。</li>
-</ul>
-<h3 id="4-2-未来展望"><a href="#4-2-未来展望" class="headerlink" title="4.2 未来展望"></a>4.2 未来展望</h3><ul>
-<li><strong>向视频延伸</strong>：将高一致性的编辑能力从静态图像扩展到动态视频，实现对视频内容的逐帧、连贯编辑。</li>
-<li><strong>迈向3D</strong>：通过多角度的2D编辑，反向生成或修改3D模型，实现更高效的3D内容创作。</li>
-<li><strong>多模态交互融合</strong>：结合语言、草图、手势等多种输入方式，实现更自然、更直觉的人机协同编辑。</li>
-</ul>
-<hr>
-<h2 id="五、”Nano-Banana”生成实例"><a href="#五、”Nano-Banana”生成实例" class="headerlink" title="五、”Nano Banana”生成实例"></a>五、”Nano Banana”生成实例</h2><p>以下是我使用Gemini 2.5 Flash Image进行的一些编辑与生成实例。</p>
-<p><em>（请在此处添加你的图片）</em></p>
-<p><code>![在此处添加图片描述](在此处输入图片链接)</code></p>
-<p><code>![在此处添加图片描述](在此处输入图片链接)</code></p>
-<p><code>![在此处添加图片描述](在此处输入图片链接)</code></p>
-<hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Gemini 2.5 Flash Image的技术优越性并非源于单一的算法革新，而是系统性设计的成果。它通过解耦表征实现了高一致性，通过原生多模态和组合推理实现了强大的指令理解能力。理解其技术路径与当前局限性，将有助于我们更好地利用这一工具，并洞察AI图像编辑领域的未来趋势。</p>
-<hr>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><em>InstructPix2Pix: Learning to Follow Image Editing Instructions</em> (arXiv:2211.09800)</li>
-<li><em>MagicBrush: A Manually Annotated Dataset for Instruction-Guided Real Image Editing</em> (NeurIPS 2023)</li>
-<li><em>Adding Conditional Control to Text-to-Image Diffusion Models</em> (arXiv:2302.05543) - (关于ControlNet的参考)</li>
-<li>学术界关于生成式AI局限性与偏见的相关综述论文。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术记录与分享</category>
-        <category>AI &amp; LLM</category>
-      </categories>
-      <tags>
-        <tag>Gemini</tag>
-        <tag>nano banana</tag>
-        <tag>多模态</tag>
-        <tag>图像编辑</tag>
-        <tag>技术拆解</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git工作流优化之旅：从混乱到自如的博客发布体验</title>
     <url>/posts/e71dcf05/</url>
     <content><![CDATA[<blockquote>
@@ -1520,6 +1520,105 @@
         <tag>git</tag>
         <tag>workflow</tag>
         <tag>automation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LMArenaBridge 项目代码解析：通过浏览器自动化打造 API 桥接</title>
+    <url>/posts/7c8f9d2a/</url>
+    <content><![CDATA[<blockquote>
+<p>介绍一个创新的项目：通过浏览器自动化技术，为没有公开 API 的 LMArena.ai 平台创建 OpenAI 兼容的 API 接口。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="项目背景与挑战"><a href="#项目背景与挑战" class="headerlink" title="项目背景与挑战"></a>项目背景与挑战</h2><p>LMArena.ai 是一个 AI 模型竞技平台，让用户可以体验和比较各种顶级 AI 模型的表现。然而，它只提供了 Web 界面，没有公开的 API 接口。这意味着开发者无法通过编程方式访问这些模型。</p>
+<p>LMArenaBridge 项目巧妙地解决了这个问题：它创建了一个”翻译层”，将标准的 OpenAI API 请求转换为浏览器自动化操作，让任何 OpenAI 兼容的客户端都能无缝使用 LMArena.ai 的模型。</p>
+<h2 id="系统架构概览"><a href="#系统架构概览" class="headerlink" title="系统架构概览"></a>系统架构概览</h2><p>项目采用三层架构设计：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    subgraph &quot;客户端层&quot;</span><br><span class="line">        Client[OpenAI API 客户端]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph &quot;桥接层&quot;</span><br><span class="line">        Flask[Flask 服务器&lt;br/&gt;local_openai_history_server.py]</span><br><span class="line">        Queue[作业队列系统]</span><br><span class="line">        ModelMap[模型注册表]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph &quot;自动化层&quot;</span><br><span class="line">        Tampermonkey[Tampermonkey 脚本&lt;br/&gt;LMArenaAutomator.js]</span><br><span class="line">        Browser[浏览器环境]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph &quot;目标平台&quot;</span><br><span class="line">        LMArena[LMArena.ai Web 界面]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    Client --&gt;|HTTP 请求| Flask</span><br><span class="line">    Flask --&gt; Queue</span><br><span class="line">    Flask --&gt; ModelMap</span><br><span class="line">    Flask --&gt;|作业分发| Tampermonkey</span><br><span class="line">    Tampermonkey --&gt;|DOM 操作| Browser</span><br><span class="line">    Browser --&gt;|HTTP 请求| LMArena</span><br><span class="line">    LMArena --&gt;|响应流| Browser</span><br><span class="line">    Browser --&gt;|数据拦截| Tampermonkey</span><br><span class="line">    Tampermonkey --&gt;|流式传输| Flask</span><br><span class="line">    Flask --&gt;|格式化响应| Client</span><br></pre></td></tr></table></figure>
+
+<h2 id="核心代码解析"><a href="#核心代码解析" class="headerlink" title="核心代码解析"></a>核心代码解析</h2><h3 id="1-Flask-服务器：API-兼容层"><a href="#1-Flask-服务器：API-兼容层" class="headerlink" title="1. Flask 服务器：API 兼容层"></a>1. Flask 服务器：API 兼容层</h3><p><code>local_openai_history_server.py</code> 是整个系统的枢纽，实现了 OpenAI API 的端点兼容。</p>
+<h4 id="OpenAI-格式转换"><a href="#OpenAI-格式转换" class="headerlink" title="OpenAI 格式转换"></a>OpenAI 格式转换</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">convert_openai_to_lmarena</span>(<span class="params">openai_request</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;将 OpenAI 格式转换为 LMArena 内部格式&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 生成必要的 UUID</span></span><br><span class="line">    session_id = <span class="string">f&#x27;c<span class="subst">&#123;uuid.uuid4()&#125;</span>&#x27;</span></span><br><span class="line">    user_id = <span class="string">f&#x27;u<span class="subst">&#123;uuid.uuid4()&#125;</span>&#x27;</span></span><br><span class="line">    evaluation_id = <span class="string">f&#x27;e<span class="subst">&#123;uuid.uuid4()&#125;</span>&#x27;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 模型名称到 UUID 的映射</span></span><br><span class="line">    target_model_id = MODEL_NAME_TO_ID_MAP.get(</span><br><span class="line">        openai_request.get(<span class="string">&#x27;model&#x27;</span>), </span><br><span class="line">        DEFAULT_MODEL_ID</span><br><span class="line">    )</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 消息格式转换</span></span><br><span class="line">    messages = []</span><br><span class="line">    <span class="keyword">for</span> msg <span class="keyword">in</span> openai_request[<span class="string">&#x27;messages&#x27;</span>]:</span><br><span class="line">        messages.append(&#123;</span><br><span class="line">            <span class="string">&#x27;id&#x27;</span>: <span class="built_in">str</span>(uuid.uuid4()),</span><br><span class="line">            <span class="string">&#x27;evaluationSessionId&#x27;</span>: session_id,</span><br><span class="line">            <span class="string">&#x27;modelId&#x27;</span>: target_model_id <span class="keyword">if</span> msg[<span class="string">&#x27;role&#x27;</span>] == <span class="string">&#x27;assistant&#x27;</span> <span class="keyword">else</span> <span class="literal">None</span>,</span><br><span class="line">            <span class="string">&#x27;role&#x27;</span>: msg[<span class="string">&#x27;role&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;content&#x27;</span>: msg[<span class="string">&#x27;content&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;parentMessageIds&#x27;</span>: [...]  <span class="comment"># 维护消息关系</span></span><br><span class="line">        &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">&#x27;id&#x27;</span>: session_id,</span><br><span class="line">        <span class="string">&#x27;userId&#x27;</span>: user_id,</span><br><span class="line">        <span class="string">&#x27;messages&#x27;</span>: messages,</span><br><span class="line">        <span class="string">&#x27;targetModelId&#x27;</span>: target_model_id</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>关键点：</p>
+<ul>
+<li>UUID 生成确保每个会话的唯一性</li>
+<li>模型映射通过 <code>models.json</code> 文件维护</li>
+<li>消息关系通过 <code>parentMessageIds</code> 构建</li>
+</ul>
+<h4 id="作业队列管理"><a href="#作业队列管理" class="headerlink" title="作业队列管理"></a>作业队列管理</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 全局队列定义</span></span><br><span class="line">INJECTION_JOBS = Queue()    <span class="comment"># 历史注入作业</span></span><br><span class="line">PROMPT_JOBS = Queue()      <span class="comment"># 提示提交作业</span></span><br><span class="line">TOOL_RESULT_JOBS = Queue() <span class="comment"># 工具结果作业</span></span><br><span class="line">MODEL_FETCH_JOBS = Queue() <span class="comment"># 模型获取作业</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 状态管理</span></span><br><span class="line">RESULTS = &#123;&#125;  <span class="comment"># 存储任务结果</span></span><br><span class="line">INJECTION_EVENTS = &#123;&#125;  <span class="comment"># 注入完成事件同步</span></span><br></pre></td></tr></table></figure>
+
+<p>队列系统实现了异步处理，确保浏览器自动化与 API 请求解耦。</p>
+<h3 id="2-Tampermonkey-脚本：浏览器自动化引擎"><a href="#2-Tampermonkey-脚本：浏览器自动化引擎" class="headerlink" title="2. Tampermonkey 脚本：浏览器自动化引擎"></a>2. Tampermonkey 脚本：浏览器自动化引擎</h3><p><code>LMArenaAutomator.js</code> 是技术含量最高的部分，实现了深度的浏览器自动化。</p>
+<h4 id="Next-js-数据流劫持"><a href="#Next-js-数据流劫持" class="headerlink" title="Next.js 数据流劫持"></a>Next.js 数据流劫持</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">performInjection</span>(<span class="params">history_data</span>) &#123;</span><br><span class="line">    <span class="comment">// 1. 更新会话 ID</span></span><br><span class="line">    <span class="keyword">const</span> urlPath = <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span>;</span><br><span class="line">    <span class="keyword">const</span> match = urlPath.<span class="title function_">match</span>(<span class="regexp">/\/c\/([a-f0-9\-]+)/</span>);</span><br><span class="line">    <span class="keyword">if</span> (match) &#123;</span><br><span class="line">        history_data.<span class="property">id</span> = match[<span class="number">1</span>]; <span class="comment">// 使用当前页面的会话 ID</span></span><br><span class="line">        history_data.<span class="property">messages</span>.<span class="title function_">forEach</span>(<span class="function"><span class="params">msg</span> =&gt;</span> &#123;</span><br><span class="line">            msg.<span class="property">evaluationSessionId</span> = match[<span class="number">1</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2. 劫持 __next_f 数组</span></span><br><span class="line">    <span class="keyword">if</span> (self.<span class="property">__next_f</span>) &#123;</span><br><span class="line">        <span class="comment">// 处理已存在的数组</span></span><br><span class="line">        <span class="title function_">hookPush</span>(self.<span class="property">__next_f</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 遍历已有数据</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; self.<span class="property">__next_f</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            <span class="title function_">processChunk</span>(self.<span class="property">__next_f</span>[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 3. 监听未来数据</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="variable language_">window</span>, <span class="string">&#x27;__next_f&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">set</span>: <span class="keyword">function</span>(<span class="params">value</span>) &#123;</span><br><span class="line">            <span class="title function_">hookPush</span>(value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">modifyPayload</span>(<span class="params">payload</span>) &#123;</span><br><span class="line">    <span class="comment">// 精确定位 initialState</span></span><br><span class="line">    <span class="keyword">const</span> startIndex = payload.<span class="title function_">lastIndexOf</span>(startMarker, endIndex);</span><br><span class="line">    <span class="keyword">const</span> endIndex = payload.<span class="title function_">indexOf</span>(endMarker);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (startIndex !== -<span class="number">1</span> &amp;&amp; endIndex !== -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> beforePart = payload.<span class="title function_">substring</span>(<span class="number">0</span>, startIndex);</span><br><span class="line">        <span class="keyword">const</span> afterPart = payload.<span class="title function_">substring</span>(endIndex);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 注入伪造的历史数据</span></span><br><span class="line">        <span class="keyword">const</span> newPayload = beforePart + </span><br><span class="line">            <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(history_data) + </span><br><span class="line">            afterPart;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> newPayload;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> payload;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>技术亮点：</p>
+<ul>
+<li>精准的字符串定位算法，避免误替换</li>
+<li>同时处理现有和未来的数据流</li>
+<li>保持原有数据结构完整性</li>
+</ul>
+<h4 id="React-组件操作"><a href="#React-组件操作" class="headerlink" title="React 组件操作"></a>React 组件操作</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">typeAndSubmitPrompt</span>(<span class="params">prompt</span>) &#123;</span><br><span class="line">    <span class="comment">// 1. 找到带有 React props 的 textarea</span></span><br><span class="line">    <span class="keyword">const</span> textarea = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;textarea[name=&quot;text&quot;]&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> reactPropsKey = <span class="title class_">Object</span>.<span class="title function_">keys</span>(textarea).<span class="title function_">find</span>(<span class="function"><span class="params">key</span> =&gt;</span> </span><br><span class="line">        key.<span class="title function_">startsWith</span>(<span class="string">&#x27;__reactProps$&#x27;</span>)</span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (reactPropsKey) &#123;</span><br><span class="line">        <span class="keyword">const</span> props = textarea[reactPropsKey];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 2. 直接调用 React 的 onChange 处理器</span></span><br><span class="line">        <span class="keyword">const</span> mockEvent = &#123;</span><br><span class="line">            <span class="attr">target</span>: &#123; <span class="attr">value</span>: prompt &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        props.<span class="title function_">onChange</span>(mockEvent);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 3. 等待 React 状态更新</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> submitButton = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button[type=&quot;submit&quot;]&#x27;</span>);</span><br><span class="line">            <span class="keyword">if</span> (!submitButton.<span class="property">disabled</span>) &#123;</span><br><span class="line">                submitButton.<span class="title function_">click</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="number">150</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>精髓之处：</p>
+<ul>
+<li>不通过 DOM API，而是直接操作 React 内部</li>
+<li>模拟真实的用户交互事件</li>
+<li>精确的时序控制</li>
+</ul>
+<p>####Fetch 请求拦截</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">hookFetch</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> originalFetch = <span class="variable language_">window</span>.<span class="property">fetch</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">fetch</span> = <span class="keyword">async</span> <span class="keyword">function</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> url = args[<span class="number">0</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 拦截 LMArena 的 API 请求</span></span><br><span class="line">        <span class="keyword">if</span> (url.<span class="title function_">includes</span>(<span class="string">&#x27;/api/stream/post-to-evaluation/&#x27;</span>)) &#123;</span><br><span class="line">            <span class="keyword">const</span> options = args[<span class="number">1</span>] || &#123;&#125;;</span><br><span class="line">            <span class="keyword">const</span> bodyObject = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(options.<span class="property">body</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 1. 替换模型 ID</span></span><br><span class="line">            <span class="keyword">const</span> targetModelId = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="variable constant_">MODEL_ID_STORAGE_KEY</span>);</span><br><span class="line">            <span class="keyword">if</span> (targetModelId) &#123;</span><br><span class="line">                bodyObject.<span class="property">modelAId</span> = targetModelId;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 2. 更新最后一条消息的模型 ID</span></span><br><span class="line">                <span class="keyword">const</span> messages = bodyObject.<span class="property">messages</span>;</span><br><span class="line">                <span class="keyword">if</span> (messages.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">const</span> lastMessage = messages[messages.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">if</span> (lastMessage.<span class="property">role</span> === <span class="string">&#x27;assistant&#x27;</span>) &#123;</span><br><span class="line">                        lastMessage.<span class="property">modelId</span> = targetModelId;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 3. 敏感词绕过逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (config.<span class="property">bypass_enabled</span> &amp;&amp; messages.<span class="property">length</span> &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="keyword">const</span> originalUserMsg = messages[messages.<span class="property">length</span> - <span class="number">2</span>];</span><br><span class="line">                <span class="keyword">const</span> assistantPlaceholder = messages[messages.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> (originalUserMsg.<span class="property">role</span> === <span class="string">&#x27;user&#x27;</span> &amp;&amp; </span><br><span class="line">                    assistantPlaceholder.<span class="property">role</span> === <span class="string">&#x27;assistant&#x27;</span>) &#123;</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">// 插入空消息</span></span><br><span class="line">                    <span class="keyword">const</span> emptyUserMessage = &#123;</span><br><span class="line">                        <span class="attr">content</span>: <span class="string">&#x27; &#x27;</span>,</span><br><span class="line">                        <span class="attr">id</span>: crypto.<span class="title function_">randomUUID</span>(),</span><br><span class="line">                        <span class="attr">role</span>: <span class="string">&#x27;user&#x27;</span>,</span><br><span class="line">                        <span class="attr">parentMessageIds</span>: [originalUserMsg.<span class="property">id</span>]</span><br><span class="line">                    &#125;;</span><br><span class="line">                    </span><br><span class="line">                    assistantPlaceholder.<span class="property">parentMessageIds</span> = [emptyUserMessage.<span class="property">id</span>];</span><br><span class="line">                    messages.<span class="title function_">splice</span>(-<span class="number">1</span>, <span class="number">0</span>, emptyUserMessage);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            options.<span class="property">body</span> = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(bodyObject);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 执行请求并克隆响应用于流处理</span></span><br><span class="line">        <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">originalFetch</span>(...args);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (url.<span class="title function_">includes</span>(<span class="string">&#x27;/api/stream/post-to-evaluation/&#x27;</span>)) &#123;</span><br><span class="line">            <span class="keyword">const</span> clonedResponse = response.<span class="title function_">clone</span>();</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 异步处理流</span></span><br><span class="line">            <span class="title function_">processStream</span>(clonedResponse);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 返回原始响应</span></span><br><span class="line">            <span class="keyword">return</span> response;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>关键功能：</p>
+<ul>
+<li>动态修改请求参数</li>
+<li>响应克隆实现双流处理</li>
+<li>敏感词绕过技术</li>
+</ul>
+<h3 id="3-响应流式处理"><a href="#3-响应流式处理" class="headerlink" title="3. 响应流式处理"></a>3. 响应流式处理</h3><p>从 LMArena 的原始流式响应提取文本内容：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_openai_response_generator</span>(<span class="params">task_id</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成 OpenAI 格式的流式响应&quot;&quot;&quot;</span></span><br><span class="line">    text_pattern = re.<span class="built_in">compile</span>(<span class="string">r&#x27;a0:&quot;((?:\\.|[^&quot;\\])*)&quot;&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment"># 从队列获取原始块</span></span><br><span class="line">            raw_chunk = RESULTS[task_id][<span class="string">&#x27;stream_queue&#x27;</span>].get(timeout=<span class="number">1</span>)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 提取文本内容</span></span><br><span class="line">            matches = text_pattern.findall(raw_chunk)</span><br><span class="line">            <span class="keyword">for</span> <span class="keyword">match</span> <span class="keyword">in</span> matches:</span><br><span class="line">                <span class="comment"># JSON 解码处理转义字符</span></span><br><span class="line">                text_content = json.loads(<span class="string">f&#x27;&quot;<span class="subst">&#123;<span class="keyword">match</span>&#125;</span>&quot;&#x27;</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> text_content.strip():</span><br><span class="line">                    <span class="keyword">yield</span> format_openai_chunk(</span><br><span class="line">                        text_content, </span><br><span class="line">                        model_name, </span><br><span class="line">                        request_id</span><br><span class="line">                    )</span><br><span class="line">                    </span><br><span class="line">        <span class="keyword">except</span> Empty:</span><br><span class="line">            <span class="comment"># 检查任务状态</span></span><br><span class="line">            <span class="keyword">if</span> RESULTS[task_id].get(<span class="string">&#x27;status&#x27;</span>) == <span class="string">&#x27;completed&#x27;</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="技术难点与解决方案"><a href="#技术难点与解决方案" class="headerlink" title="技术难点与解决方案"></a>技术难点与解决方案</h2><h3 id="1-会话状态同步"><a href="#1-会话状态同步" class="headerlink" title="1. 会话状态同步"></a>1. 会话状态同步</h3><p><strong>问题</strong>: 如何让 LMArena 相信对话历史是真实的？</p>
+<p><strong>解决方案</strong>:</p>
+<ul>
+<li>精确复制 LMArena 的数据结构</li>
+<li>维护正确的消息关系链</li>
+<li>使用真实的会话 ID</li>
+</ul>
+<h3 id="2-实时性保证"><a href="#2-实时性保证" class="headerlink" title="2. 实时性保证"></a>2. 实时性保证</h3><p><strong>问题</strong>: 如何实现低延迟的流式响应？</p>
+<p><strong>解决方案</strong>:</p>
+<ul>
+<li>双队列机制：作业队列 + 流队列</li>
+<li>事件驱动的异步处理</li>
+<li>最小化数据处理开销</li>
+</ul>
+<h3 id="3-错误恢复"><a href="#3-错误恢复" class="headerlink" title="3. 错误恢复"></a>3. 错误恢复</h3><p><strong>问题</strong>: 浏览器环境不稳定，如何保证系统可靠性？</p>
+<p><strong>解决方案</strong>:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 轮询错误恢复</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">pollForJob</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">`<span class="subst">$&#123;SERVER_URL&#125;</span>/get_injection_job`</span>);</span><br><span class="line">            <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (data.<span class="property">status</span> === <span class="string">&#x27;success&#x27;</span>) &#123;</span><br><span class="line">                <span class="comment">// 处理作业</span></span><br><span class="line">                <span class="title function_">processJob</span>(data.<span class="property">job</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Error polling for job:&#x27;</span>, error);</span><br><span class="line">            <span class="comment">// 指数退避</span></span><br><span class="line">            <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> </span><br><span class="line">                <span class="built_in">setTimeout</span>(resolve, <span class="title class_">Math</span>.<span class="title function_">min</span>(<span class="number">10000</span>, attempts * <span class="number">1000</span>))</span><br><span class="line">            );</span><br><span class="line">            attempts++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, <span class="number">3000</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="项目的创新之处"><a href="#项目的创新之处" class="headerlink" title="项目的创新之处"></a>项目的创新之处</h2><ol>
+<li><strong>架构创新</strong>: 将浏览器作为 API 网关，绕过了传统的 API 限制</li>
+<li><strong>技术创新</strong>: 深度整合 Next.js、React 和 Fetch 机制</li>
+<li><strong>模式创新</strong>: 提供了一种通用的 Web 服务 API 化方案</li>
+</ol>
+<h2 id="应用前景"><a href="#应用前景" class="headerlink" title="应用前景"></a>应用前景</h2><p>这种架构模式可以应用到许多其他场景：</p>
+<ul>
+<li>为 SaaS 产品创建 API 接口</li>
+<li>自动化没有 API 的遗留系统</li>
+<li>创建多个服务间的统一 API 层</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>LMArenaBridge 展示了前端技术的惊人潜力。通过巧妙地利用浏览器自动化技术，它成功地在 Web 应用和标准 API 之间架起了一座桥梁。这不仅是一个技术创举，更是一种思维方式的突破：当我们面对限制时，创新往往来自于对系统更深层次的理解和利用。</p>
+<p>项目的代码质量和架构设计都值得学习，特别是它在异步协调、状态管理和错误处理方面的实现。对于想要深入理解浏览器自动化和系统架构的开发者来说，这是一个绝佳的学习案例。</p>
+<hr>
+<p><em>本文相关代码来源于开源项目 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0xpYW51ZXMvTE1BcmVuYUJyaWRnZQ==">LMArenaBridge<i class="fa fa-external-link-alt"></i></span>，感谢作者的贡献。</em></p>
+]]></content>
+      <categories>
+        <category>技术记录与分享</category>
+        <category>AI &amp; LLM</category>
+      </categories>
+      <tags>
+        <tag>浏览器自动化</tag>
+        <tag>API 桥接</tag>
+        <tag>逆向工程</tag>
+        <tag>系统架构</tag>
       </tags>
   </entry>
   <entry>
@@ -1681,105 +1780,6 @@
         <tag>workflow</tag>
         <tag>automation</tag>
         <tag>math</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LMArenaBridge 项目代码解析：通过浏览器自动化打造 API 桥接</title>
-    <url>/posts/7c8f9d2a/</url>
-    <content><![CDATA[<blockquote>
-<p>介绍一个创新的项目：通过浏览器自动化技术，为没有公开 API 的 LMArena.ai 平台创建 OpenAI 兼容的 API 接口。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="项目背景与挑战"><a href="#项目背景与挑战" class="headerlink" title="项目背景与挑战"></a>项目背景与挑战</h2><p>LMArena.ai 是一个 AI 模型竞技平台，让用户可以体验和比较各种顶级 AI 模型的表现。然而，它只提供了 Web 界面，没有公开的 API 接口。这意味着开发者无法通过编程方式访问这些模型。</p>
-<p>LMArenaBridge 项目巧妙地解决了这个问题：它创建了一个”翻译层”，将标准的 OpenAI API 请求转换为浏览器自动化操作，让任何 OpenAI 兼容的客户端都能无缝使用 LMArena.ai 的模型。</p>
-<h2 id="系统架构概览"><a href="#系统架构概览" class="headerlink" title="系统架构概览"></a>系统架构概览</h2><p>项目采用三层架构设计：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    subgraph &quot;客户端层&quot;</span><br><span class="line">        Client[OpenAI API 客户端]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph &quot;桥接层&quot;</span><br><span class="line">        Flask[Flask 服务器&lt;br/&gt;local_openai_history_server.py]</span><br><span class="line">        Queue[作业队列系统]</span><br><span class="line">        ModelMap[模型注册表]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph &quot;自动化层&quot;</span><br><span class="line">        Tampermonkey[Tampermonkey 脚本&lt;br/&gt;LMArenaAutomator.js]</span><br><span class="line">        Browser[浏览器环境]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph &quot;目标平台&quot;</span><br><span class="line">        LMArena[LMArena.ai Web 界面]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    Client --&gt;|HTTP 请求| Flask</span><br><span class="line">    Flask --&gt; Queue</span><br><span class="line">    Flask --&gt; ModelMap</span><br><span class="line">    Flask --&gt;|作业分发| Tampermonkey</span><br><span class="line">    Tampermonkey --&gt;|DOM 操作| Browser</span><br><span class="line">    Browser --&gt;|HTTP 请求| LMArena</span><br><span class="line">    LMArena --&gt;|响应流| Browser</span><br><span class="line">    Browser --&gt;|数据拦截| Tampermonkey</span><br><span class="line">    Tampermonkey --&gt;|流式传输| Flask</span><br><span class="line">    Flask --&gt;|格式化响应| Client</span><br></pre></td></tr></table></figure>
-
-<h2 id="核心代码解析"><a href="#核心代码解析" class="headerlink" title="核心代码解析"></a>核心代码解析</h2><h3 id="1-Flask-服务器：API-兼容层"><a href="#1-Flask-服务器：API-兼容层" class="headerlink" title="1. Flask 服务器：API 兼容层"></a>1. Flask 服务器：API 兼容层</h3><p><code>local_openai_history_server.py</code> 是整个系统的枢纽，实现了 OpenAI API 的端点兼容。</p>
-<h4 id="OpenAI-格式转换"><a href="#OpenAI-格式转换" class="headerlink" title="OpenAI 格式转换"></a>OpenAI 格式转换</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">convert_openai_to_lmarena</span>(<span class="params">openai_request</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;将 OpenAI 格式转换为 LMArena 内部格式&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 生成必要的 UUID</span></span><br><span class="line">    session_id = <span class="string">f&#x27;c<span class="subst">&#123;uuid.uuid4()&#125;</span>&#x27;</span></span><br><span class="line">    user_id = <span class="string">f&#x27;u<span class="subst">&#123;uuid.uuid4()&#125;</span>&#x27;</span></span><br><span class="line">    evaluation_id = <span class="string">f&#x27;e<span class="subst">&#123;uuid.uuid4()&#125;</span>&#x27;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 模型名称到 UUID 的映射</span></span><br><span class="line">    target_model_id = MODEL_NAME_TO_ID_MAP.get(</span><br><span class="line">        openai_request.get(<span class="string">&#x27;model&#x27;</span>), </span><br><span class="line">        DEFAULT_MODEL_ID</span><br><span class="line">    )</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 消息格式转换</span></span><br><span class="line">    messages = []</span><br><span class="line">    <span class="keyword">for</span> msg <span class="keyword">in</span> openai_request[<span class="string">&#x27;messages&#x27;</span>]:</span><br><span class="line">        messages.append(&#123;</span><br><span class="line">            <span class="string">&#x27;id&#x27;</span>: <span class="built_in">str</span>(uuid.uuid4()),</span><br><span class="line">            <span class="string">&#x27;evaluationSessionId&#x27;</span>: session_id,</span><br><span class="line">            <span class="string">&#x27;modelId&#x27;</span>: target_model_id <span class="keyword">if</span> msg[<span class="string">&#x27;role&#x27;</span>] == <span class="string">&#x27;assistant&#x27;</span> <span class="keyword">else</span> <span class="literal">None</span>,</span><br><span class="line">            <span class="string">&#x27;role&#x27;</span>: msg[<span class="string">&#x27;role&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;content&#x27;</span>: msg[<span class="string">&#x27;content&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;parentMessageIds&#x27;</span>: [...]  <span class="comment"># 维护消息关系</span></span><br><span class="line">        &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">&#x27;id&#x27;</span>: session_id,</span><br><span class="line">        <span class="string">&#x27;userId&#x27;</span>: user_id,</span><br><span class="line">        <span class="string">&#x27;messages&#x27;</span>: messages,</span><br><span class="line">        <span class="string">&#x27;targetModelId&#x27;</span>: target_model_id</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>关键点：</p>
-<ul>
-<li>UUID 生成确保每个会话的唯一性</li>
-<li>模型映射通过 <code>models.json</code> 文件维护</li>
-<li>消息关系通过 <code>parentMessageIds</code> 构建</li>
-</ul>
-<h4 id="作业队列管理"><a href="#作业队列管理" class="headerlink" title="作业队列管理"></a>作业队列管理</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 全局队列定义</span></span><br><span class="line">INJECTION_JOBS = Queue()    <span class="comment"># 历史注入作业</span></span><br><span class="line">PROMPT_JOBS = Queue()      <span class="comment"># 提示提交作业</span></span><br><span class="line">TOOL_RESULT_JOBS = Queue() <span class="comment"># 工具结果作业</span></span><br><span class="line">MODEL_FETCH_JOBS = Queue() <span class="comment"># 模型获取作业</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 状态管理</span></span><br><span class="line">RESULTS = &#123;&#125;  <span class="comment"># 存储任务结果</span></span><br><span class="line">INJECTION_EVENTS = &#123;&#125;  <span class="comment"># 注入完成事件同步</span></span><br></pre></td></tr></table></figure>
-
-<p>队列系统实现了异步处理，确保浏览器自动化与 API 请求解耦。</p>
-<h3 id="2-Tampermonkey-脚本：浏览器自动化引擎"><a href="#2-Tampermonkey-脚本：浏览器自动化引擎" class="headerlink" title="2. Tampermonkey 脚本：浏览器自动化引擎"></a>2. Tampermonkey 脚本：浏览器自动化引擎</h3><p><code>LMArenaAutomator.js</code> 是技术含量最高的部分，实现了深度的浏览器自动化。</p>
-<h4 id="Next-js-数据流劫持"><a href="#Next-js-数据流劫持" class="headerlink" title="Next.js 数据流劫持"></a>Next.js 数据流劫持</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">performInjection</span>(<span class="params">history_data</span>) &#123;</span><br><span class="line">    <span class="comment">// 1. 更新会话 ID</span></span><br><span class="line">    <span class="keyword">const</span> urlPath = <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span>;</span><br><span class="line">    <span class="keyword">const</span> match = urlPath.<span class="title function_">match</span>(<span class="regexp">/\/c\/([a-f0-9\-]+)/</span>);</span><br><span class="line">    <span class="keyword">if</span> (match) &#123;</span><br><span class="line">        history_data.<span class="property">id</span> = match[<span class="number">1</span>]; <span class="comment">// 使用当前页面的会话 ID</span></span><br><span class="line">        history_data.<span class="property">messages</span>.<span class="title function_">forEach</span>(<span class="function"><span class="params">msg</span> =&gt;</span> &#123;</span><br><span class="line">            msg.<span class="property">evaluationSessionId</span> = match[<span class="number">1</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2. 劫持 __next_f 数组</span></span><br><span class="line">    <span class="keyword">if</span> (self.<span class="property">__next_f</span>) &#123;</span><br><span class="line">        <span class="comment">// 处理已存在的数组</span></span><br><span class="line">        <span class="title function_">hookPush</span>(self.<span class="property">__next_f</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 遍历已有数据</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; self.<span class="property">__next_f</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            <span class="title function_">processChunk</span>(self.<span class="property">__next_f</span>[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 3. 监听未来数据</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="variable language_">window</span>, <span class="string">&#x27;__next_f&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">set</span>: <span class="keyword">function</span>(<span class="params">value</span>) &#123;</span><br><span class="line">            <span class="title function_">hookPush</span>(value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">modifyPayload</span>(<span class="params">payload</span>) &#123;</span><br><span class="line">    <span class="comment">// 精确定位 initialState</span></span><br><span class="line">    <span class="keyword">const</span> startIndex = payload.<span class="title function_">lastIndexOf</span>(startMarker, endIndex);</span><br><span class="line">    <span class="keyword">const</span> endIndex = payload.<span class="title function_">indexOf</span>(endMarker);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (startIndex !== -<span class="number">1</span> &amp;&amp; endIndex !== -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> beforePart = payload.<span class="title function_">substring</span>(<span class="number">0</span>, startIndex);</span><br><span class="line">        <span class="keyword">const</span> afterPart = payload.<span class="title function_">substring</span>(endIndex);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 注入伪造的历史数据</span></span><br><span class="line">        <span class="keyword">const</span> newPayload = beforePart + </span><br><span class="line">            <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(history_data) + </span><br><span class="line">            afterPart;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> newPayload;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> payload;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>技术亮点：</p>
-<ul>
-<li>精准的字符串定位算法，避免误替换</li>
-<li>同时处理现有和未来的数据流</li>
-<li>保持原有数据结构完整性</li>
-</ul>
-<h4 id="React-组件操作"><a href="#React-组件操作" class="headerlink" title="React 组件操作"></a>React 组件操作</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">typeAndSubmitPrompt</span>(<span class="params">prompt</span>) &#123;</span><br><span class="line">    <span class="comment">// 1. 找到带有 React props 的 textarea</span></span><br><span class="line">    <span class="keyword">const</span> textarea = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;textarea[name=&quot;text&quot;]&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> reactPropsKey = <span class="title class_">Object</span>.<span class="title function_">keys</span>(textarea).<span class="title function_">find</span>(<span class="function"><span class="params">key</span> =&gt;</span> </span><br><span class="line">        key.<span class="title function_">startsWith</span>(<span class="string">&#x27;__reactProps$&#x27;</span>)</span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (reactPropsKey) &#123;</span><br><span class="line">        <span class="keyword">const</span> props = textarea[reactPropsKey];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 2. 直接调用 React 的 onChange 处理器</span></span><br><span class="line">        <span class="keyword">const</span> mockEvent = &#123;</span><br><span class="line">            <span class="attr">target</span>: &#123; <span class="attr">value</span>: prompt &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        props.<span class="title function_">onChange</span>(mockEvent);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 3. 等待 React 状态更新</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> submitButton = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button[type=&quot;submit&quot;]&#x27;</span>);</span><br><span class="line">            <span class="keyword">if</span> (!submitButton.<span class="property">disabled</span>) &#123;</span><br><span class="line">                submitButton.<span class="title function_">click</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="number">150</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>精髓之处：</p>
-<ul>
-<li>不通过 DOM API，而是直接操作 React 内部</li>
-<li>模拟真实的用户交互事件</li>
-<li>精确的时序控制</li>
-</ul>
-<p>####Fetch 请求拦截</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">hookFetch</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> originalFetch = <span class="variable language_">window</span>.<span class="property">fetch</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">fetch</span> = <span class="keyword">async</span> <span class="keyword">function</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> url = args[<span class="number">0</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 拦截 LMArena 的 API 请求</span></span><br><span class="line">        <span class="keyword">if</span> (url.<span class="title function_">includes</span>(<span class="string">&#x27;/api/stream/post-to-evaluation/&#x27;</span>)) &#123;</span><br><span class="line">            <span class="keyword">const</span> options = args[<span class="number">1</span>] || &#123;&#125;;</span><br><span class="line">            <span class="keyword">const</span> bodyObject = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(options.<span class="property">body</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 1. 替换模型 ID</span></span><br><span class="line">            <span class="keyword">const</span> targetModelId = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="variable constant_">MODEL_ID_STORAGE_KEY</span>);</span><br><span class="line">            <span class="keyword">if</span> (targetModelId) &#123;</span><br><span class="line">                bodyObject.<span class="property">modelAId</span> = targetModelId;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 2. 更新最后一条消息的模型 ID</span></span><br><span class="line">                <span class="keyword">const</span> messages = bodyObject.<span class="property">messages</span>;</span><br><span class="line">                <span class="keyword">if</span> (messages.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">const</span> lastMessage = messages[messages.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">if</span> (lastMessage.<span class="property">role</span> === <span class="string">&#x27;assistant&#x27;</span>) &#123;</span><br><span class="line">                        lastMessage.<span class="property">modelId</span> = targetModelId;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 3. 敏感词绕过逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (config.<span class="property">bypass_enabled</span> &amp;&amp; messages.<span class="property">length</span> &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="keyword">const</span> originalUserMsg = messages[messages.<span class="property">length</span> - <span class="number">2</span>];</span><br><span class="line">                <span class="keyword">const</span> assistantPlaceholder = messages[messages.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> (originalUserMsg.<span class="property">role</span> === <span class="string">&#x27;user&#x27;</span> &amp;&amp; </span><br><span class="line">                    assistantPlaceholder.<span class="property">role</span> === <span class="string">&#x27;assistant&#x27;</span>) &#123;</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">// 插入空消息</span></span><br><span class="line">                    <span class="keyword">const</span> emptyUserMessage = &#123;</span><br><span class="line">                        <span class="attr">content</span>: <span class="string">&#x27; &#x27;</span>,</span><br><span class="line">                        <span class="attr">id</span>: crypto.<span class="title function_">randomUUID</span>(),</span><br><span class="line">                        <span class="attr">role</span>: <span class="string">&#x27;user&#x27;</span>,</span><br><span class="line">                        <span class="attr">parentMessageIds</span>: [originalUserMsg.<span class="property">id</span>]</span><br><span class="line">                    &#125;;</span><br><span class="line">                    </span><br><span class="line">                    assistantPlaceholder.<span class="property">parentMessageIds</span> = [emptyUserMessage.<span class="property">id</span>];</span><br><span class="line">                    messages.<span class="title function_">splice</span>(-<span class="number">1</span>, <span class="number">0</span>, emptyUserMessage);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            options.<span class="property">body</span> = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(bodyObject);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 执行请求并克隆响应用于流处理</span></span><br><span class="line">        <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">originalFetch</span>(...args);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (url.<span class="title function_">includes</span>(<span class="string">&#x27;/api/stream/post-to-evaluation/&#x27;</span>)) &#123;</span><br><span class="line">            <span class="keyword">const</span> clonedResponse = response.<span class="title function_">clone</span>();</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 异步处理流</span></span><br><span class="line">            <span class="title function_">processStream</span>(clonedResponse);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 返回原始响应</span></span><br><span class="line">            <span class="keyword">return</span> response;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>关键功能：</p>
-<ul>
-<li>动态修改请求参数</li>
-<li>响应克隆实现双流处理</li>
-<li>敏感词绕过技术</li>
-</ul>
-<h3 id="3-响应流式处理"><a href="#3-响应流式处理" class="headerlink" title="3. 响应流式处理"></a>3. 响应流式处理</h3><p>从 LMArena 的原始流式响应提取文本内容：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_openai_response_generator</span>(<span class="params">task_id</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成 OpenAI 格式的流式响应&quot;&quot;&quot;</span></span><br><span class="line">    text_pattern = re.<span class="built_in">compile</span>(<span class="string">r&#x27;a0:&quot;((?:\\.|[^&quot;\\])*)&quot;&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment"># 从队列获取原始块</span></span><br><span class="line">            raw_chunk = RESULTS[task_id][<span class="string">&#x27;stream_queue&#x27;</span>].get(timeout=<span class="number">1</span>)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 提取文本内容</span></span><br><span class="line">            matches = text_pattern.findall(raw_chunk)</span><br><span class="line">            <span class="keyword">for</span> <span class="keyword">match</span> <span class="keyword">in</span> matches:</span><br><span class="line">                <span class="comment"># JSON 解码处理转义字符</span></span><br><span class="line">                text_content = json.loads(<span class="string">f&#x27;&quot;<span class="subst">&#123;<span class="keyword">match</span>&#125;</span>&quot;&#x27;</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> text_content.strip():</span><br><span class="line">                    <span class="keyword">yield</span> format_openai_chunk(</span><br><span class="line">                        text_content, </span><br><span class="line">                        model_name, </span><br><span class="line">                        request_id</span><br><span class="line">                    )</span><br><span class="line">                    </span><br><span class="line">        <span class="keyword">except</span> Empty:</span><br><span class="line">            <span class="comment"># 检查任务状态</span></span><br><span class="line">            <span class="keyword">if</span> RESULTS[task_id].get(<span class="string">&#x27;status&#x27;</span>) == <span class="string">&#x27;completed&#x27;</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="技术难点与解决方案"><a href="#技术难点与解决方案" class="headerlink" title="技术难点与解决方案"></a>技术难点与解决方案</h2><h3 id="1-会话状态同步"><a href="#1-会话状态同步" class="headerlink" title="1. 会话状态同步"></a>1. 会话状态同步</h3><p><strong>问题</strong>: 如何让 LMArena 相信对话历史是真实的？</p>
-<p><strong>解决方案</strong>:</p>
-<ul>
-<li>精确复制 LMArena 的数据结构</li>
-<li>维护正确的消息关系链</li>
-<li>使用真实的会话 ID</li>
-</ul>
-<h3 id="2-实时性保证"><a href="#2-实时性保证" class="headerlink" title="2. 实时性保证"></a>2. 实时性保证</h3><p><strong>问题</strong>: 如何实现低延迟的流式响应？</p>
-<p><strong>解决方案</strong>:</p>
-<ul>
-<li>双队列机制：作业队列 + 流队列</li>
-<li>事件驱动的异步处理</li>
-<li>最小化数据处理开销</li>
-</ul>
-<h3 id="3-错误恢复"><a href="#3-错误恢复" class="headerlink" title="3. 错误恢复"></a>3. 错误恢复</h3><p><strong>问题</strong>: 浏览器环境不稳定，如何保证系统可靠性？</p>
-<p><strong>解决方案</strong>:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 轮询错误恢复</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">pollForJob</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">`<span class="subst">$&#123;SERVER_URL&#125;</span>/get_injection_job`</span>);</span><br><span class="line">            <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (data.<span class="property">status</span> === <span class="string">&#x27;success&#x27;</span>) &#123;</span><br><span class="line">                <span class="comment">// 处理作业</span></span><br><span class="line">                <span class="title function_">processJob</span>(data.<span class="property">job</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Error polling for job:&#x27;</span>, error);</span><br><span class="line">            <span class="comment">// 指数退避</span></span><br><span class="line">            <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> </span><br><span class="line">                <span class="built_in">setTimeout</span>(resolve, <span class="title class_">Math</span>.<span class="title function_">min</span>(<span class="number">10000</span>, attempts * <span class="number">1000</span>))</span><br><span class="line">            );</span><br><span class="line">            attempts++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, <span class="number">3000</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="项目的创新之处"><a href="#项目的创新之处" class="headerlink" title="项目的创新之处"></a>项目的创新之处</h2><ol>
-<li><strong>架构创新</strong>: 将浏览器作为 API 网关，绕过了传统的 API 限制</li>
-<li><strong>技术创新</strong>: 深度整合 Next.js、React 和 Fetch 机制</li>
-<li><strong>模式创新</strong>: 提供了一种通用的 Web 服务 API 化方案</li>
-</ol>
-<h2 id="应用前景"><a href="#应用前景" class="headerlink" title="应用前景"></a>应用前景</h2><p>这种架构模式可以应用到许多其他场景：</p>
-<ul>
-<li>为 SaaS 产品创建 API 接口</li>
-<li>自动化没有 API 的遗留系统</li>
-<li>创建多个服务间的统一 API 层</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>LMArenaBridge 展示了前端技术的惊人潜力。通过巧妙地利用浏览器自动化技术，它成功地在 Web 应用和标准 API 之间架起了一座桥梁。这不仅是一个技术创举，更是一种思维方式的突破：当我们面对限制时，创新往往来自于对系统更深层次的理解和利用。</p>
-<p>项目的代码质量和架构设计都值得学习，特别是它在异步协调、状态管理和错误处理方面的实现。对于想要深入理解浏览器自动化和系统架构的开发者来说，这是一个绝佳的学习案例。</p>
-<hr>
-<p><em>本文相关代码来源于开源项目 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0xpYW51ZXMvTE1BcmVuYUJyaWRnZQ==">LMArenaBridge<i class="fa fa-external-link-alt"></i></span>，感谢作者的贡献。</em></p>
-]]></content>
-      <categories>
-        <category>技术记录与分享</category>
-        <category>AI &amp; LLM</category>
-      </categories>
-      <tags>
-        <tag>浏览器自动化</tag>
-        <tag>API 桥接</tag>
-        <tag>逆向工程</tag>
-        <tag>系统架构</tag>
       </tags>
   </entry>
   <entry>
@@ -1968,6 +1968,27 @@
       </tags>
   </entry>
   <entry>
+    <title>What-can-a-Free-Domain-Do</title>
+    <url>/posts/1a928d4e/</url>
+    <content><![CDATA[<blockquote>
+<p> 一个免费域名能干些什么</p>
+</blockquote>
+<span id="more"></span>
+<hr>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><img src = "https://media.makomako.dpdns.org/avatar/avatar.jpg" style= "width: auto ">
+
+]]></content>
+      <categories>
+        <category>技术记录与分享</category>
+        <category>AI &amp; LLM</category>
+      </categories>
+      <tags>
+        <tag>技术分享</tag>
+        <tag>AI-LLM</tag>
+        <tag>ai</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ultimate Plan for Gemini API Calls</title>
     <url>/posts/4763/</url>
     <content><![CDATA[<blockquote>
@@ -2150,27 +2171,6 @@
         <tag>api</tag>
         <tag>gemini</tag>
         <tag>cloudflare</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>What-can-a-Free-Domain-Do</title>
-    <url>/posts/1a928d4e/</url>
-    <content><![CDATA[<blockquote>
-<p> 一个免费域名能干些什么</p>
-</blockquote>
-<span id="more"></span>
-<hr>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><img src = "https://media.makomako.dpdns.org/avatar/avatar.jpg" style= "width: auto ">
-
-]]></content>
-      <categories>
-        <category>技术记录与分享</category>
-        <category>AI &amp; LLM</category>
-      </categories>
-      <tags>
-        <tag>技术分享</tag>
-        <tag>AI-LLM</tag>
-        <tag>ai</tag>
       </tags>
   </entry>
   <entry>
