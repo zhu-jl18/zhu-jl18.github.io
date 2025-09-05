@@ -153,8 +153,8 @@
       const qv = await embed(q);
       const ctx = pickTopK(qv, 6);
       const contextText = ctx.map((c,i)=>`[${i+1}] ${c.title} — ${c.url}\n${c.text}`).join('\n\n');
-      const sys = '你是本博客的智能助手。只能使用提供的上下文回答；若上下文没有就说不确定。回答最后列出引用的 [编号] 与链接。';
-      const prompt = `上下文如下:\n\n${contextText}\n\n问题:${q}\n请用中文简洁回答。`;
+      const sys = '你是本博客的智能助手。回答要简洁明了，不要输出思考过程。对于技术概念，先给出标准定义，再结合博客内容补充。若上下文无相关信息就说不确定。';
+      const prompt = `上下文:\n${contextText}\n\n问题: ${q}\n\n请直接回答，不要说"根据上下文"等过程描述。`;
       const ans = await chatComplete(sys, prompt);
       const cites = ctx.map((c,i)=>`[${i+1}] <a href="${c.url}">${escapeHtml(c.title)}</a>`).join(' ');
       body.insertAdjacentHTML('beforeend', `<div class="msg bot">${ans}<div class="cites">${cites}</div></div>`);
