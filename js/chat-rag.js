@@ -169,7 +169,16 @@
     const cfg = loadCfg();
     if (!cfg.apiKey) throw new Error('请在设置中填入 API Key');
     const url = new URL('/v1/chat/completions', cfg.base).toString();
-    const resp = await fetch(url, { method:'POST', headers:{ 'Content-Type':'application/json', 'Authorization':`Bearer ${cfg.apiKey}` }, body: JSON.stringify({ model: cfg.chatModel, messages:[{role:'system', content: system},{role:'user', content: user}], temperature: 0.2 }) });
+    const resp = await fetch(url, {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json', 'Authorization':`Bearer ${cfg.apiKey}` },
+      body: JSON.stringify({
+        model: cfg.chatModel,
+        messages:[{role:'system', content: system},{role:'user', content: user}],
+        temperature: 0.2,
+        stream: false  // 强制非流式响应
+      })
+    });
     if (!resp.ok) throw new Error('对话失败：' + await resp.text());
     const data = await resp.json();
     return escapeHtml(data.choices?.[0]?.message?.content || '');
