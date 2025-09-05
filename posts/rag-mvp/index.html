@@ -26,13 +26,13 @@
 
 
 
-<link rel="canonical" href="https://zhu-jl18.github.io/tags/nginx/">
+<link rel="canonical" href="https://zhu-jl18.github.io/posts/rag-mvp/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/nginx/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhu-jl18.github.io/posts/rag-mvp/","path":"posts/rag-mvp/","title":"构建博客内知识库聊天机器人（MVP 实战）"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: nginx | Dirac Sea</title>
+<title>构建博客内知识库聊天机器人（MVP 实战） | Dirac Sea</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGG5BFG7WZ"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-MGG5BFG7WZ","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -77,7 +77,7 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://zhu-jl18.github.io/tags/nginx/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://zhu-jl18.github.io/posts/rag-mvp/"}</script>
   <script src="/js/third-party/quicklink.js" defer></script>
 <!-- 字体预加载优化 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -200,7 +200,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -213,6 +213,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88"><span class="nav-number">2.</span> <span class="nav-text">架构概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">使用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E6%96%87%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">主要文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E4%B8%8E%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E5%BB%BA%E8%AE%AE"><span class="nav-number">5.</span> <span class="nav-text">嵌入与生成模型建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%90%E5%88%B6%E4%B8%8E%E5%90%8E%E7%BB%AD"><span class="nav-number">6.</span> <span class="nav-text">限制与后续</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">小结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -267,51 +268,224 @@
 
     </div>
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">nginx
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/posts/rag-mvp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://media.makomako.dpdns.org/images/2025/09/05/1757012146-Soi%20fon">
+      <meta itemprop="name" content="mako">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dirac Sea">
+      <meta itemprop="description" content="love math and dinosaurs">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="构建博客内知识库聊天机器人（MVP 实战） | Dirac Sea">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          构建博客内知识库聊天机器人（MVP 实战）
         </h1>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2025</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-09-05 02:20:00" itemprop="dateCreated datePublished" datetime="2025-09-05T02:20:00+00:00">2025-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术记录与分享</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%88%86%E4%BA%AB/AI-LLM/" itemprop="url" rel="index"><span itemprop="name">AI & LLM</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>642</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>这是一篇把 RAG 聊天功能“嵌到博客里”的实战记录：纯前端、无需服务器、仅基于本站文章回答，且不保存任何聊天记录。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>在右下角增加一个独立“聊天按钮”，点击后打开抽屉式对话面板</li>
+<li>能够“只根据博客内容回答”，并在答案后附上引用链接</li>
+<li>不持久化聊天记录，不影响正常浏览性能（索引懒加载）</li>
+</ul>
+<h2 id="架构概览"><a href="#架构概览" class="headerlink" title="架构概览"></a>架构概览</h2><ul>
+<li>构建期（Node）：从 <code>source/_posts</code> 读取 Markdown → 清洗 → 语义分块（约 600 字，重叠 120） → 调用嵌入模型生成向量 → 产出本地索引 <code>source/rag/index.json</code></li>
+<li>运行期（浏览器）：点击聊天按钮时懒加载索引；将问题转为向量，做余弦相似度检索，拼上下文调用对话模型，最后给出“引用列表”</li>
+</ul>
+<p>索引仅在首次打开聊天时加载，正常浏览不受影响。</p>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><ol>
+<li>安装依赖（项目已具备）</li>
+<li>生成索引（需要你的嵌入模型 API Key，并仅在本地使用）</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows PowerShell 示例</span></span><br><span class="line"><span class="variable">$env</span>:EMBEDDING_API_KEY=<span class="string">&quot;sk-xxxx&quot;</span>; npm run rag:index</span><br><span class="line"><span class="comment"># 可选参数：--model --base --chunk --overlap</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>本地预览</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo server</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>浏览器里点击右下角“对话气泡”按钮，打开聊天抽屉</li>
+</ol>
+<ul>
+<li>首次使用请在“设置”里填写 API Base &#x2F; API Key &#x2F; 模型名</li>
+<li>支持 OpenAI 兼容接口（可接入 Gemini、DeepSeek、GLM、OpenRouter 等）</li>
+</ul>
+<blockquote>
+<p>注意：对话 API Key 仅保存在浏览器本地，不会上传到站点或第三方服务器。</p>
+</blockquote>
+<h2 id="主要文件"><a href="#主要文件" class="headerlink" title="主要文件"></a>主要文件</h2><ul>
+<li>索引构建脚本：<code>tools/build-rag-index.js</code></li>
+<li>前端交互逻辑：<code>source/js/chat-rag.js</code></li>
+<li>样式：<code>source/_data/styles.styl</code>（<code>.chat-floating-btn</code>、<code>.chat-drawer</code>）</li>
+<li>挂载：<code>source/_data/body-end.njk</code> 注入 <code>&lt;script src=&quot;/js/chat-rag.js&quot; data-pjax&gt;</code></li>
+</ul>
+<h2 id="嵌入与生成模型建议"><a href="#嵌入与生成模型建议" class="headerlink" title="嵌入与生成模型建议"></a>嵌入与生成模型建议</h2><ul>
+<li>嵌入：<code>bge-m3</code> 或 <code>text-embedding-3-small</code></li>
+<li>生成：<code>DeepSeek V3.1</code> &#x2F; <code>Gemini 2.5 Pro</code> &#x2F; <code>GLM 4.5</code> &#x2F; 任何 OpenAI 兼容模型</li>
+<li>可以在“设置”里分别指定嵌入模型、对话模型和 API Base</li>
+</ul>
+<h2 id="限制与后续"><a href="#限制与后续" class="headerlink" title="限制与后续"></a>限制与后续</h2><ul>
+<li>本文实现为 MVP，索引体积随文章增长而增大（支持分片与压缩）</li>
+<li>可选增强：Cross‑Encoder 重排、向量量化、索引分片按年份&#x2F;分类懒加载</li>
+<li>规模显著增长时，可平滑迁移到 Cloudflare Vectorize（边缘向量库）</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这个方案在不增加后端的前提下，把个人博客升级为“有知识的对话体”。实现既轻量又私密，很适合个人站点与小团队文档。</p>
+<p>如需协助接入更多模型或定制 Agent 路由，欢迎联系我：AUGMENT姐姐。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-09-04T00:00:00+00:00"
-              content="2025-09-04">
-          09-04
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/faa9e5e4/" itemprop="url">
-            <span itemprop="name">域名、VPS 和美国 IP 相关问题</span>
+    <footer class="post-footer"><!-- 文章底部自定义内容 -->
+
+
+
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/channel_name">
+            <span class="icon">
+              <i class="fab fa-youtube"></i>
+            </span>
+
+            <span class="label">YouTube</span>
           </a>
       </div>
 
-      
-    </header>
-  </article>
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://space.bilibili.com/403214142">
+            <span class="icon">
+              <i class="fa-brands fa-bilibili"></i>
+            </span>
 
-    </div>
+            <span class="label">Bilibili</span>
+          </a>
+      </div>
   </div>
-  
-  
-  
+</div>
 
+          <div class="post-tags">
+              <a href="/tags/next/" rel="tag"># next</a>
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/RAG/" rel="tag"># RAG</a>
+              <a href="/tags/chat/" rel="tag"># chat</a>
+              <a href="/tags/embeddings/" rel="tag"># embeddings</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/5705467b/" rel="prev" title="从 jsDelivr 迁移到 Cloudflare R2：实战经验分享">
+                  <i class="fa fa-angle-left"></i> 从 jsDelivr 迁移到 Cloudflare R2：实战经验分享
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/e71dcf05/" rel="next" title="Git工作流优化之旅：从混乱到自如的博客发布体验">
+                  Git工作流优化之旅：从混乱到自如的博客发布体验 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
 </div>
   </main>
 

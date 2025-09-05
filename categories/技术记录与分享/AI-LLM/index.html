@@ -290,6 +290,26 @@
     <header class="post-header">
       <div class="post-meta-container">
         <time itemprop="dateCreated"
+              datetime="2025-09-05T02:20:00+00:00"
+              content="2025-09-05">
+          09-05
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/posts/rag-mvp/" itemprop="url">
+            <span itemprop="name">构建博客内知识库聊天机器人（MVP 实战）</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
               datetime="2025-09-05T01:31:58+00:00"
               content="2025-09-05">
           09-05
@@ -491,13 +511,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">51k</span>
+    <span title="站点总字数">52k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:06</span>
+    <span title="站点阅读时长">3:08</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -537,6 +557,107 @@
 </noscript>
 <script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"lovingfish/utterances","issue_term":"url","theme":"github-light"}</script>
 <script src="/js/third-party/comments/utterances.js" defer></script>
+<script>
+(function() {
+  const STORAGE_KEY = 'theme';
+
+  function getPreferredTheme() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'light' || saved === 'dark') return saved;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }
+
+  function updateToggleIcon(btn) {
+    if (!btn) return;
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const icon = btn.querySelector('i');
+    if (icon) {
+      // 检查是否在菜单中（有文字）
+      const hasText = btn.textContent && btn.textContent.includes('主题');
+      if (hasText) {
+        icon.className = isDark ? 'fa fa-sun fa-fw' : 'fa fa-moon fa-fw';
+        btn.innerHTML = `<i class="${icon.className}"></i>${isDark ? '浅色' : '深色'}`;
+      } else {
+        icon.className = isDark ? 'fa fa-sun fa-fw fa-lg' : 'fa fa-moon fa-fw fa-lg';
+      }
+    }
+    btn.setAttribute('aria-label', isDark ? '切换为浅色' : '切换为深色');
+    btn.title = isDark ? '切换为浅色' : '切换为深色';
+  }
+
+
+  // 悬浮按钮：位置选项 left-bottom | left-middle | top-left
+  const FLOAT_POS = 'left-bottom';
+
+  function ensureFloatingToggle() {
+    // 移除旧的
+    let floatBtn = document.querySelector('.theme-floating-toggle');
+    if (floatBtn) floatBtn.remove();
+
+    // 创建新的
+    floatBtn = document.createElement('div');
+    floatBtn.className = `theme-floating-toggle pos-${FLOAT_POS}`;
+    floatBtn.setAttribute('role', 'button');
+    floatBtn.setAttribute('aria-label', '主题切换');
+    floatBtn.innerHTML = '<i class="fa fa-moon fa-fw"></i>';
+
+    floatBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      localStorage.setItem(STORAGE_KEY, next);
+      applyTheme(next);
+      updateToggleIcon(floatBtn);
+    });
+
+    document.body.appendChild(floatBtn);
+    console.log('[theme] floating toggle attached', floatBtn);
+    // 若样式尚未编译或被覆盖，确保可见
+    floatBtn.style.display = 'inline-flex';
+    floatBtn.style.position = 'fixed';
+    floatBtn.style.left = '18px';
+    floatBtn.style.bottom = FLOAT_POS === 'left-bottom' ? '18px' : '';
+
+    // 固定位置（不启用拖拽/记忆）
+    updateToggleIcon(floatBtn);
+  }
+
+  // 不再把按钮插入导航；如存在旧按钮则移除
+  function cleanupNavToggles() {
+    document.querySelectorAll('.site-nav-right .theme-toggle, .main-menu .menu-item-theme-toggle').forEach(el => el.remove());
+  }
+
+  // 初始化
+  applyTheme(getPreferredTheme());
+  cleanupNavToggles();
+  ensureFloatingToggle();
+
+  // 跟随系统变化（仅当没有显式选择时）
+  const media = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+  if (media && media.addEventListener) {
+    media.addEventListener('change', () => {
+      if (!localStorage.getItem(STORAGE_KEY)) {
+        applyTheme(getPreferredTheme());
+        updateToggleIcon(document.querySelector('.theme-floating-toggle'));
+      }
+    });
+  }
+
+  // PJAX 页面切换后重新挂载按钮
+  document.addEventListener('pjax:success', () => {
+    cleanupNavToggles();
+    ensureFloatingToggle();
+  });
+})();
+</script>
+<script src="/js/chat-rag.js" data-pjax></script>
 
 </body>
 </html>
