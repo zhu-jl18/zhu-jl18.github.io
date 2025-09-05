@@ -85,8 +85,9 @@
 
   async function ensureIndex(){
     if (STATE.index) return STATE.index;
-    const res = await fetch(INDEX_URL, { cache:'force-cache' });
-    if (!res.ok) throw new Error('索引加载失败');
+    const url = INDEX_URL;
+    const res = await fetch(url, { cache:'no-store' });
+    if (!res.ok) throw new Error(`索引加载失败: [${res.status}] ${url}`);
     const data = await res.json();
     STATE.index = data.items;
     STATE.dim = data.dim;
