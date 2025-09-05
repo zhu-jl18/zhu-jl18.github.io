@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/lambda-icon-size_64.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/lambda-icon-size_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/lambda-icon-size_16.png">
+  <link rel="mask-icon" href="/images/lambda-icon-size_64.png" color="#222">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="google-site-verification" content="WRoB9bFhSYf-bLPn6jS4ALalzR7nKkWw1sp5MqHoB0U">
+  <meta name="msvalidate.01" content="DE0701EF278A6E845833F86B71C383D5">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family='Source+Han+Sans+SC':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Noto+Sans+SC':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='PingFang+SC':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Hiragino+Sans+GB':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Microsoft+YaHei':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='WenQuanYi+Micro+Hei':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=sans-serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Fira+Code':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Source+Code+Pro':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Consolas:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Courier+New':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=monospace:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhu-jl18.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.23.2","exturl":true,"sidebar":{"position":"right","width_expanded":350,"width_dual_column":280,"display":"always","padding":18,"offset":13},"hljswrap":true,"codeblock":{"theme":{"light":"base16/ros-pine","dark":"base16/ros-pine"},"prism":{"light":"prism-coy.min","dark":"prism-tomorrow"},"copy_button":{"enable":false,"style":"flat"},"fold":{"enable":false,"height":200},"language":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"buttons","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
+
+
+
+<link rel="canonical" href="https://zhu-jl18.github.io/posts/faa9e5e4/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhu-jl18.github.io/posts/faa9e5e4/","path":"posts/faa9e5e4/","title":"域名、VPS 和美国 IP 相关问题"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>域名、VPS 和美国 IP 相关问题 | Dirac Sea</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGG5BFG7WZ"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-MGG5BFG7WZ","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@11.7.0/dist/mermaid.min.js","integrity":"sha256-4+IKDqhZ/sXjc8Wtl2/MsxI4e0s1KpEVdbEP7V/Lz8U="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","single_dollars":true,"cjk_width":0.9,"normal_width":0.6,"append_css":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://zhu-jl18.github.io/posts/faa9e5e4/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+<!-- 字体预加载优化 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- 字体加载优化 -->
+<style>
+  /* 字体显示优化 */
+  @font-face {
+    font-family: 'Source Han Sans SC';
+    src: url('https://fonts.gstatic.com/s/sourcehansanssc/v17/HI_EiYMe1oYg9kJ6TlKjZyE.woff2') format('woff2');
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('https://fonts.gstatic.com/s/jetbrainsmono/v13/LZsErw.woff2') format('woff2');
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Fira Code';
+    src: url('https://fonts.gstatic.com/s/firacode/v22/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_D1sJVD7MOzlojwUKaJO.woff2') format('woff2');
+    font-display: swap;
+  }
+</style>
+
+<!-- 关键CSS内联优化 -->
+<style>
+  /* 关键样式提前加载，减少FOUC */
+  body {
+    font-display: swap;
+  }
+  
+  /* 减少布局抖动 */
+  .sidebar {
+    contain: layout style;
+  }
+  
+  .main-inner {
+    contain: layout;
+  }
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Dirac Sea" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dirac Sea</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">🦖::😼::🧐</p>
+      <img class="custom-logo-image" src="/images/evolution.png" alt="Dirac Sea">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-timeline"><a href="/" rel="section"><i class="fa fa-bookmark fa-fw"></i>Timeline</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-milestones"><a href="/milestones/" rel="section"><i class="fa fa-trophy fa-fw"></i>Milestones</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E8%AE%A8%E8%AE%BA%E5%86%85%E5%AE%B9"><span class="nav-number">1.</span> <span class="nav-text">主要讨论内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%9F%E5%90%8D%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">1. 域名基础概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-VPS-%E7%9A%84%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.2.</span> <span class="nav-text">2. VPS 的详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%BE%8E%E5%9B%BD%E5%AE%B6%E5%AE%BD-IP-%E7%9A%84%E9%9C%80%E6%B1%82"><span class="nav-number">1.3.</span> <span class="nav-text">3. 美国家宽 IP 的需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%9F%9F%E5%90%8D%E5%A6%82%E4%BD%95%E5%B8%AE%E5%8A%A9%E8%8E%B7%E5%8F%96%E7%BE%8E%E5%9B%BD-IP"><span class="nav-number">1.4.</span> <span class="nav-text">4. 域名如何帮助获取美国 IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Nginx-%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.5.</span> <span class="nav-text">5. Nginx 的学习建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.6.</span> <span class="nav-text">6. 技术实现建议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E5%90%8E%E7%BB%AD%E8%A1%8C%E5%8A%A8%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">需要后续行动的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E8%B5%84%E6%BA%90%E9%93%BE%E6%8E%A5"><span class="nav-number">3.</span> <span class="nav-text">关键资源链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%AC%A1%E7%BB%A7%E7%BB%AD%E6%97%B6%E5%8F%AF%E4%BB%A5%E4%BB%8E%E5%93%AA%E9%87%8C%E5%BC%80%E5%A7%8B"><span class="nav-number">4.</span> <span class="nav-text">下次继续时可以从哪里开始</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="mako"
+      src="https://media.makomako.dpdns.org/images/2025/09/05/1757012146-Soi%20fon">
+  <p class="site-author-name" itemprop="name">mako</p>
+  <div class="site-description" itemprop="description">love math and dinosaurs</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3podS1qbDE4" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhu-jl18"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS95b3VybmFtZQ==" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname"><i class="fab fa-stack-overflow fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL3lvdXJuYW1l" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname"><i class="fa fa-instagram fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3lvdXJuYW1l" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3lvdXJuYW1l" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;yourname"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9yZWRkaXQuY29tL3VzZXIveW91cm5hbWU=" title="Reddit → https:&#x2F;&#x2F;reddit.com&#x2F;user&#x2F;yourname"><i class="fab fa-reddit fa-fw"></i></span>
+      </span>
+  </div>
+<!-- 自定义侧边栏模块 - 在Next主题默认侧边栏基础上添加 -->
+
+<!-- 背景融合图片 -->
+<div class="sidebar-bottom-image" style="margin: 20px 0; text-align: center;">
+  <a href="https://ncatlab.org/nlab/show/HomePage" target="_blank" rel="noopener noreferrer">
+    <img src="/images/book.png" alt="The Book of Secret Knowledge" style="width: 100%; max-width: 160px; height: auto; border: none; box-shadow: none; opacity: 1; margin: 0 auto; display: block;">
+  </a>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/4763/" rel="bookmark">
+        <time class="popular-posts-time">2025-08-12</time>
+        <br>
+      Ultimate Plan for Gemini API Calls
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/5705467b/" rel="bookmark">
+        <time class="popular-posts-time">2025-09-05</time>
+        <br>
+      从 jsDelivr 迁移到 Cloudflare R2：实战经验分享
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/posts/faa9e5e4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://media.makomako.dpdns.org/images/2025/09/05/1757012146-Soi%20fon">
+      <meta itemprop="name" content="mako">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dirac Sea">
+      <meta itemprop="description" content="love math and dinosaurs">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="域名、VPS 和美国 IP 相关问题 | Dirac Sea">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          域名、VPS 和美国 IP 相关问题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-09-04 00:00:00" itemprop="dateCreated datePublished" datetime="2025-09-04T00:00:00+00:00">2025-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-09-05 10:48:24" itemprop="dateModified" datetime="2025-09-05T10:48:24+00:00">2025-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI-LLM/" itemprop="url" rel="index"><span itemprop="name">AI & LLM</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI-LLM/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术记录与分享</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>694</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>理解域名和 VPS 的关系，以及获取美国 IP 的方法</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="主要讨论内容"><a href="#主要讨论内容" class="headerlink" title="主要讨论内容"></a>主要讨论内容</h2><h3 id="1-域名基础概念"><a href="#1-域名基础概念" class="headerlink" title="1. 域名基础概念"></a>1. 域名基础概念</h3><ul>
+<li><strong>域名本质</strong>：只是访问入口（门牌号），需要指向真实的服务器 IP</li>
+<li><strong>当前状态</strong>：用户有两个域名 <code>functorfish.dpdns.org</code> 和 <code>makomako.dpdns.org</code></li>
+<li><strong>困惑点</strong>：空有域名感觉”什么都没有”</li>
+<li><strong>理解</strong>：域名就像电话号码，必须有对应的设备（服务器）才能工作</li>
+</ul>
+<h3 id="2-VPS-的详解"><a href="#2-VPS-的详解" class="headerlink" title="2. VPS 的详解"></a>2. VPS 的详解</h3><ul>
+<li><strong>定义</strong>：Virtual Private Server &#x3D; 数据中心的虚拟电脑</li>
+<li><strong>特点</strong>：<ul>
+<li>24&#x2F;7 运行</li>
+<li>独立公网 IP</li>
+<li>完全控制权</li>
+<li>可选择不同地区（包括美国）</li>
+</ul>
+</li>
+<li><strong>与域名关系</strong>：域名指向 VPS 的 IP 地址，形成完整的访问链路</li>
+</ul>
+<h3 id="3-美国家宽-IP-的需求"><a href="#3-美国家宽-IP-的需求" class="headerlink" title="3. 美国家宽 IP 的需求"></a>3. 美国家宽 IP 的需求</h3><ul>
+<li><strong>用途</strong>：<ul>
+<li>OpenAI ChatGPT 注册验证</li>
+<li>Google 服务访问</li>
+<li>API 调用地域验证</li>
+<li>避免被标记为异常</li>
+</ul>
+</li>
+<li><strong>家宽 IP vs 数据中心 IP</strong>：<ul>
+<li>家宽：真实家庭宽带，IP 纯净，通过率高</li>
+<li>数据中心：容易被识别，可能被限制</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-域名如何帮助获取美国-IP"><a href="#4-域名如何帮助获取美国-IP" class="headerlink" title="4. 域名如何帮助获取美国 IP"></a>4. 域名如何帮助获取美国 IP</h3><p><strong>直接关系</strong>：域名本身不提供 IP，但可以作为代理服务的入口</p>
+<p><strong>方案推荐</strong>：</p>
+<ol>
+<li><p><strong>零成本方案</strong>：</p>
+<ul>
+<li>Cloudflare WARP（免费美国出口）</li>
+<li>Cloudflare Tunnel（将本地服务暴露）</li>
+<li>域名指向隧道服务</li>
+</ul>
+</li>
+<li><p><strong>性价比方案</strong>：</p>
+<ul>
+<li>购买美国住宅 IP 的 VPS</li>
+<li>搭建代理服务</li>
+<li>域名配置不同子域名指向不同服务</li>
+</ul>
+</li>
+<li><p><strong>进阶玩法</strong>：</p>
+<ul>
+<li>子域名智能路由</li>
+<li>多地区服务部署</li>
+<li>Nginx 反向代理配置</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-Nginx-的学习建议"><a href="#5-Nginx-的学习建议" class="headerlink" title="5. Nginx 的学习建议"></a>5. Nginx 的学习建议</h3><ul>
+<li><strong>为什么感兴趣</strong>：强大灵活，像瑞士军刀</li>
+<li><strong>应用场景</strong>：<ul>
+<li>反向代理</li>
+<li>负载均衡</li>
+<li>静态资源服务</li>
+<li>流量控制</li>
+</ul>
+</li>
+<li><strong>学习路径</strong>：从静态服务 → 反向代理 → 高级特性</li>
+</ul>
+<h3 id="6-技术实现建议"><a href="#6-技术实现建议" class="headerlink" title="6. 技术实现建议"></a>6. 技术实现建议</h3><p><strong>立即可以做的</strong>：</p>
+<ol>
+<li>安装 Cloudflare WARP，选择美国出口，验证 IP 变化</li>
+<li>在本地用 Docker 运行 Nginx，熟悉配置</li>
+<li>使用 Cloudflare Tunnel 将本地服务暴露到公网</li>
+</ol>
+<p><strong>进阶方案</strong>：</p>
+<ol>
+<li>研究美国住宅 IP VPS 供应商</li>
+<li>搭建代理服务（V2Ray&#x2F;Trojan）</li>
+<li>配置域名实现智能路由</li>
+</ol>
+<h2 id="需要后续行动的项目"><a href="#需要后续行动的项目" class="headerlink" title="需要后续行动的项目"></a>需要后续行动的项目</h2><ul>
+<li><input disabled type="checkbox"> 使用 Cloudflare WARP 测试美国 IP</li>
+<li><input disabled type="checkbox"> 在本地配置 Nginx 测试</li>
+<li><input disabled type="checkbox"> 撰写 3 篇系列博客文章<ol>
+<li>域名和 VPS 的基础关系</li>
+<li>Nginx 功能详解</li>
+<li>美国家宽 IP 获取指南</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> 完善 AI 创作集网站的想法记录（待后续实现）</li>
+</ul>
+<h2 id="关键资源链接"><a href="#关键资源链接" class="headerlink" title="关键资源链接"></a>关键资源链接</h2><ul>
+<li>Cloudflare WARP: <span class="exturl" data-url="aHR0cHM6Ly8xLjEuMS4xLw==">https://1.1.1.1/<i class="fa fa-external-link-alt"></i></span></li>
+<li>Docker 官方文档</li>
+<li>Nginx 官方文档</li>
+<li>Cloudflare Tunnel 文档</li>
+</ul>
+<h2 id="下次继续时可以从哪里开始"><a href="#下次继续时可以从哪里开始" class="headerlink" title="下次继续时可以从哪里开始"></a>下次继续时可以从哪里开始</h2><ul>
+<li>检查 Cloudflare WARP 的使用情况</li>
+<li>本地 Nginx 的初步配置尝试</li>
+<li>博客文章的撰写进度</li>
+<li>进一步的 VPS 方案调研</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><!-- 文章底部自定义内容 -->
+
+
+
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/channel_name">
+            <span class="icon">
+              <i class="fab fa-youtube"></i>
+            </span>
+
+            <span class="label">YouTube</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://space.bilibili.com/403214142">
+            <span class="icon">
+              <i class="fa-brands fa-bilibili"></i>
+            </span>
+
+            <span class="label">Bilibili</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/8a6ab0d0/" rel="prev" title="Gemini 2.5 Flash图像模型技术深度解析：一致性与指令理解的内在机制">
+                  <i class="fa fa-angle-left"></i> Gemini 2.5 Flash图像模型技术深度解析：一致性与指令理解的内在机制
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/7c8f9d2a/" rel="next" title="LMArenaBridge 项目代码解析：通过浏览器自动化打造 API 桥接">
+                  LMArenaBridge 项目代码解析：通过浏览器自动化打造 API 桥接 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">mako</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">51k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:06</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3podS1qbDE4" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"lovingfish/utterances","issue_term":"url","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>
