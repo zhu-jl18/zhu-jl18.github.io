@@ -85,13 +85,14 @@
 
   async function ensureIndex(){
     if (STATE.index) return STATE.index;
-    const url = INDEX_URL;
-    const res = await fetch(url, { cache:'no-store' });
-    if (!res.ok) throw new Error(`索引加载失败: [${res.status}] ${url}`);
+    const res = await fetch(INDEX_URL, { cache:'no-store' });
+    if (!res.ok) throw new Error(`索引加载失败: [${res.status}] ${INDEX_URL}`);
     const data = await res.json();
     STATE.index = data.items;
     STATE.dim = data.dim;
     return STATE.index;
+  }
+
   // Optional: override embedding endpoint (non-OpenAI path)
   function getEmbeddingEndpoint(base){
     const cfg = loadCfg();
@@ -101,8 +102,6 @@
       return { url: endpoint, model };
     }
     return { url: new URL('/v1/embeddings', base).toString(), model: cfg.embedModel };
-  }
-
   }
 
   async function embed(text){
