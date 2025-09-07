@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/lambda-icon-size_64.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/lambda-icon-size_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/lambda-icon-size_16.png">
+  <link rel="mask-icon" href="/images/lambda-icon-size_64.png" color="#222">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="google-site-verification" content="WRoB9bFhSYf-bLPn6jS4ALalzR7nKkWw1sp5MqHoB0U">
+  <meta name="msvalidate.01" content="DE0701EF278A6E845833F86B71C383D5">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family='Source+Han+Sans+SC':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Noto+Sans+SC':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='PingFang+SC':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Hiragino+Sans+GB':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Microsoft+YaHei':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='WenQuanYi+Micro+Hei':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=sans-serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Fira+Code':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Source+Code+Pro':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Consolas:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family='Courier+New':ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=monospace:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhu-jl18.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.23.2","exturl":true,"sidebar":{"position":"right","width_expanded":350,"width_dual_column":280,"display":"always","padding":18,"offset":13},"hljswrap":true,"codeblock":{"theme":{"light":"base16/ros-pine","dark":"base16/ros-pine"},"prism":{"light":"prism-coy.min","dark":"prism-tomorrow"},"copy_button":{"enable":false,"style":"flat"},"fold":{"enable":false,"height":200},"language":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"buttons","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
+
+
+
+<link rel="canonical" href="https://zhu-jl18.github.io/posts/a5942354/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhu-jl18.github.io/posts/a5942354/","path":"posts/a5942354/","title":"构建一个简单的AI API适配器：TalkAI到OpenAI格式转换服务"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>构建一个简单的AI API适配器：TalkAI到OpenAI格式转换服务 | Dirac Sea</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGG5BFG7WZ"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-MGG5BFG7WZ","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@11.7.0/dist/mermaid.min.js","integrity":"sha256-4+IKDqhZ/sXjc8Wtl2/MsxI4e0s1KpEVdbEP7V/Lz8U="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","single_dollars":true,"cjk_width":0.9,"normal_width":0.6,"append_css":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://zhu-jl18.github.io/posts/a5942354/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+<!-- 字体预加载优化 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- 字体加载优化 -->
+<style>
+  /* 字体显示优化 */
+  @font-face {
+    font-family: 'Source Han Sans SC';
+    src: url('https://fonts.gstatic.com/s/sourcehansanssc/v17/HI_EiYMe1oYg9kJ6TlKjZyE.woff2') format('woff2');
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('https://fonts.gstatic.com/s/jetbrainsmono/v13/LZsErw.woff2') format('woff2');
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Fira Code';
+    src: url('https://fonts.gstatic.com/s/firacode/v22/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_D1sJVD7MOzlojwUKaJO.woff2') format('woff2');
+    font-display: swap;
+  }
+</style>
+
+<!-- 关键CSS内联优化 -->
+<style>
+  /* 关键样式提前加载，减少FOUC */
+  body {
+    font-display: swap;
+  }
+  
+  /* 减少布局抖动 */
+  .sidebar {
+    contain: layout style;
+  }
+  
+  .main-inner {
+    contain: layout;
+  }
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Dirac Sea" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dirac Sea</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">🦖::😼::🧐</p>
+      <img class="custom-logo-image" src="/images/evolution.png" alt="Dirac Sea">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-timeline"><a href="/" rel="section"><i class="fa fa-bookmark fa-fw"></i>Timeline</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-milestones"><a href="/milestones/" rel="section"><i class="fa fa-trophy fa-fw"></i>Milestones</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">项目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88"><span class="nav-number">2.</span> <span class="nav-text">项目架构概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">2.1.</span> <span class="nav-text">技术栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">核心代码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="nav-number">3.1.</span> <span class="nav-text">1. 数据模型定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6"><span class="nav-number">3.2.</span> <span class="nav-text">2. 认证机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%B6%88%E6%81%AF%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.3.</span> <span class="nav-text">3. 消息格式转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%B5%81%E5%BC%8F%E5%93%8D%E5%BA%94%E5%A4%84%E7%90%86"><span class="nav-number">3.4.</span> <span class="nav-text">4. 流式响应处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6"><span class="nav-number">3.5.</span> <span class="nav-text">5. 错误处理机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E7%9B%B8%E5%85%B3"><span class="nav-number">4.</span> <span class="nav-text">部署相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9Render%E8%80%8C%E4%B8%8D%E6%98%AFVercel%EF%BC%9F"><span class="nav-number">4.1.</span> <span class="nav-text">为什么选择Render而不是Vercel？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-3-13%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98"><span class="nav-number">4.2.</span> <span class="nav-text">Python 3.13兼容性问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%89%B9%E8%89%B2%E5%8A%9F%E8%83%BD"><span class="nav-number">5.</span> <span class="nav-text">项目特色功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%A4%9A%E6%A0%BC%E5%BC%8F%E5%86%85%E5%AE%B9%E6%94%AF%E6%8C%81"><span class="nav-number">5.1.</span> <span class="nav-text">1. 多格式内容支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%81%B5%E6%B4%BB%E7%9A%84%E8%AE%A4%E8%AF%81%E7%AD%96%E7%95%A5"><span class="nav-number">5.2.</span> <span class="nav-text">2. 灵活的认证策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AE%8C%E5%96%84%E7%9A%84%E9%94%99%E8%AF%AF%E8%AF%8A%E6%96%AD"><span class="nav-number">5.3.</span> <span class="nav-text">3. 完善的错误诊断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%B5%81%E5%BC%8F%E5%93%8D%E5%BA%94%E6%94%AF%E6%8C%81"><span class="nav-number">5.4.</span> <span class="nav-text">4. 流式响应支持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E8%80%83%E8%99%91"><span class="nav-number">6.</span> <span class="nav-text">安全考虑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E4%BA%AE%E7%82%B9"><span class="nav-number">7.</span> <span class="nav-text">技术亮点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B"><span class="nav-number">7.1.</span> <span class="nav-text">1. 异步编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8"><span class="nav-number">7.2.</span> <span class="nav-text">2. 类型安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86"><span class="nav-number">7.3.</span> <span class="nav-text">3. 配置管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%AE%B9%E9%94%99%E8%AE%BE%E8%AE%A1"><span class="nav-number">7.4.</span> <span class="nav-text">4. 容错设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5"><span class="nav-number">9.</span> <span class="nav-text">相关链接</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="mako"
+      src="https://media.makomako.dpdns.org/images/2025/09/05/1757012146-Soi%20fon">
+  <p class="site-author-name" itemprop="name">mako</p>
+  <div class="site-description" itemprop="description">love math and dinosaurs</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3podS1qbDE4" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhu-jl18"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS95b3VybmFtZQ==" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname"><i class="fab fa-stack-overflow fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL3lvdXJuYW1l" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname"><i class="fa fa-instagram fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3lvdXJuYW1l" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3lvdXJuYW1l" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;yourname"><i class="fab fa-telegram fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9yZWRkaXQuY29tL3VzZXIveW91cm5hbWU=" title="Reddit → https:&#x2F;&#x2F;reddit.com&#x2F;user&#x2F;yourname"><i class="fab fa-reddit fa-fw"></i></span>
+      </span>
+  </div>
+<!-- 自定义侧边栏模块 - 在Next主题默认侧边栏基础上添加 -->
+
+<!-- 背景融合图片 -->
+<div class="sidebar-bottom-image" style="margin: 20px 0; text-align: center;">
+  <a href="https://ncatlab.org/nlab/show/HomePage" target="_blank" rel="noopener noreferrer">
+    <img src="/images/book.png" alt="The Book of Secret Knowledge" style="width: 100%; max-width: 160px; height: auto; border: none; box-shadow: none; opacity: 1; margin: 0 auto; display: block;">
+  </a>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/posts/a5942354/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://media.makomako.dpdns.org/images/2025/09/05/1757012146-Soi%20fon">
+      <meta itemprop="name" content="mako">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dirac Sea">
+      <meta itemprop="description" content="love math and dinosaurs">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="构建一个简单的AI API适配器：TalkAI到OpenAI格式转换服务 | Dirac Sea">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          构建一个简单的AI API适配器：TalkAI到OpenAI格式转换服务
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-09-07 08:50:07 / 修改时间：16:16:53" itemprop="dateCreated datePublished" datetime="2025-09-07T08:50:07+00:00">2025-09-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术记录与分享</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%88%86%E4%BA%AB/AI-LLM/" itemprop="url" rel="index"><span itemprop="name">AI & LLM</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%88%86%E4%BA%AB/AI-LLM/Interesting/" itemprop="url" rel="index"><span itemprop="name">Interesting</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>深入解析一个将TalkAI API格式转换为OpenAI ChatCompletion API格式的适配器项目，包含完整的代码实现和技术细节。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>最近在测试Windsurf AI编程助手时，遇到了一个有趣的项目需求：将TalkAI的API格式转换为标准的OpenAI ChatCompletion API格式。这个项目主要基于两个开源项目的核心代码：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29EYWlTdW5vL3RhbGthaTJhcGk=">oDaiSuno&#x2F;talkai2api<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpYmF4dWFuL0N0b0FQaQ==">libaxuan&#x2F;CtoAPi<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<p>虽然这个服务速度很快，但经过测试发现其Claude模型可能并非真正的Anthropic Claude，更像是某种代理服务或其他模型的伪装。不过作为学习FastAPI和API适配器开发的案例，还是很有价值的。</p>
+<h2 id="项目架构概览"><a href="#项目架构概览" class="headerlink" title="项目架构概览"></a>项目架构概览</h2><p>这是一个基于FastAPI的异步Web服务，主要功能是：</p>
+<ol>
+<li>接收OpenAI格式的ChatCompletion请求</li>
+<li>将请求转换为TalkAI API格式</li>
+<li>调用下游TalkAI服务</li>
+<li>将响应转换回OpenAI格式返回</li>
+</ol>
+<h3 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h3><ul>
+<li><strong>Web框架</strong>: FastAPI 0.104.1</li>
+<li><strong>ASGI服务器</strong>: Uvicorn 0.24.0</li>
+<li><strong>HTTP客户端</strong>: httpx 0.25.2</li>
+<li><strong>数据验证</strong>: Pydantic 1.10.17</li>
+<li><strong>部署平台</strong>: Render</li>
+</ul>
+<h2 id="核心代码解析"><a href="#核心代码解析" class="headerlink" title="核心代码解析"></a>核心代码解析</h2><h3 id="1-数据模型定义"><a href="#1-数据模型定义" class="headerlink" title="1. 数据模型定义"></a>1. 数据模型定义</h3><p>项目使用Pydantic定义了完整的数据模型，确保API的类型安全：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ChatMessage</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    role: <span class="built_in">str</span></span><br><span class="line">    <span class="comment"># 支持多种content格式，兼容新版客户端</span></span><br><span class="line">    content: <span class="type">Union</span>[<span class="built_in">str</span>, <span class="type">List</span>[<span class="type">Dict</span>[<span class="built_in">str</span>, <span class="type">Any</span>]]]</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ChatCompletionRequest</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    model: <span class="built_in">str</span></span><br><span class="line">    messages: <span class="type">List</span>[ChatMessage]</span><br><span class="line">    stream: <span class="built_in">bool</span> = <span class="literal">False</span></span><br><span class="line">    temperature: <span class="type">Optional</span>[<span class="built_in">float</span>] = <span class="number">0.7</span></span><br></pre></td></tr></table></figure>
+
+<p>这里有个巧妙的设计：<code>content</code>字段使用<code>Union</code>类型，既支持传统的字符串格式，也支持新版客户端发送的多部分内容格式（如包含文本和图片的消息）。</p>
+<h3 id="2-认证机制"><a href="#2-认证机制" class="headerlink" title="2. 认证机制"></a>2. 认证机制</h3><p>项目实现了双层认证策略：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">load_client_api_keys</span>():</span><br><span class="line">    <span class="keyword">global</span> VALID_CLIENT_KEYS, TALKAI_API_KEY</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 服务认证密钥（保护对外服务）</span></span><br><span class="line">    service_keys_str = os.environ.get(<span class="string">&quot;PASSWORD&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> service_keys_str:</span><br><span class="line">        VALID_CLIENT_KEYS = <span class="built_in">set</span>(key.strip() <span class="keyword">for</span> key <span class="keyword">in</span> service_keys_str.split(<span class="string">&#x27;,&#x27;</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 下游API密钥（调用TalkAI服务）</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;client_api_keys.json&quot;</span>, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            keys = json.load(f)</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">isinstance</span>(keys, <span class="built_in">list</span>) <span class="keyword">and</span> keys:</span><br><span class="line">                TALKAI_API_KEY = keys[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">except</span> (FileNotFoundError, json.JSONDecodeError):</span><br><span class="line">        TALKAI_API_KEY = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>服务认证</strong>: 通过环境变量<code>PASSWORD</code>保护对外API</li>
+<li><strong>下游认证</strong>: 通过<code>client_api_keys.json</code>存储TalkAI API密钥</li>
+</ul>
+<h3 id="3-消息格式转换"><a href="#3-消息格式转换" class="headerlink" title="3. 消息格式转换"></a>3. 消息格式转换</h3><p>这是项目的核心逻辑，将OpenAI格式转换为TalkAI格式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> msg <span class="keyword">in</span> request.messages:</span><br><span class="line">    <span class="comment"># 处理多格式content字段</span></span><br><span class="line">    current_content = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(msg.content, <span class="built_in">str</span>):</span><br><span class="line">        current_content = msg.content</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(msg.content, <span class="built_in">list</span>):</span><br><span class="line">        <span class="comment"># 提取列表中的文本内容</span></span><br><span class="line">        <span class="keyword">for</span> part <span class="keyword">in</span> msg.content:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">isinstance</span>(part, <span class="built_in">dict</span>) <span class="keyword">and</span> part.get(<span class="string">&quot;type&quot;</span>) == <span class="string">&quot;text&quot;</span>:</span><br><span class="line">                current_content += part.get(<span class="string">&quot;text&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 角色映射和消息构建</span></span><br><span class="line">    <span class="keyword">if</span> msg.role == <span class="string">&quot;system&quot;</span>:</span><br><span class="line">        system_prompt = current_content</span><br><span class="line">    <span class="keyword">elif</span> msg.role <span class="keyword">in</span> [<span class="string">&quot;user&quot;</span>, <span class="string">&quot;assistant&quot;</span>]:</span><br><span class="line">        messages_history.append(&#123;</span><br><span class="line">            <span class="string">&quot;id&quot;</span>: <span class="built_in">str</span>(uuid.uuid4()),</span><br><span class="line">            <span class="string">&quot;from&quot;</span>: <span class="string">&quot;you&quot;</span> <span class="keyword">if</span> msg.role == <span class="string">&quot;user&quot;</span> <span class="keyword">else</span> <span class="string">&quot;assistant&quot;</span>,</span><br><span class="line">            <span class="string">&quot;content&quot;</span>: current_content,</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将system prompt合并到最后一条用户消息</span></span><br><span class="line"><span class="keyword">if</span> system_prompt <span class="keyword">and</span> messages_history <span class="keyword">and</span> messages_history[-<span class="number">1</span>][<span class="string">&quot;from&quot;</span>] == <span class="string">&quot;you&quot;</span>:</span><br><span class="line">    messages_history[-<span class="number">1</span>][<span class="string">&quot;content&quot;</span>] = <span class="string">f&quot;<span class="subst">&#123;system_prompt&#125;</span>\n\n<span class="subst">&#123;messages_history[-<span class="number">1</span>][<span class="string">&#x27;content&#x27;</span>]&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>关键转换点：</p>
+<ul>
+<li>OpenAI的<code>role: &quot;user&quot;</code> → TalkAI的<code>from: &quot;you&quot;</code></li>
+<li>OpenAI的<code>role: &quot;assistant&quot;</code> → TalkAI的<code>from: &quot;assistant&quot;</code></li>
+<li>System prompt被合并到用户消息中</li>
+</ul>
+<h3 id="4-流式响应处理"><a href="#4-流式响应处理" class="headerlink" title="4. 流式响应处理"></a>4. 流式响应处理</h3><p>项目支持流式和非流式两种响应模式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> request.stream:</span><br><span class="line">    <span class="keyword">return</span> StreamingResponse(</span><br><span class="line">        stream_generator(response, request.model),</span><br><span class="line">        status_code=response.status_code,</span><br><span class="line">    )</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    content = <span class="keyword">await</span> aggregate_stream(response)</span><br><span class="line">    <span class="keyword">return</span> ChatCompletionResponse(</span><br><span class="line">        model=request.model,</span><br><span class="line">        choices=[ChatCompletionChoice(</span><br><span class="line">            message=ResponseMessage(role=<span class="string">&quot;assistant&quot;</span>, content=content)</span><br><span class="line">        )],</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<p>流式响应生成器的实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">stream_generator</span>(<span class="params">response: httpx.Response, model: <span class="built_in">str</span></span>) -&gt; AsyncGenerator[<span class="built_in">str</span>, <span class="literal">None</span>]:</span><br><span class="line">    stream_id = <span class="string">f&quot;chatcmpl-<span class="subst">&#123;uuid.uuid4().<span class="built_in">hex</span>&#125;</span>&quot;</span></span><br><span class="line">    created_time = <span class="built_in">int</span>(time.time())</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 发送初始角色信息</span></span><br><span class="line">    <span class="keyword">yield</span> <span class="string">f&quot;data: <span class="subst">&#123;StreamResponse(..., choices=[StreamChoice(delta=&#123;<span class="string">&#x27;role&#x27;</span>: <span class="string">&#x27;assistant&#x27;</span>&#125;</span>)]).json()&#125;\n\n&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 处理流式数据</span></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">for</span> line <span class="keyword">in</span> response.aiter_lines():</span><br><span class="line">        <span class="keyword">if</span> line.startswith(<span class="string">&quot;data:&quot;</span>):</span><br><span class="line">            content = line[<span class="number">5</span>:].strip()</span><br><span class="line">            normalized_content = content.replace(<span class="string">&quot;\\n&quot;</span>, <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> normalized_content <span class="keyword">and</span> normalized_content != <span class="string">&quot;-1&quot;</span>:</span><br><span class="line">                <span class="keyword">yield</span> <span class="string">f&quot;data: <span class="subst">&#123;StreamResponse(..., choices=[StreamChoice(delta=&#123;<span class="string">&#x27;content&#x27;</span>: normalized_content&#125;</span>)]).json()&#125;\n\n&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 发送结束标记</span></span><br><span class="line">    <span class="keyword">yield</span> <span class="string">f&quot;data: <span class="subst">&#123;StreamResponse(..., choices=[StreamChoice(delta=&#123;&#125;</span>, finish_reason=&#x27;stop&#x27;)]).json()&#125;\n\n&quot;</span></span><br><span class="line">    <span class="keyword">yield</span> <span class="string">&quot;data: [DONE]\n\n&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-错误处理机制"><a href="#5-错误处理机制" class="headerlink" title="5. 错误处理机制"></a>5. 错误处理机制</h3><p>项目实现了详细的错误处理，能够区分不同类型的错误：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">except</span> httpx.HTTPStatusError <span class="keyword">as</span> e:</span><br><span class="line">    error_detail = <span class="string">f&quot;TalkAI API error (HTTP <span class="subst">&#123;e.response.status_code&#125;</span>)&quot;</span></span><br><span class="line">    <span class="keyword">if</span> e.response.status_code == <span class="number">401</span>:</span><br><span class="line">        error_detail = <span class="string">&quot;TalkAI API authentication failed - API key may be invalid or expired&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> e.response.status_code == <span class="number">403</span>:</span><br><span class="line">        error_detail = <span class="string">&quot;TalkAI API access forbidden - API key may lack permissions&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> e.response.status_code == <span class="number">429</span>:</span><br><span class="line">        error_detail = <span class="string">&quot;TalkAI API rate limit exceeded - please try again later&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> e.response.status_code &gt;= <span class="number">500</span>:</span><br><span class="line">        error_detail = <span class="string">&quot;TalkAI API server error - downstream service may be temporarily unavailable&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">raise</span> HTTPException(status_code=e.response.status_code, detail=error_detail)</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> httpx.ConnectTimeout:</span><br><span class="line">    error_detail = <span class="string">&quot;Connection timeout to TalkAI API - network issue or service unavailable&quot;</span></span><br><span class="line">    <span class="keyword">raise</span> HTTPException(status_code=<span class="number">504</span>, detail=error_detail)</span><br></pre></td></tr></table></figure>
+
+<p>这种细粒度的错误处理让用户能够快速定位问题，是否是网络问题、认证问题还是服务端问题。</p>
+<h2 id="部署相关"><a href="#部署相关" class="headerlink" title="部署相关"></a>部署相关</h2><h3 id="为什么选择Render而不是Vercel？"><a href="#为什么选择Render而不是Vercel？" class="headerlink" title="为什么选择Render而不是Vercel？"></a>为什么选择Render而不是Vercel？</h3><p>项目文档中详细解释了选择Render的原因：</p>
+<ol>
+<li><strong>执行时间限制</strong>: Vercel的Serverless Functions有时间限制，而AI对话可能需要更长时间</li>
+<li><strong>冷启动问题</strong>: 每次请求都可能触发冷启动，影响响应速度</li>
+<li><strong>Python支持</strong>: Render对Python&#x2F;FastAPI的支持更完善</li>
+<li><strong>流式响应</strong>: Vercel的Serverless架构对流式响应支持有限</li>
+<li><strong>依赖管理</strong>: 复杂的Python依赖在Vercel上可能出现兼容性问题</li>
+</ol>
+<h3 id="Python-3-13兼容性问题"><a href="#Python-3-13兼容性问题" class="headerlink" title="Python 3.13兼容性问题"></a>Python 3.13兼容性问题</h3><p>在部署过程中遇到了Python 3.13的兼容性问题：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: ForwardRef._evaluate() missing <span class="number">1</span> required keyword-<span class="keyword">only</span> <span class="keyword">argument</span>: <span class="string">&#x27;recursive_guard&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>解决方案是将依赖版本调整为兼容Python 3.13的版本：</p>
+<ul>
+<li>FastAPI: 0.116.1 → 0.104.1</li>
+<li>Pydantic: 2.5.0 → 1.10.17（避免Rust编译问题）</li>
+<li>uvicorn: 0.18.3 → 0.24.0</li>
+</ul>
+<h2 id="项目特色功能"><a href="#项目特色功能" class="headerlink" title="项目特色功能"></a>项目特色功能</h2><h3 id="1-多格式内容支持"><a href="#1-多格式内容支持" class="headerlink" title="1. 多格式内容支持"></a>1. 多格式内容支持</h3><p>支持传统字符串和新版多部分内容格式，提升了客户端兼容性。</p>
+<h3 id="2-灵活的认证策略"><a href="#2-灵活的认证策略" class="headerlink" title="2. 灵活的认证策略"></a>2. 灵活的认证策略</h3><p>双层认证设计，既保护了对外服务，又支持本地开发。</p>
+<h3 id="3-完善的错误诊断"><a href="#3-完善的错误诊断" class="headerlink" title="3. 完善的错误诊断"></a>3. 完善的错误诊断</h3><p>详细的错误分类和提示，便于问题排查。</p>
+<h3 id="4-流式响应支持"><a href="#4-流式响应支持" class="headerlink" title="4. 流式响应支持"></a>4. 流式响应支持</h3><p>完整实现了OpenAI兼容的流式响应格式。</p>
+<h2 id="安全考虑"><a href="#安全考虑" class="headerlink" title="安全考虑"></a>安全考虑</h2><p>项目在README中明确声明了几个重要的安全和使用注意事项：</p>
+<ol>
+<li><strong>模型真实性</strong>: Claude模型可能不是真正的Anthropic Claude</li>
+<li><strong>密钥安全</strong>: 使用的是公共分享密钥，可能随时失效</li>
+<li><strong>使用范围</strong>: 仅供学习和测试，不建议用于生产环境</li>
+<li><strong>法律责任</strong>: 明确了免责声明和使用风险</li>
+</ol>
+<h2 id="技术亮点"><a href="#技术亮点" class="headerlink" title="技术亮点"></a>技术亮点</h2><h3 id="1-异步编程"><a href="#1-异步编程" class="headerlink" title="1. 异步编程"></a>1. 异步编程</h3><p>全面使用async&#x2F;await，提升并发处理能力：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">chat_completions</span>(<span class="params">request: ChatCompletionRequest, ...</span>):</span><br><span class="line">    client = httpx.AsyncClient(timeout=<span class="number">300</span>)</span><br><span class="line">    response = <span class="keyword">await</span> client.send(req, stream=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-类型安全"><a href="#2-类型安全" class="headerlink" title="2. 类型安全"></a>2. 类型安全</h3><p>使用Pydantic进行数据验证，确保API的类型安全。</p>
+<h3 id="3-配置管理"><a href="#3-配置管理" class="headerlink" title="3. 配置管理"></a>3. 配置管理</h3><p>环境变量和配置文件相结合的配置管理策略。</p>
+<h3 id="4-容错设计"><a href="#4-容错设计" class="headerlink" title="4. 容错设计"></a>4. 容错设计</h3><p>多层次的异常处理，保证服务的稳定性。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个项目虽然代码量不大，但展示了构建API适配器的完整流程：</p>
+<ol>
+<li><strong>接口设计</strong>: 遵循OpenAI API标准</li>
+<li><strong>数据转换</strong>: 灵活处理不同格式的数据</li>
+<li><strong>错误处理</strong>: 提供清晰的错误信息</li>
+<li><strong>部署优化</strong>: 选择合适的部署平台</li>
+<li><strong>安全考虑</strong>: 明确使用范围和风险</li>
+</ol>
+<p>对于学习FastAPI开发和API适配器设计来说，这是一个很好的实践案例。虽然底层服务的真实性存疑，但技术实现本身还是值得参考的。</p>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ul>
+<li>原始项目: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29EYWlTdW5vL3RhbGthaTJhcGk=">oDaiSuno&#x2F;talkai2api<i class="fa fa-external-link-alt"></i></span></li>
+<li>参考项目: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpYmF4dWFuL0N0b0FQaQ==">libaxuan&#x2F;CtoAPi<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<p><em>本文主要用于技术学习和交流，请遵守相关法律法规和服务条款。</em></p>
+<img src = "https://media.makomako.dpdns.org/avatar/avatar.jpg" style= "width: auto ">
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><!-- 文章底部自定义内容 -->
+
+
+
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/channel_name">
+            <span class="icon">
+              <i class="fab fa-youtube"></i>
+            </span>
+
+            <span class="label">YouTube</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://space.bilibili.com/403214142">
+            <span class="icon">
+              <i class="fa-brands fa-bilibili"></i>
+            </span>
+
+            <span class="label">Bilibili</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/5e06a6f0/" rel="prev" title="Thought">
+                  <i class="fa fa-angle-left"></i> Thought
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/e71dcf05/" rel="next" title="Git工作流优化之旅：从混乱到自如的博客发布体验">
+                  Git工作流优化之旅：从混乱到自如的博客发布体验 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">mako</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">54k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:15</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3podS1qbDE4" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"lovingfish/utterances","issue_term":"url","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+<script>
+(function() {
+  const STORAGE_KEY = 'theme';
+
+  function getPreferredTheme() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'light' || saved === 'dark') return saved;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }
+
+  function updateToggleIcon(btn) {
+    if (!btn) return;
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const icon = btn.querySelector('i');
+    if (icon) {
+      // 检查是否在菜单中（有文字）
+      const hasText = btn.textContent && btn.textContent.includes('主题');
+      if (hasText) {
+        icon.className = isDark ? 'fa fa-sun fa-fw' : 'fa fa-moon fa-fw';
+        btn.innerHTML = `<i class="${icon.className}"></i>${isDark ? '浅色' : '深色'}`;
+      } else {
+        icon.className = isDark ? 'fa fa-sun fa-fw fa-lg' : 'fa fa-moon fa-fw fa-lg';
+      }
+    }
+    btn.setAttribute('aria-label', isDark ? '切换为浅色' : '切换为深色');
+    btn.title = isDark ? '切换为浅色' : '切换为深色';
+  }
+
+
+  // 悬浮按钮：位置选项 left-bottom | left-middle | top-left
+  const FLOAT_POS = 'left-bottom';
+
+  function ensureFloatingToggle() {
+    // 移除旧的
+    let floatBtn = document.querySelector('.theme-floating-toggle');
+    if (floatBtn) floatBtn.remove();
+
+    // 创建新的
+    floatBtn = document.createElement('div');
+    floatBtn.className = `theme-floating-toggle pos-${FLOAT_POS}`;
+    floatBtn.setAttribute('role', 'button');
+    floatBtn.setAttribute('aria-label', '主题切换');
+    floatBtn.innerHTML = '<i class="fa fa-moon fa-fw"></i>';
+
+    floatBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      localStorage.setItem(STORAGE_KEY, next);
+      applyTheme(next);
+      updateToggleIcon(floatBtn);
+    });
+
+    document.body.appendChild(floatBtn);
+    console.log('[theme] floating toggle attached', floatBtn);
+    // 若样式尚未编译或被覆盖，确保可见
+    floatBtn.style.display = 'inline-flex';
+    floatBtn.style.position = 'fixed';
+    floatBtn.style.left = '18px';
+    floatBtn.style.bottom = FLOAT_POS === 'left-bottom' ? '18px' : '';
+
+    // 固定位置（不启用拖拽/记忆）
+    updateToggleIcon(floatBtn);
+  }
+
+  // 不再把按钮插入导航；如存在旧按钮则移除
+  function cleanupNavToggles() {
+    document.querySelectorAll('.site-nav-right .theme-toggle, .main-menu .menu-item-theme-toggle').forEach(el => el.remove());
+  }
+
+  // 初始化
+  applyTheme(getPreferredTheme());
+  cleanupNavToggles();
+  ensureFloatingToggle();
+
+  // 跟随系统变化（仅当没有显式选择时）
+  const media = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+  if (media && media.addEventListener) {
+    media.addEventListener('change', () => {
+      if (!localStorage.getItem(STORAGE_KEY)) {
+        applyTheme(getPreferredTheme());
+        updateToggleIcon(document.querySelector('.theme-floating-toggle'));
+      }
+    });
+  }
+
+  // PJAX 页面切换后重新挂载按钮
+  document.addEventListener('pjax:success', () => {
+    cleanupNavToggles();
+    ensureFloatingToggle();
+  });
+})();
+</script>
+<script src="/js/chat.js" data-pjax></script>
+
+</body>
+</html>
