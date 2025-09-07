@@ -7,7 +7,35 @@
 
 (function(){
   const CFG_KEY = 'chatcfg.v2';
-  const STATE = { busy:false, messages:[] };
+  const STATE = { busy:false, messages:[], globalConfig: null };
+
+  // 加载全局配置
+  function loadGlobalConfig(){
+    const local = isLocalHost();
+    // 本地开发时可以使用本地配置，线上使用代理模式
+    if (local && window.CHAT_LOCAL_KEY) {
+      // 本地开发模式：直接调用API
+      STATE.globalConfig = {
+        mode: 'direct',
+        defaultBase: 'https://huggingface.qzz.io',
+        apiKey: window.CHAT_LOCAL_KEY,
+        defaultModel: window.CHAT_LOCAL_MODEL || '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05'
+      };
+      console.log('本地开发模式：直接API调用');
+    } else {
+      // 生产模式：使用Cloudflare Workers代理
+      STATE.globalConfig = {
+        mode: 'proxy',
+        proxyUrl: 'https://chat-proxy.zhu-jl18.workers.dev', // 你的Worker URL
+        defaultModel: '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05',
+        models: [
+          '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05',
+          '[CLI反代]gemini-2.5-pro-preview-06-05'
+        ]
+      };
+      console.log('生产模式：使用Cloudflare Workers代理');
+    }
+  }
 
   function isLocalHost(){
     try { return ['localhost','127.0.0.1'].includes(location.hostname); } catch { return false; }
@@ -15,10 +43,13 @@
 
   function defaultCfg(){
     const local = isLocalHost();
+    const global = STATE.globalConfig || {};
     return {
-      chatBase: 'https://huggingface.qzz.io',
-      chatKey: local && window.CHAT_LOCAL_KEY ? window.CHAT_LOCAL_KEY : '',
-      chatModel: (window.CHAT_LOCAL_MODEL || 'GLM-4.5'),
+      // 使用Cloudflare Workers代理，不再需要直接的API Base
+      chatProxy: global.proxyUrl || 'https://chat-proxy.zhu-jl18.workers.dev',
+      chatBase: 'https://huggingface.qzz.io', // 仅用于显示，实际不使用
+      chatKey: '', // 代理模式下不需要前端密钥
+      chatModel: global.defaultModel || (window.CHAT_LOCAL_MODEL || '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05'),
       avatarEnabled: false,
       avatarImage: '', // 可选自定义头像URL，留空则使用emoji
       avatarSize: 72,
@@ -45,15 +76,62 @@
 
   function loadCfg(){
     try {
-      return (
-        JSON.parse(localStorage.getItem(CFG_KEY)) ||
-        defaultCfg()
-      );
+      const stored = JSON.parse(localStorage.getItem(CFG_KEY));
+      const defaults = defaultCfg();
+      // 合并存储的配置和默认配置
+      return stored ? Object.assign({}, defaults, stored) : defaults;
     } catch(e){
       return defaultCfg();
     }
   }
-  function saveCfg(cfg){ localStorage.setItem(CFG_KEY, JSON.stringify(cfg)); }
+  
+  // 检查速率限制
+  function checkRateLimit(){
+    const global = STATE.globalConfig;
+    if (!global?.rateLimit) return true;
+    
+    const now = Date.now();
+    const hour = 60 * 60 * 1000;
+    const day = 24 * hour;
+    
+    try {
+      const limits = JSON.parse(localStorage.getItem('chat-rate-limit') || '{}');
+      const hourlyCount = limits.hourly?.filter(t => now - t < hour).length || 0;
+      const dailyCount = limits.daily?.filter(t => now - t < day).length || 0;
+      
+      if (hourlyCount >= global.rateLimit.maxPerHour) {
+        alert('每小时请求次数已达上限，请稍后再试');
+        return false;
+      }
+      if (dailyCount >= global.rateLimit.maxPerDay) {
+        alert('每日请求次数已达上限，请明天再试');
+        return false;
+      }
+      
+      // 记录本次请求
+      limits.hourly = (limits.hourly || []).filter(t => now - t < hour);
+      limits.daily = (limits.daily || []).filter(t => now - t < day);
+      limits.hourly.push(now);
+      limits.daily.push(now);
+      localStorage.setItem('chat-rate-limit', JSON.stringify(limits));
+      
+      return true;
+    } catch(e) {
+      console.warn('速率限制检查失败:', e);
+      return true;
+    }
+  }
+  function saveCfg(cfg){ 
+    // 如果是共享模式，不保存API Key到本地存储
+    const global = STATE.globalConfig;
+    if (global?.sharedMode && global?.apiKey) {
+      const toSave = Object.assign({}, cfg);
+      delete toSave.chatKey; // 不保存共享的API Key
+      localStorage.setItem(CFG_KEY, JSON.stringify(toSave));
+    } else {
+      localStorage.setItem(CFG_KEY, JSON.stringify(cfg));
+    }
+  }
 
   function getUIRoot(){
     return document.querySelector('#chat-bubble');
@@ -498,6 +576,10 @@
     const input = root.querySelector('.chat-input input');
     const q = input.value.trim();
     if (!q || STATE.busy) return;
+    
+    // 检查速率限制
+    if (!checkRateLimit()) return;
+    
     input.value='';
     const body = root.querySelector('.chat-body');
     body.insertAdjacentHTML('beforeend', `<div class="msg user">${escapeHtml(q)}</div>`);
@@ -528,15 +610,44 @@
   async function chatCompleteWithHistory(system, userText){
     const cfg = loadCfg();
     const modelParams = getModelParams();
-    if (!cfg.chatKey || !cfg.chatKey.trim()) throw new Error('请在设置中填入 API Key');
-    const url = new URL('/v1/chat/completions', cfg.chatBase).toString();
+    const global = STATE.globalConfig;
+    
     const messages = [{ role: 'system', content: system }, ...STATE.messages, { role:'user', content: userText }];
-    const resp = await fetch(url, {
-      method:'POST',
-      headers:{ 'Content-Type':'application/json', 'Authorization':`Bearer ${cfg.chatKey}` },
-      body: JSON.stringify({ model: cfg.chatModel, messages, temperature: modelParams.temperature, max_tokens: modelParams.max_tokens, stream: false, stop: ["让我们一步一步思考","思考过程","用户询问"] })
-    });
-    if (!resp.ok) throw new Error('对话失败：' + await resp.text());
+    
+    let resp;
+    if (global?.mode === 'direct' && global?.apiKey) {
+      // 本地开发模式：直接调用API
+      const url = new URL('/v1/chat/completions', cfg.chatBase).toString();
+      resp = await fetch(url, {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json', 'Authorization':`Bearer ${global.apiKey}` },
+        body: JSON.stringify({ model: cfg.chatModel, messages, temperature: modelParams.temperature, max_tokens: modelParams.max_tokens, stream: false, stop: ["让我们一步一步思考","思考过程","用户询问"] })
+      });
+    } else {
+      // 生产模式：调用Cloudflare Workers代理
+      const proxyUrl = cfg.chatProxy || global?.proxyUrl;
+      if (!proxyUrl) {
+        throw new Error('代理服务未配置，请联系博主');
+      }
+      
+      resp = await fetch(proxyUrl, {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json' },
+        body: JSON.stringify({ 
+          model: cfg.chatModel, 
+          messages, 
+          temperature: modelParams.temperature, 
+          max_tokens: modelParams.max_tokens, 
+          stream: false 
+        })
+      });
+    }
+    
+    if (!resp.ok) {
+      const errorText = await resp.text();
+      throw new Error('对话失败：' + errorText);
+    }
+    
     const data = await resp.json();
     let content = data.choices?.[0]?.message?.content || '';
     content = stripMetaThoughts(content);
@@ -549,8 +660,8 @@
   async function chatCompleteStream(system, userText){
     const cfg = loadCfg();
     const modelParams = getModelParams();
-    if (!cfg.chatKey || !cfg.chatKey.trim()) throw new Error('请在设置中填入 API Key');
-    const url = new URL('/v1/chat/completions', cfg.chatBase).toString();
+    const global = STATE.globalConfig;
+    
     const messages = [{ role: 'system', content: system }, ...STATE.messages, { role:'user', content: userText }];
     const root = getUIRoot();
     const body = root.querySelector('.chat-body');
@@ -559,11 +670,34 @@
     body.appendChild(node);
     body.scrollTop = body.scrollHeight;
 
-    const resp = await fetch(url, {
-      method:'POST',
-      headers:{ 'Content-Type':'application/json', 'Authorization':`Bearer ${cfg.chatKey}` },
-      body: JSON.stringify({ model: cfg.chatModel, messages, temperature: modelParams.temperature, max_tokens: modelParams.max_tokens, stream: true, stop: ["让我们一步一步思考","思考过程","用户询问"] })
-    });
+    let resp;
+    if (global?.mode === 'direct' && global?.apiKey) {
+      // 本地开发模式：直接调用API
+      const url = new URL('/v1/chat/completions', cfg.chatBase).toString();
+      resp = await fetch(url, {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json', 'Authorization':`Bearer ${global.apiKey}` },
+        body: JSON.stringify({ model: cfg.chatModel, messages, temperature: modelParams.temperature, max_tokens: modelParams.max_tokens, stream: true, stop: ["让我们一步一步思考","思考过程","用户询问"] })
+      });
+    } else {
+      // 生产模式：调用Cloudflare Workers代理
+      const proxyUrl = cfg.chatProxy || global?.proxyUrl;
+      if (!proxyUrl) {
+        throw new Error('代理服务未配置，请联系博主');
+      }
+      
+      resp = await fetch(proxyUrl, {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json' },
+        body: JSON.stringify({ 
+          model: cfg.chatModel, 
+          messages, 
+          temperature: modelParams.temperature, 
+          max_tokens: modelParams.max_tokens, 
+          stream: true 
+        })
+      });
+    }
     if (!resp.ok || !resp.body) {
       const txt = await resp.text().catch(()=> '');
       throw new Error('对话失败：' + (txt||resp.status));
@@ -703,6 +837,7 @@
   }
 
   if (document.readyState==='loading') document.addEventListener('DOMContentLoaded', ()=>{ 
+    loadGlobalConfig(); // 首先加载全局配置
     loadScript('/js/chat-admin.js', ()=>{}); 
     ensureLocalInject(); 
     ensureUI(); 
@@ -711,6 +846,7 @@
     positionEntryBubble(); 
   });
   else { 
+    loadGlobalConfig(); // 首先加载全局配置
     loadScript('/js/chat-admin.js', ()=>{}); 
     ensureLocalInject(); 
     ensureUI(); 
