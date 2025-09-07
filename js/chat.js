@@ -26,7 +26,7 @@
       // 生产模式：使用Cloudflare Workers代理
       STATE.globalConfig = {
         mode: 'proxy',
-        proxyUrl: 'https://chat-proxy.zhu-jl18.workers.dev', // 你的Worker URL
+        proxyUrl: 'https://chat-proxy.nontrivial2025.workers.dev', // 你的Worker URL
         defaultModel: '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05',
         models: [
           '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05',
@@ -46,7 +46,7 @@
     const global = STATE.globalConfig || {};
     return {
       // 使用Cloudflare Workers代理，不再需要直接的API Base
-      chatProxy: global.proxyUrl || 'https://chat-proxy.zhu-jl18.workers.dev',
+      chatProxy: global.proxyUrl || 'https://chat-proxy.nontrivial2025.workers.dev',
       chatBase: 'https://huggingface.qzz.io', // 仅用于显示，实际不使用
       chatKey: '', // 代理模式下不需要前端密钥
       chatModel: global.defaultModel || (window.CHAT_LOCAL_MODEL || '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05'),
