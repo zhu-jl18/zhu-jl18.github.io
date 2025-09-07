@@ -37,7 +37,7 @@
       entryBubbleCustomTop: null,
       // 聊天气泡（大气泡）相对看板娘的位置微调
       bubbleOffsetX: 0,
-      bubbleOffsetY: 68,
+      bubbleOffsetY: 0,
       // 流式输出
       streamingEnabled: true
     };
@@ -87,10 +87,11 @@
       left = Math.max(8, Math.min(vw - bw - 8, r.left - bw - 12));
       top  = Math.max(8, Math.min(vh - bh - 8, r.top - 12));
     }
-    const cfg = loadCfg();
-    const bx = Number(cfg.bubbleOffsetX || 0);
-    const by = Number(cfg.bubbleOffsetY || 0);
-    left += bx; top += by;
+    // 注意：bubbleOffset 是针对聊天大气泡的，不应用于入口气泡定位
+    // const cfg = loadCfg();
+    // const bx = Number(cfg.bubbleOffsetX || 0);
+    // const by = Number(cfg.bubbleOffsetY || 0);
+    // left += bx; top += by;
     bubble.style.left = left + 'px';
     bubble.style.top  = top + 'px';
   }
