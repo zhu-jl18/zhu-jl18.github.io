@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // ========================================
   
   // 收缩功能
+  // 防重入：避免重复初始化
+  if (window.__LEFT_SIDEBAR_COLLAPSE_INIT__) return;
+  window.__LEFT_SIDEBAR_COLLAPSE_INIT__ = true;
   function initCollapseFunction() {
     const sidebarModules = document.getElementById('left-sidebar-modules');
     const collapseToggle = document.getElementById('collapse-toggle');
@@ -20,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // 如果没有保存过状态，默认展开
       sidebarModules.classList.remove('collapsed');
     }
+    // 同步辅助属性
+    collapseToggle.setAttribute('aria-expanded', String(!isCollapsed));
     
     // 点击收缩按钮
     collapseToggle.addEventListener('click', function() {
@@ -28,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // 保存状态到localStorage
       const isNowCollapsed = sidebarModules.classList.contains('collapsed');
       localStorage.setItem('leftSidebarCollapsed', isNowCollapsed);
+      // 同步辅助属性
+      collapseToggle.setAttribute('aria-expanded', String(!isNowCollapsed));
       
       // 添加点击反馈
       this.style.transform = 'translateY(-50%) scale(0.95)';
