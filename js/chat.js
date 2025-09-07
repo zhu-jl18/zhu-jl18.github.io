@@ -61,6 +61,7 @@
       live2dMobile: false,
       // 入口小气泡（靠近看板娘头部右上）
       entryBubbleEnabled: true,
+      entryBubbleDraggable: false, // 默认禁用拖拽，避免“自由移动”造成干扰
       entryBubblePos: 'top-right', // top-right | top-left | right-top | left-top
       entryBubbleOffsetX: -36,
       entryBubbleOffsetY: 48,
@@ -199,7 +200,7 @@
       el.innerHTML = '<span class="icon">💬</span>';
       el.addEventListener('click', ()=>toggleBubble(true));
       document.body.appendChild(el);
-      enableEntryBubbleDrag(el);
+      if (cfg.entryBubbleDraggable) enableEntryBubbleDrag(el);
     }
     positionEntryBubble();
   }
@@ -625,7 +626,8 @@
       });
     } else {
       // 生产模式：调用Cloudflare Workers代理
-      const proxyUrl = cfg.chatProxy || global?.proxyUrl;
+      // 优先使用代码内置的全局代理地址，避免被本地存储的旧 chatProxy 覆盖
+      const proxyUrl = (global?.proxyUrl) || cfg.chatProxy;
       if (!proxyUrl) {
         throw new Error('代理服务未配置，请联系博主');
       }
@@ -681,7 +683,8 @@
       });
     } else {
       // 生产模式：调用Cloudflare Workers代理
-      const proxyUrl = cfg.chatProxy || global?.proxyUrl;
+      // 优先使用代码内置的全局代理地址，避免被本地存储的旧 chatProxy 覆盖
+      const proxyUrl = (global?.proxyUrl) || cfg.chatProxy;
       if (!proxyUrl) {
         throw new Error('代理服务未配置，请联系博主');
       }
