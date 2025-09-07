@@ -1,0 +1,1 @@
+{"id":"bfs","type":"algorithm","title":"广度优先搜索（BFS）","summary":"BFS 按层次逐步扩展结点，像水波一样从起点向外扩散。在无权图上可以求最短路径或判断连通性。其核心是队列：访问时入队，依次弹出进行邻接扩展。","url":"https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2","lang":"zh","date":"2025-09-08","source":"wikipedia"}
