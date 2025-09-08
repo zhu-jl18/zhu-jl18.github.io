@@ -1,29 +1,15 @@
-// Service Worker for PWA functionality
-const CACHE_NAME = 'blog-cache-v1';
-const urlsToCache = [
-  '/',
-  '/css/main.css',
-  '/js/main.js'
-];
-
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        return cache.addAll(urlsToCache);
-      })
-  );
+// Minimal Service Worker: pass-through only to avoid precache issues on GitHub Pages
+self.addEventListener('install', (event) => {
+  // Activate immediately
+  self.skipWaiting();
 });
 
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      }
-    )
-  );
+self.addEventListener('activate', (event) => {
+  // Control existing clients ASAP
+  event.waitUntil(self.clients.claim());
+});
+
+// Do not intercept; let the network handle everything
+self.addEventListener('fetch', (event) => {
+  // intentionally no-op
 });

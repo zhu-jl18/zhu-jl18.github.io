@@ -26,13 +26,13 @@
 
 
 
-<link rel="canonical" href="https://zhu-jl18.github.io/categories/AI-LLM/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%88%86%E4%BA%AB/">
+<link rel="canonical" href="https://zhu-jl18.github.io/posts/bfdcb374/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/AI-LLM/技术记录与分享/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhu-jl18.github.io/posts/bfdcb374/","path":"posts/bfdcb374/","title":"高粱米博客的 AI 聊天系统实战：从零到稳定"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: 技术记录与分享 | Dirac Sea</title>
+<title>高粱米博客的 AI 聊天系统实战：从零到稳定 | Dirac Sea</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGG5BFG7WZ"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-MGG5BFG7WZ","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -77,7 +77,7 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/quicklink@3.0.1/dist/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://zhu-jl18.github.io/categories/AI-LLM/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%88%86%E4%BA%AB/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://zhu-jl18.github.io/posts/bfdcb374/"}</script>
   <script src="/js/third-party/quicklink.js" defer></script>
 <!-- 字体预加载优化 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -200,7 +200,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -213,6 +213,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E4%B8%8E%E7%BA%A6%E6%9D%9F"><span class="nav-number">1.</span> <span class="nav-text">目标与约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.</span> <span class="nav-text">架构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%BC%94%E8%BF%9B%E4%B8%8E%E5%9D%91%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">核心演进与坑点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91%E4%B8%8E%E6%B5%8B%E8%AF%95%EF%BC%88%E7%BB%9F%E4%B8%80%E4%BB%A3%E7%90%86%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">本地开发与测试（统一代理）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E4%B8%8E%E5%9B%9E%E6%BB%9A"><span class="nav-number">5.</span> <span class="nav-text">部署与回滚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9F%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="nav-number">6.</span> <span class="nav-text">速查清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%B4%E8%B0%A2"><span class="nav-number">7.</span> <span class="nav-text">致谢</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -261,77 +262,304 @@
 
     
         <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/4763/" rel="bookmark">
+        <time class="popular-posts-time">2025-08-12</time>
+        <br>
+      Ultimate Plan for Gemini API Calls
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
         </div>
   </aside>
 
 
     </div>
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">技术记录与分享
-          <small>分类</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhu-jl18.github.io/posts/bfdcb374/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://media.makomako.dpdns.org/images/2025/09/05/1757012146-Soi%20fon">
+      <meta itemprop="name" content="mako">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dirac Sea">
+      <meta itemprop="description" content="love math and dinosaurs">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="高粱米博客的 AI 聊天系统实战：从零到稳定 | Dirac Sea">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          高粱米博客的 AI 聊天系统实战：从零到稳定
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2025</span>
+
+      <time title="创建时间：2025-09-08 04:02:20 / 修改时间：00:50:27" itemprop="dateCreated datePublished" datetime="2025-09-08T04:02:20+00:00">2025-09-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术记录与分享</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%88%86%E4%BA%AB/AI-LLM/" itemprop="url" rel="index"><span itemprop="name">AI && LLM</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>930</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>这是一篇记录从零打造并稳定上线「高粱米 AI 姐姐」聊天系统的实战总结。项目基于 Hexo + NexT，前端纯静态，通过 Cloudflare Workers 作为安全代理完成与 OpenAI 兼容接口的对接。</p>
+<h2 id="目标与约束"><a href="#目标与约束" class="headerlink" title="目标与约束"></a>目标与约束</h2><ul>
+<li>前端纯静态，不暴露任何密钥</li>
+<li>流式输出、连续对话、轻量 UI</li>
+<li>具备速率限制和来源校验，防滥用</li>
+<li>GitHub Pages 自动部署，故障可快速回滚</li>
+</ul>
+<h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><ul>
+<li>前端：<code>source/js/chat.js</code><ul>
+<li>通过 <code>STATE.globalConfig.proxyUrl</code> 统一指向 Worker 代理</li>
+<li>两条路径：非流式与流式（SSE），均走代理</li>
+<li>本地开发：推荐使用 <code>wrangler dev</code> 启动本地 Workers 代理；前端不再注入 API Key（不再支持直连）</li>
+</ul>
+</li>
+<li>代理：Cloudflare Worker <code>chat-proxy</code><ul>
+<li>环境变量：<code>CHAT_API_KEY</code>、<code>ALLOWED_ORIGINS</code></li>
+<li>速率限制（KV 可选）：每小时&#x2F;每日</li>
+<li>CORS 处理，阻断非白名单来源</li>
+<li>仅允许受控 model 列表</li>
+</ul>
+</li>
+</ul>
+<h2 id="核心演进与坑点"><a href="#核心演进与坑点" class="headerlink" title="核心演进与坑点"></a>核心演进与坑点</h2><ol>
+<li>代理地址与优先级</li>
+</ol>
+<ul>
+<li>现象：控制台仍然请求旧域名</li>
+<li>根因：PJAX + 浏览器缓存 + localStorage 旧配置覆盖</li>
+<li>方案：代码优先使用 <code>global.proxyUrl</code>，并给 <code>chat.js</code> 增加版本号参数强制刷新</li>
+</ul>
+<ol start="2">
+<li>Service Worker 安装失败</li>
+</ol>
+<ul>
+<li>现象：<code>addAll</code> 404、<code>installing worker became redundant</code></li>
+<li>根因：GitHub Pages 上的路径不一，预缓存名单失配</li>
+<li>方案：更换为极简透传 SW（只 skipWaiting&#x2F;clients.claim，不做缓存拦截）</li>
+</ul>
+<ol start="3">
+<li>UI 可拖拽“漂移”</li>
+</ol>
+<ul>
+<li>现象：入口气泡可被拖到奇怪位置、记忆后影响体验</li>
+<li>方案：默认关闭拖拽（<code>entryBubbleDraggable: false</code>），需要时再手动开启</li>
+</ul>
+<ol start="4">
+<li>CORS 与来源校验</li>
+</ol>
+<ul>
+<li>现象：<code>Failed to fetch</code> &#x2F; <code>Origin not allowed</code></li>
+<li>方案：Worker 中检查 <code>Origin</code> 是否包含 <code>https://zhu-jl18.github.io</code>（或其它白名单），OPTIONS 预检返回 200 + CORS 头</li>
+</ul>
+<ol start="5">
+<li>清理废弃的 API Base &#x2F; API Key 前端配置</li>
+</ol>
+<ul>
+<li>现象：设置面板里仍能看到 API Base &#x2F; API Key，但实际请求已统一走 Worker 代理<ul>
+<li>方案：移除前端的 API Base &#x2F; API Key 字段与本地直连逻辑（<code>CHAT_LOCAL_*</code>），统一使用 <code>proxyUrl</code>；<code>chat.js</code> 已精简设置面板为仅选择模型</li>
+</ul>
+</li>
+</ul>
+<h2 id="本地开发与测试（统一代理）"><a href="#本地开发与测试（统一代理）" class="headerlink" title="本地开发与测试（统一代理）"></a>本地开发与测试（统一代理）</h2><ul>
+<li><p>前置环境</p>
+<ul>
+<li>启动 Hexo 本地服务（默认 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAw77yJ77ya">http://localhost:4000）：<i class="fa fa-external-link-alt"></i></span><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run server</span><br></pre></td></tr></table></figure></li>
+<li>启动 Cloudflare Worker 本地代理（默认 <span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMTo4Nzg377yJ77ya">http://127.0.0.1:8787）：<i class="fa fa-external-link-alt"></i></span><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cloudflare-worker</span><br><span class="line">wrangler dev</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>指定本地代理地址（两选一）</p>
+<ul>
+<li>使用浏览器控制台设置持久覆盖（推荐）：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&#x27;chat-proxy-override&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:8787&#x27;</span>);</span><br><span class="line">location.<span class="title function_">reload</span>();</span><br></pre></td></tr></table></figure></li>
+<li>临时变量（刷新后失效）：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">CHAT_PROXY_DEV</span> = <span class="string">&#x27;http://127.0.0.1:8787&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>验证</p>
+<ul>
+<li>打开网页 → 开发者工具 → Network，确认聊天请求发往 <code>127.0.0.1:8787</code>。</li>
+<li>代理会校验 <code>Origin</code>。当前 <code>chat-proxy.js</code> 默认允许 <code>localhost:4000/127.0.0.1:4000</code>；若需更严格控制，可在 Cloudflare Dashboard 的 <code>ALLOWED_ORIGINS</code> 中显式加入本地地址。</li>
+<li>预检（OPTIONS）应返回 200，并带有 CORS 头（见 <code>handleCORS()</code>）。</li>
+</ul>
+</li>
+<li><p>恢复生产代理</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">removeItem</span>(<span class="string">&#x27;chat-proxy-override&#x27;</span>);</span><br><span class="line">location.<span class="title function_">reload</span>();</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="部署与回滚"><a href="#部署与回滚" class="headerlink" title="部署与回滚"></a>部署与回滚</h2><ul>
+<li>分支：<code>develop</code> 开发 → PR → <code>main</code> 自动部署（GitHub Actions）</li>
+<li>缓存处置：新版本发布后，给关键脚本带版本号；必要时在浏览器 DevTools 中清理 SW 与缓存</li>
+<li>回滚：强制推送 <code>main</code> 到上一稳定提交（紧急时使用）</li>
+</ul>
+<h2 id="速查清单"><a href="#速查清单" class="headerlink" title="速查清单"></a>速查清单</h2><ul>
+<li>Worker 环境变量：<ul>
+<li><code>CHAT_API_KEY</code>：真实 API Key</li>
+<li><code>ALLOWED_ORIGINS</code>：<code>https://zhu-jl18.github.io</code></li>
+</ul>
+</li>
+<li>快速探活：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I https://chat-proxy.nontrivial2025.workers.dev</span><br></pre></td></tr></table></figure></li>
+<li>前端清本地配置：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">removeItem</span>(<span class="string">&#x27;chatcfg.v2&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>常见报错：<ul>
+<li><code>ERR_BLOCKED_BY_CLIENT</code>：被广告拦截插件拦截，非功能性错误</li>
+<li>SW 404：使用极简 SW；若安装失败，先 Unregister 再刷新</li>
+<li>仍走旧域名：确认脚本已带版本号、清理缓存</li>
+</ul>
+</li>
+</ul>
+<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><ul>
+<li>开发：Mako &amp; Cascade（级联的含义是把复杂问题拆成有序步骤，像瀑布一样推进）</li>
+<li>特别感谢每次“线上 real-time 排障”的耐心与果断，这个系统在不断打磨中变得越来越稳。</li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-08-17T21:45:00+00:00"
-              content="2025-08-17">
-          08-17
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/3c844e5f/" itemprop="url">
-            <span itemprop="name">网络代理全解析：从入门到精通</span>
+    <footer class="post-footer"><!-- 文章底部自定义内容 -->
+
+
+
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/channel_name">
+            <span class="icon">
+              <i class="fab fa-youtube"></i>
+            </span>
+
+            <span class="label">YouTube</span>
           </a>
       </div>
 
-      
-    </header>
-  </article>
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://space.bilibili.com/403214142">
+            <span class="icon">
+              <i class="fa-brands fa-bilibili"></i>
+            </span>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-08-13T17:52:13+00:00"
-              content="2025-08-13">
-          08-13
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/23471/" itemprop="url">
-            <span itemprop="name">LaTeX工作流优化指南</span>
+            <span class="label">Bilibili</span>
           </a>
       </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+          <div class="post-tags">
+              <a href="/tags/AI-LLM/" rel="tag"># AI-LLM</a>
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/Cloudflare-Workers/" rel="tag"># Cloudflare Workers</a>
+              <a href="/tags/CORS/" rel="tag"># CORS</a>
+              <a href="/tags/Service-Worker/" rel="tag"># Service Worker</a>
+              <a href="/tags/PJAX/" rel="tag"># PJAX</a>
+              <a href="/tags/%E9%83%A8%E7%BD%B2%E6%8E%92%E9%94%99/" rel="tag"># 部署排错</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/a5942354/" rel="prev" title="构建一个简单的AI API适配器：TalkAI到OpenAI格式转换服务">
+                  <i class="fa fa-angle-left"></i> 构建一个简单的AI API适配器：TalkAI到OpenAI格式转换服务
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/5e06a6f0/" rel="next" title="Thoughts">
+                  Thoughts <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
 </div>
   </main>
 
