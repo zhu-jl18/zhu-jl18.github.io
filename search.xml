@@ -22,7 +22,7 @@
       </categories>
   </entry>
   <entry>
-    <title>高粱米博客的 AI 聊天系统实战：从零到稳定</title>
+    <title>Simple AI Chat with Cloudflare Workers</title>
     <url>/posts/bfdcb374/</url>
     <content><![CDATA[<p>这是一篇记录从零打造并稳定上线「高粱米 AI 姐姐」聊天系统的实战总结。项目基于 Hexo + NexT，前端纯静态，通过 Cloudflare Workers 作为安全代理完成与 OpenAI 兼容接口的对接。</p>
 <h2 id="目标与约束"><a href="#目标与约束" class="headerlink" title="目标与约束"></a>目标与约束</h2><ul>
@@ -148,7 +148,109 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客构建专业级图片加速与自动化工作流：一份面向未来的实践指南</title>
+    <title>The Evolution of My GitHub Profile</title>
+    <url>/posts/17888/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：记录了一次有趣的”人机协作”经历——和Gemini一起从零开始，打造了一个让我非常满意的Github Profile。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h2 id="🎯-先看效果，再聊过程"><a href="#🎯-先看效果，再聊过程" class="headerlink" title="🎯 先看效果，再聊过程"></a>🎯 先看效果，再聊过程</h2><p>我的GitHub Profile现在长这样：</p>
+<ul>
+<li><strong>个人简介</strong>：简洁的自我介绍）</li>
+<li><strong>技术栈展示</strong>：用图标展示我会的编程语言（虽然有些可能已经忘得差不多了😅）</li>
+<li><strong>数学卡片</strong>：高斯绝妙定理–数学之美！</li>
+<li><strong>动态博客列表</strong>：自动更新我最新写的文章</li>
+<li><strong>贪吃蛇贡献图</strong>：把GitHub的贡献日历变成动画，单纯好玩</li>
+</ul>
+<p>一开始我就是想要个好看的Profile</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/year-month/name" alt="最终效果预览"></p>
+<h2 id="🛠️-技术实现：从简单到复杂"><a href="#🛠️-技术实现：从简单到复杂" class="headerlink" title="🛠️ 技术实现：从简单到复杂"></a>🛠️ 技术实现：从简单到复杂</h2><h3 id="1-基础部分：Markdown-HTML"><a href="#1-基础部分：Markdown-HTML" class="headerlink" title="1. 基础部分：Markdown + HTML"></a>1. 基础部分：Markdown + HTML</h3><p>GitHub Profile本质上就是一个<code>README.md</code>文件。Markdown -&gt; HTML 懂了吧。</p>
+<blockquote>
+<p>💡 <strong>踩雷记录</strong>：GitHub Profile的README.md文件有特殊的渲染规则，支持HTML但不支持所有CSS属性，比如坑爹的超链接！</p>
+</blockquote>
+<h4 id="个人介绍：简洁清爽"><a href="#个人介绍：简洁清爽" class="headerlink" title="个人介绍：简洁清爽"></a>个人介绍：简洁清爽</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 👨‍💻 About Me</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left; display: inline-block;&quot;</span>&gt;</span></span><br><span class="line"> 🎓 毕业于 **清华大学 (THU)**</span><br><span class="line"> 🌱 目前就读于 **中国科学院大学 (UCAS)**</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="技术栈：用现成的"><a href="#技术栈：用现成的" class="headerlink" title="技术栈：用现成的"></a>技术栈：用现成的</h4><p>用<span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span>，一行代码即可。</p>
+<blockquote>
+<p>🎯 <strong>为什么选择这个服务？</strong> 完全免费，部署简单，”懒人”福音</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://skillicons.dev&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://skillicons.dev/icons?i=python,cpp,java,js,html,css,latex,vscode,git&amp;perline=9&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="特色卡片：数学之美"><a href="#特色卡片：数学之美" class="headerlink" title="特色卡片：数学之美"></a>特色卡片：数学之美</h4><p>我最喜欢的数学家——高斯和他都觉得妙的——高斯绝妙定理：</p>
+<blockquote>
+<p>🧮 <strong>高斯绝妙定理</strong> 这个定理告诉say： 曲面的高斯曲率是内蕴几何量，不依赖于曲面在空间中的嵌入方式。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin: 16px 0;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;display: flex; align-items: center; gap: 16px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://media.makomako.dpdns.org/avatar/Gauss.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;120&quot;</span> <span class="attr">style</span>=<span class="string">&quot;border-radius: 6px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Theorema Egregium<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>高斯绝妙定理：曲面的高斯曲率K是内蕴几何量<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://en.wikipedia.org/wiki/Theorema_Egregium&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;white&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-自动化：Profile”活”了"><a href="#2-自动化：Profile”活”了" class="headerlink" title="2. 自动化：Profile”活”了"></a>2. 自动化：Profile”活”了</h3><p>这部分是让Profile真正”活”起来的关键。通过GitHub Actions，实现自动更新，让Profile不再是静态的展示页面。</p>
+<h4 id="自动更新博客列表"><a href="#自动更新博客列表" class="headerlink" title="自动更新博客列表"></a>自动更新博客列表</h4><p>用<code>gautamkrishnar/blog-post-workflow</code>这个Action，配置简单，每次发布新博客，Profile就会自动更新，无需手动维护：</p>
+<blockquote>
+<p>🔄 <strong>自动化原理</strong>：这个Action会定期抓取博客RSS Feed，然后自动更新README.md文件中的博客列表。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Latest</span> <span class="string">blog</span> <span class="string">post</span> <span class="string">workflow</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&#x27;0 * * * *&#x27;</span>  <span class="comment"># 每小时运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">update-readme-with-blog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Update</span> <span class="string">this</span> <span class="string">repo&#x27;s</span> <span class="string">README</span> <span class="string">with</span> <span class="string">latest</span> <span class="string">blog</span> <span class="string">posts</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">gautamkrishnar/blog-post-workflow@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">disable_cache:</span> <span class="literal">true</span></span><br><span class="line">          <span class="attr">feed_list:</span> <span class="string">&quot;https://zhu-jl18.github.io/atom.xml&quot;</span></span><br><span class="line">          <span class="attr">max_post_count:</span> <span class="number">5</span></span><br><span class="line">          <span class="attr">template:</span> <span class="string">&#x27;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;\(url&quot; style=&quot;text-decoration: none; color: #20B2AA;&quot;&gt;\)title&lt;/a&gt;&lt;/p&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>在README中设置占位符：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 📝 Recent Blog Posts</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- BLOG-POST-LIST:START --&gt;</span><span class="comment">&lt;!-- BLOG-POST-LIST:END --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="贪吃蛇贡献图"><a href="#贪吃蛇贡献图" class="headerlink" title="贪吃蛇贡献图"></a>贪吃蛇贡献图</h4><p>用<code>Platane/snk</code>这个Action，自动生成动画版的贡献图。这个功能纯粹是为了好玩：</p>
+<blockquote>
+<p>🐍 <strong>“贪吃蛇”？！</strong> 因为这个动画看起来就像一条蛇在吃贡献点，从年初吃到年末。虽然没什么实际用途，因为我基本不贡献。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">generate</span> <span class="string">animation</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&quot;0 0 * * *&quot;</span>  <span class="comment"># 每天运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">generate:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">timeout-minutes:</span> <span class="number">10</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">Platane/snk@v3</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">snake-gif</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_user_name:</span> <span class="string">zhu-jl18</span></span><br><span class="line">          <span class="attr">svg_out_path:</span> <span class="string">dist/github-snake.svg</span></span><br><span class="line">          <span class="attr">snake_color:</span> <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">crazy-max/ghaction-github-pages@v2.1.3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">target_branch:</span> <span class="string">output</span></span><br><span class="line">          <span class="attr">build_dir:</span> <span class="string">dist</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在README中引用：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake-dark.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">&quot;github snake animation&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="🤖-人机协作实录"><a href="#🤖-人机协作实录" class="headerlink" title="🤖 人机协作实录"></a>🤖 人机协作实录</h2><p>此部分记录了与Gemini共同实现Profile的过程。我负责设计思路与整体规划，Gemini负责具体代码实现。</p>
+<blockquote>
+<p>🤖 <strong>协作原则</strong>：大模型不是万能的，它虽然懂得很多，但是你得让他明白你到底要他干什么~</p>
+</blockquote>
+<h3 id="协作过程"><a href="#协作过程" class="headerlink" title="协作过程"></a>协作过程</h3><p><strong>我</strong>：我想在GitHub Profile上展示我的博客列表，有什么好办法吗？</p>
+<p><strong>Gemini</strong>：可以用<code>blog-post-workflow</code>这个Action，配置很简单…</p>
+<p><strong>结果</strong>：基础功能实现了，但样式很丑。典型的”能用就行”状态。</p>
+<h3 id="第二轮：样式优化"><a href="#第二轮：样式优化" class="headerlink" title="第二轮：样式优化"></a>第二轮：样式优化</h3><p><strong>我</strong>：这个列表样式不好看，我想要卡片式布局，并且居中显示。</p>
+<p><strong>Gemini</strong>：可以用复杂的HTML+CSS来实现…</p>
+<p><strong>结果</strong>：GitHub不支持复杂的CSS样式，居中效果失效了。这就是典型的”过度设计”问题。</p>
+<h3 id="第三轮：回归本质"><a href="#第三轮：回归本质" class="headerlink" title="第三轮：回归本质"></a>第三轮：回归本质</h3><p><strong>我</strong>：GitHub不支持这些复杂样式，还是都在左边。我不要日期了，字体大小也改不了，就让它简单的居中就行。</p>
+<p><strong>Gemini</strong>：那就用最简单的<code>&lt;p align=&quot;center&quot;&gt;</code>标签吧。</p>
+<p><strong>结果</strong>：完美！有时候最简单的方案就是最好的方案。这让我想起了KISS原则（Keep It Simple, Stupid）。</p>
+<h2 id="💡-协作心得"><a href="#💡-协作心得" class="headerlink" title="💡 协作心得"></a>💡 协作心得</h2><p>与AI协作编程！！！：</p>
+<ol>
+<li><strong>明确目标</strong>：想清楚你要什么，不要模棱两可。AI不是读心术，你得说清楚。</li>
+<li><strong>小步快跑</strong>：尝试一个方案，立即测试，然后带着结果进行下一轮沟通。不要一次性要求太多。</li>
+<li><strong>提供精确反馈</strong>：不要说”不行”，要说”哪里不行”、”为什么不行”。AI需要具体的错误信息。</li>
+<li><strong>回归本质</strong>：当复杂方案失效时，往往最简单的方案最有效。这大概就是所谓的”大道至简”吧。</li>
+</ol>
+<p>总的来说， AI极其吃数据，你喂给他是好东西他就也会输出好东西。</p>
+<h2 id="🎉-总结"><a href="#🎉-总结" class="headerlink" title="🎉 总结"></a>🎉 总结</h2><p>Gemini还不错，最后效果超出我预料地好看。</p>
+<p><strong>这是我大模型使用的初期探索，后来我会了很多优化技巧，早期的这些尝试也是很有意思的。</strong></p>
+<hr>
+<p><strong>Ref:</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhdXRhbWtyaXNobmFyL2Jsb2ctcG9zdC13b3JrZmxvdw==">blog-post-workflow<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1BsYXRhbmUvc25r">snk<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术记录与分享</category>
+        <category>AI &amp; LLM</category>
+      </categories>
+      <tags>
+        <tag>AI-LLM</tag>
+        <tag>技术分享</tag>
+        <tag>git</tag>
+        <tag>gemini</tag>
+        <tag>blog</tag>
+        <tag>css</tag>
+        <tag>javascript</tag>
+        <tag>math</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Image Acc Workflow with cloudflare and PicList</title>
     <url>/posts/82239bef/</url>
     <content><![CDATA[<blockquote>
 <p> 使用gemini-2.5-pro 的deep research 功能生成的指南，已按照指南成功迁移</p>
@@ -461,118 +563,16 @@
       <tags>
         <tag>AI-LLM</tag>
         <tag>技术分享</tag>
-        <tag>hexo</tag>
         <tag>git</tag>
         <tag>gemini</tag>
         <tag>blog</tag>
         <tag>javascript</tag>
+        <tag>hexo</tag>
         <tag>proxy</tag>
       </tags>
   </entry>
   <entry>
-    <title>The Evolution of My GitHub Profile</title>
-    <url>/posts/17888/</url>
-    <content><![CDATA[<blockquote>
-<p>摘要：记录了一次有趣的”人机协作”经历——和Gemini一起从零开始，打造了一个让我非常满意的Github Profile。</p>
-</blockquote>
-<span id="more"></span>
-
-<hr>
-<h2 id="🎯-先看效果，再聊过程"><a href="#🎯-先看效果，再聊过程" class="headerlink" title="🎯 先看效果，再聊过程"></a>🎯 先看效果，再聊过程</h2><p>我的GitHub Profile现在长这样：</p>
-<ul>
-<li><strong>个人简介</strong>：简洁的自我介绍）</li>
-<li><strong>技术栈展示</strong>：用图标展示我会的编程语言（虽然有些可能已经忘得差不多了😅）</li>
-<li><strong>数学卡片</strong>：高斯绝妙定理–数学之美！</li>
-<li><strong>动态博客列表</strong>：自动更新我最新写的文章</li>
-<li><strong>贪吃蛇贡献图</strong>：把GitHub的贡献日历变成动画，单纯好玩</li>
-</ul>
-<p>一开始我就是想要个好看的Profile</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/zhu-jl18/cdn4blog/year-month/name" alt="最终效果预览"></p>
-<h2 id="🛠️-技术实现：从简单到复杂"><a href="#🛠️-技术实现：从简单到复杂" class="headerlink" title="🛠️ 技术实现：从简单到复杂"></a>🛠️ 技术实现：从简单到复杂</h2><h3 id="1-基础部分：Markdown-HTML"><a href="#1-基础部分：Markdown-HTML" class="headerlink" title="1. 基础部分：Markdown + HTML"></a>1. 基础部分：Markdown + HTML</h3><p>GitHub Profile本质上就是一个<code>README.md</code>文件。Markdown -&gt; HTML 懂了吧。</p>
-<blockquote>
-<p>💡 <strong>踩雷记录</strong>：GitHub Profile的README.md文件有特殊的渲染规则，支持HTML但不支持所有CSS属性，比如坑爹的超链接！</p>
-</blockquote>
-<h4 id="个人介绍：简洁清爽"><a href="#个人介绍：简洁清爽" class="headerlink" title="个人介绍：简洁清爽"></a>个人介绍：简洁清爽</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 👨‍💻 About Me</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left; display: inline-block;&quot;</span>&gt;</span></span><br><span class="line"> 🎓 毕业于 **清华大学 (THU)**</span><br><span class="line"> 🌱 目前就读于 **中国科学院大学 (UCAS)**</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="技术栈：用现成的"><a href="#技术栈：用现成的" class="headerlink" title="技术栈：用现成的"></a>技术栈：用现成的</h4><p>用<span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span>，一行代码即可。</p>
-<blockquote>
-<p>🎯 <strong>为什么选择这个服务？</strong> 完全免费，部署简单，”懒人”福音</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://skillicons.dev&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://skillicons.dev/icons?i=python,cpp,java,js,html,css,latex,vscode,git&amp;perline=9&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="特色卡片：数学之美"><a href="#特色卡片：数学之美" class="headerlink" title="特色卡片：数学之美"></a>特色卡片：数学之美</h4><p>我最喜欢的数学家——高斯和他都觉得妙的——高斯绝妙定理：</p>
-<blockquote>
-<p>🧮 <strong>高斯绝妙定理</strong> 这个定理告诉say： 曲面的高斯曲率是内蕴几何量，不依赖于曲面在空间中的嵌入方式。</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin: 16px 0;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;display: flex; align-items: center; gap: 16px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://media.makomako.dpdns.org/avatar/Gauss.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;120&quot;</span> <span class="attr">style</span>=<span class="string">&quot;border-radius: 6px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Theorema Egregium<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>高斯绝妙定理：曲面的高斯曲率K是内蕴几何量<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://en.wikipedia.org/wiki/Theorema_Egregium&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;white&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://latex.codecogs.com/svg.latex?\color&#123;black&#125;\Large<span class="symbol">&amp;space;</span>K=\kappa_1\kappa_2&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-自动化：Profile”活”了"><a href="#2-自动化：Profile”活”了" class="headerlink" title="2. 自动化：Profile”活”了"></a>2. 自动化：Profile”活”了</h3><p>这部分是让Profile真正”活”起来的关键。通过GitHub Actions，实现自动更新，让Profile不再是静态的展示页面。</p>
-<h4 id="自动更新博客列表"><a href="#自动更新博客列表" class="headerlink" title="自动更新博客列表"></a>自动更新博客列表</h4><p>用<code>gautamkrishnar/blog-post-workflow</code>这个Action，配置简单，每次发布新博客，Profile就会自动更新，无需手动维护：</p>
-<blockquote>
-<p>🔄 <strong>自动化原理</strong>：这个Action会定期抓取博客RSS Feed，然后自动更新README.md文件中的博客列表。</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Latest</span> <span class="string">blog</span> <span class="string">post</span> <span class="string">workflow</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&#x27;0 * * * *&#x27;</span>  <span class="comment"># 每小时运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">update-readme-with-blog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Update</span> <span class="string">this</span> <span class="string">repo&#x27;s</span> <span class="string">README</span> <span class="string">with</span> <span class="string">latest</span> <span class="string">blog</span> <span class="string">posts</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">gautamkrishnar/blog-post-workflow@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">disable_cache:</span> <span class="literal">true</span></span><br><span class="line">          <span class="attr">feed_list:</span> <span class="string">&quot;https://zhu-jl18.github.io/atom.xml&quot;</span></span><br><span class="line">          <span class="attr">max_post_count:</span> <span class="number">5</span></span><br><span class="line">          <span class="attr">template:</span> <span class="string">&#x27;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;\(url&quot; style=&quot;text-decoration: none; color: #20B2AA;&quot;&gt;\)title&lt;/a&gt;&lt;/p&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>在README中设置占位符：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">### 📝 Recent Blog Posts</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border: 1px solid #d0d7de; border-radius: 6px; padding: 16px;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- BLOG-POST-LIST:START --&gt;</span><span class="comment">&lt;!-- BLOG-POST-LIST:END --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="贪吃蛇贡献图"><a href="#贪吃蛇贡献图" class="headerlink" title="贪吃蛇贡献图"></a>贪吃蛇贡献图</h4><p>用<code>Platane/snk</code>这个Action，自动生成动画版的贡献图。这个功能纯粹是为了好玩：</p>
-<blockquote>
-<p>🐍 <strong>“贪吃蛇”？！</strong> 因为这个动画看起来就像一条蛇在吃贡献点，从年初吃到年末。虽然没什么实际用途，因为我基本不贡献。</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">generate</span> <span class="string">animation</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&quot;0 0 * * *&quot;</span>  <span class="comment"># 每天运行一次</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">generate:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">timeout-minutes:</span> <span class="number">10</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">Platane/snk@v3</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">snake-gif</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_user_name:</span> <span class="string">zhu-jl18</span></span><br><span class="line">          <span class="attr">svg_out_path:</span> <span class="string">dist/github-snake.svg</span></span><br><span class="line">          <span class="attr">snake_color:</span> <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">crazy-max/ghaction-github-pages@v2.1.3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">target_branch:</span> <span class="string">output</span></span><br><span class="line">          <span class="attr">build_dir:</span> <span class="string">dist</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>然后在README中引用：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: dark)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake-dark.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">&quot;(prefers-color-scheme: light)&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">&quot;github snake animation&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/zhu-jl18/zhu-jl18/output/github-snake.svg&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="🤖-人机协作实录"><a href="#🤖-人机协作实录" class="headerlink" title="🤖 人机协作实录"></a>🤖 人机协作实录</h2><p>此部分记录了与Gemini共同实现Profile的过程。我负责设计思路与整体规划，Gemini负责具体代码实现。</p>
-<blockquote>
-<p>🤖 <strong>协作原则</strong>：大模型不是万能的，它虽然懂得很多，但是你得让他明白你到底要他干什么~</p>
-</blockquote>
-<h3 id="协作过程"><a href="#协作过程" class="headerlink" title="协作过程"></a>协作过程</h3><p><strong>我</strong>：我想在GitHub Profile上展示我的博客列表，有什么好办法吗？</p>
-<p><strong>Gemini</strong>：可以用<code>blog-post-workflow</code>这个Action，配置很简单…</p>
-<p><strong>结果</strong>：基础功能实现了，但样式很丑。典型的”能用就行”状态。</p>
-<h3 id="第二轮：样式优化"><a href="#第二轮：样式优化" class="headerlink" title="第二轮：样式优化"></a>第二轮：样式优化</h3><p><strong>我</strong>：这个列表样式不好看，我想要卡片式布局，并且居中显示。</p>
-<p><strong>Gemini</strong>：可以用复杂的HTML+CSS来实现…</p>
-<p><strong>结果</strong>：GitHub不支持复杂的CSS样式，居中效果失效了。这就是典型的”过度设计”问题。</p>
-<h3 id="第三轮：回归本质"><a href="#第三轮：回归本质" class="headerlink" title="第三轮：回归本质"></a>第三轮：回归本质</h3><p><strong>我</strong>：GitHub不支持这些复杂样式，还是都在左边。我不要日期了，字体大小也改不了，就让它简单的居中就行。</p>
-<p><strong>Gemini</strong>：那就用最简单的<code>&lt;p align=&quot;center&quot;&gt;</code>标签吧。</p>
-<p><strong>结果</strong>：完美！有时候最简单的方案就是最好的方案。这让我想起了KISS原则（Keep It Simple, Stupid）。</p>
-<h2 id="💡-协作心得"><a href="#💡-协作心得" class="headerlink" title="💡 协作心得"></a>💡 协作心得</h2><p>与AI协作编程！！！：</p>
-<ol>
-<li><strong>明确目标</strong>：想清楚你要什么，不要模棱两可。AI不是读心术，你得说清楚。</li>
-<li><strong>小步快跑</strong>：尝试一个方案，立即测试，然后带着结果进行下一轮沟通。不要一次性要求太多。</li>
-<li><strong>提供精确反馈</strong>：不要说”不行”，要说”哪里不行”、”为什么不行”。AI需要具体的错误信息。</li>
-<li><strong>回归本质</strong>：当复杂方案失效时，往往最简单的方案最有效。这大概就是所谓的”大道至简”吧。</li>
-</ol>
-<p>总的来说， AI极其吃数据，你喂给他是好东西他就也会输出好东西。</p>
-<h2 id="🎉-总结"><a href="#🎉-总结" class="headerlink" title="🎉 总结"></a>🎉 总结</h2><p>Gemini还不错，最后效果超出我预料地好看。</p>
-<p><strong>这是我大模型使用的初期探索，后来我会了很多优化技巧，早期的这些尝试也是很有意思的。</strong></p>
-<hr>
-<p><strong>Ref:</strong></p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhdXRhbWtyaXNobmFyL2Jsb2ctcG9zdC13b3JrZmxvdw==">blog-post-workflow<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9za2lsbGljb25zLmRldi8=">skillicons.dev<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1BsYXRhbmUvc25r">snk<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术记录与分享</category>
-        <category>AI &amp; LLM</category>
-      </categories>
-      <tags>
-        <tag>AI-LLM</tag>
-        <tag>技术分享</tag>
-        <tag>git</tag>
-        <tag>gemini</tag>
-        <tag>blog</tag>
-        <tag>javascript</tag>
-        <tag>css</tag>
-        <tag>math</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网络代理全解析：从入门到精通</title>
+    <title>Simple Explanation of Network Proxy principles</title>
     <url>/posts/3c844e5f/</url>
     <content><![CDATA[<blockquote>
 <p>本文记录了 mako 与其AI助手 fish 的一次深度合作。我们共同发现问题、反复推演，并最终设计出一套全新的Git工作流，旨在为每一位同时是“开发者”和“创作者”的博主，带来极致的发布体验。</p>
@@ -906,16 +906,16 @@
       <tags>
         <tag>AI-LLM</tag>
         <tag>技术分享</tag>
-        <tag>hexo</tag>
         <tag>git</tag>
         <tag>blog</tag>
         <tag>javascript</tag>
+        <tag>hexo</tag>
         <tag>workflow</tag>
         <tag>cloudflare</tag>
       </tags>
   </entry>
   <entry>
-    <title>LaTeX工作流优化指南</title>
+    <title>LaTeX Compile Accelerate Workflow</title>
     <url>/posts/23471/</url>
     <content><![CDATA[<blockquote>
 <p>本指南详细介绍了Cursor&#x2F;VS Code中LaTeX工作流的优化配置，旨在提供快速、整洁、高效的LaTeX文档编写体验</p>
@@ -1076,7 +1076,7 @@
       </tags>
   </entry>
   <entry>
-    <title>构建一个简单的AI API适配器：TalkAI到OpenAI格式转换服务</title>
+    <title>Simple 2API for TalkAI</title>
     <url>/posts/a5942354/</url>
     <content><![CDATA[<blockquote>
 <p>深入解析一个将TalkAI API格式转换为OpenAI ChatCompletion API格式的适配器项目，包含完整的代码实现和技术细节。</p>
