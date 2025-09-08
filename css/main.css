@@ -1413,7 +1413,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #c97c94;
+    background: #63204f;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -4175,6 +4175,87 @@ html[data-theme="dark"] {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+.tts-player {
+  margin-top: 1.2rem;
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: linear-gradient(180deg, rgba(196,181,253,0.16), rgba(196,181,253,0.08));
+  color: #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+}
+.tts-btn i {
+  font-size: 14px;
+}
+.tts-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(128,100,241,0.12);
+}
+.tts-btn:active {
+  transform: translateY(0);
+}
+.tts-speed-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+.tts-speed {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 8px;
+  background: #fff;
+  color: #374151;
+}
+.tts-status {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-left: auto;
+}
+.tts-hint {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+[data-theme="dark"] .tts-player {
+  border-color: #374151;
+  background: #1f2937;
+}
+[data-theme="dark"] .tts-btn {
+  background: linear-gradient(180deg, rgba(124,58,237,0.18), rgba(124,58,237,0.1));
+  color: #e5e7eb;
+  border-color: rgba(255,255,255,0.1);
+}
+[data-theme="dark"] .tts-speed {
+  background: #111827;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+[data-theme="dark"] .tts-status {
+  color: #9ca3af;
+}
+@media (max-width: 991px) {
+  .tts-status {
+    flex: 1 0 100%;
+    margin-left: 0;
+  }
 }
 @keyframes chatDots {
   0%, 20% {

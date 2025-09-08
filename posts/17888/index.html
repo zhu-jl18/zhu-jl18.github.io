@@ -362,7 +362,26 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><blockquote>
+    <div class="post-body" itemprop="articleBody"><!-- 文章开头：TTS 朗读入口 -->
+<div id="tts-player" class="tts-player">
+  <button id="tts-toggle" class="tts-btn" aria-label="朗读本篇文章">
+    <i class="fa fa-play"></i>
+    <span class="text"> 朗读</span>
+  </button>
+  <label class="tts-speed-label" for="tts-speed">
+    语速
+    <select id="tts-speed" class="tts-speed" aria-label="朗读语速">
+      <option value="0.9">0.9x</option>
+      <option value="1.0" selected>1.0x</option>
+      <option value="1.1">1.1x</option>
+      <option value="1.2">1.2x</option>
+    </select>
+  </label>
+  <span id="tts-status" class="tts-status" aria-live="polite">待机</span>
+  <span class="tts-hint">中文温柔音色优先，浏览器语音质量因系统而异</span>
+  <noscript class="tts-noscript">您的浏览器不支持脚本，无法使用朗读功能</noscript>
+</div>
+<blockquote>
 <p>摘要：记录了一次有趣的”人机协作”经历——和Gemini一起从零开始，打造了一个让我非常满意的Github Profile。</p>
 </blockquote>
 <span id="more"></span>
@@ -688,6 +707,10 @@
 })();
 </script>
 <script src="/js/chat.js?v=20250908-02" data-pjax></script>
+<script>
+  window.__TTS_PROXY_URL = "https://ttf-proxy.nontrivial2025.workers.dev";
+</script>
+<script src="/js/tts.js?v=20250908-01" data-pjax></script>
 
 </body>
 </html>
