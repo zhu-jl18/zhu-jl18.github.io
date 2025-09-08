@@ -11,28 +11,30 @@
 
   // 加载全局配置
   function loadGlobalConfig(){
-    // 统一使用 Cloudflare Workers 代理模式（已移除本地直连与前端密钥配置）
-    STATE.globalConfig = {
-      mode: 'proxy',
-      proxyUrl: 'https://chat-proxy.nontrivial2025.workers.dev', // 你的Worker URL
-      defaultModel: '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05',
-      models: [
-        '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05',
-        '[CLI反代]gemini-2.5-pro-preview-06-05'
-      ]
-    };
-    // 本地开发覆盖：允许指定本地代理（不涉及前端密钥）
-    try {
-      if (isLocalHost()) {
-        const ls = localStorage.getItem('chat-proxy-override') || localStorage.getItem('chat_proxy_override');
-        const dev = (typeof window !== 'undefined' && window.CHAT_PROXY_DEV) || (ls && ls.trim());
-        if (dev) {
-          STATE.globalConfig.proxyUrl = dev;
-          console.log('[chat] 使用本地代理覆盖:', dev);
-        }
-      }
-    } catch(e) { /* ignore */ }
-    console.log('生产模式：使用Cloudflare Workers代理', STATE.globalConfig.proxyUrl);
+    const local = isLocalHost();
+    // 本地开发时可以使用本地配置，线上使用代理模式
+    if (local && window.CHAT_LOCAL_KEY) {
+      // 本地开发模式：直接调用API
+      STATE.globalConfig = {
+        mode: 'direct',
+        defaultBase: 'https://huggingface.qzz.io',
+        apiKey: window.CHAT_LOCAL_KEY,
+        defaultModel: window.CHAT_LOCAL_MODEL || '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05'
+      };
+      console.log('本地开发模式：直接API调用');
+    } else {
+      // 生产模式：使用Cloudflare Workers代理
+      STATE.globalConfig = {
+        mode: 'proxy',
+        proxyUrl: 'https://chat-proxy.nontrivial2025.workers.dev', // 你的Worker URL
+        defaultModel: '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05',
+        models: [
+          '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05',
+          '[CLI反代]gemini-2.5-pro-preview-06-05'
+        ]
+      };
+      console.log('生产模式：使用Cloudflare Workers代理');
+    }
   }
 
   function isLocalHost(){
@@ -43,9 +45,11 @@
     const local = isLocalHost();
     const global = STATE.globalConfig || {};
     return {
-      // 使用 Cloudflare Workers 代理；已不再需要 API Base / API Key
+      // 使用Cloudflare Workers代理，不再需要直接的API Base
       chatProxy: global.proxyUrl || 'https://chat-proxy.nontrivial2025.workers.dev',
-      chatModel: global.defaultModel || '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05',
+      chatBase: 'https://huggingface.qzz.io', // 仅用于显示，实际不使用
+      chatKey: '', // 代理模式下不需要前端密钥
+      chatModel: global.defaultModel || (window.CHAT_LOCAL_MODEL || '[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05'),
       avatarEnabled: false,
       avatarImage: '', // 可选自定义头像URL，留空则使用emoji
       avatarSize: 72,
@@ -57,7 +61,6 @@
       live2dMobile: false,
       // 入口小气泡（靠近看板娘头部右上）
       entryBubbleEnabled: true,
-      entryBubbleDraggable: false, // 默认禁用拖拽，避免“自由移动”造成干扰
       entryBubblePos: 'top-right', // top-right | top-left | right-top | left-top
       entryBubbleOffsetX: -36,
       entryBubbleOffsetY: 48,
@@ -119,8 +122,15 @@
     }
   }
   function saveCfg(cfg){ 
-    // 直接保存配置（已不再使用前端API密钥/共享模式）
-    localStorage.setItem(CFG_KEY, JSON.stringify(cfg));
+    // 如果是共享模式，不保存API Key到本地存储
+    const global = STATE.globalConfig;
+    if (global?.sharedMode && global?.apiKey) {
+      const toSave = Object.assign({}, cfg);
+      delete toSave.chatKey; // 不保存共享的API Key
+      localStorage.setItem(CFG_KEY, JSON.stringify(toSave));
+    } else {
+      localStorage.setItem(CFG_KEY, JSON.stringify(cfg));
+    }
   }
 
   function getUIRoot(){
@@ -189,7 +199,7 @@
       el.innerHTML = '<span class="icon">💬</span>';
       el.addEventListener('click', ()=>toggleBubble(true));
       document.body.appendChild(el);
-      if (cfg.entryBubbleDraggable) enableEntryBubbleDrag(el);
+      enableEntryBubbleDrag(el);
     }
     positionEntryBubble();
   }
@@ -311,16 +321,85 @@
       <div class="chat-config hidden">
         <div class="config-section">
           <h4>🌾 高粱米AI设置</h4>
+          <label>API Base <input type="text" name="chatBase" list="chatBaseList" placeholder="https://openai-compatible-api-proxy-for-z-myg0.onrender.com"></label>
+          <label>API Key <input type="password" name="chatKey" placeholder="API密钥（仅本机存储）" autocomplete="new-password"></label>
           <label>AI模型
             <input type="text" name="chatModel" list="chatModelList" placeholder="如 gpt-4o-mini 或 自定义模型标识">
             <datalist id="chatModelList">
-              <option value="[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05"></option>
-              <option value="[CLI反代]gemini-2.5-pro-preview-06-05"></option>
               <option value="GLM-4.5"></option>
               <option value="gpt-4o-mini"></option>
+              <option value="gpt-3.5-turbo"></option>
+              <option value="qwen2.5-7b-instruct"></option>
             </datalist>
           </label>
+          <label>流式输出
+            <select name="streamingEnabled">
+              <option value="true">是</option>
+              <option value="false">否</option>
+            </select>
+          </label>
+          <label>显示头像
+            <select name="avatarEnabled">
+              <option value="true">是</option>
+              <option value="false">否</option>
+            </select>
+          </label>
+          <label>头像URL <input type="text" name="avatarImage" placeholder="可选：二次元形象图片URL"></label>
+          <label>头像尺寸 <input type="number" name="avatarSize" placeholder="72" min="48" max="160"></label>
+          <hr/>
+          <h4>🎀 Live2D 看板娘</h4>
+          <label>启用Live2D
+            <select name="live2dEnabled">
+              <option value="true">是</option>
+              <option value="false">否</option>
+            </select>
+          </label>
+          <label>Live2D模型
+            <select name="live2dModel">
+              <option value="shizuku">Shizuku（清新）</option>
+              <option value="koharu">Koharu（甜美）</option>
+              <option value="izumi">Izumi（成熟）</option>
+              <option value="hiyori">Hiyori（示例）</option>
+              <option value="haru">Haru（示例）</option>
+            </select>
+          </label>
+          <label>Live2D宽度 <input type="number" name="live2dWidth" placeholder="180" min="100" max="400"></label>
+          <label>Live2D高度 <input type="number" name="live2dHeight" placeholder="320" min="160" max="600"></label>
+          <label>移动端显示
+            <select name="live2dMobile">
+              <option value="false">否</option>
+              <option value="true">是</option>
+            </select>
+          </label>
+          <hr/>
+          <h4>🗨️ 聊天气泡位置</h4>
+          <label>聊天气泡偏移X <input type="number" name="bubbleOffsetX" placeholder="0" min="-300" max="300"></label>
+          <label>聊天气泡偏移Y <input type="number" name="bubbleOffsetY" placeholder="36" min="-300" max="300"></label>
+          <hr/>
+          <h4>💡 入口小气泡</h4>
+          <label>启用入口气泡
+            <select name="entryBubbleEnabled">
+              <option value="true">是</option>
+              <option value="false">否</option>
+            </select>
+          </label>
+          <label>位置
+            <select name="entryBubblePos">
+              <option value="top-right">top-right（默认）</option>
+              <option value="top-left">top-left</option>
+              <option value="right-top">right-top</option>
+              <option value="left-top">left-top</option>
+              <option value="custom">custom（拖拽自定义）</option>
+            </select>
+          </label>
+          <label>偏移X <input type="number" name="entryBubbleOffsetX" placeholder="0" min="-200" max="200"></label>
+          <label>偏移Y <input type="number" name="entryBubbleOffsetY" placeholder="-8" min="-200" max="200"></label>
         </div>
+        <datalist id="chatBaseList">
+          <option value="https://openai-compatible-api-proxy-for-z-myg0.onrender.com"></option>
+          <option value="https://api.openai.com"></option>
+          <option value="https://api.siliconflow.cn/v1"></option>
+        </datalist>
         <button class="save">保存配置</button>
       </div>`;
     document.body.appendChild(bubble);
@@ -336,32 +415,52 @@
       if(e.key==='Enter') onSend();
     });
 
-    // init config form（精简为仅选择模型）
+    // init config form
     const cfg2 = loadCfg();
     const form = bubble.querySelector('.chat-config');
-    form.innerHTML = `
-      <div class="config-section">
-        <h4>🌾 高粱米AI设置</h4>
-        <label>AI模型
-          <input type="text" name="chatModel" list="chatModelList" placeholder="如 gpt-4o-mini 或 自定义模型标识">
-          <datalist id="chatModelList">
-            <option value="[CLI反代]流式抗截断/gemini-2.5-pro-preview-06-05"></option>
-            <option value="[CLI反代]gemini-2.5-pro-preview-06-05"></option>
-            <option value="GLM-4.5"></option>
-            <option value="gpt-4o-mini"></option>
-          </datalist>
-        </label>
-      </div>
-      <button class="save">保存配置</button>
-    `;
-    form.querySelector('[name=chatModel]').value = cfg2.chatModel || (STATE.globalConfig && STATE.globalConfig.defaultModel) || 'GLM-4.5';
+    form.querySelector('[name=chatBase]').value = cfg2.chatBase || 'https://huggingface.qzz.io';
+    form.querySelector('[name=chatKey]').value = cfg2.chatKey || '';
+    form.querySelector('[name=chatModel]').value = cfg2.chatModel || 'GLM-4.5';
+    form.querySelector('[name=avatarEnabled]').value = String(cfg2.avatarEnabled !== false);
+    form.querySelector('[name=avatarImage]').value = cfg2.avatarImage || '';
+    form.querySelector('[name=avatarSize]').value = (cfg2.avatarSize || 72);
+    form.querySelector('[name=live2dEnabled]').value = String(cfg2.live2dEnabled !== false);
+    form.querySelector('[name=live2dModel]').value = (cfg2.live2dModel || 'shizuku');
+    form.querySelector('[name=live2dWidth]').value = (cfg2.live2dWidth || 180);
+    form.querySelector('[name=live2dHeight]').value = (cfg2.live2dHeight || 320);
+    form.querySelector('[name=live2dMobile]').value = String(!!cfg2.live2dMobile);
+    form.querySelector('[name=streamingEnabled]').value = String(cfg2.streamingEnabled !== false);
+    form.querySelector('[name=bubbleOffsetX]').value = Number(cfg2.bubbleOffsetX || 0);
+    form.querySelector('[name=bubbleOffsetY]').value = Number(cfg2.bubbleOffsetY ?? 24);
+    form.querySelector('[name=entryBubbleEnabled]').value = String(cfg2.entryBubbleEnabled !== false);
+    form.querySelector('[name=entryBubblePos]').value = String(cfg2.entryBubblePos || 'top-right');
+    form.querySelector('[name=entryBubbleOffsetX]').value = Number(cfg2.entryBubbleOffsetX || 0);
+    form.querySelector('[name=entryBubbleOffsetY]').value = Number(cfg2.entryBubbleOffsetY ?? -8);
     form.querySelector('.save').addEventListener('click', ()=>{
-      const curr = loadCfg();
-      const next = Object.assign({}, curr, {
-        chatModel: form.querySelector('[name=chatModel]').value.trim() || (STATE.globalConfig && STATE.globalConfig.defaultModel) || curr.chatModel
-      });
+      const next = {
+        chatBase: form.querySelector('[name=chatBase]').value.trim() || 'https://huggingface.qzz.io',
+        chatKey: form.querySelector('[name=chatKey]').value.trim(),
+        chatModel: form.querySelector('[name=chatModel]').value.trim() || 'GLM-4.5',
+        streamingEnabled: form.querySelector('[name=streamingEnabled]').value === 'true',
+        avatarEnabled: form.querySelector('[name=avatarEnabled]').value === 'true',
+        avatarImage: form.querySelector('[name=avatarImage]').value.trim(),
+        avatarSize: Math.max(48, Math.min(160, parseInt(form.querySelector('[name=avatarSize]').value, 10) || 72)),
+        live2dEnabled: form.querySelector('[name=live2dEnabled]').value === 'true',
+        live2dModel: form.querySelector('[name=live2dModel]').value || 'shizuku',
+        live2dWidth: Math.max(100, Math.min(400, parseInt(form.querySelector('[name=live2dWidth]').value, 10) || 180)),
+        live2dHeight: Math.max(160, Math.min(600, parseInt(form.querySelector('[name=live2dHeight]').value, 10) || 320)),
+        live2dMobile: form.querySelector('[name=live2dMobile]').value === 'true',
+        bubbleOffsetX: parseInt(form.querySelector('[name=bubbleOffsetX]').value, 10) || 0,
+        bubbleOffsetY: (function(){ const v = parseInt(form.querySelector('[name=bubbleOffsetY]').value, 10); return Number.isFinite(v)? v : 24; })(),
+        entryBubbleEnabled: form.querySelector('[name=entryBubbleEnabled]').value === 'true',
+        entryBubblePos: form.querySelector('[name=entryBubblePos]').value || 'top-right',
+        entryBubbleOffsetX: parseInt(form.querySelector('[name=entryBubbleOffsetX]').value, 10) || 0,
+        entryBubbleOffsetY: (function(){ const v = parseInt(form.querySelector('[name=entryBubbleOffsetY]').value, 10); return Number.isFinite(v)? v : -8; })()
+      };
       saveCfg(next);
-      alert('模型已保存（仅存于本机）。');
+      ensureEntryBubble(next);
+      positionEntryBubble();
+      alert('配置已保存（仅存于本机）。如修改了头像/Live2D/入口气泡相关设置，建议刷新页面以应用。');
     });
   }
 
@@ -487,7 +586,7 @@
 
     try{
       setBusy(true);
-      // 管理面板已移除：不再进行管理员权限检查
+      checkAdminPermission();
       const sys = getSystemPrompt();
       const cfg = loadCfg();
       const modelParams = getModelParams();
@@ -515,23 +614,34 @@
     
     const messages = [{ role: 'system', content: system }, ...STATE.messages, { role:'user', content: userText }];
     
-    // 统一使用 Cloudflare Workers 代理
     let resp;
-    const proxyUrl = (global?.proxyUrl) || cfg.chatProxy;
-    if (!proxyUrl) {
-      throw new Error('代理服务未配置，请联系博主');
+    if (global?.mode === 'direct' && global?.apiKey) {
+      // 本地开发模式：直接调用API
+      const url = new URL('/v1/chat/completions', cfg.chatBase).toString();
+      resp = await fetch(url, {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json', 'Authorization':`Bearer ${global.apiKey}` },
+        body: JSON.stringify({ model: cfg.chatModel, messages, temperature: modelParams.temperature, max_tokens: modelParams.max_tokens, stream: false, stop: ["让我们一步一步思考","思考过程","用户询问"] })
+      });
+    } else {
+      // 生产模式：调用Cloudflare Workers代理
+      const proxyUrl = cfg.chatProxy || global?.proxyUrl;
+      if (!proxyUrl) {
+        throw new Error('代理服务未配置，请联系博主');
+      }
+      
+      resp = await fetch(proxyUrl, {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json' },
+        body: JSON.stringify({ 
+          model: cfg.chatModel, 
+          messages, 
+          temperature: modelParams.temperature, 
+          max_tokens: modelParams.max_tokens, 
+          stream: false 
+        })
+      });
     }
-    resp = await fetch(proxyUrl, {
-      method:'POST',
-      headers:{ 'Content-Type':'application/json' },
-      body: JSON.stringify({ 
-        model: cfg.chatModel, 
-        messages, 
-        temperature: modelParams.temperature, 
-        max_tokens: modelParams.max_tokens, 
-        stream: false 
-      })
-    });
     
     if (!resp.ok) {
       const errorText = await resp.text();
@@ -560,23 +670,34 @@
     body.appendChild(node);
     body.scrollTop = body.scrollHeight;
 
-    // 统一使用 Cloudflare Workers 代理
     let resp;
-    const proxyUrl = (global?.proxyUrl) || cfg.chatProxy;
-    if (!proxyUrl) {
-      throw new Error('代理服务未配置，请联系博主');
+    if (global?.mode === 'direct' && global?.apiKey) {
+      // 本地开发模式：直接调用API
+      const url = new URL('/v1/chat/completions', cfg.chatBase).toString();
+      resp = await fetch(url, {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json', 'Authorization':`Bearer ${global.apiKey}` },
+        body: JSON.stringify({ model: cfg.chatModel, messages, temperature: modelParams.temperature, max_tokens: modelParams.max_tokens, stream: true, stop: ["让我们一步一步思考","思考过程","用户询问"] })
+      });
+    } else {
+      // 生产模式：调用Cloudflare Workers代理
+      const proxyUrl = cfg.chatProxy || global?.proxyUrl;
+      if (!proxyUrl) {
+        throw new Error('代理服务未配置，请联系博主');
+      }
+      
+      resp = await fetch(proxyUrl, {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json' },
+        body: JSON.stringify({ 
+          model: cfg.chatModel, 
+          messages, 
+          temperature: modelParams.temperature, 
+          max_tokens: modelParams.max_tokens, 
+          stream: true 
+        })
+      });
     }
-    resp = await fetch(proxyUrl, {
-      method:'POST',
-      headers:{ 'Content-Type':'application/json' },
-      body: JSON.stringify({ 
-        model: cfg.chatModel, 
-        messages, 
-        temperature: modelParams.temperature, 
-        max_tokens: modelParams.max_tokens, 
-        stream: true 
-      })
-    });
     if (!resp.ok || !resp.body) {
       const txt = await resp.text().catch(()=> '');
       throw new Error('对话失败：' + (txt||resp.status));
@@ -693,13 +814,31 @@
 
   // Initialize after DOM ready
   function ensureLocalInject(){
-    // no-op: 已移除本地直连与前端密钥注入
-    return;
+    if (!isLocalHost()) return;
+    loadScript('/js/chat-local.js', ()=>{
+      try{
+        const curr = loadCfg();
+        const next = Object.assign({}, curr);
+        if (window.CHAT_LOCAL_BASE) next.chatBase = window.CHAT_LOCAL_BASE;
+        if (window.CHAT_LOCAL_MODEL) next.chatModel = window.CHAT_LOCAL_MODEL;
+        if (window.CHAT_LOCAL_KEY) next.chatKey = window.CHAT_LOCAL_KEY;
+        if (typeof window.CHAT_LOCAL_STREAMING !== 'undefined') next.streamingEnabled = !!window.CHAT_LOCAL_STREAMING;
+        saveCfg(next);
+        // 若表单已存在则更新显示
+        const form = document.querySelector('#chat-bubble .chat-config');
+        if (form){
+          form.querySelector('[name=chatBase]').value = next.chatBase;
+          form.querySelector('[name=chatModel]').value = next.chatModel;
+          form.querySelector('[name=chatKey]').value = next.chatKey || '';
+          form.querySelector('[name=streamingEnabled]').value = String(next.streamingEnabled);
+        }
+      }catch(e){ console.warn('local overrides failed', e); }
+    });
   }
 
   if (document.readyState==='loading') document.addEventListener('DOMContentLoaded', ()=>{ 
     loadGlobalConfig(); // 首先加载全局配置
-    // 管理面板已移除：不再加载 /js/chat-admin.js
+    loadScript('/js/chat-admin.js', ()=>{}); 
     ensureLocalInject(); 
     ensureUI(); 
     ensureEntryBubble(loadCfg()); 
@@ -708,7 +847,7 @@
   });
   else { 
     loadGlobalConfig(); // 首先加载全局配置
-    // 管理面板已移除：不再加载 /js/chat-admin.js
+    loadScript('/js/chat-admin.js', ()=>{}); 
     ensureLocalInject(); 
     ensureUI(); 
     ensureEntryBubble(loadCfg()); 
